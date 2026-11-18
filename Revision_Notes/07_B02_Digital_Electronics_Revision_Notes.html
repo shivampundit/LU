@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Electronics — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Digital Electronics</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="07_B02_Digital_Electronics_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/07_B02_Digital_Electronics_Question_Booklet.html">📝 Question Booklet (110 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 12–15 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Digital Electronics (Number Systems, Boolean Algebra, K-Maps, Combinational Circuits, Flip-Flops, Counters &amp; Logic Families)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/07_B02_Digital_Electronics_Question_Booklet.html">📝 Open 110-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Number Systems &amp; Codes: Radi</a><a class="pill" href="#ch2">Ch 2: Boolean Algebra &amp; Gates — Bo</a><a class="pill" href="#ch3">Ch 3: K-Maps &amp; Minimization — Karn</a><a class="pill" href="#ch4">Ch 4: Combinational Circuits — Com</a><a class="pill" href="#ch5">Ch 5: Flip-Flops &amp; Latches — Seque</a><a class="pill" href="#ch6">Ch 6: Counters &amp; Registers — Rippl</a><a class="pill" href="#ch7">Ch 7: Logic Families &amp; ICs — Digit</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Digital Electronics — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Digital Electronics — Logic Gates, Flip-Flops, Counters &amp; IEEE-754</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Circuit / Component</th><th>Characteristic Equation / Rule</th><th>Excitation Table / Universal Gate Count / Key Spec</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Universal Gate Counts</strong></td><td>NOT, AND, OR, XOR, XNOR</td><td><strong>Using NAND Gates:</strong> NOT = <code>1</code>, AND = <code>2</code>, OR = <code>3</code>, XOR = <code>4</code>, XNOR = <code>5</code>, Half Adder = <code>5</code>, Full Adder = <code>9</code><br><strong>Using NOR Gates:</strong> NOT = <code>1</code>, OR = <code>2</code>, AND = <code>3</code>, XNOR = <code>4</code>, XOR = <code>5</code>, Half Adder = <code>5</code>, Full Adder = <code>9</code></td></tr>
+    <tr><td><strong>4 Flip-Flops (Equations &amp; Excitation)</strong></td><td><strong>SR:</strong> <code>Q+ = S + R'Q</code> (SR=0)<br><strong>JK:</strong> <code>Q+ = JQ' + K'Q</code><br><strong>D:</strong> <code>Q+ = D</code> | <strong>T:</strong> <code>Q+ = T ⊕ Q</code></td><td><strong>JK Excitation (Q -&gt; Q+):</strong> <code>0-&gt;0: J=0, K=X</code> | <code>0-&gt;1: J=1, K=X</code> | <code>1-&gt;0: J=X, K=1</code> | <code>1-&gt;1: J=X, K=0</code><br><strong>SR Excitation:</strong> <code>0-&gt;0: S=0, R=X</code> | <code>0-&gt;1: S=1, R=0</code> | <code>1-&gt;0: S=0, R=1</code> | <code>1-&gt;1: S=X, R=0</code></td></tr>
+    <tr><td><strong>Counters (n Flip-Flops)</strong></td><td>Binary MOD-<code>2^n</code> | Ring MOD-<code>n</code> | Johnson MOD-<code>2n</code></td><td><strong>Ring Counter:</strong> <code>n</code> valid states, <code>2^n − n</code> unused states, <code>f_out = f_clk / n</code><br><strong>Johnson (Twisted-Ring) Counter:</strong> <code>2n</code> valid states, <code>2^n − 2n</code> unused states, <code>f_out = f_clk / (2n)</code></td></tr>
+    <tr><td><strong>IEEE-754 Floating Point</strong></td><td>Value = <code>(−1)^S × (1.Mantissa)_2 × 2^(E − Bias)</code></td><td><strong>Single Precision (32-bit):</strong> 1 Sign + 8 Exponent (Bias = <strong>127</strong>) + 23 Mantissa<br><strong>Double Precision (64-bit):</strong> 1 Sign + 11 Exponent (Bias = <strong>1023</strong>) + 52 Mantissa</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Number Systems &amp; Codes: Radix Conversions, 1&#x27;s</h2>
+    <span class="badge">20 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="radix conversions, 1&#x27;s &amp; 2&#x27;s complement ranges &amp; signed overflow logic n-bit 2&#x27;s complement range: −2^(n−1) to +(2^(n−1) − 1) • 1&#x27;s complement / sign-magnitude range: −(2^(n−1) − 1) to +(2^(n−1) − 1) • overflow flag v = c_in ⊕ c_out in an n-bit register, sign-magnitude and 1&#x27;s complement suffer from two representations of zero (+0 and −0), whereas 2&#x27;s complement has a unique zero and one extra negative number (−2^(n−1); e.g., −128 to +127 for 8-bit, −32768 to +32767 for 16-bit). signed arithmetic overflow never occurs when adding two numbers of opposite signs; it occurs only when adding two positives yields msb=1 or adding two negatives yields msb=0, detected in hardware by xoring the carry into the sign bit (c_n-1) with the carry out of the sign bit (c_n). hinglish tip: 2&#x27;s complement nikalne ki 2-second trick: rightmost &#x27;1&#x27; tak saare bits (trailing zeros aur pehla 1) same to same utaar do, aur uske baaye (left) ke saare bits पलट (invert) do!">
+  <div class="sub-h">📌 1.1 Radix Conversions, 1&#x27;s &amp; 2&#x27;s Complement Ranges &amp; Signed Overflow Logic</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 n-bit 2&#x27;s Complement Range: −2^(n−1) to +(2^(n−1) − 1)</li><li>🔹 1&#x27;s Complement / Sign-Magnitude Range: −(2^(n−1) − 1) to +(2^(n−1) − 1)</li><li>🔹 Overflow Flag V = C_in ⊕ C_out</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In an n-bit register, Sign-Magnitude and 1&#x27;s Complement suffer from two representations of zero (+0 and −0), whereas 2&#x27;s Complement has a unique zero and one extra negative number (−2^(n−1)</li><li>e.g., −128 to +127 for 8-bit, −32768 to +32767 for 16-bit).</li><li>Signed arithmetic overflow NEVER occurs when adding two numbers of opposite signs</li><li>it occurs only when adding two positives yields MSB=1 or adding two negatives yields MSB=0, detected in hardware by XORing the carry into the sign bit (C_n-1) with the carry out of the sign bit (C_n).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: Convert (10110.101)_2 to Decimal -&gt; 16 + 0 + 4 + 2 + 0 + 0.5 + 0 + 0.125 = 22.625. In 8-bit 2&#x27;s complement, −45 is: +45 = 00101101 -&gt; keep rightmost &#x27;1&#x27; and invert left bits -&gt; 11010011.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: 2&#x27;s complement nikalne ki 2-second trick: Rightmost &#x27;1&#x27; tak saare bits (trailing zeros aur pehla 1) same to same utaar do, aur uske baaye (left) ke saare bits पलट (invert) do!</div>
+</div><div class="concept-box" data-search="bcd (8421), excess-3 self-complementing code, gray code &amp; hamming secded binary-to-gray: g_n = b_n, g_i = b_(i+1) ⊕ b_i • hamming parity bits p: 2^p &gt;= m + p + 1 • min hamming distance for d-bit detection = d + 1; for t-bit correction = 2t + 1 bcd (8421) is a weighted code (valid 0000 to 1001; invalid 1010 to 1111 — add 0110 = 6 whenever nibble sum &gt; 9 or carry out = 1). excess-3 (bcd + 0011) and 2421 are self-complementing codes (inverting all bits gives the 9&#x27;s complement of the decimal digit!). gray code is an unweighted unit-distance cyclic code (only 1 bit changes between adjacent values), essential in rotary shaft encoders and k-map headers to eliminate transient race glitches. hamming code places parity bits at power-of-2 bit positions (1, 2, 4, 8, 16...). exam trap: excess-3 aur 2421 &#x27;self-complementing codes&#x27; hain (9&#x27;s complement = 1&#x27;s complement), jabki 8421 bcd self-complementing nahi hai! aur gray code unweighted unit-distance code hai.">
+  <div class="sub-h">📌 1.2 BCD (8421), Excess-3 Self-Complementing Code, Gray Code &amp; Hamming SECDED</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Binary-to-Gray: G_n = B_n, G_i = B_(i+1) ⊕ B_i</li><li>🔹 Hamming Parity Bits p: 2^p &gt;= m + p + 1</li><li>🔹 Min Hamming Distance for d-bit detection = d + 1; for t-bit correction = 2t + 1</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>BCD (8421) is a weighted code (valid 0000 to 1001</li><li>invalid 1010 to 1111 — add 0110 = 6 whenever nibble sum &gt; 9 or carry out = 1).</li><li>Excess-3 (BCD + 0011) and 2421 are SELF-COMPLEMENTING codes (inverting all bits gives the 9&#x27;s complement of the decimal digit!).</li><li>Gray Code is an unweighted unit-distance cyclic code (only <mark class="hl">1 bit</mark> changes between adjacent values), essential in rotary shaft encoders and K-map headers to eliminate transient race glitches.</li><li>Hamming Code places parity bits at power-of-<mark class="hl">2 bit</mark> positions (1, 2, 4, 8, 16...).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Hamming Math: How many parity bits p are needed to protect m = 11 data bits against single-bit errors? Check 2^p &gt;= 11 + p + 1: For p=3, 8 &lt; 15 (No); For p=4, 2^4 = 16 &gt;= 11 + 4 + 1 = 16 (Yes! p = 4 parity bits, total 15-bit Hamming codeword).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Excess-3 aur 2421 <strong>'Self-Complementing Codes'</strong> hain (9<strong>'s complement = 1'</strong>s complement), jabki 8421 BCD self-complementing NAHI hai! Aur Gray code unweighted unit-distance code hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the binary equivalent of the decimal number 45? 45 = 32 + 8 + 4 + 1 = (101101)₂.">
+  <div class="in-note-stem">Q1.1: What is the binary equivalent of the decimal number 45?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 101101 ✅</div><div class="in-opt"><strong>(B)</strong> 101011</div><div class="in-opt"><strong>(C)</strong> 110101</div><div class="in-opt"><strong>(D)</strong> 101110</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> 45 = 32 + 8 + 4 + 1 = (101101)₂.</div>
+</div><div class="in-note-q" data-search="convert the binary number (1101101)₂ into its octal equivalent: group into 3 bits from right: 001 (1), 101 (5), 101 (5) =&gt; (155)₈.">
+  <div class="in-note-stem">Q1.2: Convert the binary number (1101101)₂ into its Octal equivalent:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> (165)₈</div><div class="in-opt ans"><strong>(B)</strong> (155)₈ ✅</div><div class="in-opt"><strong>(C)</strong> (145)₈</div><div class="in-opt"><strong>(D)</strong> (153)₈</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Group into <mark class="hl">3 bits</mark> from right: 001 (1), 101 (5), 101 (5) =&gt; (155)₈.</div>
+</div><div class="in-note-q" data-search="convert the hexadecimal number (2f)₁₆ into its decimal equivalent: 2 × 16 + 15 = 32 + 15 = 47.">
+  <div class="in-note-stem">Q1.3: Convert the hexadecimal number (2F)₁₆ into its Decimal equivalent:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 45</div><div class="in-opt"><strong>(B)</strong> 48</div><div class="in-opt ans"><strong>(C)</strong> 47 ✅</div><div class="in-opt"><strong>(D)</strong> 37</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> 2 × 16 + 15 = 32 + 15 = 47.</div>
+</div><div class="in-note-q" data-search="what is the binary equivalent of the fractional decimal number 0.625? 0.625 = 0.5 + 0.125 = 1/2 + 0/4 + 1/8 = (0.101)₂.">
+  <div class="in-note-stem">Q1.4: What is the binary equivalent of the fractional decimal number 0.625?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> (0.110)₂</div><div class="in-opt"><strong>(B)</strong> (0.011)₂</div><div class="in-opt"><strong>(C)</strong> (0.111)₂</div><div class="in-opt ans"><strong>(D)</strong> (0.101)₂ ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> 0.625 = 0.5 + 0.125 = 1/2 + 0/4 + 1/8 = (0.101)₂.</div>
+</div><div class="in-note-q" data-search="what is the range of signed integers representable in 8-bit 2&#x27;s complement form? for n = 8 bits, 2&#x27;s complement range is −2^(n−1) to +2^(n−1) − 1 = −128 to +127.">
+  <div class="in-note-stem">Q1.5: What is the range of signed integers representable in 8-bit 2&#x27;s Complement form?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> −128 to +127 ✅</div><div class="in-opt"><strong>(B)</strong> −127 to +127</div><div class="in-opt"><strong>(C)</strong> 0 to 255</div><div class="in-opt"><strong>(D)</strong> −128 to +128</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> For n = <mark class="hl">8 bits</mark>, 2&#x27;s complement range is −2^(n−1) to +2^(n−1) − 1 = −128 to +127.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Boolean Algebra &amp; Gates — Boolean Algebra Laws, De Morgan&#x27;s Theorem, Duality &amp; Consensus Theorem</h2>
+    <span class="badge">17 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="boolean algebra laws, de morgan&#x27;s theorem, duality &amp; consensus theorem consensus theorem: ab + a&#x27;c + bc = ab + a&#x27;c (redundant term bc eliminated) • distributive: a + bc = (a + b)(a + c) • absorption: a + a&#x27;b = a + b to find the dual of any boolean expression: interchange or (+) and and (·), and interchange 0 and 1, while keeping variables and their complements unchanged! to find the complement (de morgan&#x27;s law): take the dual and complement every literal ((a+b)&#x27; = a&#x27;·b&#x27; and (a·b)&#x27; = a&#x27;+b&#x27;). for n boolean variables, there are 2^n minterms/maxterms and 2^(2^n) possible distinct boolean functions (for n=2, 16 functions; for n=3, 256 functions; for n=4, 65,536 functions). hinglish tip: dual nikalte waqt variables ko complement mat karna (sirf + &lt;-&gt; · aur 0 &lt;-&gt; 1 badalna)! aur consensus theorem me jab a aur a&#x27; dikhein (ab + a&#x27;c + bc), to teesra term bc hamesha gayab (redundant) ho jata hai!">
+  <div class="sub-h">📌 2.1 Boolean Algebra Laws, De Morgan&#x27;s Theorem, Duality &amp; Consensus Theorem</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Consensus Theorem: AB + A<strong>'C + BC = AB + A'</strong>C (Redundant term BC eliminated)</li><li>🔹 Distributive: A + BC = (A + B)(A + C)</li><li>🔹 Absorption: A + A&#x27;B = A + B</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>To find the Dual of any Boolean expression: interchange OR (+) and AND (·), and interchange 0 and 1, while keeping variables and their complements unchanged!</li><li>To find the Complement (De Morgan&#x27;s Law): take the Dual AND complement every literal ((A+B)<strong>' = A'</strong>·B<strong>' and (A·B)'</strong> = A<strong>'+B'</strong>).</li><li>For n Boolean variables, there are 2^n minterms/maxterms and 2^(2^n) possible distinct Boolean functions (for n=2, 16 functions</li><li>for n=3, 256 functions</li><li>for n=4, 65,536 functions).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Universal Gate Realization Counts (Minimum 2-input gates required): [NOT: 1 NAND, 1 NOR], [AND: 2 NAND, 3 NOR], [OR: 3 NAND, 2 NOR], [XOR: 4 NAND, 5 NOR], [XNOR: 5 NAND, 4 NOR], [Half Adder: 5 NAND, 5 NOR], [Full Adder: 9 NAND, 9 NOR].</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Dual nikalte waqt variables ko complement MAT karna (sirf + &lt;-&gt; · aur 0 &lt;-&gt; 1 badalna)! Aur Consensus Theorem me jab A aur A<strong>' dikhein (AB + A'</strong>C + BC), to teesra term BC hamesha gayab (redundant) ho jata hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which two logic gates are known as &#x27;universal gates&#x27; because any boolean function can be built using them alone? nand and nor are functionally complete universal gates.">
+  <div class="in-note-stem">Q2.1: Which two logic gates are known as &#x27;Universal Gates&#x27; because any Boolean function can be built using them alone?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> NAND and NOR Gates ✅</div><div class="in-opt"><strong>(B)</strong> AND and OR Gates</div><div class="in-opt"><strong>(C)</strong> XOR and XNOR Gates</div><div class="in-opt"><strong>(D)</strong> NAND and XOR Gates</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> NAND and NOR are functionally complete universal gates.</div>
+</div><div class="in-note-q" data-search="what is the minimum number of 2-input nand gates required to build an xor gate (a ⊕ b)? using nand gates: not = 1, and = 2, or = 3, xor = 4, xnor = 5.">
+  <div class="in-note-stem">Q2.2: What is the minimum number of 2-input NAND gates required to build an XOR gate (A ⊕ B)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 3 NAND gates</div><div class="in-opt ans"><strong>(B)</strong> 4 NAND gates ✅</div><div class="in-opt"><strong>(C)</strong> 5 NAND gates</div><div class="in-opt"><strong>(D)</strong> 2 NAND gates</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Using NAND gates: NOT = 1, AND = 2, OR = 3, XOR = 4, XNOR = 5.</div>
+</div><div class="in-note-q" data-search="what is the minimum number of 2-input nor gates required to build an xnor gate (a ⊙ b)? using nor gates: not = 1, or = 2, and = 3, xnor = 4, xor = 5.">
+  <div class="in-note-stem">Q2.3: What is the minimum number of 2-input NOR gates required to build an XNOR gate (A ⊙ B)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 5 NOR gates</div><div class="in-opt"><strong>(B)</strong> 3 NOR gates</div><div class="in-opt ans"><strong>(C)</strong> 4 NOR gates ✅</div><div class="in-opt"><strong>(D)</strong> 2 NOR gates</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Using NOR gates: NOT = 1, OR = 2, AND = 3, XNOR = 4, XOR = 5.</div>
+</div><div class="in-note-q" data-search="which logic gate is called an &#x27;inequality detector&#x27; (or odd-ones detector) because its output is 1 only when inputs differ? xor outputs 1 when the number of 1-inputs is odd; xnor is the equality (coincidence) detector.">
+  <div class="in-note-stem">Q2.4: Which logic gate is called an &#x27;Inequality Detector&#x27; (or Odd-Ones Detector) because its output is 1 only when inputs differ?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> XNOR Gate</div><div class="in-opt"><strong>(B)</strong> NAND Gate</div><div class="in-opt"><strong>(C)</strong> NOR Gate</div><div class="in-opt ans"><strong>(D)</strong> XOR Gate ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> XOR outputs 1 when the number of 1-inputs is ODD; XNOR is the Equality (Coincidence) Detector.</div>
+</div><div class="in-note-q" data-search="what is the output of a 2-input xor gate when one input is &#x27;a&#x27; and the other input is fixed at logic &#x27;1&#x27;? a&#x27; (complement of a) — a ⊕ 1 = a&#x27; (controlled inverter), whereas a ⊕ 0 = a.">
+  <div class="in-note-stem">Q2.5: What is the output of a 2-input XOR gate when one input is &#x27;A&#x27; and the other input is fixed at logic &#x27;1&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> A&#x27; ✅</div><div class="in-opt"><strong>(B)</strong> A</div><div class="in-opt"><strong>(C)</strong> 1</div><div class="in-opt"><strong>(D)</strong> 0</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> A<strong>' (Complement of A) — A ⊕ 1 = A'</strong> (controlled inverter), whereas A ⊕ 0 = A.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: K-Maps &amp; Minimization — Karnaugh Maps (K-Maps), Prime Implicants, Essential PIs &amp; Don&#x27;t Care (X) Conditions</h2>
+    <span class="badge">19 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="karnaugh maps (k-maps), prime implicants, essential pis &amp; don&#x27;t care (x) conditions group of 2^k adjacent cells in an n-variable k-map eliminates k variables and leaves (n − k) literals in the product/sum term k-map adjacency follows gray code order (00, 01, 11, 10) with wrap-around edges and four corners forming a valid 4-cell quad. a prime implicant (pi) is any maximal valid power-of-2 group (1, 2, 4, 8, 16) that cannot be completely contained inside a larger valid group. an essential prime implicant (epi) is a prime implicant that covers at least one minterm (&#x27;1&#x27;) not covered by any other prime implicant. don&#x27;t care (&#x27;x&#x27; or &#x27;d&#x27;) cells are included only if they help enlarge a group of 1s (or 0s in pos); never form a group containing only x&#x27;s. exam trap: n-variable k-map me 2^k cells ka group k variables ko hata deta hai aur (n − k) variables बचते hain! jaise 4-variable k-map me octet (8 = 2³ cells) 4 − 3 = 1 literal deta hai!">
+  <div class="sub-h">📌 3.1 Karnaugh Maps (K-Maps), Prime Implicants, Essential PIs &amp; Don&#x27;t Care (X) Conditions</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Group of 2^k adjacent cells in an n-variable K-Map eliminates k variables and leaves (n − k) literals in the product/sum term</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>K-Map adjacency follows Gray Code order (00, 01, 11, 10) with wrap-around edges and four corners forming a valid 4-cell quad.</li><li>A Prime Implicant (PI) is any maximal valid power-of-2 group (1, 2, 4, 8, 16) that cannot be completely contained inside a larger valid group.</li><li>An Essential Prime Implicant (EPI) is a Prime Implicant that covers at least ONE minterm (&#x27;1&#x27;) not covered by any other Prime Implicant.</li><li>Don<strong>'t Care ('</strong>X<strong>' or '</strong>d&#x27;) cells are included ONLY if they help enlarge a group of 1s (or 0s in POS)</li><li>never form a group containing only X&#x27;s.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Minterm vs Maxterm Relationship: For any n-variable function, if F(A,B,C) = Σm(1, 3, 5, 7), then its POS form uses the remaining indices: F(A,B,C) = ΠM(0, 2, 4, 6), and its complement F&#x27; = Σm(0, 2, 4, 6).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: n-variable K-map me 2^k cells ka group k variables ko hata deta hai aur (n − k) variables बचते hain! Jaise 4-variable K-map me Octet (8 = 2³ cells) 4 − 3 = 1 literal deta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in positive logic vs negative logic systems, a positive-logic and gate acts as which gate in negative logic? swapping high/low voltage definitions (duality) turns positive-logic and into negative-logic or.">
+  <div class="in-note-stem">Q3.1: In Positive Logic vs Negative Logic systems, a Positive-Logic AND gate acts as which gate in Negative Logic?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Negative-Logic NAND Gate</div><div class="in-opt ans"><strong>(B)</strong> Negative-Logic OR Gate ✅</div><div class="in-opt"><strong>(C)</strong> Negative-Logic XOR Gate</div><div class="in-opt"><strong>(D)</strong> Negative-Logic NOT Gate</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Swapping High/Low voltage definitions (duality) turns Positive-Logic AND into Negative-Logic OR.</div>
+</div><div class="in-note-q" data-search="simplify the boolean expression: `a + a&#x27;b` by distributive/absorption law: `a + a&#x27;b = (a + a&#x27;)(a + b) = 1 · (a + b) = a + b`.">
+  <div class="in-note-stem">Q3.2: Simplify the Boolean expression: `A + A&#x27;B`</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A</div><div class="in-opt"><strong>(B)</strong> B</div><div class="in-opt ans"><strong>(C)</strong> A + B ✅</div><div class="in-opt"><strong>(D)</strong> AB</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> By Distributive/Absorption Law: `A + A<strong>'B = (A + A'</strong>)(A + B) = 1 · (A + B) = A + B`.</div>
+</div><div class="in-note-q" data-search="simplify the boolean expression: `a(a + b)` by the absorption law: `a(a + b) = a + ab = a(1 + b) = a`.">
+  <div class="in-note-stem">Q3.3: Simplify the Boolean expression: `A(A + B)`</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> AB</div><div class="in-opt"><strong>(B)</strong> A + B</div><div class="in-opt"><strong>(C)</strong> B</div><div class="in-opt ans"><strong>(D)</strong> A ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> By the Absorption Law: `A(A + B) = A + AB = A(1 + B) = A`.</div>
+</div><div class="in-note-q" data-search="by the consensus theorem, what does `ab + a&#x27;c + bc` simplify to? the term `bc` is the redundant consensus term of `ab` and `a&#x27;c` and is eliminated.">
+  <div class="in-note-stem">Q3.4: By the Consensus Theorem, what does `AB + A&#x27;C + BC` simplify to?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> AB + A&#x27;C ✅</div><div class="in-opt"><strong>(B)</strong> AB + BC</div><div class="in-opt"><strong>(C)</strong> A&#x27;C + BC</div><div class="in-opt"><strong>(D)</strong> A + B + C</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The term `BC` is the redundant consensus term of `AB` and `A&#x27;C` and is eliminated.</div>
+</div><div class="in-note-q" data-search="what is the simplified result of `(a + b)(a + c)`? by distributive law of `+` over `·`: `a + (b · c) = (a + b)(a + c)`.">
+  <div class="in-note-stem">Q3.5: What is the simplified result of `(A + B)(A + C)`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> AB + AC</div><div class="in-opt ans"><strong>(B)</strong> A + BC ✅</div><div class="in-opt"><strong>(C)</strong> A + B + C</div><div class="in-opt"><strong>(D)</strong> ABC</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> By Distributive Law of `+` over `·`: `A + (B · C) = (A + B)(A + C)`.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Combinational Circuits — Combinational Circuits — Half/Full Adders, Carry Look-Ahead, MUX &amp; Decoders</h2>
+    <span class="badge">17 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="combinational circuits — half/full adders, carry look-ahead, mux &amp; decoders full adder: sum = a ⊕ b ⊕ c_in; carry c_out = ab + bc_in + ac_in = ab + c_in(a ⊕ b) • carry look-ahead: g_i = a_i·b_i (generate), p_i = a_i ⊕ b_i (propagate) a full adder can be built using 2 half adders and 1 or gate (or 9 two-input nand/nor gates). a ripple carry adder has o(n) propagation delay (n × t_carry), whereas a carry look-ahead (cla) adder computes carries in parallel using c_(i+1) = g_i + p_i·c_i in constant o(1) gate delay. a 2^n : 1 multiplexer (data selector) has 2^n data inputs, n select lines, and 1 output; any n-variable boolean function can be implemented using a 2^(n−1) : 1 mux (plus an inverter) without extra gates! an n : 2^n decoder with or gate is a minterm generator. hinglish tip: kisi bhi 4-variable boolean function ko bina kisi extra logic gate ke implement karne ke liye 8:1 mux (2^(n−1) : 1 mux) kaafi hota hai (4th variable data input lines par 0, 1, d, d&#x27; ke roop me jata hai)!">
+  <div class="sub-h">📌 4.1 Combinational Circuits — Half/Full Adders, Carry Look-Ahead, MUX &amp; Decoders</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Full Adder: Sum = A ⊕ B ⊕ C_in; Carry C_out = AB + BC_in + AC_in = AB + C_in(A ⊕ B)</li><li>🔹 Carry Look-Ahead: G_i = A_i·B_i (Generate), P_i = A_i ⊕ B_i (Propagate)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>A Full Adder can be built using 2 Half Adders and 1 OR gate (or 9 two-input NAND/NOR gates).</li><li>A Ripple Carry Adder has O(n) propagation delay (n × t_carry), whereas a Carry Look-Ahead (CLA) Adder computes carries in parallel using C_(i+1) = G_i + P_i·C_i in constant O(1) gate delay.</li><li>A 2^n : 1 Multiplexer (Data Selector) has 2^n data inputs, n select lines, and 1 output</li><li>any n-variable Boolean function can be implemented using a 2^(n−1) : 1 MUX (plus an inverter) without extra gates!</li><li>An n : 2^n Decoder with OR gate is a minterm generator.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> MUX Tree Formula: To build a large N : 1 MUX using smaller k : 1 MUXes, divide repeatedly by k until quotient is 1 and sum the quotients. E.g., 64:1 MUX using 4:1 MUXes = 64/4 + 16/4 + 4/4 = 16 + 4 + 1 = 21 MUXes.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Kisi bhi 4-variable Boolean function ko bina kisi extra logic gate ke implement karne ke liye 8:1 MUX (2^(n−1) : 1 MUX) kaafi hota hai (4th variable data input lines par 0, 1, D, D&#x27; ke roop me jata hai)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the minimum number of 2-input nand gates required to implement a half adder (sum and carry)? half adder needs 5 nand gates (4 for xor sum + 1 for carry); full adder needs 9 nand gates.">
+  <div class="in-note-stem">Q4.1: What is the minimum number of 2-input NAND gates required to implement a Half Adder (Sum and Carry)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 5 NAND gates ✅</div><div class="in-opt"><strong>(B)</strong> 4 NAND gates</div><div class="in-opt"><strong>(C)</strong> 9 NAND gates</div><div class="in-opt"><strong>(D)</strong> 6 NAND gates</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Half Adder needs 5 NAND gates (4 for XOR Sum + 1 for Carry); Full Adder needs 9 NAND gates.</div>
+</div><div class="in-note-q" data-search="in a half adder with inputs a and b, what are the boolean expressions for sum (s) and carry (c)? a half adder adds two 1-bit inputs: `sum = a ⊕ b` and `carry = a · b`.">
+  <div class="in-note-stem">Q4.2: In a Half Adder with inputs A and B, what are the Boolean expressions for Sum (S) and Carry (C)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Sum = A · B; Carry = A + B</div><div class="in-opt ans"><strong>(B)</strong> Sum = A ⊕ B; Carry = A · B ✅</div><div class="in-opt"><strong>(C)</strong> Sum = A ⊕ B; Carry = A&#x27; · B</div><div class="in-opt"><strong>(D)</strong> Sum = A + B; Carry = A ⊕ B</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A Half Adder adds two 1-bit inputs: `Sum = A ⊕ B` and `Carry = A · B`.</div>
+</div><div class="in-note-q" data-search="in a half subtractor computing (a − b), what are the boolean expressions for difference (d) and borrow (b_out)? in `(a − b)`, a borrow is needed only when `a = 0` and `b = 1`, so `borrow = a&#x27; · b`.">
+  <div class="in-note-stem">Q4.3: In a Half Subtractor computing (A − B), what are the Boolean expressions for Difference (D) and Borrow (B_out)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Difference = A ⊕ B; Borrow = A · B&#x27;</div><div class="in-opt"><strong>(B)</strong> Difference = A · B; Borrow = A&#x27; + B</div><div class="in-opt ans"><strong>(C)</strong> Difference = A ⊕ B; Borrow = A&#x27; · B ✅</div><div class="in-opt"><strong>(D)</strong> Difference = A ⊙ B; Borrow = A · B</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> In `(A − B)`, a borrow is needed only when `A = 0` and `B = 1`, so `Borrow = A&#x27; · B`.</div>
+</div><div class="in-note-q" data-search="in a full adder with inputs a, b, and c_in, what are the expressions for sum and carry_out? a full adder can be built from 2 half adders and 1 or gate; `c_out` is the 3-input majority function.">
+  <div class="in-note-stem">Q4.4: In a Full Adder with inputs A, B, and C_in, what are the expressions for Sum and Carry_out?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Sum = A + B + C_in; C_out = A · B · C_in</div><div class="in-opt"><strong>(B)</strong> Sum = A ⊙ B ⊙ C_in; C_out = AB + C_in</div><div class="in-opt"><strong>(C)</strong> Sum = AB + C_in; C_out = A ⊕ B</div><div class="in-opt ans"><strong>(D)</strong> Sum = A ⊕ B ⊕ C_in; C_out = AB + BC_in + AC_in ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> A Full Adder can be built from 2 Half Adders and 1 OR gate; `C_out` is the 3-input Majority function.</div>
+</div><div class="in-note-q" data-search="which fast parallel adder eliminates the slow ripple-carry propagation delay by precomputing carry generate (g = ab) and carry propagate (p = a ⊕ b)? a carry look-ahead adder computes all carries in parallel two-level gate delay.">
+  <div class="in-note-stem">Q4.5: Which fast parallel adder eliminates the slow ripple-carry propagation delay by precomputing Carry Generate (G = AB) and Carry Propagate (P = A ⊕ B)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Carry Look-Ahead (CLA) Adder ✅</div><div class="in-opt"><strong>(B)</strong> Ripple Carry Adder</div><div class="in-opt"><strong>(C)</strong> Serial Adder</div><div class="in-opt"><strong>(D)</strong> BCD Adder</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> A Carry Look-Ahead Adder computes all carries in parallel two-level gate delay.</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Flip-Flops &amp; Latches — Sequential Circuits — SR, JK, D &amp; T Flip-Flops, Characteristic Equations &amp; Race-Around</h2>
+    <span class="badge">13 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="sequential circuits — sr, jk, d &amp; t flip-flops, characteristic equations &amp; race-around characteristic equations: sr: q(t+1) = s + r&#x27;q (sr=0) • jk: q(t+1) = jq&#x27; + k&#x27;q • d: q(t+1) = d • t: q(t+1) = t ⊕ q = tq&#x27; + t&#x27;q latches are level-triggered (transparent during active enable level), whereas flip-flops are edge-triggered (respond only at rising ↑ or falling ↓ clock transitions). in an sr flip-flop, s=1, r=1 is the forbidden/invalid state. the jk flip-flop resolves this by toggling (q(t+1) = q&#x27;(t)) when j=1, k=1. however, in a level-triggered jk circuit, if j=1, k=1 and clock pulse width t_p &gt; propagation delay t_pd, the output oscillates multiple times within a single clock pulse — known as the race-around condition! it is eliminated by (1) edge-triggering, or (2) master-slave jk flip-flop. exam trap: race-around condition sirf level-triggered jk latch me tab hoti hai jab j=1, k=1 ho aur clock pulse width (t_p) flip-flop delay (t_pd) se badi ho (t_p &gt; t_pd)!">
+  <div class="sub-h">📌 5.1 Sequential Circuits — SR, JK, D &amp; T Flip-Flops, Characteristic Equations &amp; Race-Around</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Characteristic Equations: SR: Q(t+1) = S + R&#x27;Q (SR=0)</li><li>🔹 JK: Q(t+1) = JQ<strong>' + K'</strong>Q</li><li>🔹 D: Q(t+1) = D</li><li>🔹 T: Q(t+1) = T ⊕ Q = TQ<strong>' + T'</strong>Q</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Latches are level-triggered (transparent during active enable level), whereas Flip-Flops are edge-triggered (respond only at rising ↑ or falling ↓ clock transitions).</li><li>In an SR Flip-Flop, S=1, R=1 is the Forbidden/Invalid state.</li><li>The JK Flip-Flop resolves this by toggling (Q(t+1) = Q&#x27;(t)) when J=1, K=1.</li><li>However, in a level-triggered JK circuit, if J=1, K=1 and clock pulse width t_p &gt; propagation delay t_pd, the output oscillates multiple times within a single clock pulse — known as the Race-Around Condition!</li><li>It is eliminated by (1) Edge-triggering, or (2) Master-Slave JK Flip-Flop.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Excitation Table Quick Lookup (Q_n -&gt; Q_(n+1)): For JK FF: [0-&gt;0: J=0, K=X], [0-&gt;1: J=1, K=X], [1-&gt;0: J=X, K=1], [1-&gt;1: J=X, K=0].</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Race-Around Condition sirf LEVEL-triggered JK Latch me tab hoti hai jab J=1, K=1 ho aur Clock Pulse Width (t_p) Flip-Flop delay (t_pd) se BADI ho (t_p &gt; t_pd)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the fundamental difference between a combinational circuit and a sequential circuit? combinational output depends only on present inputs (no memory); sequential output depends on both present inputs and past state (has memory + feedback) — sequential circuits = combinational logic + memory elements (flip-flops) with feedback.">
+  <div class="in-note-stem">Q5.1: What is the fundamental difference between a Combinational Circuit and a Sequential Circuit?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Combinational circuits have memory and Sequential circuits have no memory</div><div class="in-opt ans"><strong>(B)</strong> Combinational output depends ONLY on present inputs (no memory) ✅</div><div class="in-opt"><strong>(C)</strong> Combinational circuits require a clock signal</div><div class="in-opt"><strong>(D)</strong> Sequential circuits cannot use NAND gates</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Combinational output depends ONLY on present inputs (no memory); Sequential output depends on BOTH present inputs and past state (has memory + feedback) — Sequential circuits = Combinational Logic + Memory Elements (Flip-Flops) with feedback.</div>
+</div><div class="in-note-q" data-search="how many bits of binary information can a single flip-flop (bistable multivibrator) store? 1 bit (either 0 or 1) — one flip-flop stores 1 bit; an n-bit register requires n flip-flops.">
+  <div class="in-note-stem">Q5.2: How many bits of binary information can a single Flip-Flop (Bistable Multivibrator) store?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 2 bits</div><div class="in-opt"><strong>(B)</strong> 4 bits</div><div class="in-opt ans"><strong>(C)</strong> 1 bit ✅</div><div class="in-opt"><strong>(D)</strong> 8 bits</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> <mark class="hl">1 bit</mark> (either 0 or 1) — One flip-flop stores <mark class="hl">1 bit</mark>; an n-bit register requires n flip-flops.</div>
+</div><div class="in-note-q" data-search="in a standard nor-based sr latch (or sr flip-flop), which input combination is invalid (forbidden / indeterminate)? in an active-high sr flip-flop: `00` = hold, `01` = reset (`q=0`), `10` = set (`q=1`), and `11` = forbidden (`q = q&#x27;`).">
+  <div class="in-note-stem">Q5.3: In a standard NOR-based SR Latch (or SR Flip-Flop), which input combination is INVALID (Forbidden / Indeterminate)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> S = 0, R = 0 (Hold / No Change)</div><div class="in-opt"><strong>(B)</strong> S = 1, R = 0 (Set to 1)</div><div class="in-opt"><strong>(C)</strong> S = 0, R = 1 (Reset to 0)</div><div class="in-opt ans"><strong>(D)</strong> S = 1, R = 1 ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> In an active-high SR flip-flop: `00` = Hold, `01` = Reset (`Q=0`), `10` = Set (`Q=1`), and `11` = Forbidden (`Q = Q&#x27;`).</div>
+</div><div class="in-note-q" data-search="how does a jk flip-flop resolve the invalid `s = 1, r = 1` state of an sr flip-flop? in a jk flip-flop: `00` = hold, `01` = reset (`0`), `10` = set (`1`), and `11` = toggle (`q&#x27;`).">
+  <div class="in-note-stem">Q5.4: How does a JK Flip-Flop resolve the invalid `S = 1, R = 1` state of an SR Flip-Flop?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> When J = 1 and K = 1, the output TOGGLES to its complement (`Q(t+1) = Q&#x27;(t)`) ✅</div><div class="in-opt"><strong>(B)</strong> It resets the output to 0</div><div class="in-opt"><strong>(C)</strong> It holds the previous state</div><div class="in-opt"><strong>(D)</strong> It turns off the clock</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> In a JK flip-flop: `00` = Hold, `01` = Reset (`0`), `10` = Set (`1`), and `11` = Toggle (`Q&#x27;`).</div>
+</div><div class="in-note-q" data-search="what is the characteristic equation for the next state `q(t+1)` of a jk flip-flop? memorize all 4: `sr: s + r&#x27;q`; `jk: jq&#x27; + k&#x27;q`; `d: d`; `t: t ⊕ q`.">
+  <div class="in-note-stem">Q5.5: What is the Characteristic Equation for the next state `Q(t+1)` of a JK Flip-Flop?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Q(t+1) = S + R&#x27; · Q</div><div class="in-opt ans"><strong>(B)</strong> Q(t+1) = J · Q&#x27; + K&#x27; · Q ✅</div><div class="in-opt"><strong>(C)</strong> Q(t+1) = T ⊕ Q</div><div class="in-opt"><strong>(D)</strong> Q(t+1) = D</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Memorize all 4: `SR: S + R<strong>'Q`; `JK: JQ'</strong> + K&#x27;Q`; `D: D`; `T: T ⊕ Q`.</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Counters &amp; Registers — Ripple vs Synchronous Counters, Ring/Johnson Counters &amp; Shift Registers</h2>
+    <span class="badge">12 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="ripple vs synchronous counters, ring/johnson counters &amp; shift registers n-flip-flop max modulus = 2^n • ring counter mod = n (self-correcting? no) • johnson (twisted ring / mobius) counter mod = 2n • output freq f_out = f_clk / mod in an asynchronous (ripple) counter of n flip-flops, the output of one ff clocks the next ff, resulting in cumulative propagation delay n × t_pd (limiting max clock frequency to f_max = 1 / (n · t_pd)). in a synchronous counter, all ffs share a common clock pulse simultaneously, so f_max = 1 / (t_pd + t_gate). shift registers (siso, sipo, piso, pipo): to serially load an n-bit siso register takes n clock pulses, and to read it out serially takes (n − 1) or n additional pulses. shifting a binary number left by k bits multiplies by 2^k; shifting right by k bits divides by 2^k. hinglish tip: n flip-flops se ring counter me mod = n states milte hain (2^n − n unused), jabki johnson (twisted ring) counter me mod = 2n states milte hain! aur 3-stage mod-4, mod-5, mod-6 cascaded counters ka total mod = 4 × 5 × 6 = 120 hota hai!">
+  <div class="sub-h">📌 6.1 Ripple vs Synchronous Counters, Ring/Johnson Counters &amp; Shift Registers</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 n-Flip-Flop Max Modulus = 2^n</li><li>🔹 Ring Counter Mod = n (Self-correcting? No)</li><li>🔹 Johnson (Twisted Ring / Mobius) Counter Mod = 2n</li><li>🔹 Output Freq f_out = f_clk / Mod</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In an Asynchronous (Ripple) Counter of n flip-flops, the output of one FF clocks the next FF, resulting in cumulative propagation delay N × t_pd (limiting max clock frequency to f_max = 1 / (n · t_pd)).</li><li>In a Synchronous Counter, all FFs share a common clock pulse simultaneously, so f_max = 1 / (t_pd + t_gate).</li><li>Shift Registers (SISO, SIPO, PISO, PIPO): To serially load an n-bit SISO register takes n clock pulses, and to read it out serially takes (n − 1) or n additional pulses.</li><li>Shifting a binary number LEFT by k bits multiplies by 2^k</li><li>shifting RIGHT by k bits divides by 2^k.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Counter Math: A 4-bit ripple counter uses flip-flops with propagation delay t_pd = <mark class="hl">25 ns</mark> each. Total worst-case delay = 4 × 25 = <mark class="hl">100 ns</mark> -&gt; Maximum reliable clock frequency f_max = 1 / <mark class="hl">100 ns</mark> = <mark class="hl">10 MHz</mark>. If clocked at <mark class="hl">16 MHz</mark>, output frequency of MSB = <mark class="hl">16 MHz</mark> / 16 = <mark class="hl">1 MHz</mark>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: n Flip-Flops se Ring Counter me Mod = n states milte hain (2^n − n unused), jabki Johnson (Twisted Ring) Counter me Mod = 2n states milte hain! Aur 3-stage MOD-4, MOD-5, MOD-6 cascaded counters ka total MOD = 4 × 5 × 6 = 120 hota hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="among the four types of 4-bit shift registers (siso, sipo, piso, pipo), which is the fastest and which is the slowest for loading and reading 4 bits? pipo is the fastest (1 clock cycle); siso is the slowest (`2n − 1` or `n + n` clock cycles) — pipo (parallel-in parallel-out) loads in 1 clock pulse and reads in 0 additional pulses; siso (serial-in serial-out) takes `n` pulses to shift in and `n − 1` (or `n`) pulses to shift out.">
+  <div class="in-note-stem">Q6.1: Among the four types of 4-bit Shift Registers (SISO, SIPO, PISO, PIPO), which is the FASTEST and which is the SLOWEST for loading and reading 4 bits?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> SISO is the fastest and PIPO is the slowest</div><div class="in-opt"><strong>(B)</strong> SIPO is faster than PIPO</div><div class="in-opt ans"><strong>(C)</strong> PIPO is the fastest; SISO is the slowest ✅</div><div class="in-opt"><strong>(D)</strong> All four take 4 clock cycles</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> PIPO is the fastest (1 clock cycle); SISO is the slowest (`2n − 1` or `n + n` clock cycles) — PIPO (Parallel-In Parallel-Out) loads in 1 clock pulse and reads in 0 additional pulses; SISO (Serial-In Serial-Out) takes `n` pulses to shift in and `n − 1` (or `n`) pulses to shift out.</div>
+</div><div class="in-note-q" data-search="shifting a binary number stored in a register by 1 bit position to the left (inserting 0 at lsb) is equivalent to: multiplying the number by 2 (whereas shifting right by 1 bit divides by 2) — each 1-bit left shift multiplies by 2; each 1-bit right shift divides by 2.">
+  <div class="in-note-stem">Q6.2: Shifting a binary number Stored in a register by 1 bit position to the LEFT (inserting 0 at LSB) is equivalent to:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Dividing the number by 2</div><div class="in-opt"><strong>(B)</strong> Adding 1 to the number</div><div class="in-opt"><strong>(C)</strong> Complementing the number</div><div class="in-opt ans"><strong>(D)</strong> Multiplying the number by 2 ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Multiplying the number by 2 (whereas shifting right by <mark class="hl">1 bit</mark> divides by 2) — Each 1-bit Left Shift multiplies by 2; each 1-bit Right Shift divides by 2.</div>
+</div><div class="in-note-q" data-search="how many flip-flops are required to construct a mod-16 binary counter, and what is the maximum count it reaches? 4 flip-flops (`2⁴ = 16`); counts from 0 (0000) to 15 (1111). an `n`-bit binary counter has `2^n` states (`0` to `2^n − 1`).">
+  <div class="in-note-stem">Q6.3: How many Flip-Flops are required to construct a MOD-16 binary counter, and what is the maximum count it reaches?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 4 Flip-Flops (`2⁴ = 16`) ✅</div><div class="in-opt"><strong>(B)</strong> 16 Flip-Flops</div><div class="in-opt"><strong>(C)</strong> 8 Flip-Flops</div><div class="in-opt"><strong>(D)</strong> 5 Flip-Flops</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> 4 Flip-Flops (`2⁴ = 16`); counts from 0 (0000) to 15 (1111). An `n`-bit binary counter has `2^n` states (`0` to `2^n − 1`).</div>
+</div><div class="in-note-q" data-search="what is the minimum number of flip-flops required to construct a decade counter (mod-10 bcd counter)? 4 flip-flops (since 2³ = 8 &lt; 10 ≤ 2⁴ = 16) — a mod-n counter requires `n = ⌈log₂(n)⌉` flip-flops; for mod-10, `⌈log₂(10)⌉ = 4` flip-flops (with 6 skipped states).">
+  <div class="in-note-stem">Q6.4: What is the minimum number of Flip-Flops required to construct a Decade Counter (MOD-10 BCD Counter)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 10 Flip-Flops</div><div class="in-opt ans"><strong>(B)</strong> 4 Flip-Flops ✅</div><div class="in-opt"><strong>(C)</strong> 3 Flip-Flops</div><div class="in-opt"><strong>(D)</strong> 5 Flip-Flops</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> 4 Flip-Flops (since 2³ = 8 &lt; 10 ≤ 2⁴ = 16) — A MOD-N counter requires `n = ⌈log₂(N)⌉` flip-flops; for MOD-10, `⌈log₂(10)⌉ = 4` flip-flops (with 6 skipped states).</div>
+</div><div class="in-note-q" data-search="if a mod-10 counter is cascaded in series with a mod-6 counter, what is the overall modulus of the combined counter? cascading a mod-m and a mod-n counter produces a `mod-(m × n)` counter (dividing input frequency by `m × n`).">
+  <div class="in-note-stem">Q6.5: If a MOD-10 counter is cascaded in series with a MOD-6 counter, what is the overall Modulus of the combined counter?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> MOD-16 (10 + 6)</div><div class="in-opt"><strong>(B)</strong> MOD-4</div><div class="in-opt ans"><strong>(C)</strong> MOD-60 (10 × 6 = 60) ✅</div><div class="in-opt"><strong>(D)</strong> MOD-100</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Cascading a MOD-M and a MOD-N counter produces a `MOD-(M × N)` counter (dividing input frequency by `M × N`).</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Logic Families &amp; ICs — Digital IC Logic Families (TTL, CMOS, ECL), Fan-Out &amp; Figure of Merit</h2>
+    <span class="badge">12 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="digital ic logic families (ttl, cmos, ecl), fan-out &amp; figure of merit noise margin: nm_h = v_oh(min) − v_ih(min), nm_l = v_il(max) − v_ol(max) • figure of merit (speed-power product) = t_pd (ns) × p_d (mw) [in picojoules, pj] comparison of ic logic families: (1) cmos (complementary mosfet): lowest static power dissipation (~nw), highest fan-out (&gt;50), widest noise margin, and highest packing density (used in vlsi microprocessors/ram); (2) ecl (emitter-coupled logic): fastest switching speed (~0.5–1 ns propagation delay) because bipolar transistors operate in active region and never enter saturation, at the cost of highest power dissipation; (3) ttl (transistor-transistor logic, 74xx series): uses multi-emitter bjt input and totem-pole output; unconnected (floating) ttl input acts as logic high (1). wired-and is supported by open-collector ttl. exam trap: sabse fastest logic family = ecl (emitter-coupled logic — transistors never saturate!); aur sabse lowest power consumption &amp; highest fan-out = cmos! floating ttl input hamesha logic &#x27;1&#x27; ki tarah behave karta hai.">
+  <div class="sub-h">📌 7.1 Digital IC Logic Families (TTL, CMOS, ECL), Fan-Out &amp; Figure of Merit</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Noise Margin: NM_H = V_OH(min) − V_IH(min), NM_L = V_IL(max) − V_OL(max)</li><li>🔹 Figure of Merit (Speed-Power Product) = t_pd (ns) × P_D (mW) [in picoJoules, pJ]</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Comparison of IC Logic Families: (1) CMOS (Complementary MOSFET): Lowest static power dissipation (~nW), highest Fan-Out (&gt;50), widest noise margin, and highest packing density (used in VLSI microprocessors/RAM)</li><li>(2) ECL (Emitter-Coupled Logic): Fastest switching speed (~0.5–<mark class="hl">1 ns</mark> propagation delay) because bipolar transistors operate in active region and NEVER enter saturation, at the cost of highest power dissipation</li><li>(3) TTL (Transistor-Transistor Logic, 74xx series): Uses multi-emitter BJT input and Totem-Pole output</li><li>unconnected (floating) TTL input acts as Logic HIGH (1).</li><li>Wired-AND is supported by Open-Collector TTL.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> ADC &amp; DAC Speed Ranking: Fastest Analog-to-Digital Converter (ADC) is Flash / Parallel Comparator ADC (requires 2^n − 1 comparators for n-bit resolution, 1 clock cycle); Most accurate noise-rejecting ADC for digital multimeters is Dual-Slope Integrating ADC; Successive Approximation (SAR) ADC takes exactly n clock cycles for n bits.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Sabse FASTEST logic family = ECL (Emitter-Coupled Logic — transistors never saturate!); aur sabse LOWEST Power Consumption &amp; HIGHEST Fan-Out = CMOS! Floating TTL input hamesha Logic &#x27;1&#x27; ki tarah behave karta hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which semiconductor memory is used to build ultra-fast cpu cache memory (l1/l2/l3), and which is used for main ram? sram (6-transistor flip-flop, no refresh) for cache; dram (1-transistor + 1-capacitor, needs periodic refresh) for main ram — sram is faster and needs no refresh cycle (used in cache); dram is denser and cheaper per bit but leaks charge and needs refreshing (used in main memory).">
+  <div class="in-note-stem">Q7.1: Which semiconductor memory is used to build ultra-fast CPU Cache memory (L1/L2/L3), and which is used for Main RAM?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> DRAM for Cache and SRAM for Main RAM</div><div class="in-opt"><strong>(B)</strong> EPROM for Cache</div><div class="in-opt ans"><strong>(C)</strong> SRAM for Cache; DRAM for Main RAM ✅</div><div class="in-opt"><strong>(D)</strong> Flash ROM for CPU Registers</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> SRAM (6-transistor flip-flop, no refresh) for Cache; DRAM (1-transistor + 1-capacitor, needs periodic refresh) for Main RAM — SRAM is faster and needs no refresh cycle (used in Cache); DRAM is denser and cheaper per bit but leaks charge and needs refreshing (used in Main Memory).</div>
+</div><div class="in-note-q" data-search="how is data erased in an eprom (such as 2764) vs an eeprom / flash memory? eprom is erased by exposing the quartz window to ultraviolet (uv) light; eeprom / flash is erased electrically. prom = one-time fusible link; eprom = uv-erasable (15–20 min); eeprom = byte-level electrically erasable; flash = block-level electrically erasable.">
+  <div class="in-note-stem">Q7.2: How is data erased in an EPROM (such as 2764) vs an EEPROM / Flash Memory?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> EPROM is erased electrically and EEPROM is erased by UV light</div><div class="in-opt"><strong>(B)</strong> Both can only be written once (like PROM)</div><div class="in-opt"><strong>(C)</strong> Both lose data when power is turned off</div><div class="in-opt ans"><strong>(D)</strong> EPROM is erased by exposing the quartz window to Ultraviolet (UV) light ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> EPROM is erased by exposing the quartz window to Ultraviolet (UV) light; EEPROM / Flash is erased electrically. PROM = one-time fusible link; EPROM = UV-erasable (15–20 min); EEPROM = byte-level electrically erasable; Flash = block-level electrically erasable.</div>
+</div><div class="in-note-q" data-search="among digital ic logic families (ttl, ecl, cmos), which family has the lowest power consumption, and which is the fastest? cmos has the lowest static power dissipation; ecl (emitter-coupled logic) is the fastest — cmos consumes virtually zero static power and has the highest fan-out; ecl operates transistors out of saturation for the fastest switching speed.">
+  <div class="in-note-stem">Q7.3: Among digital IC logic families (TTL, ECL, CMOS), which family has the LOWEST power consumption, and which is the FASTEST?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> CMOS has the lowest static power dissipation; ECL is the fastest ✅</div><div class="in-opt"><strong>(B)</strong> TTL has the lowest power and CMOS is the fastest</div><div class="in-opt"><strong>(C)</strong> ECL has the lowest power consumption</div><div class="in-opt"><strong>(D)</strong> TTL is faster than ECL</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> CMOS has the lowest static power dissipation; ECL (Emitter-Coupled Logic) is the fastest — CMOS consumes virtually zero static power and has the highest fan-out; ECL operates transistors out of saturation for the fastest switching speed.</div>
+</div><div class="in-note-q" data-search="what does &#x27;fan-out&#x27; of a digital logic gate specify? the maximum number of standard logic gate inputs (of the same family) that the output of a single gate can reliably drive — fan-out measures the current-driving capability of a gate&#x27;s output without logic voltage degradation.">
+  <div class="in-note-stem">Q7.4: What does &#x27;Fan-Out&#x27; of a digital logic gate specify?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> The number of inputs on a single gate</div><div class="in-opt ans"><strong>(B)</strong> The maximum number of standard logic gate inputs that the output of a single gate can reliably drive ✅</div><div class="in-opt"><strong>(C)</strong> The heat dissipated by a cooling fan</div><div class="in-opt"><strong>(D)</strong> The propagation delay in nanoseconds</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> The maximum number of standard logic gate inputs (of the same family) that the output of a single gate can reliably drive — Fan-Out measures the current-driving capability of a gate&#x27;s output without logic voltage degradation.</div>
+</div><div class="in-note-q" data-search="which digital-to-analog converter (dac) uses only two resistor values (`r` and `2r`) regardless of the number of bits `n`? an r-2r ladder dac is easy to fabricate accurately in ics because it uses only two resistor values (`r` and `2r`).">
+  <div class="in-note-stem">Q7.5: Which Digital-to-Analog Converter (DAC) uses only TWO resistor values (`R` and `2R`) regardless of the number of bits `n`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Binary-Weighted Resistor DAC (needs n different resistors: R, 2R, 4R, ..., 2^(n−1)R)</div><div class="in-opt"><strong>(B)</strong> Flash ADC</div><div class="in-opt ans"><strong>(C)</strong> R-2R Ladder DAC ✅</div><div class="in-opt"><strong>(D)</strong> Dual-Slope ADC</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> An R-2R Ladder DAC is easy to fabricate accurately in ICs because it uses only two resistor values (`R` and `2R`).</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Digital Electronics)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Number Systems &amp; Codes: Radix Conversions, 1&#x27;s</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Radix Conversions, 1&#x27;s]</strong> n-bit 2&#x27;s Complement Range: −2^(n−1) to +(2^(n−1) − 1)</li><li>🔹 <strong>[Radix Conversions, 1&#x27;s]</strong> 1&#x27;s Complement / Sign-Magnitude Range: −(2^(n−1) − 1) to +(2^(n−1) − 1)</li><li>🔹 <strong>[Radix Conversions, 1&#x27;s]</strong> Overflow Flag V = C_in ⊕ C_out</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: 2&#x27;s complement nikalne ki 2-second trick: Rightmost &#x27;1&#x27; tak saare bits (trailing zeros aur pehla 1) same to same utaar do, aur uske baaye (left) ke saare bits पलट (invert) do!</li><li>🔹 <strong>[BCD (8421), Excess-3 Self-Complementing Code, Gray Code]</strong> Binary-to-Gray: G_n = B_n, G_i = B_(i+1) ⊕ B_i</li><li>🔹 <strong>[BCD (8421), Excess-3 Self-Complementing Code, Gray Code]</strong> Hamming Parity Bits p: 2^p &gt;= m + p + 1</li><li>🔹 <strong>[BCD (8421), Excess-3 Self-Complementing Code, Gray Code]</strong> Min Hamming Distance for d-bit detection = d + 1; for t-bit correction = 2t + 1</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Excess-3 aur 2421 <strong>'Self-Complementing Codes'</strong> hain (9<strong>'s complement = 1'</strong>s complement), jabki 8421 BCD self-complementing NAHI hai! Aur Gray code unweighted unit-distance code hai.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Boolean Algebra &amp; Gates — Boolean Algebra Laws, De Morgan&#x27;s Theorem, Duality &amp; Consensus Theorem</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Boolean Algebra Laws, De Morgan&#x27;s Theorem, Duality]</strong> Consensus Theorem: AB + A<strong>'C + BC = AB + A'</strong>C (Redundant term BC eliminated)</li><li>🔹 <strong>[Boolean Algebra Laws, De Morgan&#x27;s Theorem, Duality]</strong> Distributive: A + BC = (A + B)(A + C)</li><li>🔹 <strong>[Boolean Algebra Laws, De Morgan&#x27;s Theorem, Duality]</strong> Absorption: A + A&#x27;B = A + B</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Dual nikalte waqt variables ko complement MAT karna (sirf + &lt;-&gt; · aur 0 &lt;-&gt; 1 badalna)! Aur Consensus Theorem me jab A aur A<strong>' dikhein (AB + A'</strong>C + BC), to teesra term BC hamesha gayab (redundant) ho jata hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — K-Maps &amp; Minimization — Karnaugh Maps (K-Maps), Prime Implicants, Essential PIs &amp; Don&#x27;t Care (X) Conditions</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Karnaugh Maps (K-Maps), Prime Implicants, Essential PIs]</strong> Group of 2^k adjacent cells in an n-variable K-Map eliminates k variables and leaves (n − k) literals in the product/sum term</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: n-variable K-map me 2^k cells ka group k variables ko hata deta hai aur (n − k) variables बचते hain! Jaise 4-variable K-map me Octet (8 = 2³ cells) 4 − 3 = 1 literal deta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Combinational Circuits — Combinational Circuits — Half/Full Adders, Carry Look-Ahead, MUX &amp; Decoders</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Combinational Circuits — Half/Full Adders, Carry Look-Ahead, MUX]</strong> Full Adder: Sum = A ⊕ B ⊕ C_in; Carry C_out = AB + BC_in + AC_in = AB + C_in(A ⊕ B)</li><li>🔹 <strong>[Combinational Circuits — Half/Full Adders, Carry Look-Ahead, MUX]</strong> Carry Look-Ahead: G_i = A_i·B_i (Generate), P_i = A_i ⊕ B_i (Propagate)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Kisi bhi 4-variable Boolean function ko bina kisi extra logic gate ke implement karne ke liye 8:1 MUX (2^(n−1) : 1 MUX) kaafi hota hai (4th variable data input lines par 0, 1, D, D&#x27; ke roop me jata hai)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Flip-Flops &amp; Latches — Sequential Circuits — SR, JK, D &amp; T Flip-Flops, Characteristic Equations &amp; Race-Around</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Sequential Circuits — SR, JK, D]</strong> Characteristic Equations: SR: Q(t+1) = S + R&#x27;Q (SR=0)</li><li>🔹 <strong>[Sequential Circuits — SR, JK, D]</strong> JK: Q(t+1) = JQ<strong>' + K'</strong>Q</li><li>🔹 <strong>[Sequential Circuits — SR, JK, D]</strong> D: Q(t+1) = D</li><li>🔹 <strong>[Sequential Circuits — SR, JK, D]</strong> T: Q(t+1) = T ⊕ Q = TQ<strong>' + T'</strong>Q</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Race-Around Condition sirf LEVEL-triggered JK Latch me tab hoti hai jab J=1, K=1 ho aur Clock Pulse Width (t_p) Flip-Flop delay (t_pd) se BADI ho (t_p &gt; t_pd)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Counters &amp; Registers — Ripple vs Synchronous Counters, Ring/Johnson Counters &amp; Shift Registers</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Ripple vs Synchronous Counters, Ring/Johnson Counters]</strong> n-Flip-Flop Max Modulus = 2^n</li><li>🔹 <strong>[Ripple vs Synchronous Counters, Ring/Johnson Counters]</strong> Ring Counter Mod = n (Self-correcting? No)</li><li>🔹 <strong>[Ripple vs Synchronous Counters, Ring/Johnson Counters]</strong> Johnson (Twisted Ring / Mobius) Counter Mod = 2n</li><li>🔹 <strong>[Ripple vs Synchronous Counters, Ring/Johnson Counters]</strong> Output Freq f_out = f_clk / Mod</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: n Flip-Flops se Ring Counter me Mod = n states milte hain (2^n − n unused), jabki Johnson (Twisted Ring) Counter me Mod = 2n states milte hain! Aur 3-stage MOD-4, MOD-5, MOD-6 cascaded counters ka total MOD = 4 × 5 × 6 = 120 hota hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Logic Families &amp; ICs — Digital IC Logic Families (TTL, CMOS, ECL), Fan-Out &amp; Figure of Merit</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Digital IC Logic Families (TTL, CMOS, ECL), Fan-Out]</strong> Noise Margin: NM_H = V_OH(min) − V_IH(min), NM_L = V_IL(max) − V_OL(max)</li><li>🔹 <strong>[Digital IC Logic Families (TTL, CMOS, ECL), Fan-Out]</strong> Figure of Merit (Speed-Power Product) = t_pd (ns) × P_D (mW) [in picoJoules, pJ]</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Sabse FASTEST logic family = ECL (Emitter-Coupled Logic — transistors never saturate!); aur sabse LOWEST Power Consumption &amp; HIGHEST Fan-Out = CMOS! Floating TTL input hamesha Logic &#x27;1&#x27; ki tarah behave karta hai.</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

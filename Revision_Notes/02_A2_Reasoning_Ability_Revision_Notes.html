@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Intelligence &amp; Reasoning — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • General Intelligence &amp; Reasoning</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="02_A2_Reasoning_Ability_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/02_A2_Reasoning_Ability_Question_Booklet.html">📝 Question Booklet (117 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section A • 20 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 General Intelligence &amp; Reasoning (Coding, Series, Analogy, Blood Relations, Direction, Ranking, Syllogism &amp; Clock/Calendar)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/02_A2_Reasoning_Ability_Question_Booklet.html">📝 Open 117-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Coding-Decoding: EJOTY Posit</a><a class="pill" href="#ch2">Ch 2: Number Series &amp; Analogies: S</a><a class="pill" href="#ch3">Ch 3: Blood Relations: Family Tree</a><a class="pill" href="#ch4">Ch 4: Direction &amp; Distance: Pythag</a><a class="pill" href="#ch5">Ch 5: Order, Ranking &amp; Seating: Li</a><a class="pill" href="#ch6">Ch 6: Syllogisms — Classical Venn </a><a class="pill" href="#ch7">Ch 7: Cubes, Dice, Clocks &amp; Calend</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 General Intelligence &amp; Reasoning — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Reasoning Formulas — Clocks, Calendars, Cubes, Syllogism &amp; Figure Counting</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Reasoning Topic</th><th>Exact Mathematical Formula / Rule</th><th>High-Frequency Exam Values &amp; Shortcuts</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Clock Angle &amp; Coincidence</strong></td><td><code>θ = |30H − 5.5M|</code> (if &gt; 180°, use <code>360° − θ</code>)</td><td>Hands coincide (0°): <strong>11 times in 12 hrs, 22 times in 24 hrs</strong> (every <code>65 5/11</code> min); Opposite (180°): <strong>22 times/day</strong>; Right angle (90°): <strong>44 times/day</strong>; Mirror time = subtract from <strong>11:60</strong> (or 23:60)</td></tr>
+    <tr><td><strong>Calendar Odd Days &amp; Repetition</strong></td><td>Ordinary Yr = <strong>1 odd day</strong>; Leap Yr = <strong>2 odd days</strong></td><td>Century odd days: <strong>100 yrs = 5, 200 yrs = 3, 300 yrs = 1, 400 yrs = 0</strong>. Calendar repeats after: <strong>+28 yrs</strong> (Leap yr), <strong>+6 yrs</strong> (Leap + 1 yr), <strong>+11 yrs</strong> (Leap + 2 or Leap + 3 yr)</td></tr>
+    <tr><td><strong>Cube Cutting &amp; Painting</strong></td><td><code>n = Big Side / Small Side</code>; Total cubes = <code>n³</code></td><td><strong>3 faces painted (Corners):</strong> Always <code>8</code> | <strong>2 faces painted (Edges):</strong> <code>12(n − 2)</code> | <strong>1 face painted (Faces):</strong> <code>6(n − 2)²</code> | <strong>0 faces painted (Inner core):</strong> <code>(n − 2)³</code></td></tr>
+    <tr><td><strong>Syllogism ('Only a few' / 'Only')</strong></td><td><strong>"Only a few A are B"</strong> = Some A are B + Some A are NOT B</td><td><strong>"Only A are B"</strong> means <strong>All B are A</strong> (and B cannot intersect anything else!). Complementary Pair (Either-Or): <code>Some + No</code> or <code>All + Some Not</code> with identical subject-predicate</td></tr>
+    <tr><td><strong>Counting Figures</strong></td><td><code>n × n</code> Grid Squares &amp; Rectangles</td><td>Squares in <code>n × n</code> grid = <code>n(n+1)(2n+1)/6</code>; Rectangles (including squares) in <code>n × n</code> grid = <code>[n(n+1)/2]²</code>; Triangles from vertex with <code>k</code> base parts = <code>k(k+1)/2</code></td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Coding-Decoding: EJOTY Positional Encoding</h2>
+    <span class="badge">14 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="ejoty positional encoding &amp; forward/backward alphabet shifts forward rank = pos(l) [1..26] • backward/reverse rank = 27 − pos(l) • ejoty = 5, 10, 15, 20, 25 every english alphabet letter has a forward position (a=1, b=2 ... z=26) and a reverse position from z (z=1, y=2 ... a=26) such that forward + reverse = 27. opposite letter pairs (sum = 27) are heavily tested in dsssb coding: a-z (azad), b-y (boy), c-x (crux), d-w (dew), e-v (evening), f-u (fun), g-t (gt road), h-s (high school), i-r (indian railway), j-q (jungle queen), k-p (kanpur), l-o (love), m-n (man). hinglish tip: kisi bhi letter ki reverse position nikalne ke liye hamesha 27 me se uski forward position minus karein (reverse = 27 − forward). jaise r = 18, to reverse = 27 − 18 = 9 (i).">
+  <div class="sub-h">📌 1.1 EJOTY Positional Encoding &amp; Forward/Backward Alphabet Shifts</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Forward Rank = Pos(L) [1..26]</li><li>🔹 Backward/Reverse Rank = 27 − Pos(L)</li><li>🔹 EJOTY = 5, 10, 15, 20, 25</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Every English alphabet letter has a forward position (A=1, B=2 ...</li><li>Z=26) and a reverse position from Z (Z=1, Y=2 ...</li><li>A=26) such that Forward + Reverse = 27.</li><li>Opposite letter pairs (sum = 27) are heavily tested in DSSSB coding: A-Z (Azad), B-Y (Boy), C-X (Crux), D-W (Dew), E-V (Evening), F-U (Fun), G-T (GT Road), H-S (High School), I-R (Indian Railway), J-Q (Jungle Queen), K-P (Kanpur), L-O (Love), M-N (Man).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: If <strong>'DELHI'</strong> (4, 5, 12, 8, 9) is coded by replacing each letter with its opposite pair (27 − Pos), we get W(23), V(22), O(15), S(19), R(18) -&gt; <strong>'WVOSR'</strong>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Kisi bhi letter ki Reverse Position nikalne ke liye hamesha 27 me se uski Forward Position minus karein (Reverse = 27 − Forward). Jaise R = 18, to Reverse = 27 − 18 = 9 (I).</div>
+</div><div class="concept-box" data-search="reverse-order + alternating shift &amp; cross-diagonal letter coding reverse + constant shift: code(w)[i] = shift(w[n − 1 − i], +k) • cross-pair swap: (l1, l2) -&gt; (l2+k, l1+k) in dsssb tgt/pgt reasoning, 6-to-8 letter words are frequently split into two halves (first half reversed, second half reversed) or completely reversed before applying alternating shifts (+1, −1, +2, −2) or vowel/consonant conditional shifts (e.g., vowels shifted by +2, consonants shifted by −1). exam trap: jab first letter aur coded word ka first letter bahut door dikhe, to turant input word ke last letter ko coded word ke first letter se compare karein (reverse shift pattern)!">
+  <div class="sub-h">📌 1.2 Reverse-Order + Alternating Shift &amp; Cross-Diagonal Letter Coding</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Reverse + Constant Shift: Code(W)[i] = Shift(W[n − 1 − i], +k)</li><li>🔹 Cross-Pair Swap: (L1, L2) -&gt; (L2+k, L1+k)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In DSSSB TGT/PGT reasoning, 6-to-8 letter words are frequently split into two halves (first half reversed, second half reversed) or completely reversed before applying alternating shifts (+1, −1, +2, −2) or Vowel/Consonant conditional shifts (e.g., Vowels shifted by +2, Consonants shifted by −1).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: In <strong>'COMPUTER'</strong> -&gt; <strong>'RFUVQNPC'</strong>, reverse <strong>'COMPUTER'</strong> to <strong>'RETUPMOC'</strong>. Keep R and C at ends and shift middle letters by +1: R, E+1=F, T+1=U, U+1=V, P+1=Q, M+1=N, O+1=P, C -&gt; <strong>'RFUVQNPC'</strong>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Jab first letter aur coded word ka first letter bahut door dikhe, to turant input word ke LAST letter ko coded word ke FIRST letter se compare karein (Reverse Shift Pattern)!</div>
+</div><div class="concept-box" data-search="positional sum, digital root &amp; vowel-consonant weightage coding word value = σ pos(l_i) × count(l) or σ (27 − pos(l_i)) • digital root = 1 + ((n − 1) mod 9) numerical coding assigns numbers to words using: (1) direct sum of letter positions (e.g., cat = 3+1+20 = 24), (2) sum multiplied or divided by word length or number of vowels, (3) sum of reverse positions, or (4) reducing two-digit letter positions to a single digit by summing digits (e.g., r=18 -&gt; 1+8=9). hinglish tip: agar bada word chote number (jaise 5, 7, 8) me code ho raha hai, to number of letters, number of vowels × consonants, ya digital root check karein!">
+  <div class="sub-h">📌 1.3 Positional Sum, Digital Root &amp; Vowel-Consonant Weightage Coding</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Word Value = Σ Pos(L_i) × Count(L) or Σ (27 − Pos(L_i))</li><li>🔹 Digital Root = 1 + ((N − 1) mod 9)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Numerical coding assigns numbers to words using: (1) Direct sum of letter positions (e.g., CAT = 3+1+20 = 24), (2) Sum multiplied or divided by word length or number of vowels, (3) Sum of reverse positions, or (4) Reducing two-digit letter positions to a single digit by summing digits (e.g., R=18 -&gt; 1+8=9).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: If GO = 32 and SHE = 49, find SOME. Using Reverse Positions: G(20)+O(12) = 32; S(8)+H(19)+E(22) = 49. Thus SOME = S(8)+O(12)+M(14)+E(22) = 56.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Agar bada word chote number (jaise 5, 7, 8) me code ho raha hai, to Number of Letters, Number of Vowels × Consonants, ya Digital Root check karein!</div>
+</div><div class="concept-box" data-search="chinese / substitution message coding &amp; matrix word elimination common word elimination across 3–4 statements: intersect(stmt_i, stmt_j) -&gt; unique code token in multi-statement substitution coding (e.g., &#x27;sky is blue&#x27; = &#x27;481&#x27;, &#x27;sea is deep&#x27; = &#x27;246&#x27;), compare pairs of sentences to isolate common words and their corresponding code tokens step by step. exam trap: &#x27;what is called...&#x27; vs &#x27;what is the code for...&#x27; me dhyan dein: &#x27;if white is called blue, blue is called red, red is called yellow, what is the colour of human blood?&#x27; -&gt; blood is red, and red is called yellow -&gt; ans: yellow!">
+  <div class="sub-h">📌 1.4 Chinese / Substitution Message Coding &amp; Matrix Word Elimination</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Common Word Elimination across 3–4 statements: Intersect(Stmt_i, Stmt_j) -&gt; Unique Code Token</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In multi-statement substitution coding (e.g., <strong>'sky is blue'</strong> = <strong>'481'</strong>, <strong>'sea is deep'</strong> = <strong>'246'</strong>), compare pairs of sentences to isolate common words and their corresponding code tokens step by step.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: Given (1) <strong>'pit na sa'</strong> = <strong>'you are welcome'</strong>, (2) <strong>'na ho pa'</strong> = <strong>'they are very good'</strong>, (3) <strong>'ka da na'</strong> = <strong>'who are they'</strong>. Common to all three is <strong>'are'</strong> = <strong>'na'</strong>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: <strong>'What is called...'</strong> vs <strong>'What is the code for...'</strong> me dhyan dein: &#x27;If White is called Blue, Blue is called Red, Red is called Yellow, what is the colour of human blood?&#x27; -&gt; Blood is Red, and Red is called Yellow -&gt; Ans: Yellow!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="select the related letter cluster: bdf : ywu :: gik : ? opposite letter pairs (sum = 27): b(2)-&gt;y(25), d(4)-&gt;w(23), f(6)-&gt;u(21); g(7)-&gt;t(20), i(9)-&gt;r(18), k(11)-&gt;p(16).">
+  <div class="in-note-stem">Q1.1: Select the related letter cluster: BDF : YWU :: GIK : ?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> TRP ✅</div><div class="in-opt"><strong>(B)</strong> TRQ</div><div class="in-opt"><strong>(C)</strong> SQO</div><div class="in-opt"><strong>(D)</strong> USQ</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Opposite letter pairs (sum = 27): B(2)-&gt;Y(25), D(4)-&gt;W(23), F(6)-&gt;U(21); G(7)-&gt;T(20), I(9)-&gt;R(18), K(11)-&gt;P(16).</div>
+</div><div class="in-note-q" data-search="select the related letter cluster: cat : fdw :: dog : ? each letter is shifted by +3: d(+3)=g, o(+3)=r, g(+3)=j.">
+  <div class="in-note-stem">Q1.2: Select the related letter cluster: CAT : FDW :: DOG : ?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> GQJ</div><div class="in-opt ans"><strong>(B)</strong> GRJ ✅</div><div class="in-opt"><strong>(C)</strong> FQI</div><div class="in-opt"><strong>(D)</strong> HSK</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Each letter is shifted by +3: D(+3)=G, O(+3)=R, G(+3)=J.</div>
+</div><div class="in-note-q" data-search="find the odd letter cluster out: (1) ace, (2) gik, (3) moq, (4) tvw ace, gik, and moq have a gap of +2 between consecutive letters, whereas tvw has +2 then +1.">
+  <div class="in-note-stem">Q1.3: Find the odd letter cluster out: (1) ACE, (2) GIK, (3) MOQ, (4) TVW</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> ACE</div><div class="in-opt"><strong>(B)</strong> GIK</div><div class="in-opt ans"><strong>(C)</strong> TVW ✅</div><div class="in-opt"><strong>(D)</strong> MOQ</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> ACE, GIK, and MOQ have a gap of +2 between consecutive letters, whereas TVW has +2 then +1.</div>
+</div><div class="in-note-q" data-search="if &#x27;apple&#x27; is coded as &#x27;50&#x27;, how is &#x27;mango&#x27; coded in the same language? sum of alphabetical positions: m(13) + a(1) + n(14) + g(7) + o(15) = 50.">
+  <div class="in-note-stem">Q1.4: If &#x27;APPLE&#x27; is coded as &#x27;50&#x27;, how is &#x27;MANGO&#x27; coded in the same language?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 48</div><div class="in-opt"><strong>(B)</strong> 52</div><div class="in-opt"><strong>(C)</strong> 55</div><div class="in-opt ans"><strong>(D)</strong> 50 ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Sum of alphabetical positions: M(13) + A(1) + N(14) + G(7) + O(15) = 50.</div>
+</div><div class="in-note-q" data-search="in a code language, if &#x27;teacher&#x27; is written as &#x27;vgcejgt&#x27;, how is &#x27;student&#x27; written? every letter is shifted forward by +2: s-&gt;u, t-&gt;v, u-&gt;w, d-&gt;f, e-&gt;g, n-&gt;p, t-&gt;v.">
+  <div class="in-note-stem">Q1.5: In a code language, if &#x27;TEACHER&#x27; is written as &#x27;VGCEJGT&#x27;, how is &#x27;STUDENT&#x27; written?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> UVWFGPV ✅</div><div class="in-opt"><strong>(B)</strong> UVWFGPU</div><div class="in-opt"><strong>(C)</strong> TUVEFou</div><div class="in-opt"><strong>(D)</strong> UVWEGPV</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Every letter is shifted forward by +2: S-&gt;U, T-&gt;V, U-&gt;W, D-&gt;F, E-&gt;G, N-&gt;P, T-&gt;V.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Number Series &amp; Analogies: Second-Order Difference, n² ± k</h2>
+    <span class="badge">22 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="second-order difference, n² ± k &amp; n³ ± n number series cube-minus-self series: a_n = n³ − n (0, 6, 24, 60, 120, 210, 336) • cube-plus-self: n³ + n (2, 10, 30, 68, 130, 222) when consecutive differences grow polynomially, compute first-order differences (δ1) and second-order differences (δ2). memorize signature cube/square landmarks: 60 = 4³−4, 68 = 4³+4, 120 = 5³−5 = 11²−1, 130 = 5³+5, 210 = 6³−6, 222 = 6³+6, 336 = 7³−7, 350 = 7³+7, 504 = 8³−8, 520 = 8³+8. hinglish tip: series me 60, 120, 210, 336 dikhte hi turant n³ − n lagayein; aur 2, 10, 30, 68, 130, 222 dikhte hi n³ + n lagayein!">
+  <div class="sub-h">📌 2.1 Second-Order Difference, n² ± k &amp; n³ ± n Number Series</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Cube-Minus-Self Series: a_n = n³ − n (0, 6, 24, 60, 120, 210, 336)</li><li>🔹 Cube-Plus-Self: n³ + n (2, 10, 30, 68, 130, 222)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>When consecutive differences grow polynomially, compute first-order differences (Δ1) and second-order differences (Δ2).</li><li>Memorize signature cube/square landmarks: 60 = 4³−4, 68 = 4³+4, 120 = 5³−5 = 11²−1, 130 = 5³+5, 210 = 6³−6, 222 = 6³+6, 336 = 7³−7, 350 = 7³+7, 504 = 8³−8, 520 = 8³+8.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: Find the missing term in 7, 26, 63, 124, 215, 342, ? -&gt; Pattern is n³ − 1 for n = 2, 3, 4, 5, 6, 7. Next term for n = 8 is 8³ − 1 = 512 − 1 = 511.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Series me 60, 120, 210, 336 dikhte hi turant n³ − n lagayein; aur 2, 10, 30, 68, 130, 222 dikhte hi n³ + n lagayein!</div>
+</div><div class="concept-box" data-search="multiplicative-cum-additive &amp; half-step decimal series (×0.5 + 0.5) half-step pattern: t_2 = t_1 × 0.5 + 0.5; t_3 = t_2 × 1 + 1; t_4 = t_3 × 1.5 + 1.5; t_5 = t_4 × 2 + 2 whenever the second term of a series is approximately half of the first term and then the series starts rising again (e.g., 14, 8, 9, 14.5, 30), the multiplier starts at ×0.5 and increments by +0.5 at each step. exam trap: jab series pehle ghate aur phir tezi se badhe (jaise 14, 8, 9, 14.5, 30...), to 100% ×0.5 + 1, ×1 + 1, ×1.5 + 1, ×2 + 1 wala decimal multiplier lag raha hai!">
+  <div class="sub-h">📌 2.2 Multiplicative-Cum-Additive &amp; Half-Step Decimal Series (×0.5 + 0.5)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Half-Step Pattern: T_2 = T_1 × 0.5 + 0.5; T_3 = T_2 × 1 + 1; T_4 = T_3 × 1.5 + 1.5; T_5 = T_4 × 2 + 2</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Whenever the second term of a series is approximately half of the first term and then the series starts rising again (e.g., 14, 8, 9, 14.5, 30), the multiplier starts at ×0.5 and increments by +0.5 at each step.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: In 14, 8, 9, 14.5, 30, ? -&gt; 14×0.5+1=8; 8×1+1=9; 9×1.5+1=14.5; 14.5×2+1=30; Next = 30×2.5 + 1 = 76.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Jab series pehle ghate aur phir tezi se badhe (jaise 14, 8, 9, 14.5, 30...), to 100% ×0.5 + 1, ×1 + 1, ×1.5 + 1, ×2 + 1 wala decimal multiplier lag raha hai!</div>
+</div><div class="concept-box" data-search="number triad analogies &amp; missing matrix number patterns pythagorean triads: (3,4,5), (5,12,13), (7,24,25), (8,15,17), (9,40,41), (11,60,61), (20,21,29) in number set/triad questions (a, b, c), check in order: (1) a² + b² = c² or (a + b)×k = c, (2) |a² − b²| = c, (3) (a × b) / 2 = c, (4) b = a² ± k and c = a³ ± k. hinglish tip: dsssb ke latest instruction ke anusar triad me numbers ko unke individual digits me todna mana hota hai — operations pure number par hi lagane hote hain!">
+  <div class="sub-h">📌 2.3 Number Triad Analogies &amp; Missing Matrix Number Patterns</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Pythagorean Triads: (3,4,5), (5,12,13), (7,24,25), (8,15,17), (9,40,41), (11,60,61), (20,21,29)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In Number Set/Triad questions (A, B, C), check in order: (1) A² + B² = C² or (A + B)×k = C, (2) |A² − B²| = C, (3) (A × B) / 2 = C, (4) B = A² ± k and C = A³ ± k.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: Given Triad (4, 17, 65): 17 = 4² + 1 and 65 = 4³ + 1 = (n, n²+1, n³+1). Analogous triad for n=5 is (5, 26, 126).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: DSSSB ke latest instruction ke anusar Triad me numbers ko unke individual digits me todna mana hota hai — operations pure number par hi lagane hote hain!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="select the related word: thermometer : temperature :: barometer : ? thermometer measures temperature; barometer measures atmospheric pressure (hygrometer = humidity).">
+  <div class="in-note-stem">Q2.1: Select the related word: Thermometer : Temperature :: Barometer : ?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Humidity</div><div class="in-opt"><strong>(B)</strong> Wind Speed</div><div class="in-opt ans"><strong>(C)</strong> Atmospheric Pressure ✅</div><div class="in-opt"><strong>(D)</strong> Earthquake</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Thermometer measures Temperature; Barometer measures Atmospheric Pressure (Hygrometer = Humidity).</div>
+</div><div class="in-note-q" data-search="select the related word: ornithology : birds :: entomology : ? ornithology is the study of birds; entomology is the study of insects (mycology = fungi).">
+  <div class="in-note-stem">Q2.2: Select the related word: Ornithology : Birds :: Entomology : ?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Plants</div><div class="in-opt"><strong>(B)</strong> Fungi</div><div class="in-opt"><strong>(C)</strong> Fossils</div><div class="in-opt ans"><strong>(D)</strong> Insects ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Ornithology is the study of Birds; Entomology is the study of Insects (Mycology = Fungi).</div>
+</div><div class="in-note-q" data-search="select the related number: 8 : 28 :: 27 : ? 2³ = 8 and 3³ + 1 = 28; similarly 3³ = 27 and 4³ + 1 = 65.">
+  <div class="in-note-stem">Q2.3: Select the related number: 8 : 28 :: 27 : ?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 65 ✅</div><div class="in-opt"><strong>(B)</strong> 64</div><div class="in-opt"><strong>(C)</strong> 55</div><div class="in-opt"><strong>(D)</strong> 82</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> 2³ = 8 and 3³ + 1 = 28; similarly 3³ = 27 and 4³ + 1 = 65.</div>
+</div><div class="in-note-q" data-search="select the related number: 12 : 156 :: 14 : ? pattern is n : n(n + 1) =&gt; 12 × 13 = 156; 14 × 15 = 210.">
+  <div class="in-note-stem">Q2.4: Select the related number: 12 : 156 :: 14 : ?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 196</div><div class="in-opt ans"><strong>(B)</strong> 210 ✅</div><div class="in-opt"><strong>(C)</strong> 182</div><div class="in-opt"><strong>(D)</strong> 225</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Pattern is n : n(n + 1) =&gt; 12 × 13 = 156; 14 × 15 = 210.</div>
+</div><div class="in-note-q" data-search="find the odd one out among the following four words: square is a 2d plane figure, whereas sphere, cylinder, and cone are 3d solids.">
+  <div class="in-note-stem">Q2.5: Find the odd one out among the following four words:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Sphere</div><div class="in-opt"><strong>(B)</strong> Cylinder</div><div class="in-opt ans"><strong>(C)</strong> Square ✅</div><div class="in-opt"><strong>(D)</strong> Cone</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Square is a 2D plane figure, whereas Sphere, Cylinder, and Cone are 3D solids.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: Blood Relations: Family Tree Construction, Generation Levels</h2>
+    <span class="badge">12 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="family tree construction, generation levels &amp; pointing statements generation levels: +2 (grandparents) • +1 (parents/uncles/aunts/in-laws) • 0 (self/spouse/siblings/cousins) • −1 (children/nephew/niece) use standard notation: [+] or box for male, [−] or circle for female, (&lt;=&gt;) for married couple, (—) for siblings, and vertical line (|) for parent-child. in pointing problems (&#x27;pointing to a photograph, x said...&#x27;), always split the sentence at the word &#x27;my&#x27; and trace step-by-step from the speaker (&#x27;my&#x27; = speaker). exam trap: &#x27;a is the brother of b&#x27; me a ka gender male (+) confirm hai, par b ka gender unknown hai (b भाई भी हो सकता है और बहन भी)! name se kabhi gender assume na karein.">
+  <div class="sub-h">📌 3.1 Family Tree Construction, Generation Levels &amp; Pointing Statements</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Generation Levels: +2 (Grandparents)</li><li>🔹 +1 (Parents/Uncles/Aunts/In-laws)</li><li>🔹 0 (Self/Spouse/Siblings/Cousins)</li><li>🔹 −1 (Children/Nephew/Niece)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Use standard notation: [+] or Box for Male, [−] or Circle for Female, (&lt;=&gt;) for Married Couple, (—) for Siblings, and vertical line (|) for parent-child.</li><li>In pointing problems (<strong>'Pointing to a photograph, X said...'</strong>), always split the sentence at the word <strong>'MY'</strong> and trace step-by-step from the speaker (<strong>'my'</strong> = speaker).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: &#x27;Pointing to a man, Riya said: His mother is the only daughter of my mother.&#x27; <strong>'Only daughter of Riya'</strong>s mother<strong>' = Riya herself! So the man'</strong>s mother is Riya -&gt; Riya is the Mother of that man.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: <strong>'A is the brother of B'</strong> me A ka gender Male (+) confirm hai, par B ka gender unknown hai (B भाई भी हो सकता है और बहन भी)! Name se kabhi gender assume na karein.</div>
+</div><div class="concept-box" data-search="coded blood relations (a + b, a × b) &amp; backward gender elimination coded expression a @ b # c $ d: evaluate left-to-right (forward) or right-to-left (backward) + eliminate by gender &amp; generation when asked &#x27;which of the following expressions means p is the maternal uncle of q?&#x27;, immediately check two filters before drawing any tree: (1) gender filter: p must be male (+). if p stands at the very end of a forward-coded expression (e.g., x + y − p), p&#x27;s gender is undetermined (unless the last relation is husband/wife), so eliminate that option instantly! (2) generation filter: p must be +1 generation above q. hinglish tip: coded blood relation me 4 options draw karne me 2 minute waste mat karo — gender check aur generation gap (+1, 0, −1) se 3 options 10 second me eliminate ho jate hain!">
+  <div class="sub-h">📌 3.2 Coded Blood Relations (A + B, A × B) &amp; Backward Gender Elimination</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Coded Expression A @ B # C $ D: Evaluate Left-to-Right (Forward) or Right-to-Left (Backward) + Eliminate by Gender &amp; Generation</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>When asked &#x27;Which of the following expressions means P is the Maternal Uncle of Q?&#x27;, immediately check Two Filters before drawing any tree: (1) Gender Filter: P MUST be Male (+).</li><li>If P stands at the very end of a forward-coded expression (e.g., X + Y − P), P&#x27;s gender is undetermined (unless the last relation is husband/wife), so eliminate that option instantly!</li><li>(2) Generation Filter: P must be +1 generation above Q.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: If A + B means A is sister of B, A − B means A is brother of B, A × B means A is mother of B. To show P is maternal uncle of R: P must be brother (−) of Q who is mother (×) of R -&gt; Expression is <strong>'P − Q × R'</strong>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Coded Blood Relation me 4 options draw karne me 2 minute waste mat karo — Gender Check aur Generation Gap (+1, 0, −1) se 3 options 10 second me eliminate ho jate hain!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="pointing to a boy, suresh said, &#x27;he is the son of the only son of my mother.&#x27; how is suresh related to the boy? &#x27;only son of my mother&#x27; is suresh himself; hence suresh is the boy&#x27;s father.">
+  <div class="in-note-stem">Q3.1: Pointing to a boy, Suresh said, &#x27;He is the son of the only son of my mother.&#x27; How is Suresh related to the boy?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Father ✅</div><div class="in-opt"><strong>(B)</strong> Uncle</div><div class="in-opt"><strong>(C)</strong> Brother</div><div class="in-opt"><strong>(D)</strong> Grandfather</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> <strong>'Only son of my mother'</strong> is Suresh himself; hence Suresh is the boy&#x27;s Father.</div>
+</div><div class="in-note-q" data-search="a is the brother of b. b is the daughter of c, and d is the father of c. how is c related to a (if c is the mother)? a and b are siblings and children of c; since c is their mother, c is mother to a.">
+  <div class="in-note-stem">Q3.2: A is the brother of B. B is the daughter of C, and D is the father of C. How is C related to A (if C is the mother)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Sister</div><div class="in-opt ans"><strong>(B)</strong> Mother ✅</div><div class="in-opt"><strong>(C)</strong> Aunt</div><div class="in-opt"><strong>(D)</strong> Grandmother</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A and B are siblings and children of C; since C is their mother, C is Mother to A.</div>
+</div><div class="in-note-q" data-search="introducing a woman, neha said, &#x27;she is the wife of my mother&#x27;s only son.&#x27; how is the woman related to neha? neha&#x27;s mother&#x27;s only son is neha&#x27;s brother; his wife is neha&#x27;s sister-in-law.">
+  <div class="in-note-stem">Q3.3: Introducing a woman, Neha said, &#x27;She is the wife of my mother&#x27;s only son.&#x27; How is the woman related to Neha?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Mother</div><div class="in-opt"><strong>(B)</strong> Aunt</div><div class="in-opt ans"><strong>(C)</strong> Sister-in-law (Bhabhi) ✅</div><div class="in-opt"><strong>(D)</strong> Sister</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Neha<strong>'s mother'</strong>s only son is Neha<strong>'s brother; his wife is Neha'</strong>s Sister-in-law.</div>
+</div><div class="in-note-q" data-search="if &#x27;p + q&#x27; means p is the father of q, and &#x27;p − q&#x27; means p is the wife of q, what does &#x27;a − b + c&#x27; mean? a is the wife of b, and b is the father of c =&gt; a is the mother of c.">
+  <div class="in-note-stem">Q3.4: If &#x27;P + Q&#x27; means P is the father of Q, and &#x27;P − Q&#x27; means P is the wife of Q, what does &#x27;A − B + C&#x27; mean?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A is the sister of C</div><div class="in-opt"><strong>(B)</strong> A is the aunt of C</div><div class="in-opt"><strong>(C)</strong> A is the daughter of C</div><div class="in-opt ans"><strong>(D)</strong> A is the mother of C ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> A is the wife of B, and B is the father of C =&gt; A is the mother of C.</div>
+</div><div class="in-note-q" data-search="x and y are brothers. r is the father of y. t is the sister of s, and s is the maternal uncle of x. how is t related to r? s is maternal uncle of x, so s&#x27;s sister t is x&#x27;s mother. since r is x&#x27;s father, t is r&#x27;s wife.">
+  <div class="in-note-stem">Q3.5: X and Y are brothers. R is the father of Y. T is the sister of S, and S is the maternal uncle of X. How is T related to R?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Wife ✅</div><div class="in-opt"><strong>(B)</strong> Sister</div><div class="in-opt"><strong>(C)</strong> Mother</div><div class="in-opt"><strong>(D)</strong> Daughter</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> S is maternal uncle of X, so S<strong>'s sister T is X'</strong>s mother. Since R is X<strong>'s father, T is R'</strong>s Wife.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Direction &amp; Distance: Pythagorean Shortest Distance</h2>
+    <span class="badge">11 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="pythagorean shortest distance &amp; consecutive 90° turn cancellation shortest aerial distance d = √(δx² + δy²) • net turn angle = σ(right 90° turns) − σ(left 90° turns) track movements on a cartesian coordinate plane starting at origin (0,0): east = +x, west = −x, north = +y, south = −y. for final facing direction questions without distance, simply cancel every right turn (90° cw) with a left turn (90° acw). four identical turns (4r or 4l = 360°) return to the same direction; two identical turns (2r or 2l = 180°) reverse the direction. hinglish tip: &#x27;from where did he start?&#x27; vs &#x27;in which direction is he from the starting point?&#x27; — hamesha &#x27;from&#x27; wale point par &#x27;+&#x27; (compass cross) banakar teer (arrow) chalayein!">
+  <div class="sub-h">📌 4.1 Pythagorean Shortest Distance &amp; Consecutive 90° Turn Cancellation</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Shortest Aerial Distance d = √(Δx² + Δy²)</li><li>🔹 Net Turn Angle = Σ(Right 90° turns) − Σ(Left 90° turns)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Track movements on a Cartesian coordinate plane starting at Origin (0,0): East = +x, West = −x, North = +y, South = −y.</li><li>For final facing direction questions without distance, simply cancel every Right turn (90° CW) with a Left turn (90° ACW).</li><li>Four identical turns (4R or 4L = 360°) return to the same direction</li><li>two identical turns (2R or 2L = 180°) reverse the direction.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: A person walks 10 m North, turns Right and walks 12 m East, then turns Right and walks 5 m South. Net North Δy = 10 − 5 = 5 m North; Net East Δx = 12 m East. Shortest distance from start = √(12² + 5²) = √169 = 13 m North-East.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: <strong>'From where did he start?'</strong> vs &#x27;In which direction is he from the starting point?<strong>' — hamesha '</strong>FROM<strong>' wale point par '</strong>+&#x27; (compass cross) banakar teer (arrow) chalayein!</div>
+</div><div class="concept-box" data-search="sunrise (morning) &amp; sunset (evening) shadow geometry morning (sunrise in east): all shadows fall west • evening (sunset in west): all shadows fall east • 12:00 noon: zero shadow when two people a and b stand facing each other talking: (1) in the morning (sun in east, shadow in west): facing north -&gt; shadow is on left; facing south -&gt; shadow is on right. (2) in the evening (sun in west, shadow in east): facing north -&gt; shadow is on right; facing south -&gt; shadow is on left. exam trap: morning trick = &#x27;n-l / s-r&#x27; (morning me north dekhne wale ke left me shadow banti hai, south dekhne wale ke right me). evening me iska ulta (&#x27;n-r / s-l&#x27;) hota hai!">
+  <div class="sub-h">📌 4.2 Sunrise (Morning) &amp; Sunset (Evening) Shadow Geometry</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Morning (Sunrise in East): All Shadows fall WEST</li><li>🔹 Evening (Sunset in West): All Shadows fall EAST</li><li>🔹 12:00 Noon: Zero shadow</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>When two people A and B stand facing each other talking: (1) In the Morning (Sun in East, Shadow in West): Facing NORTH -&gt; Shadow is on LEFT</li><li>Facing SOUTH -&gt; Shadow is on RIGHT.</li><li>(2) In the Evening (Sun in West, Shadow in East): Facing NORTH -&gt; Shadow is on RIGHT</li><li>Facing SOUTH -&gt; Shadow is on LEFT.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: One morning after sunrise, Vikram and Shailesh were standing facing each other. Vikram&#x27;s shadow fell exactly towards his left hand. Since in Morning Left = North, Vikram is facing North, and Shailesh is facing South.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Morning Trick = <strong>'N-L / S-R'</strong> (Morning me North dekhne wale ke LEFT me shadow banti hai, South dekhne wale ke RIGHT me). Evening me iska ulta (<strong>'N-R / S-L'</strong>) hota hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="a man walks 6 km north, turns right and walks 8 km east. how far is he from his starting point? by pythagoras theorem: √(6² + 8²) = √(36 + 64) = √100 = 10 km.">
+  <div class="in-note-stem">Q4.1: A man walks 6 km North, turns right and walks 8 km East. How far is he from his starting point?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 10 km ✅</div><div class="in-opt"><strong>(B)</strong> 12 km</div><div class="in-opt"><strong>(C)</strong> 14 km</div><div class="in-opt"><strong>(D)</strong> 8 km</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> By Pythagoras theorem: √(6² + 8²) = √(36 + 64) = √100 = 10 km.</div>
+</div><div class="in-note-q" data-search="ravi walks 10 m south, turns left and walks 15 m, then turns left again and walks 10 m. how far and in which direction is he from the start? south 10m -&gt; left (east) 15m -&gt; left (north) 10m; north and south cancel out, leaving 15 m east.">
+  <div class="in-note-stem">Q4.2: Ravi walks 10 m South, turns left and walks 15 m, then turns left again and walks 10 m. How far and in which direction is he from the start?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 15 m West</div><div class="in-opt ans"><strong>(B)</strong> 15 m East ✅</div><div class="in-opt"><strong>(C)</strong> 10 m North</div><div class="in-opt"><strong>(D)</strong> 25 m East</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> South 10m -&gt; Left (East) 15m -&gt; Left (North) 10m; North and South cancel out, leaving 15 m East.</div>
+</div><div class="in-note-q" data-search="one morning after sunrise, mohan and sohan were standing face to face. if sohan&#x27;s shadow fell exactly to the left of mohan, which direction was mohan facing? at sunrise (sun in east), shadows fall west. west is to the left of north, so mohan faced north.">
+  <div class="in-note-stem">Q4.3: One morning after sunrise, Mohan and Sohan were standing face to face. If Sohan&#x27;s shadow fell exactly to the left of Mohan, which direction was Mohan facing?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> South</div><div class="in-opt"><strong>(B)</strong> East</div><div class="in-opt ans"><strong>(C)</strong> North ✅</div><div class="in-opt"><strong>(D)</strong> West</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> At sunrise (Sun in East), shadows fall West. West is to the Left of North, so Mohan faced North.</div>
+</div><div class="in-note-q" data-search="priya is facing north-east. she turns 90° clockwise, and then 180° anticlockwise. which direction is she facing now? net turn = 90° cw − 180° acw = 90° anticlockwise from north-east = north-west.">
+  <div class="in-note-stem">Q4.4: Priya is facing North-East. She turns 90° clockwise, and then 180° anticlockwise. Which direction is she facing now?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> South-East</div><div class="in-opt"><strong>(B)</strong> South-West</div><div class="in-opt"><strong>(C)</strong> North-East</div><div class="in-opt ans"><strong>(D)</strong> North-West ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Net turn = 90° CW − 180° ACW = 90° Anticlockwise from North-East = North-West.</div>
+</div><div class="in-note-q" data-search="karan walks 12 km west, turns right and walks 5 km north. what is his shortest distance and direction from the starting point? shortest distance = √(12² + 5²) = √169 = 13 km in the north-west direction.">
+  <div class="in-note-stem">Q4.5: Karan walks 12 km West, turns right and walks 5 km North. What is his shortest distance and direction from the starting point?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 13 km North-West ✅</div><div class="in-opt"><strong>(B)</strong> 13 km South-West</div><div class="in-opt"><strong>(C)</strong> 17 km North-West</div><div class="in-opt"><strong>(D)</strong> 12 km West</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Shortest distance = √(12² + 5²) = √169 = 13 km in the North-West direction.</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Order, Ranking &amp; Seating: Linear Row Ranking, Total Persons</h2>
+    <span class="badge">11 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="linear row ranking, total persons &amp; overlapping case (minimum strength) standard row total: t = (l + r) − 1 • non-overlapping total: t_max = l + r + mid • overlapping (minimum) total: t_min = l + r − mid − 2 when two persons a (rank l from left) and b (rank r from right) interchange their positions and a&#x27;s new rank from left becomes l_new: (1) total persons in row t = (l_new + r_old) − 1; (2) number of persons between a and b = |l_new − l_old| − 1. for minimum total (overlapping case), the condition mid &lt;= min(l, r) − 2 must hold. hinglish tip: position interchange wale sawal me: total = (ek vyakti ki nayi position + dusre vyakti ki purani position) − 1!">
+  <div class="sub-h">📌 5.1 Linear Row Ranking, Total Persons &amp; Overlapping Case (Minimum Strength)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Standard Row Total: T = (L + R) − 1</li><li>🔹 Non-Overlapping Total: T_max = L + R + Mid</li><li>🔹 Overlapping (Minimum) Total: T_min = L + R − Mid − 2</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>When two persons A (rank L from left) and B (rank R from right) interchange their positions and A&#x27;s new rank from left becomes L_new: (1) Total persons in row T = (L_new + R_old) − 1</li><li>(2) Number of persons between A and B = |L_new − L_old| − 1.</li><li>For Minimum Total (Overlapping case), the condition Mid &lt;= min(L, R) − 2 must hold.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: In a row of students, Aman is 15th from Left and Rohit is 20th from Right. When they interchange positions, Aman becomes 24th from Left. Total students = Aman<strong>'s New Left (24) + Rohit'</strong>s Old Right (20) − 1 = 43 students. Students between them = 24 − 15 − 1 = 8.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Position Interchange wale sawal me: Total = (Ek vyakti ki Nayi Position + Dusre vyakti ki Purani Position) − 1!</div>
+</div><div class="concept-box" data-search="circular seating arrangement (facing center vs facing outside) facing center (inward): left = clockwise (cw), right = anti-clockwise (acw) • facing outside: left = acw, right = cw in an even-numbered circular table (6 or 8 persons), &#x27;diagonally opposite&#x27; means exactly n/2 seats away (for 8 persons, 4th to the left/right). note: &#x27;a sits to the left of b, who sits 2nd to the right of c&#x27; -&gt; &#x27;who/which/whose&#x27; refers to the second person (b), whereas &#x27;and/but/while&#x27; refers to the first person (a)! exam trap: &#x27;who / whom / whose&#x27; hamesha comma ke turant pehle wale (2nd person) ke liye aata hai, jabki &#x27;and / but / while&#x27; sentence ke 1st person ke liye aata hai!">
+  <div class="sub-h">📌 5.2 Circular Seating Arrangement (Facing Center vs Facing Outside)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Facing Center (Inward): Left = Clockwise (CW), Right = Anti-Clockwise (ACW)</li><li>🔹 Facing Outside: Left = ACW, Right = CW</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In an even-numbered circular table (6 or 8 persons), <strong>'diagonally opposite'</strong> means exactly N/2 seats away (for 8 persons, 4th to the left/right).</li><li>Note: &#x27;A sits to the left of B, WHO sits 2nd to the right of C&#x27; -&gt; <strong>'WHO/WHICH/WHOSE'</strong> refers to the second person (B), whereas <strong>'AND/BUT/WHILE'</strong> refers to the first person (A)!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: 8 friends sit around a circular table facing the center. P is 3rd to the left of Q, who is 2nd to the right of R. If R is at seat 1, Q is at seat 3 (2nd right ACW), and P is 3rd left (CW) of Q -&gt; seat 8.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: <strong>'Who / Whom / Whose'</strong> hamesha comma ke turant pehle wale (2nd person) ke liye aata hai, jabki <strong>'And / But / While'</strong> sentence ke 1st person ke liye aata hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in a row of students, aman is 15th from the left end and 19th from the right end. how many students are there in the row? total = left + right − 1 = 15 + 19 − 1 = 33.">
+  <div class="in-note-stem">Q5.1: In a row of students, Aman is 15th from the left end and 19th from the right end. How many students are there in the row?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 34 students</div><div class="in-opt"><strong>(B)</strong> 32 students</div><div class="in-opt"><strong>(C)</strong> 35 students</div><div class="in-opt ans"><strong>(D)</strong> 33 students ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Total = Left + Right − 1 = 15 + 19 − 1 = 33.</div>
+</div><div class="in-note-q" data-search="in a class of 42 students, ritika&#x27;s rank is 16th from the top. what is her rank from the bottom? rank from bottom = total − top + 1 = 42 − 16 + 1 = 27th.">
+  <div class="in-note-stem">Q5.2: In a class of 42 students, Ritika&#x27;s rank is 16th from the top. What is her rank from the bottom?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 27th ✅</div><div class="in-opt"><strong>(B)</strong> 26th</div><div class="in-opt"><strong>(C)</strong> 28th</div><div class="in-opt"><strong>(D)</strong> 25th</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Rank from bottom = Total − Top + 1 = 42 − 16 + 1 = 27th.</div>
+</div><div class="in-note-q" data-search="five books p, q, r, s, and t are stacked one above another. r is immediately above p, s is below q, and p is above q. which book is at the very top? order from top to bottom: r &gt; p &gt; q &gt; s (and t can be placed if specified: if t is at the bottom, r is at the top).">
+  <div class="in-note-stem">Q5.3: Five books P, Q, R, S, and T are stacked one above another. R is immediately above P, S is below Q, and P is above Q. Which book is at the very top?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> P</div><div class="in-opt ans"><strong>(B)</strong> R ✅</div><div class="in-opt"><strong>(C)</strong> Q</div><div class="in-opt"><strong>(D)</strong> S</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Order from top to bottom: R &gt; P &gt; Q &gt; S (and T can be placed if specified: if T is at the bottom, R is at the top).</div>
+</div><div class="in-note-q" data-search="among five friends, mohan is taller than rohan but shorter than sohan. karan is shorter than rohan but taller than deepak. who is the tallest? height order: sohan &gt; mohan &gt; rohan &gt; karan &gt; deepak. sohan is the tallest.">
+  <div class="in-note-stem">Q5.4: Among five friends, Mohan is taller than Rohan but shorter than Sohan. Karan is shorter than Rohan but taller than Deepak. Who is the tallest?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Mohan</div><div class="in-opt"><strong>(B)</strong> Rohan</div><div class="in-opt ans"><strong>(C)</strong> Sohan ✅</div><div class="in-opt"><strong>(D)</strong> Karan</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Height order: Sohan &gt; Mohan &gt; Rohan &gt; Karan &gt; Deepak. Sohan is the tallest.</div>
+</div><div class="in-note-q" data-search="in a row of girls, shilpa is 8th from the left and reena is 17th from the right. if they swap places, shilpa becomes 14th from the left. how many girls are there in the row? total = shilpa&#x27;s new left (14) + reena&#x27;s old right (17) − 1 = 30.">
+  <div class="in-note-stem">Q5.5: In a row of girls, Shilpa is 8th from the left and Reena is 17th from the right. If they swap places, Shilpa becomes 14th from the left. How many girls are there in the row?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 29 girls</div><div class="in-opt"><strong>(B)</strong> 31 girls</div><div class="in-opt"><strong>(C)</strong> 28 girls</div><div class="in-opt ans"><strong>(D)</strong> 30 girls ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Total = Shilpa<strong>'s new Left (14) + Reena'</strong>s old Right (17) − 1 = 30.</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Syllogisms — Classical Venn Syllogisms, Complementary Pair (Either-Or) &amp; &#x27;Only a Few&#x27;</h2>
+    <span class="badge">14 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="classical venn syllogisms, complementary pair (either-or) &amp; &#x27;only a few&#x27; complementary &#x27;either-or&#x27; rules: (1) both conclusions individually false/doubtful, (2) same subject-predicate, (3) pair is (some + no) or (all + some not) modern dsssb syllogisms test two special quantifiers: (1) &#x27;only a few a are b&#x27; = &#x27;some a are b&#x27; (definite true) and &#x27;some a are not b&#x27; (definite true)! thus &#x27;all a are b is a possibility&#x27; is false, whereas &#x27;all b are a is a possibility&#x27; is true! (2) &#x27;only a are b&#x27; = &#x27;all b are a&#x27; and &#x27;b cannot intersect with anything other than a&#x27;! hinglish tip: &#x27;all + no&#x27; kabhi bhi complementary either-or pair nahi banate (kyunki dono ek sath false ho sakte hain jab &#x27;some&#x27; true ho)! valid either-or pairs sirf: (1) some + no, aur (2) all + some not (same order) hain!">
+  <div class="sub-h">📌 6.1 Classical Venn Syllogisms, Complementary Pair (Either-Or) &amp; &#x27;Only a Few&#x27;</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Complementary <strong>'Either-Or'</strong> Rules: (1) Both conclusions individually false/doubtful, (2) Same subject-predicate, (3) Pair is (Some + No) or (All + Some Not)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Modern DSSSB syllogisms test two special quantifiers: (1) <strong>'Only a few A are B'</strong> = <strong>'Some A are B'</strong> (definite true) AND <strong>'Some A are NOT B'</strong> (definite true)!</li><li>Thus <strong>'All A are B is a possibility'</strong> is FALSE, whereas <strong>'All B are A is a possibility'</strong> is TRUE!</li><li>(2) <strong>'Only A are B'</strong> = <strong>'All B are A'</strong> AND &#x27;B cannot intersect with anything other than A&#x27;!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: Statements: Only a few Rivers are Lakes. All Lakes are Oceans. Conclusions: I. All Rivers being Oceans is a possibility (TRUE — Rivers is restricted only from being 100% inside Lakes, not Oceans). II. Some Rivers are not Lakes (TRUE — directly implied by <strong>'Only a few'</strong>).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: <strong>'All + No'</strong> kabhi bhi Complementary Either-Or pair NAHI banate (kyunki dono ek sath false ho sakte hain jab <strong>'Some'</strong> true ho)! Valid Either-Or pairs sirf: (1) Some + No, aur (2) All + Some Not (same order) hain!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="statements: all keyboards are mice. all mice are monitors. conclusions: i. all keyboards are monitors. ii. some monitors are keyboards. since keyboards ⊂ mice ⊂ monitors, all keyboards are monitors (i) and some monitors are keyboards (ii).">
+  <div class="in-note-stem">Q6.1: Statements: All keyboards are mice. All mice are monitors. Conclusions: I. All keyboards are monitors. II. Some monitors are keyboards.</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Only I follows</div><div class="in-opt"><strong>(B)</strong> Only II follows</div><div class="in-opt ans"><strong>(C)</strong> Both I and II follow ✅</div><div class="in-opt"><strong>(D)</strong> Neither I nor II follows</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Since Keyboards ⊂ Mice ⊂ Monitors, all keyboards are monitors (I) and some monitors are keyboards (II).</div>
+</div><div class="in-note-q" data-search="statements: some files are folders. all folders are disks. conclusions: i. some files are disks. ii. all disks are folders. files overlap with folders which lie inside disks (so i follows), but all disks need not be folders.">
+  <div class="in-note-stem">Q6.2: Statements: Some files are folders. All folders are disks. Conclusions: I. Some files are disks. II. All disks are folders.</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Only II follows</div><div class="in-opt"><strong>(B)</strong> Both I and II follow</div><div class="in-opt"><strong>(C)</strong> Neither I nor II follows</div><div class="in-opt ans"><strong>(D)</strong> Only I follows ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Files overlap with Folders which lie inside Disks (so I follows), but All Disks need not be Folders.</div>
+</div><div class="in-note-q" data-search="statements: all cpus are chips. no chip is a cable. conclusions: i. no cpu is a cable. ii. some chips are cpus. cpus are inside chips and chips are disjoint from cables, so no cpu is a cable (i) and some chips are cpus (ii).">
+  <div class="in-note-stem">Q6.3: Statements: All CPUs are chips. No chip is a cable. Conclusions: I. No CPU is a cable. II. Some chips are CPUs.</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Both I and II follow ✅</div><div class="in-opt"><strong>(B)</strong> Only I follows</div><div class="in-opt"><strong>(C)</strong> Only II follows</div><div class="in-opt"><strong>(D)</strong> Neither I nor II follows</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> CPUs are inside Chips and Chips are disjoint from Cables, so No CPU is a cable (I) and Some chips are CPUs (II).</div>
+</div><div class="in-note-q" data-search="statements: some pens are pencils. no pencil is an eraser. conclusions: i. some pens are not erasers. ii. all pens are erasers. the pens that are pencils cannot be erasers, so &#x27;some pens are not erasers&#x27; (i) definitely follows.">
+  <div class="in-note-stem">Q6.4: Statements: Some pens are pencils. No pencil is an eraser. Conclusions: I. Some pens are not erasers. II. All pens are erasers.</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Only II follows</div><div class="in-opt ans"><strong>(B)</strong> Only I follows ✅</div><div class="in-opt"><strong>(C)</strong> Both I and II follow</div><div class="in-opt"><strong>(D)</strong> Neither I nor II follows</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> The pens that are pencils cannot be erasers, so <strong>'Some pens are not erasers'</strong> (I) definitely follows.</div>
+</div><div class="in-note-q" data-search="in syllogism, what is the exact logical meaning of the statement &#x27;only a are b&#x27;? all b are a (and b cannot overlap with any other set) — &#x27;only a are b&#x27; converts to &#x27;all b are a&#x27; where b is exclusively restricted inside a.">
+  <div class="in-note-stem">Q6.5: In Syllogism, what is the exact logical meaning of the statement &#x27;Only A are B&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> All A are B</div><div class="in-opt"><strong>(B)</strong> Some A are not B</div><div class="in-opt ans"><strong>(C)</strong> All B are A ✅</div><div class="in-opt"><strong>(D)</strong> No A is B</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> All B are A (and B cannot overlap with any other set) — <strong>'Only A are B'</strong> converts to <strong>'All B are A'</strong> where B is exclusively restricted inside A.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Cubes, Dice, Clocks &amp; Calendars — Clock Angle Formula, Mirror/Water Time &amp; Calendar Odd Days</h2>
+    <span class="badge">33 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="clock angle formula, mirror/water time &amp; calendar odd days clock angle θ = |30h − (11/2)m| (if θ &gt; 180°, reflex angle = 360° − θ) • mirror time = 11:60 − hh:mm • leap year = divisible by 4 (century by 400) clock coincidences: hands coincide (0°) 11 times in 12 hours (22 times in 24 hours — missed between 11 and 1); opposite (180°) 11 times in 12 hours (22 times in 24 hours — missed between 5 and 7); right angle (90°) 22 times in 12 hours (44 times in 24 hours). calendar odd days: ordinary year (365 days) = 1 odd day; leap year (366 days) = 2 odd days. century odd days: 100 yrs = 5, 200 yrs = 3, 300 yrs = 1, 400 yrs = 0. exam trap: calendar year repetition shortcut: (1) leap year repeats after +28 years; (2) leap + 1 year (e.g., 2025) repeats after +6 years (2031); (3) leap + 2 or leap + 3 years repeat after +11 years!">
+  <div class="sub-h">📌 7.1 Clock Angle Formula, Mirror/Water Time &amp; Calendar Odd Days</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Clock Angle θ = |30H − (11/2)M| (if θ &gt; 180°, Reflex Angle = 360° − θ)</li><li>🔹 Mirror Time = 11:60 − HH:MM</li><li>🔹 Leap Year = Divisible by 4 (Century by 400)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Clock Coincidences: Hands coincide (0°) 11 times in 12 hours (22 times in 24 hours — missed between 11 and 1)</li><li>opposite (180°) 11 times in 12 hours (22 times in 24 hours — missed between 5 and 7)</li><li>right angle (90°) 22 times in 12 hours (44 times in 24 hours).</li><li>Calendar Odd Days: Ordinary year (365 days) = 1 odd day</li><li>Leap year (366 days) = 2 odd days.</li><li>Century odd days: 100 yrs = 5, 200 yrs = 3, 300 yrs = 1, 400 yrs = 0.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: Angle between hour and minute hands at 4:20 -&gt; θ = |30(4) − 5.5(20)| = |120 − 110| = 10°. Cube Cutting: If a painted cube is cut into n³ = 64 smaller cubes (n = 4): 3-face painted (corners) = 8; 2-face painted (edges) = 12(n−2) = 24; 1-face painted (centers) = 6(n−2)² = 24; 0-face painted (inner core) = (n−2)³ = 8.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Calendar Year Repetition Shortcut: (1) Leap Year repeats after +28 years; (2) Leap + 1 year (e.g., <mark class="hl">2025</mark>) repeats after +6 years (<mark class="hl">2031</mark>); (3) Leap + 2 or Leap + 3 years repeat after +11 years!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the angle between the hour hand and the minute hand of a clock at 4:20? angle θ = |30h − 5.5m| = |30(4) − 5.5(20)| = |120 − 110| = 10°.">
+  <div class="in-note-stem">Q7.1: What is the angle between the hour hand and the minute hand of a clock at 4:20?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 10° ✅</div><div class="in-opt"><strong>(B)</strong> 0°</div><div class="in-opt"><strong>(C)</strong> 15°</div><div class="in-opt"><strong>(D)</strong> 20°</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Angle θ = |30H − 5.5M| = |30(4) − 5.5(20)| = |120 − 110| = 10°.</div>
+</div><div class="in-note-q" data-search="what is the angle between the hands of a clock at 8:30? angle θ = |30(8) − 5.5(30)| = |240 − 165| = 75°.">
+  <div class="in-note-stem">Q7.2: What is the angle between the hands of a clock at 8:30?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 60°</div><div class="in-opt ans"><strong>(B)</strong> 75° ✅</div><div class="in-opt"><strong>(C)</strong> 80°</div><div class="in-opt"><strong>(D)</strong> 90°</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Angle θ = |30(8) − 5.5(30)| = |240 − 165| = 75°.</div>
+</div><div class="in-note-q" data-search="how many times do the hour and minute hands of a clock coincide (0° angle) in 24 hours? hands coincide 11 times in 12 hours and 22 times in 24 hours (missing once between 11 and 1).">
+  <div class="in-note-stem">Q7.3: How many times do the hour and minute hands of a clock coincide (0° angle) in 24 hours?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 24 times</div><div class="in-opt"><strong>(B)</strong> 11 times</div><div class="in-opt ans"><strong>(C)</strong> 22 times ✅</div><div class="in-opt"><strong>(D)</strong> 44 times</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Hands coincide 11 times in 12 hours and 22 times in 24 hours (missing once between 11 and 1).</div>
+</div><div class="in-note-q" data-search="how many times are the hands of a clock at right angles (90°) in 24 hours? hands form a 90° angle 22 times in 12 hours and 44 times in 24 hours.">
+  <div class="in-note-stem">Q7.4: How many times are the hands of a clock at right angles (90°) in 24 hours?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 48 times</div><div class="in-opt"><strong>(B)</strong> 22 times</div><div class="in-opt"><strong>(C)</strong> 24 times</div><div class="in-opt ans"><strong>(D)</strong> 44 times ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Hands form a 90° angle 22 times in 12 hours and 44 times in 24 hours.</div>
+</div><div class="in-note-q" data-search="if a clock shows 3:40, what time will be seen in a plane mirror placed in front of it? subtract from 11:60 =&gt; 11:60 − 3:40 = 8:20.">
+  <div class="in-note-stem">Q7.5: If a clock shows 3:40, what time will be seen in a plane mirror placed in front of it?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 8:20 ✅</div><div class="in-opt"><strong>(B)</strong> 8:40</div><div class="in-opt"><strong>(C)</strong> 9:20</div><div class="in-opt"><strong>(D)</strong> 7:20</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Subtract from 11:60 =&gt; 11:60 − 3:40 = 8:20.</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (General Intelligence &amp; Reasoning)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Coding-Decoding: EJOTY Positional Encoding</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[EJOTY Positional Encoding]</strong> Forward Rank = Pos(L) [1..26]</li><li>🔹 <strong>[EJOTY Positional Encoding]</strong> Backward/Reverse Rank = 27 − Pos(L)</li><li>🔹 <strong>[EJOTY Positional Encoding]</strong> EJOTY = 5, 10, 15, 20, 25</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Kisi bhi letter ki Reverse Position nikalne ke liye hamesha 27 me se uski Forward Position minus karein (Reverse = 27 − Forward). Jaise R = 18, to Reverse = 27 − 18 = 9 (I).</li><li>🔹 <strong>[Reverse-Order + Alternating Shift]</strong> Reverse + Constant Shift: Code(W)[i] = Shift(W[n − 1 − i], +k)</li><li>🔹 <strong>[Reverse-Order + Alternating Shift]</strong> Cross-Pair Swap: (L1, L2) -&gt; (L2+k, L1+k)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Jab first letter aur coded word ka first letter bahut door dikhe, to turant input word ke LAST letter ko coded word ke FIRST letter se compare karein (Reverse Shift Pattern)!</li><li>🔹 <strong>[Positional Sum, Digital Root]</strong> Word Value = Σ Pos(L_i) × Count(L) or Σ (27 − Pos(L_i))</li><li>🔹 <strong>[Positional Sum, Digital Root]</strong> Digital Root = 1 + ((N − 1) mod 9)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Agar bada word chote number (jaise 5, 7, 8) me code ho raha hai, to Number of Letters, Number of Vowels × Consonants, ya Digital Root check karein!</li><li>🔹 <strong>[Chinese / Substitution Message Coding]</strong> Common Word Elimination across 3–4 statements: Intersect(Stmt_i, Stmt_j) -&gt; Unique Code Token</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: <strong>'What is called...'</strong> vs <strong>'What is the code for...'</strong> me dhyan dein: &#x27;If White is called Blue, Blue is called Red, Red is called Yellow, what is the colour of human blood?&#x27; -&gt; Blood is Red, and Red is called Yellow -&gt; Ans: Yellow!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Number Series &amp; Analogies: Second-Order Difference, n² ± k</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Second-Order Difference, n² ± k]</strong> Cube-Minus-Self Series: a_n = n³ − n (0, 6, 24, 60, 120, 210, 336)</li><li>🔹 <strong>[Second-Order Difference, n² ± k]</strong> Cube-Plus-Self: n³ + n (2, 10, 30, 68, 130, 222)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Series me 60, 120, 210, 336 dikhte hi turant n³ − n lagayein; aur 2, 10, 30, 68, 130, 222 dikhte hi n³ + n lagayein!</li><li>🔹 <strong>[Multiplicative-Cum-Additive]</strong> Half-Step Pattern: T_2 = T_1 × 0.5 + 0.5; T_3 = T_2 × 1 + 1; T_4 = T_3 × 1.5 + 1.5; T_5 = T_4 × 2 + 2</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Jab series pehle ghate aur phir tezi se badhe (jaise 14, 8, 9, 14.5, 30...), to 100% ×0.5 + 1, ×1 + 1, ×1.5 + 1, ×2 + 1 wala decimal multiplier lag raha hai!</li><li>🔹 <strong>[Number Triad Analogies]</strong> Pythagorean Triads: (3,4,5), (5,12,13), (7,24,25), (8,15,17), (9,40,41), (11,60,61), (20,21,29)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: DSSSB ke latest instruction ke anusar Triad me numbers ko unke individual digits me todna mana hota hai — operations pure number par hi lagane hote hain!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — Blood Relations: Family Tree Construction, Generation Levels</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Family Tree Construction, Generation Levels]</strong> Generation Levels: +2 (Grandparents)</li><li>🔹 <strong>[Family Tree Construction, Generation Levels]</strong> +1 (Parents/Uncles/Aunts/In-laws)</li><li>🔹 <strong>[Family Tree Construction, Generation Levels]</strong> 0 (Self/Spouse/Siblings/Cousins)</li><li>🔹 <strong>[Family Tree Construction, Generation Levels]</strong> −1 (Children/Nephew/Niece)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: <strong>'A is the brother of B'</strong> me A ka gender Male (+) confirm hai, par B ka gender unknown hai (B भाई भी हो सकता है और बहन भी)! Name se kabhi gender assume na karein.</li><li>🔹 <strong>[Coded Blood Relations (A + B, A × B)]</strong> Coded Expression A @ B # C $ D: Evaluate Left-to-Right (Forward) or Right-to-Left (Backward) + Eliminate by Gender &amp; Generation</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Coded Blood Relation me 4 options draw karne me 2 minute waste mat karo — Gender Check aur Generation Gap (+1, 0, −1) se 3 options 10 second me eliminate ho jate hain!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Direction &amp; Distance: Pythagorean Shortest Distance</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Pythagorean Shortest Distance]</strong> Shortest Aerial Distance d = √(Δx² + Δy²)</li><li>🔹 <strong>[Pythagorean Shortest Distance]</strong> Net Turn Angle = Σ(Right 90° turns) − Σ(Left 90° turns)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: <strong>'From where did he start?'</strong> vs &#x27;In which direction is he from the starting point?<strong>' — hamesha '</strong>FROM<strong>' wale point par '</strong>+&#x27; (compass cross) banakar teer (arrow) chalayein!</li><li>🔹 <strong>[Sunrise (Morning)]</strong> Morning (Sunrise in East): All Shadows fall WEST</li><li>🔹 <strong>[Sunrise (Morning)]</strong> Evening (Sunset in West): All Shadows fall EAST</li><li>🔹 <strong>[Sunrise (Morning)]</strong> 12:00 Noon: Zero shadow</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Morning Trick = <strong>'N-L / S-R'</strong> (Morning me North dekhne wale ke LEFT me shadow banti hai, South dekhne wale ke RIGHT me). Evening me iska ulta (<strong>'N-R / S-L'</strong>) hota hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Order, Ranking &amp; Seating: Linear Row Ranking, Total Persons</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Linear Row Ranking, Total Persons]</strong> Standard Row Total: T = (L + R) − 1</li><li>🔹 <strong>[Linear Row Ranking, Total Persons]</strong> Non-Overlapping Total: T_max = L + R + Mid</li><li>🔹 <strong>[Linear Row Ranking, Total Persons]</strong> Overlapping (Minimum) Total: T_min = L + R − Mid − 2</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Position Interchange wale sawal me: Total = (Ek vyakti ki Nayi Position + Dusre vyakti ki Purani Position) − 1!</li><li>🔹 <strong>[Circular Seating Arrangement (Facing Center vs Facing Outside)]</strong> Facing Center (Inward): Left = Clockwise (CW), Right = Anti-Clockwise (ACW)</li><li>🔹 <strong>[Circular Seating Arrangement (Facing Center vs Facing Outside)]</strong> Facing Outside: Left = ACW, Right = CW</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: <strong>'Who / Whom / Whose'</strong> hamesha comma ke turant pehle wale (2nd person) ke liye aata hai, jabki <strong>'And / But / While'</strong> sentence ke 1st person ke liye aata hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Syllogisms — Classical Venn Syllogisms, Complementary Pair (Either-Or) &amp; &#x27;Only a Few&#x27;</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Classical Venn Syllogisms, Complementary Pair (Either-Or)]</strong> Complementary <strong>'Either-Or'</strong> Rules: (1) Both conclusions individually false/doubtful, (2) Same subject-predicate, (3) Pair is (Some + No) or (All + Some Not)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: <strong>'All + No'</strong> kabhi bhi Complementary Either-Or pair NAHI banate (kyunki dono ek sath false ho sakte hain jab <strong>'Some'</strong> true ho)! Valid Either-Or pairs sirf: (1) Some + No, aur (2) All + Some Not (same order) hain!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Cubes, Dice, Clocks &amp; Calendars — Clock Angle Formula, Mirror/Water Time &amp; Calendar Odd Days</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Clock Angle Formula, Mirror/Water Time]</strong> Clock Angle θ = |30H − (11/2)M| (if θ &gt; 180°, Reflex Angle = 360° − θ)</li><li>🔹 <strong>[Clock Angle Formula, Mirror/Water Time]</strong> Mirror Time = 11:60 − HH:MM</li><li>🔹 <strong>[Clock Angle Formula, Mirror/Water Time]</strong> Leap Year = Divisible by 4 (Century by 400)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Calendar Year Repetition Shortcut: (1) Leap Year repeats after +28 years; (2) Leap + 1 year (e.g., <mark class="hl">2025</mark>) repeats after +6 years (<mark class="hl">2031</mark>); (3) Leap + 2 or Leap + 3 years repeat after +11 years!</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

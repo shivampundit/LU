@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सामान्य हिन्दी — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • सामान्य हिन्दी</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="05_A5_General_Hindi_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/05_A5_General_Hindi_Question_Booklet.html">📝 Question Booklet (110 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section A • 20 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 सामान्य हिन्दी (काल/वाच्य, संधि/समास, वर्तनी/शुद्धि, शब्द भंडार, मुहावरे, व्याकरण/कारक एवं रस-छंद-अलंकार)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/05_A5_General_Hindi_Question_Booklet.html">📝 Open 110-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: काल एवं वाच्य — काल (Tense) </a><a class="pill" href="#ch2">Ch 2: संधि एवं समास — संधि-विच्छेद</a><a class="pill" href="#ch3">Ch 3: वर्तनी एवं वाक्य शुद्धि — मा</a><a class="pill" href="#ch4">Ch 4: शब्द भंडार — शब्द भंडार — तत</a><a class="pill" href="#ch5">Ch 5: मुहावरे व लोकोक्तियाँ — प्रम</a><a class="pill" href="#ch6">Ch 6: व्याकरण भेद व विराम चिह्न — </a><a class="pill" href="#ch7">Ch 7: गद्यांश एवं अलंकार — अलंकार </a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 सामान्य हिन्दी — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 मास्टर रिवीजन सारणी (हिन्दी व्याकरण): वर्णमाला, संधि, समास, रस एवं छंद-अलंकार</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>व्याकरण विषय</th><th>पहचान का अचूक नियम / सूत्र</th><th>प्रमुख परीक्षापयोगी उदाहरण</th></tr></thead>
+  <tbody>
+    <tr><td><strong>वर्णमाला (उच्चारण एवं घोषत्व/प्राणत्व)</strong></td><td><strong>कण्ठ्य:</strong> अ, आ, क-वर्ग, ह, विसर्ग | <strong>तालव्य:</strong> इ, ई, च-वर्ग, य, श | <strong>मूर्धन्य:</strong> ऋ, ट-वर्ग, र, ष | <strong>दन्त्य:</strong> त-वर्ग, ल, स | <strong>ओष्ठ्य:</strong> उ, ऊ, प-वर्ग</td><td>• <strong>अल्पप्राण:</strong> वर्ग का <strong>1, 3, 5</strong> वर्ण + य, र, ल, व<br>• <strong>महाप्राण:</strong> वर्ग का <strong>2, 4</strong> वर्ण + श, ष, स, ह<br>• <strong>अघोष:</strong> वर्ग का <strong>1, 2</strong> वर्ण + श, ष, स | <strong>सघोष:</strong> वर्ग का <strong>3, 4, 5</strong> + सभी स्वर + य, र, ल, व, ह</td></tr>
+    <tr><td><strong>पाँच स्वर संधियाँ (ट्रिक)</strong></td><td>1. <strong>दीर्घ:</strong> आ, ई, ऊ, ऋ की बड़ी मात्रा<br>2. <strong>गुण:</strong> एक मात्रा (ए, ओ) तथा 'अर्'<br>3. <strong>वृद्धि:</strong> दो मात्राएँ (ऐ, औ)<br>4. <strong>यण:</strong> य, व, र से ठीक पहले आधा वर्ण<br>5. <strong>अयादि:</strong> अय, आय, अव, आव (3 अक्षर के शब्द)</td><td>• <strong>दीर्घ:</strong> भानुदय (भानु+उदय), कपीश (कपि+ईश)<br>• <strong>गुण:</strong> महोत्सव (महा+उत्सव), देवर्षि (देव+ऋषि)<br>• <strong>वृद्धि:</strong> सदैव (सदा+एव), महौषध (महा+औषध)<br>• <strong>यण:</strong> प्रत्येक (प्रति+एक), स्वागत (सु+आगत)<br>• <strong>अयादि:</strong> पवन (पो+अन), पावक (पौ+अक), नायक (नै+अक)</td></tr>
+    <tr><td><strong>षड्-समास पहचान</strong></td><td>1. <strong>अव्ययीभाव:</strong> प्रथम पद उपसर्ग/अव्यय या शब्द की आवृत्ति<br>2. <strong>तत्पुरुष:</strong> कारक चिह्न का लोप<br>3. <strong>कर्मधारय:</strong> विशेषण-विशेष्य / उपमान-उपमेय<br>4. <strong>द्विगु:</strong> प्रथम पद संख्यावाची<br>5. <strong>द्वन्द्व:</strong> दोनों पद प्रधान (और/या)<br>6. <strong>बहुव्रीहि:</strong> तीसरा विशेष अर्थ प्रधान</td><td>• <strong>अव्ययीभाव:</strong> यथाशक्ति, प्रतिदिन, आजन्म, <strong>रातों-रात, हाथों-हाथ</strong><br>• <strong>कर्मधारय:</strong> नीलकमल, चरणकमल, महात्मा<br>• <strong>द्विगु:</strong> चौराहा, पंचवटी, नवरत्न, शताब्दी<br>• <strong>बहुव्रीहि:</strong> दशानन (रावण), पीताम्बर (विष्णु), लम्बोदर (गणेश), मृत्युंजय (शिव)</td></tr>
+    <tr><td><strong>नवरस एवं स्थायी भाव</strong></td><td>श्रृंगार (रति), हास्य (हास), करुण (शोक), वीर (उत्साह), रौद्र (क्रोध), भयानक (भय), वीभत्स (जुगुप्सा/घृणा), अद्भुत (विस्मय), शांत (निर्वेद)</td><td>• भरतमुनि के नाट्यशास्त्र में <strong>8 रस</strong> (शांत रस नहीं)<br>• <strong>दोहा:</strong> 13-11 मात्राएँ | <strong>सोरठा:</strong> 11-13 मात्राएँ | <strong>चौपाई:</strong> प्रत्येक चरण में 16 मात्राएँ | <strong>रोला:</strong> 24 मात्राएँ | <strong>कुण्डलिया:</strong> दोहा + रोला (6 चरण)</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: काल एवं वाच्य — काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)</h2>
+    <span class="badge">3 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="काल (tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3) भूतकाल के 6 भेद: सामान्य • आसन्न (अभी समाप्त: &#x27;है&#x27; लगा हो) • पूर्ण (&#x27;था/थी/थे&#x27;) • अपूर्ण (&#x27;रहा था&#x27;) • संदिग्ध (&#x27;होगा&#x27;) • हेतुहेतुमद्भूत (शर्त: &#x27;यदि...तो&#x27;) dsssb सामान्य हिन्दी में &#x27;काल&#x27; और &#x27;वाच्य&#x27; से सर्वाधिक प्रश्न पूछे जाते हैं: (1) आसन्न भूतकाल: क्रिया अभी-अभी समाप्त हुई हो (&#x27;मैंने आम खाया है&#x27; — दिखने में &#x27;है&#x27; लगता है पर कार्य पूर्ण होने के कारण आसन्न भूतकाल है!); (2) संदिग्ध वर्तमान (&#x27;माँ खाना बना रही होगी&#x27;) बनाम संदिग्ध भूतकाल (&#x27;उसने खाना खाया होगा&#x27;); (3) हेतुहेतुमद्भूत (&#x27;यदि वर्षा होती तो फसल अच्छी होती&#x27; — भूतकाल की शर्त) बनाम हेतुहेतुमद्भविष्यत् (&#x27;यदि तुम पढ़ोगे तो पास हो जाओगे&#x27; — भविष्य की शर्त)। exam trap: &#x27;मैंने खाना खाया है&#x27; में अंत में &#x27;है&#x27; देखकर वर्तमान काल मत लगा देना — क्रिया अभी-अभी पूर्ण हुई है इसलिए यह &#x27;आसन्न भूतकाल&#x27; (recent past) है!">
+  <div class="sub-h">📌 1.1 काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 भूतकाल के 6 भेद: सामान्य</li><li>🔹 आसन्न (अभी समाप्त: <strong>'है'</strong> लगा हो)</li><li>🔹 पूर्ण (<strong>'था/थी/थे'</strong>)</li><li>🔹 अपूर्ण (<strong>'रहा था'</strong>)</li><li>🔹 संदिग्ध (<strong>'होगा'</strong>)</li><li>🔹 हेतुहेतुमद्भूत (शर्त: <strong>'यदि...तो'</strong>)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>DSSSB सामान्य हिन्दी में <strong>'काल'</strong> और <strong>'वाच्य'</strong> से सर्वाधिक प्रश्न पूछे जाते हैं: (1) आसन्न भूतकाल: क्रिया अभी-अभी समाप्त हुई हो (<strong>'मैंने आम खाया है'</strong> — दिखने में <strong>'है'</strong> लगता है पर कार्य पूर्ण होने के कारण आसन्न भूतकाल है!)</li><li>(2) संदिग्ध वर्तमान (<strong>'माँ खाना बना रही होगी'</strong>) बनाम संदिग्ध भूतकाल (<strong>'उसने खाना खाया होगा'</strong>)</li><li>(3) हेतुहेतुमद्भूत (<strong>'यदि वर्षा होती तो फसल अच्छी होती'</strong> — भूतकाल की शर्त) बनाम हेतुहेतुमद्भविष्यत् (<strong>'यदि तुम पढ़ोगे तो पास हो जाओगे'</strong> — भविष्य की शर्त)।</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> वाच्य (Voice) के 3 भेद: (1) कर्तृवाच्य (सकर्मक व अकर्मक दोनों; क्रिया कर्ता के अनुसार: <strong>'राम पुस्तक पढ़ता है'</strong>), (2) कर्मवाच्य (केवल सकर्मक क्रिया; <strong>'द्वारा / से'</strong> + क्रिया कर्म के अनुसार: <strong>'राम द्वारा पुस्तक पढ़ी गई'</strong>), (3) भाववाच्य (प्रायः अकर्मक क्रिया + असमर्थता + क्रिया सदैव पुल्लिंग, एकवचन, अन्य पुरुष: <strong>'मुझसे अब चला नहीं जाता'</strong>)।</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: <strong>'मैंने खाना खाया है'</strong> में अंत में <strong>'है'</strong> देखकर वर्तमान काल मत लगा देना — क्रिया अभी-अभी पूर्ण हुई है इसलिए यह <strong>'आसन्न भूतकाल'</strong> (Recent Past) है!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="&#x27;मोहन से चला नहीं जाता&#x27; और &#x27;पक्षी से उड़ा जाता है&#x27; वाक्यों में कौन-सा वाच्य है? जब अकर्मक क्रिया का प्रयोग अशक्तता या भाव की प्रधानता के साथ (अन्य पुरुष, पुल्लिंग, एकवचन में) हो, तो भाववाच्य होता है।">
+  <div class="in-note-stem">Q1.1: &#x27;मोहन से चला नहीं जाता&#x27; और &#x27;पक्षी से उड़ा जाता है&#x27; वाक्यों में कौन-सा वाच्य है?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> भाववाच्य ✅</div><div class="in-opt"><strong>(B)</strong> कर्तृवाच्य</div><div class="in-opt"><strong>(C)</strong> कर्मवाच्य</div><div class="in-opt"><strong>(D)</strong> संयुक्त वाच्य</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> जब अकर्मक क्रिया का प्रयोग अशक्तता या भाव की प्रधानता के साथ (अन्य पुरुष, पुल्लिंग, एकवचन में) हो, तो भाववाच्य होता है।</div>
+</div><div class="in-note-q" data-search="&#x27;मोहन पत्र लिख रहा होगा&#x27; वाक्य में काल का कौन-सा भेद है? वर्तमान समय में क्रिया के होने में संदेह (&#x27;लिख रहा होगा&#x27;) होने से यह &#x27;संदिग्ध वर्तमान काल&#x27; है।">
+  <div class="in-note-stem">Q1.2: &#x27;मोहन पत्र लिख रहा होगा&#x27; वाक्य में काल का कौन-सा भेद है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> सामान्य भविष्यत् काल</div><div class="in-opt ans"><strong>(B)</strong> संदिग्ध वर्तमान काल ✅</div><div class="in-opt"><strong>(C)</strong> अपूर्ण भूतकाल</div><div class="in-opt"><strong>(D)</strong> तात्कालिक वर्तमान काल</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> वर्तमान समय में क्रिया के होने में संदेह (<strong>'लिख रहा होगा'</strong>) होने से यह <strong>'संदिग्ध वर्तमान काल'</strong> है।</div>
+</div><div class="in-note-q" data-search="निम्नलिखित में से शुद्ध वाक्य का चयन कीजिए: &#x27;अनेक&#x27; स्वयं बहुवचन है (&#x27;अनेकों&#x27; अशुद्ध है), &#x27;प्रातःकाल&#x27; के साथ &#x27;समय&#x27; नहीं आता; अतः &#x27;रोगी को सेब काटकर खिलाओ&#x27; ही शुद्ध पदक्रम है।">
+  <div class="in-note-stem">Q1.3: निम्नलिखित में से शुद्ध वाक्य का चयन कीजिए:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> मेरे को घर जाना है।</div><div class="in-opt"><strong>(B)</strong> वहाँ अनेकों लोग एकत्रित थे।</div><div class="in-opt ans"><strong>(C)</strong> रोगी को काटकर सेब खिलाओ। (अशुद्ध) -&gt; शुद्ध: रोगी को सेब काटकर खिलाओ। ✅</div><div class="in-opt"><strong>(D)</strong> उसने प्रातःकाल के समय भ्रमण किया।</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> <strong>'अनेक'</strong> स्वयं बहुवचन है (<strong>'अनेकों'</strong> अशुद्ध है), <strong>'प्रातःकाल'</strong> के साथ <strong>'समय'</strong> नहीं आता; अतः <strong>'रोगी को सेब काटकर खिलाओ'</strong> ही शुद्ध पदक्रम है।</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: संधि एवं समास — संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम</h2>
+    <span class="badge">38 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम स्वर संधि (5 भेद): दीर्घ (आ, ई, ऊ) • गुण (ए, ओ, अर्) • वृद्धि (ऐ, औ) • यण (य्, व्, र् के पहले आधा अक्षर) • अयादि (अय, आय, अव, आव) संधि पहचान की अचूक ट्रिक: (1) दीर्घ संधि: हिम + आलय = हिमालय, भानु + उदय = भानूदय (बड़ा ऊ); (2) गुण संधि (एक मात्रा): महा + इंद्र = महेंद्र, सूर्य + उदय = सूर्योदय, महा + ऋषि = महर्षि; (3) वृद्धि संधि (दो मात्रा - ऐ, औ): सदा + एव = सदैव, एक + एक = एकैक, परम + औषध = परमौषध; (4) यण संधि (य, व से पहले आधा वर्ण): इति + आदि = इत्यादि, अनु + अय = अन्वय, सु + आगत = स्वागत; (5) अयादि संधि: ने + अन = नयन, गै + अक = गायक, पो + अन = पवन, पौ + अक = पावक। व्यंजन संधि: उत् + ज्वल = उज्ज्वल, सत् + चरित्र = सच्चरित्र, वाक् + ईश = वागीश, जगत् + नाथ = जगन्नाथ। विसर्ग संधि: निः + आशा = निराशा, मनः + रथ = मनोरथ, निः + रोग = नीरोग। hinglish tip: एक मात्रा (े, ो) = गुण संधि; दो मात्रा (ै, ौ) = वृद्धि संधि; &#x27;य/व&#x27; के ठीक पहले आधा अक्षर = यण संधि; और 3 अक्षर का बिना मात्रा का शब्द (नयन, पवन, पावक, नाविक) = अयादि संधि!">
+  <div class="sub-h">📌 2.1 संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 स्वर संधि (5 भेद): दीर्घ (आ, ई, ऊ)</li><li>🔹 गुण (ए, ओ, अर्)</li><li>🔹 वृद्धि (ऐ, औ)</li><li>🔹 यण (य्, व्, र् के पहले आधा अक्षर)</li><li>🔹 अयादि (अय, आय, अव, आव)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>संधि पहचान की अचूक ट्रिक: (1) दीर्घ संधि: हिम + आलय = हिमालय, भानु + उदय = भानूदय (बड़ा ऊ)</li><li>(2) गुण संधि (एक मात्रा): महा + इंद्र = महेंद्र, सूर्य + उदय = सूर्योदय, महा + ऋषि = महर्षि</li><li>(3) वृद्धि संधि (दो मात्रा - ऐ, औ): सदा + एव = सदैव, एक + एक = एकैक, परम + औषध = परमौषध</li><li>(4) यण संधि (य, व से पहले आधा वर्ण): इति + आदि = इत्यादि, अनु + अय = अन्वय, सु + आगत = स्वागत</li><li>(5) अयादि संधि: ने + अन = नयन, गै + अक = गायक, पो + अन = पवन, पौ + अक = पावक। व्यंजन संधि: उत् + ज्वल = उज्ज्वल, सत् + चरित्र = सच्चरित्र, वाक् + ईश = वागीश, जगत् + नाथ = जगन्नाथ। विसर्ग संधि: निः + आशा = निराशा, मनः + रथ = मनोरथ, निः + रोग = नीरोग।</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> समास के 6 भेद: (1) अव्ययीभाव (प्रथम पद अव्यय/उपसर्ग या द्विरुक्ति: यथाशक्ति, प्रतिदिन, रातोंरात), (2) तत्पुरुष (कारक चिह्न का लोप: राजपुत्र, रसोईघर), (3) कर्मधारय (विशेषण-विशेष्य / उपमान-उपमेय: नीलकमल, महात्मा), (4) द्विगु (प्रथम पद संख्यावाची समूह: चौराहा, पंचवटी, तिरंगा), (5) द्वंद्व (दोनों पद प्रधान, और/या: माता-पिता, पाप-पुण्य), (6) बहुव्रीहि (कोई तीसरा विशेष अर्थ प्रधान: दशानन=रावण, पीताम्बर=श्रीकृष्ण, लंबोदर=गणेश)।</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: एक मात्रा (े, ो) = गुण संधि; दो मात्रा (ै, ौ) = वृद्धि संधि; <strong>'य/व'</strong> के ठीक पहले आधा अक्षर = यण संधि; और 3 अक्षर का बिना मात्रा का शब्द (नयन, पवन, पावक, नाविक) = अयादि संधि!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="हिन्दी वर्णमाला में &#x27;क्ष, त्र, ज्ञ, श्र&#x27; को किस श्रेणी के व्यंजनों में रखा जाता है? क्ष (क्+ष), त्र (त्+र), ज्ञ (ज्+ञ), और श्र (श्+र) चार संयुक्त व्यंजन हैं।">
+  <div class="in-note-stem">Q2.1: हिन्दी वर्णमाला में &#x27;क्ष, त्र, ज्ञ, श्र&#x27; को किस श्रेणी के व्यंजनों में रखा जाता है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> ऊष्म व्यंजन</div><div class="in-opt"><strong>(B)</strong> अंतःस्थ व्यंजन</div><div class="in-opt"><strong>(C)</strong> स्पर्श व्यंजन</div><div class="in-opt ans"><strong>(D)</strong> संयुक्त व्यंजन ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> क्ष (क्+ष), त्र (त्+र), ज्ञ (ज्+ञ), और श्र (श्+र) चार संयुक्त व्यंजन हैं।</div>
+</div><div class="in-note-q" data-search="&#x27;सदैव&#x27; शब्द का सही संधि-विच्छेद और संधि का भेद क्या है? आ + ए = ऐ के नियम से &#x27;सदा + एव = सदैव&#x27; में वृद्धि स्वर संधि है।">
+  <div class="in-note-stem">Q2.2: &#x27;सदैव&#x27; शब्द का सही संधि-विच्छेद और संधि का भेद क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> सदा + एव (वृद्धि स्वर संधि) ✅</div><div class="in-opt"><strong>(B)</strong> सद + एव (गुण स्वर संधि)</div><div class="in-opt"><strong>(C)</strong> सदा + ऐव (दीर्घ स्वर संधि)</div><div class="in-opt"><strong>(D)</strong> सत् + एव (व्यंजन संधि)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> आ + ए = ऐ के नियम से <strong>'सदा + एव = सदैव'</strong> में वृद्धि स्वर संधि है।</div>
+</div><div class="in-note-q" data-search="&#x27;प्रत्युपकार&#x27; शब्द का सही संधि-विच्छेद और संधि का नाम बताइए: इ + उ = यु होने से &#x27;प्रति + उपकार = प्रत्युपकार&#x27; में यण स्वर संधि है।">
+  <div class="in-note-stem">Q2.3: &#x27;प्रत्युपकार&#x27; शब्द का सही संधि-विच्छेद और संधि का नाम बताइए:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> प्रत्यु + उपकार (दीर्घ संधि)</div><div class="in-opt ans"><strong>(B)</strong> प्रति + उपकार (यण स्वर संधि) ✅</div><div class="in-opt"><strong>(C)</strong> प्रति + अपकार (गुण संधि)</div><div class="in-opt"><strong>(D)</strong> प्रत + उपकार (अयादि संधि)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> इ + उ = यु होने से <strong>'प्रति + उपकार = प्रत्युपकार'</strong> में यण स्वर संधि है।</div>
+</div><div class="in-note-q" data-search="&#x27;पवन&#x27; तथा &#x27;पावक&#x27; शब्दों के सही संधि-विच्छेद क्रमशः क्या हैं? अयादि संधि में &#x27;ओ + अ = अव&#x27; (पो + अन = पवन) और &#x27;औ + अ = आव&#x27; (पौ + अक = पावक) होता है।">
+  <div class="in-note-stem">Q2.4: &#x27;पवन&#x27; तथा &#x27;पावक&#x27; शब्दों के सही संधि-विच्छेद क्रमशः क्या हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> पव + न तथा पाव + क (व्यंजन संधि)</div><div class="in-opt"><strong>(B)</strong> पा + वन तथा पौ + अक (दीर्घ संधि)</div><div class="in-opt ans"><strong>(C)</strong> पो + अन तथा पौ + अक (अयादि संधि) ✅</div><div class="in-opt"><strong>(D)</strong> पु + अन तथा पू + अक (यण संधि)</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> अयादि संधि में <strong>'ओ + अ = अव'</strong> (पो + अन = पवन) और <strong>'औ + अ = आव'</strong> (पौ + अक = पावक) होता है।</div>
+</div><div class="in-note-q" data-search="&#x27;जगन्नाथ&#x27; और &#x27;वागीश&#x27; शब्दों में कौन-सी संधि प्रयुक्त हुई है? व्यंजन संधि (जगत् + नाथ, वाक् + ईश) — जगत् + नाथ = जगन्नाथ (पंचम वर्ण नियम) और वाक् + ईश = वागीश (तृतीय वर्ण नियम) दोनों व्यंजन संधि हैं।">
+  <div class="in-note-stem">Q2.5: &#x27;जगन्नाथ&#x27; और &#x27;वागीश&#x27; शब्दों में कौन-सी संधि प्रयुक्त हुई है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> विसर्ग संधि</div><div class="in-opt"><strong>(B)</strong> गुण स्वर संधि</div><div class="in-opt"><strong>(C)</strong> दीर्घ स्वर संधि</div><div class="in-opt ans"><strong>(D)</strong> व्यंजन संधि ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> व्यंजन संधि (जगत् + नाथ, वाक् + ईश) — जगत् + नाथ = जगन्नाथ (पंचम वर्ण नियम) और वाक् + ईश = वागीश (तृतीय वर्ण नियम) दोनों व्यंजन संधि हैं।</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: वर्तनी एवं वाक्य शुद्धि — मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम</h2>
+    <span class="badge">6 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम सदा शुद्ध वर्तनी: उज्ज्वल (दोनों &#x27;ज&#x27; आधे) • कवयित्री • आशीर्वाद (&#x27;वा&#x27; पर रेफ) • संन्यासी (अनुस्वार + आधा न) • अनुगृहीत • प्रज्वलित • वाल्मीकि dsssb में बार-बार पूछे जाने वाले वर्तनी शब्द: (1) उज्ज्वल (उत् + ज्वल — दोनों &#x27;ज&#x27; आधे), (2) कवयित्री (&#x27;कवइत्री&#x27; या &#x27;कवयत्री&#x27; अशुद्ध है), (3) आशीर्वाद (&#x27;आर्शीवाद&#x27; अशुद्ध है), (4) जिजीविषा (जीने की इच्छा — जि-जी-वि-षा), (5) अतिशयोक्ति (पूरा &#x27;श&#x27; होता है, आधा नहीं!), (6) अहल्या (&#x27;अहिल्या&#x27; अशुद्ध है), (7) द्वारका (&#x27;द्वारिका&#x27; अशुद्ध है), (8) हिरण्यकशिपु (&#x27;हिरण्यकश्यप&#x27; अशुद्ध है)। वाक्य शुद्धि नियम: &#x27;केवल&#x27; और &#x27;मात्र&#x27; एक साथ नहीं आते; &#x27;सप्रमाण&#x27; के साथ &#x27;सहित&#x27; नहीं आता; &#x27;अनेकों&#x27; अशुद्ध है (&#x27;अनेक&#x27; स्वयं बहुवचन है — &#x27;श्रीकृष्ण के अनेक नाम हैं&#x27;)। exam trap: &#x27;अनेकों&#x27; शब्द हिन्दी व्याकरण में पूर्णतः अशुद्ध है क्योंकि &#x27;एक&#x27; का बहुवचन &#x27;अनेक&#x27; ही होता है! इसी प्रकार &#x27;दरअसल में&#x27; और &#x27;बावजूद भी&#x27; अशुद्ध हैं।">
+  <div class="sub-h">📌 3.1 मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 सदा शुद्ध वर्तनी: उज्ज्वल (दोनों &#x27;ज&#x27; आधे)</li><li>🔹 कवयित्री</li><li>🔹 आशीर्वाद (<strong>'वा'</strong> पर रेफ)</li><li>🔹 संन्यासी (अनुस्वार + आधा न)</li><li>🔹 अनुगृहीत</li><li>🔹 प्रज्वलित</li><li>🔹 वाल्मीकि</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>DSSSB में बार-बार पूछे जाने वाले वर्तनी शब्द: (1) उज्ज्वल (उत् + ज्वल — दोनों &#x27;ज<strong>' आधे), (2) कवयित्री ('</strong>कवइत्री<strong>' या '</strong>कवयत्री<strong>' अशुद्ध है), (3) आशीर्वाद ('</strong>आर्शीवाद&#x27; अशुद्ध है), (4) जिजीविषा (जीने की इच्छा — जि-जी-वि-षा), (5) अतिशयोक्ति (पूरा &#x27;श<strong>' होता है, आधा नहीं!), (6) अहल्या ('</strong>अहिल्या<strong>' अशुद्ध है), (7) द्वारका ('</strong>द्वारिका<strong>' अशुद्ध है), (8) हिरण्यकशिपु ('</strong>हिरण्यकश्यप<strong>' अशुद्ध है)। वाक्य शुद्धि नियम: '</strong>केवल<strong>' और '</strong>मात्र&#x27; एक साथ नहीं आते</li><li><strong>'सप्रमाण'</strong> के साथ <strong>'सहित'</strong> नहीं आता</li><li><strong>'अनेकों'</strong> अशुद्ध है (<strong>'अनेक'</strong> स्वयं बहुवचन है — <strong>'श्रीकृष्ण के अनेक नाम हैं'</strong>)।</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> सदा बहुवचन में प्रयुक्त होने वाले शब्द (नित्य बहुवचन): प्राण, दर्शन, आँसू, होश, बाल, हस्ताक्षर, समाचार, दाम, लोग (<strong>'मेरे प्राण निकल गए'</strong>, <strong>'आपका दर्शन दुर्लभ है'</strong> -&gt; <strong>'आपके दर्शन दुर्लभ हैं'</strong>)।</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: <strong>'अनेकों'</strong> शब्द हिन्दी व्याकरण में पूर्णतः अशुद्ध है क्योंकि <strong>'एक'</strong> का बहुवचन <strong>'अनेक'</strong> ही होता है! इसी प्रकार <strong>'दरअसल में'</strong> और <strong>'बावजूद भी'</strong> अशुद्ध हैं।</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="&#x27;उज्ज्वल&#x27; शब्द का शुद्ध संधि-विच्छेद क्या है? त्/द् के बाद &#x27;ज&#x27; आने पर त्/द् का &#x27;ज्&#x27; हो जाता है: उत् + ज्वल = उज्ज्वल (दोनों &#x27;ज&#x27; आधे होते हैं)।">
+  <div class="in-note-stem">Q3.1: &#x27;उज्ज्वल&#x27; शब्द का शुद्ध संधि-विच्छेद क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> उज + ज्वल (व्यंजन संधि)</div><div class="in-opt ans"><strong>(B)</strong> उत् + ज्वल (व्यंजन संधि) ✅</div><div class="in-opt"><strong>(C)</strong> उत् + जवल (विसर्ग संधि)</div><div class="in-opt"><strong>(D)</strong> उद् + ज्वल (स्वर संधि)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> त्/द् के बाद &#x27;ज<strong>' आने पर त्/द् का '</strong>ज्&#x27; हो जाता है: उत् + ज्वल = उज्ज्वल (दोनों &#x27;ज&#x27; आधे होते हैं)।</div>
+</div><div class="in-note-q" data-search="निम्नलिखित में से शुद्ध वर्तनी वाला शब्द कौन-सा है? &#x27;कवि&#x27; का शुद्ध स्त्रीलिंग रूप &#x27;कवयित्री&#x27; होता है (व पर इ की मात्रा नहीं लगती)।">
+  <div class="in-note-stem">Q3.2: निम्नलिखित में से शुद्ध वर्तनी वाला शब्द कौन-सा है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> कवियत्री</div><div class="in-opt"><strong>(B)</strong> कवयत्री</div><div class="in-opt ans"><strong>(C)</strong> कवयित्री ✅</div><div class="in-opt"><strong>(D)</strong> कवियित्री</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> <strong>'कवि'</strong> का शुद्ध स्त्रीलिंग रूप <strong>'कवयित्री'</strong> होता है (व पर इ की मात्रा नहीं लगती)।</div>
+</div><div class="in-note-q" data-search="निम्नलिखित में से किस विकल्प में सभी शब्दों की वर्तनी पूर्णतः शुद्ध है? उज्ज्वल (दोनों ज आधे), आशीर्वाद (व के ऊपर र रेफ), जिजीविषा, और संन्यासी (ं और आधा न दोनों) शुद्ध हैं।">
+  <div class="in-note-stem">Q3.3: निम्नलिखित में से किस विकल्प में सभी शब्दों की वर्तनी पूर्णतः शुद्ध है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> उज्वल, आशिर्वाद, जीजीविषा, सन्यासी</div><div class="in-opt"><strong>(B)</strong> उज्जवल, आर्शीवाद, जिजीषा, संयासी</div><div class="in-opt"><strong>(C)</strong> उज्ज्वल, आशिर्वाद, जिजीवषा, सन्यासी</div><div class="in-opt ans"><strong>(D)</strong> उज्ज्वल, आशीर्वाद, जिजीविषा, संन्यासी ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> उज्ज्वल (दोनों ज आधे), आशीर्वाद (व के ऊपर र रेफ), जिजीविषा, और संन्यासी (ं और आधा न दोनों) शुद्ध हैं।</div>
+</div><div class="in-note-q" data-search="&#x27;अतिशयोक्ति&#x27; और &#x27;अन्त्याक्षरी&#x27; की शुद्ध वर्तनी क्या है? अतिशयोक्ति (पूरा &#x27;श&#x27;) तथा अन्त्याक्षरी (आधा &#x27;न&#x27; और आधा &#x27;त&#x27;) — अतिशय + उक्ति = अतिशयोक्ति (इसमें &#x27;श&#x27; पूरा होता है, आधा नहीं!); अन्त्य + अक्षरी = अन्त्याक्षरी।">
+  <div class="in-note-stem">Q3.4: &#x27;अतिशयोक्ति&#x27; और &#x27;अन्त्याक्षरी&#x27; की शुद्ध वर्तनी क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> अतिशयोक्ति (पूरा &#x27;श&#x27;) तथा अन्त्याक्षरी ✅</div><div class="in-opt"><strong>(B)</strong> अतिश्योक्ति तथा अन्ताक्षरी</div><div class="in-opt"><strong>(C)</strong> अतीश्योक्ति तथा अंताक्षरी</div><div class="in-opt"><strong>(D)</strong> अतिशयोक्ती तथा अनत्याक्षरी</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> अतिशयोक्ति (पूरा &#x27;श<strong>') तथा अन्त्याक्षरी (आधा '</strong>न<strong>' और आधा '</strong>त<strong>') — अतिशय + उक्ति = अतिशयोक्ति (इसमें '</strong>श&#x27; पूरा होता है, आधा नहीं!); अन्त्य + अक्षरी = अन्त्याक्षरी।</div>
+</div><div class="in-note-q" data-search="रचना के आधार पर वाक्य के कितने भेद होते हैं? रचना के आधार पर वाक्य के 3 भेद (सरल, संयुक्त, मिश्र) और अर्थ के आधार पर 8 भेद होते हैं।">
+  <div class="in-note-stem">Q3.5: रचना के आधार पर वाक्य के कितने भेद होते हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> आठ भेद (अर्थ के आधार पर)</div><div class="in-opt ans"><strong>(B)</strong> तीन भेद — सरल वाक्य, संयुक्त वाक्य और मिश्र (मिश्रित) वाक्य ✅</div><div class="in-opt"><strong>(C)</strong> दो भेद</div><div class="in-opt"><strong>(D)</strong> चार भेद</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> रचना के आधार पर वाक्य के 3 भेद (सरल, संयुक्त, मिश्र) और अर्थ के आधार पर 8 भेद होते हैं।</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: शब्द भंडार — शब्द भंडार — तत्सम-तद्भव पहचान, पर्यायवाची, विलोम एवं अनेकार्थी शब्द</h2>
+    <span class="badge">29 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="शब्द भंडार — तत्सम-तद्भव पहचान, पर्यायवाची, विलोम एवं अनेकार्थी शब्द तत्सम पहचान चिह्न: क्ष, त्र, ज्ञ, श्र, ऋ, ष, विसर्ग (ः) एवं रेफ (र्) वाले शब्द प्रायः तत्सम (संस्कृत) होते हैं; चंद्रबिंदु (ँ) वाले शब्द सदैव तद्भव होते हैं! प्रमुख तत्सम -&gt; तद्भव युग्म: गोधूम -&gt; गेहूँ, करपट -&gt; कपड़ा, कर्पूर -&gt; कपूर, हरिद्रा -&gt; हल्दी, नारिकेल -&gt; नारियल, घृत -&gt; घी, दधि -&gt; दही, मयूर -&gt; मोर, वानर -&gt; बंदर, अक्षी -&gt; आँख, इक्षु -&gt; ईख, श्वसुर -&gt; ससुर, ताम्र -&gt; ताँबा। प्रमुख विलोम युग्म: जंगम &lt;-&gt; स्थावर, शाश्वत &lt;-&gt; नश्वर/क्षणिक, अज्ञ &lt;-&gt; विज्ञ, अभिज्ञ &lt;-&gt; अनभिज्ञ, कृतज्ञ &lt;-&gt; कृतघ्न, अनुराग &lt;-&gt; विराग, उत्कर्ष &lt;-&gt; अपकर्ष, ऋजु &lt;-&gt; वक्र, गरिमा &lt;-&gt; लघिमा, सामिष &lt;-&gt; निरामिष। hinglish tip: जहाँ भी चंद्रबिंदु (ँ) दिखे (जैसे—आँख, चाँद, मुँह, गाँव, गेहूँ, पाँच) वह 100% तद्भव शब्द है! और &#x27;क्ष&#x27; का तद्भव &#x27;ख&#x27; या &#x27;छ&#x27; बनता है (क्षीर -&gt; खीर, क्षेत्र -&gt; खेत)।">
+  <div class="sub-h">📌 4.1 शब्द भंडार — तत्सम-तद्भव पहचान, पर्यायवाची, विलोम एवं अनेकार्थी शब्द</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 तत्सम पहचान चिह्न: क्ष, त्र, ज्ञ, श्र, ऋ, ष, विसर्ग (ः) एवं रेफ (र्) वाले शब्द प्रायः तत्सम (संस्कृत) होते हैं; चंद्रबिंदु (ँ) वाले शब्द सदैव तद्भव होते हैं!</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>प्रमुख तत्सम -&gt; तद्भव युग्म: गोधूम -&gt; गेहूँ, करपट -&gt; कपड़ा, कर्पूर -&gt; कपूर, हरिद्रा -&gt; हल्दी, नारिकेल -&gt; नारियल, घृत -&gt; घी, दधि -&gt; दही, मयूर -&gt; मोर, वानर -&gt; बंदर, अक्षी -&gt; आँख, इक्षु -&gt; ईख, श्वसुर -&gt; ससुर, ताम्र -&gt; ताँबा। प्रमुख विलोम युग्म: जंगम &lt;-&gt; स्थावर, शाश्वत &lt;-&gt; नश्वर/क्षणिक, अज्ञ &lt;-&gt; विज्ञ, अभिज्ञ &lt;-&gt; अनभिज्ञ, कृतज्ञ &lt;-&gt; कृतघ्न, अनुराग &lt;-&gt; विराग, उत्कर्ष &lt;-&gt; अपकर्ष, ऋजु &lt;-&gt; वक्र, गरिमा &lt;-&gt; लघिमा, सामिष &lt;-&gt; निरामिष।</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> प्रमुख पर्यायवाची समूह: कमल = पंकज, जलज, राजीव, अरविंद, नीरज, पुंडरीक, इंदीवर; बादल = जलद, नीरद, वारिद, पयोद, मेघ (&#x27;ज<strong>' = कमल, '</strong>द<strong>' = बादल, '</strong>धि&#x27; = समुद्र: जलज, जलद, जलधि)।</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: जहाँ भी चंद्रबिंदु (ँ) दिखे (जैसे—आँख, चाँद, मुँह, गाँव, गेहूँ, पाँच) वह 100% तद्भव शब्द है! और <strong>'क्ष'</strong> का तद्भव &#x27;ख<strong>' या '</strong>छ&#x27; बनता है (क्षीर -&gt; खीर, क्षेत्र -&gt; खेत)।</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="&#x27;अत्याचार&#x27; और &#x27;अध्ययन&#x27; शब्दों में क्रमशः कौन-से उपसर्ग लगे हैं? अति + आचार = अत्याचार तथा अधि + अयन = अध्ययन।">
+  <div class="in-note-stem">Q4.1: &#x27;अत्याचार&#x27; और &#x27;अध्ययन&#x27; शब्दों में क्रमशः कौन-से उपसर्ग लगे हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> अत्य तथा अध्य</div><div class="in-opt"><strong>(B)</strong> अत तथा अध</div><div class="in-opt"><strong>(C)</strong> अ तथा आ</div><div class="in-opt ans"><strong>(D)</strong> अति तथा अधि ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> अति + आचार = अत्याचार तथा अधि + अयन = अध्ययन।</div>
+</div><div class="in-note-q" data-search="&#x27;लिखावट&#x27; और &#x27;घबराहट&#x27; शब्दों में क्रमशः कौन-से कृदन्त प्रत्यय प्रयुक्त हुए हैं? लिख + आवट = लिखावट तथा घबरा + आहट = घबराहट।">
+  <div class="in-note-stem">Q4.2: &#x27;लिखावट&#x27; और &#x27;घबराहट&#x27; शब्दों में क्रमशः कौन-से कृदन्त प्रत्यय प्रयुक्त हुए हैं?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> आवट तथा आहट ✅</div><div class="in-opt"><strong>(B)</strong> वट तथा हट</div><div class="in-opt"><strong>(C)</strong> ट तथा त</div><div class="in-opt"><strong>(D)</strong> इया तथा ईय</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> लिख + आवट = लिखावट तथा घबरा + आहट = घबराहट।</div>
+</div><div class="in-note-q" data-search="&#x27;गोधूम&#x27;, &#x27;कर्पूर&#x27; और &#x27;हरिद्रा&#x27; तत्सम शब्दों के सही तद्भव रूप क्रमशः क्या हैं? गोधूम -&gt; गेहूँ, कर्पूर -&gt; कपूर, हरिद्रा -&gt; हल्दी, मयूर -&gt; मोर, अग्नि -&gt; आग।">
+  <div class="in-note-stem">Q4.3: &#x27;गोधूम&#x27;, &#x27;कर्पूर&#x27; और &#x27;हरिद्रा&#x27; तत्सम शब्दों के सही तद्भव रूप क्रमशः क्या हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> गाय, कपास और हरा</div><div class="in-opt ans"><strong>(B)</strong> गेहूँ, कपूर और हल्दी ✅</div><div class="in-opt"><strong>(C)</strong> गोबर, कोयल और हड्डी</div><div class="in-opt"><strong>(D)</strong> गाँव, काठ और हाथ</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> गोधूम -&gt; गेहूँ, कर्पूर -&gt; कपूर, हरिद्रा -&gt; हल्दी, मयूर -&gt; मोर, अग्नि -&gt; आग।</div>
+</div><div class="in-note-q" data-search="निम्नलिखित में से कौन-सा शब्द &#x27;देशज&#x27; (deshaj) शब्द का उदाहरण है? लोटा (तथा पगड़ी, खचाखच, डिबिया) — लोटा, पगड़ी, डिबिया, थैला, खचाखच देशज शब्द हैं जिनकी उत्पत्ति क्षेत्रीय बोलियों से हुई है।">
+  <div class="in-note-stem">Q4.4: निम्नलिखित में से कौन-सा शब्द &#x27;देशज&#x27; (Deshaj) शब्द का उदाहरण है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> अस्पताल (अंग्रेजी)</div><div class="in-opt"><strong>(B)</strong> किताब (अरबी)</div><div class="in-opt ans"><strong>(C)</strong> लोटा ✅</div><div class="in-opt"><strong>(D)</strong> कैंची (तुर्की)</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> लोटा (तथा पगड़ी, खचाखच, डिबिया) — लोटा, पगड़ी, डिबिया, थैला, खचाखच देशज शब्द हैं जिनकी उत्पत्ति क्षेत्रीय बोलियों से हुई है।</div>
+</div><div class="in-note-q" data-search="&#x27;पंकज&#x27; और &#x27;जलज&#x27; रचना या अर्थ की दृष्टि से किस प्रकार के शब्द हैं? पंक + ज (कीचड़ में जन्म लेने वाला) यौगिक होते हुए भी केवल &#x27;कमल&#x27; के अर्थ में रूढ़ हो जाने से योगरूढ़ शब्द है।">
+  <div class="in-note-stem">Q4.5: &#x27;पंकज&#x27; और &#x27;जलज&#x27; रचना या अर्थ की दृष्टि से किस प्रकार के शब्द हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> रूढ़ शब्द</div><div class="in-opt"><strong>(B)</strong> यौगिक शब्द</div><div class="in-opt"><strong>(C)</strong> देशज शब्द</div><div class="in-opt ans"><strong>(D)</strong> योगरूढ़ शब्द ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> पंक + ज (कीचड़ में जन्म लेने वाला) यौगिक होते हुए भी केवल <strong>'कमल'</strong> के अर्थ में रूढ़ हो जाने से योगरूढ़ शब्द है।</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: मुहावरे व लोकोक्तियाँ — प्रमुख मुहावरे, लोकोक्तियाँ एवं वाक्यांश के लिए एक शब्द</h2>
+    <span class="badge">15 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="प्रमुख मुहावरे, लोकोक्तियाँ एवं वाक्यांश के लिए एक शब्द मुहावरा = वाक्यांश (अंत में प्रायः &#x27;ना&#x27; क्रिया: नौ दो ग्यारह होना) • लोकोक्ति = पूर्ण स्वतंत्र लोक-कथन (अधजल गगरी छलकत जाए) उच्च-आवृत्ति मुहावरे: (1) अक्ल पर पत्थर पड़ना = बुद्धि भ्रष्ट होना, (2) आँख का तारा = अत्यंत प्यारा, (3) ईद का चाँद होना = बहुत दिनों बाद दिखाई देना, (4) गागर में सागर भरना = थोड़े शब्दों में गहरी बात कहना, (5) घी के दीये जलाना = अत्यधिक प्रसन्नता मनाना, (6) दाँत खट्टे करना = बुरी तरह परास्त करना, (7) नाक में दम करना = बहुत परेशान करना, (8) साँप भी मर जाए और लाठी भी न टूटे = बिना हानि के काम बन जाना। प्रमुख लोकोक्तियाँ: &#x27;थोथा चना बाजे घना&#x27; (ओछा व्यक्ति अधिक दिखावा करता है), &#x27;कहाँ राजा भोज कहाँ गंगू तेली&#x27; (आकाश-पाताल का अंतर), &#x27;आम के आम गुठलियों के दाम&#x27; (दोहरा लाभ), &#x27;खोदा पहाड़ निकली चुहिया&#x27; (अधिक परिश्रम पर तुच्छ फल)। exam trap: मुहावरे के अर्थ में कभी भी शाब्दिक (literal) अर्थ वाला विकल्प न चुनें — सदैव लाक्षणिक (figurative) अर्थ चुनें!">
+  <div class="sub-h">📌 5.1 प्रमुख मुहावरे, लोकोक्तियाँ एवं वाक्यांश के लिए एक शब्द</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 मुहावरा = वाक्यांश (अंत में प्रायः <strong>'ना'</strong> क्रिया: नौ दो ग्यारह होना)</li><li>🔹 लोकोक्ति = पूर्ण स्वतंत्र लोक-कथन (अधजल गगरी छलकत जाए)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>उच्च-आवृत्ति मुहावरे: (1) अक्ल पर पत्थर पड़ना = बुद्धि भ्रष्ट होना, (2) आँख का तारा = अत्यंत प्यारा, (3) ईद का चाँद होना = बहुत दिनों बाद दिखाई देना, (4) गागर में सागर भरना = थोड़े शब्दों में गहरी बात कहना, (5) घी के दीये जलाना = अत्यधिक प्रसन्नता मनाना, (6) दाँत खट्टे करना = बुरी तरह परास्त करना, (7) नाक में दम करना = बहुत परेशान करना, (8) साँप भी मर जाए और लाठी भी न टूटे = बिना हानि के काम बन जाना। प्रमुख लोकोक्तियाँ: <strong>'थोथा चना बाजे घना'</strong> (ओछा व्यक्ति अधिक दिखावा करता है), <strong>'कहाँ राजा भोज कहाँ गंगू तेली'</strong> (आकाश-पाताल का अंतर), <strong>'आम के आम गुठलियों के दाम'</strong> (दोहरा लाभ), <strong>'खोदा पहाड़ निकली चुहिया'</strong> (अधिक परिश्रम पर तुच्छ फल)।</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> वाक्यांश के लिए एक शब्द: जो सब कुछ जानता हो = सर्वज्ञ; जो कम जानता हो = अल्पज्ञ; जो किए गए उपकार को मानता हो = कृतज्ञ (जो न माने = कृतघ्न); जिसकी गर्दन सुंदर हो = सुग्रीव; जो पहले कभी न हुआ हो = अभूतपूर्व; जानने की इच्छा रखने वाला = जिज्ञासु।</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: मुहावरे के अर्थ में कभी भी शाब्दिक (Literal) अर्थ वाला विकल्प न चुनें — सदैव लाक्षणिक (Figurative) अर्थ चुनें!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="&#x27;अंगूठा दिखाना&#x27; मुहावरे का सही अर्थ क्या है? &#x27;अंगूठा दिखाना&#x27; का अर्थ वक्त आने पर साफ इनकार कर देना है।">
+  <div class="in-note-stem">Q5.1: &#x27;अंगूठा दिखाना&#x27; मुहावरे का सही अर्थ क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> समय पर काम करने या मदद करने से साफ मना कर देना ✅</div><div class="in-opt"><strong>(B)</strong> विजय प्राप्त करने का संकेत देना</div><div class="in-opt"><strong>(C)</strong> किसी का मज़ाक उड़ाना</div><div class="in-opt"><strong>(D)</strong> सहमत होना</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> <strong>'अंगूठा दिखाना'</strong> का अर्थ वक्त आने पर साफ इनकार कर देना है।</div>
+</div><div class="in-note-q" data-search="&#x27;गूलर का फूल होना&#x27; मुहावरे का सटीक अर्थ क्या है? गूलर के फल के भीतर फूल छिपा होता है जो बाहर दिखाई नहीं देता, अतः इसका अर्थ &#x27;अत्यंत दुर्लभ/अदृश्य होना&#x27; है।">
+  <div class="in-note-stem">Q5.2: &#x27;गूलर का फूल होना&#x27; मुहावरे का सटीक अर्थ क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> बहुत सुंदर होना</div><div class="in-opt ans"><strong>(B)</strong> अत्यंत दुर्लभ होना या कभी दिखाई न देना ✅</div><div class="in-opt"><strong>(C)</strong> अत्यंत सस्ता होना</div><div class="in-opt"><strong>(D)</strong> व्यर्थ की वस्तु होना</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> गूलर के फल के भीतर फूल छिपा होता है जो बाहर दिखाई नहीं देता, अतः इसका अर्थ <strong>'अत्यंत दुर्लभ/अदृश्य होना'</strong> है।</div>
+</div><div class="in-note-q" data-search="&#x27;थोथा चना बाजे घना&#x27; लोकोक्ति का सही भावार्थ क्या है? &#x27;थोथा चना बाजे घना&#x27; का अर्थ अल्पज्ञ या गुणहीन व्यक्ति द्वारा अधिक आडम्बर/दिखावा करना है।">
+  <div class="in-note-stem">Q5.3: &#x27;थोथा चना बाजे घना&#x27; लोकोक्ति का सही भावार्थ क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> चने को भूनने पर अधिक आवाज़ होती है</div><div class="in-opt"><strong>(B)</strong> मेहनती व्यक्ति कम बोलता है</div><div class="in-opt ans"><strong>(C)</strong> ओछा या कम गुण वाला व्यक्ति दिखावा बहुत अधिक करता है ✅</div><div class="in-opt"><strong>(D)</strong> धनवान व्यक्ति का अहंकारी होना</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> <strong>'थोथा चना बाजे घना'</strong> का अर्थ अल्पज्ञ या गुणहीन व्यक्ति द्वारा अधिक आडम्बर/दिखावा करना है।</div>
+</div><div class="in-note-q" data-search="&#x27;जिसका कोई शत्रु पैदा ही न हुआ हो&#x27; वाक्यांश के लिए एक शब्द क्या है? जिसका कोई शत्रु न जन्मा हो उसे &#x27;अजातशत्रु&#x27; कहते हैं; शत्रु को मारने वाला &#x27;शत्रुघ्न&#x27; कहलाता है।">
+  <div class="in-note-stem">Q5.4: &#x27;जिसका कोई शत्रु पैदा ही न हुआ हो&#x27; वाक्यांश के लिए एक शब्द क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> शत्रुघ्न</div><div class="in-opt"><strong>(B)</strong> अजेय</div><div class="in-opt"><strong>(C)</strong> अद्वितीय</div><div class="in-opt ans"><strong>(D)</strong> अजातशत्रु ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> जिसका कोई शत्रु न जन्मा हो उसे <strong>'अजातशत्रु'</strong> कहते हैं; शत्रु को मारने वाला <strong>'शत्रुघ्न'</strong> कहलाता है।</div>
+</div><div class="in-note-q" data-search="&#x27;जो सब कुछ जानता हो&#x27; तथा &#x27;जो बहुत कम जानता हो&#x27; के लिए क्रमशः एक-एक शब्द बताइए: सब कुछ जानने वाला = सर्वज्ञ; कम जानने वाला = अल्पज्ञ; कुछ न जानने वाला = अज्ञ।">
+  <div class="in-note-stem">Q5.5: &#x27;जो सब कुछ जानता हो&#x27; तथा &#x27;जो बहुत कम जानता हो&#x27; के लिए क्रमशः एक-एक शब्द बताइए:</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> सर्वज्ञ तथा अल्पज्ञ ✅</div><div class="in-opt"><strong>(B)</strong> बहुज्ञ तथा अज्ञ</div><div class="in-opt"><strong>(C)</strong> विज्ञ तथा अभिज्ञ</div><div class="in-opt"><strong>(D)</strong> मर्मज्ञ तथा सर्वज्ञ</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> सब कुछ जानने वाला = सर्वज्ञ; कम जानने वाला = अल्पज्ञ; कुछ न जानने वाला = अज्ञ।</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: व्याकरण भेद व विराम चिह्न — संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न</h2>
+    <span class="badge">4 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न सर्वनाम के 6 भेद (कुल 11 मूल सर्वनाम): पुरुषवाचक • निश्चयवाचक • अनिश्चयवाचक • संबंधवाचक • प्रश्नवाचक • निजवाचक (&#x27;आप/स्वयं&#x27;) कारक के 8 भेद और उनकी विभक्तियाँ: (1) कर्ता (ने), (2) कर्म (को), (3) करण (से, के द्वारा — साधन), (4) संप्रदान (को, के लिए — दान या स्थायी भेंट देने के अर्थ में &#x27;को&#x27; संप्रदान कारक होता है, जैसे &#x27;राजा ने भिखारी को कंबल दिया&#x27;!), (5) अपादान (से — अलग होने, डरने, तुलना करने, सीखने या लजाने के भाव में: &#x27;पेड़ से पत्ता गिरा&#x27;, &#x27;गंगा हिमालय से निकलती है&#x27;, &#x27;बच्चा शेर से डरता है&#x27;), (6) संबंध (का, के, की, रा, रे, री), (7) अधिकरण (में, पर), (8) संबोधन (हे!, अरे!)। विराम चिह्न (कामताप्रसाद गुरु के अनुसार 20): अल्पविराम (,), अर्द्धविराम (;), पूर्णविराम (।), उपविराम (:), योजक चिह्न (-), हंसपद/त्रुटिपूरक चिह्न (^)। exam trap: &#x27;दान देने&#x27; (जहाँ वस्तु वापस न ली जाए) में &#x27;को&#x27; विभक्ति होने पर भी कर्म कारक नहीं बल्कि &#x27;संप्रदान कारक&#x27; होता है! और डर, तुलना, घृणा व अलगाव में &#x27;से&#x27; हमेशा &#x27;अपादान कारक&#x27; होता है!">
+  <div class="sub-h">📌 6.1 संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 सर्वनाम के 6 भेद (कुल 11 मूल सर्वनाम): पुरुषवाचक</li><li>🔹 निश्चयवाचक</li><li>🔹 अनिश्चयवाचक</li><li>🔹 संबंधवाचक</li><li>🔹 प्रश्नवाचक</li><li>🔹 निजवाचक (<strong>'आप/स्वयं'</strong>)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>कारक के 8 भेद और उनकी विभक्तियाँ: (1) कर्ता (ने), (2) कर्म (को), (3) करण (से, के द्वारा — साधन), (4) संप्रदान (को, के लिए — दान या स्थायी भेंट देने के अर्थ में <strong>'को'</strong> संप्रदान कारक होता है, जैसे <strong>'राजा ने भिखारी को कंबल दिया'</strong>!), (5) अपादान (से — अलग होने, डरने, तुलना करने, सीखने या लजाने के भाव में: <strong>'पेड़ से पत्ता गिरा'</strong>, <strong>'गंगा हिमालय से निकलती है'</strong>, <strong>'बच्चा शेर से डरता है'</strong>), (6) संबंध (का, के, की, रा, रे, री), (7) अधिकरण (में, पर), (8) संबोधन (हे!, अरे!)। विराम चिह्न (कामताप्रसाद गुरु के अनुसार 20): अल्पविराम (,), अर्द्धविराम (;), पूर्णविराम (।), उपविराम (:), योजक चिह्न (-), हंसपद/त्रुटिपूरक चिह्न (^)।</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> क्रियाविशेषण के 4 भेद (अव्यय): कालवाचक (कब? — आज, कल, प्रतिदिन), स्थानवाचक (कहाँ? — अंदर, बाहर, ऊपर), परिमाणवाचक (कितना? — थोड़ा, बहुत, पर्याप्त), रीतिवाचक (कैसे? — धीरे-धीरे, अचानक, ध्यानपूर्वक)।</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: <strong>'दान देने'</strong> (जहाँ वस्तु वापस न ली जाए) में <strong>'को'</strong> विभक्ति होने पर भी कर्म कारक नहीं बल्कि <strong>'संप्रदान कारक'</strong> होता है! और डर, तुलना, घृणा व अलगाव में <strong>'से'</strong> हमेशा <strong>'अपादान कारक'</strong> होता है!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="&#x27;पेड़ से पत्ता गिरा&#x27; और &#x27;हिमालय से गंगा निकलती है&#x27; वाक्यों में &#x27;से&#x27; विभक्ति किस कारक की द्योतक है? जब &#x27;से&#x27; का प्रयोग अलग होने (पृथकता), उद्गम, डरने या तुलना के अर्थ में हो, तो वहाँ अपादान कारक होता है।">
+  <div class="in-note-stem">Q6.1: &#x27;पेड़ से पत्ता गिरा&#x27; और &#x27;हिमालय से गंगा निकलती है&#x27; वाक्यों में &#x27;से&#x27; विभक्ति किस कारक की द्योतक है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> करण कारक (साधन के अर्थ में)</div><div class="in-opt"><strong>(B)</strong> कर्म कारक</div><div class="in-opt"><strong>(C)</strong> अधिकरण कारक</div><div class="in-opt ans"><strong>(D)</strong> अपादान कारक (अलगाव के अर्थ में) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> जब <strong>'से'</strong> का प्रयोग अलग होने (पृथकता), उद्गम, डरने या तुलना के अर्थ में हो, तो वहाँ अपादान कारक होता है।</div>
+</div><div class="in-note-q" data-search="&#x27;राजा ने भिक्षुक को दान दिया&#x27; वाक्य में &#x27;भिक्षुक को&#x27; में कौन-सा कारक है? जब किसी को कोई वस्तु सदा के लिए दी जाए (दान/भेंट) और वापस न ली जाए, तो &#x27;को&#x27; विभक्ति होने पर भी संप्रदान कारक होता है।">
+  <div class="in-note-stem">Q6.2: &#x27;राजा ने भिक्षुक को दान दिया&#x27; वाक्य में &#x27;भिक्षुक को&#x27; में कौन-सा कारक है?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> संप्रदान कारक ✅</div><div class="in-opt"><strong>(B)</strong> कर्म कारक</div><div class="in-opt"><strong>(C)</strong> करण कारक</div><div class="in-opt"><strong>(D)</strong> संबंध कारक</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> जब किसी को कोई वस्तु सदा के लिए दी जाए (दान/भेंट) और वापस न ली जाए, तो <strong>'को'</strong> विभक्ति होने पर भी संप्रदान कारक होता है।</div>
+</div><div class="in-note-q" data-search="&#x27;राम ने रावण को बाण से मारा&#x27; वाक्य में &#x27;राम ने&#x27;, &#x27;रावण को&#x27; और &#x27;बाण से&#x27; में क्रमशः कौन-से कारक हैं? राम ने = कर्ता कारक; रावण को = कर्म कारक; बाण से (साधन) = करण कारक।">
+  <div class="in-note-stem">Q6.3: &#x27;राम ने रावण को बाण से मारा&#x27; वाक्य में &#x27;राम ने&#x27;, &#x27;रावण को&#x27; और &#x27;बाण से&#x27; में क्रमशः कौन-से कारक हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> कर्म कारक, करण कारक और अपादान कारक</div><div class="in-opt ans"><strong>(B)</strong> कर्ता कारक, कर्म कारक और करण कारक ✅</div><div class="in-opt"><strong>(C)</strong> कर्ता कारक, संप्रदान कारक और अपादान कारक</div><div class="in-opt"><strong>(D)</strong> संबंध कारक, कर्म कारक और अधिकरण कारक</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> राम ने = कर्ता कारक; रावण को = कर्म कारक; बाण से (साधन) = करण कारक।</div>
+</div><div class="in-note-q" data-search="&#x27;कवि का स्त्रीलिंग&#x27; तथा &#x27;विद्वान का स्त्रीलिंग&#x27; शब्द क्रमशः क्या हैं? &#x27;कवि&#x27; का स्त्रीलिंग &#x27;कवयित्री&#x27; और &#x27;विद्वान&#x27; का स्त्रीलिंग &#x27;विदुषी&#x27; होता है।">
+  <div class="in-note-stem">Q6.4: &#x27;कवि का स्त्रीलिंग&#x27; तथा &#x27;विद्वान का स्त्रीलिंग&#x27; शब्द क्रमशः क्या हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> कवयित्री तथा विद्वानी</div><div class="in-opt"><strong>(B)</strong> कवियत्री तथा विदुषी</div><div class="in-opt ans"><strong>(C)</strong> कवयित्री तथा विदुषी ✅</div><div class="in-opt"><strong>(D)</strong> कविनी तथा विद्यावती</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> <strong>'कवि'</strong> का स्त्रीलिंग <strong>'कवयित्री'</strong> और <strong>'विद्वान'</strong> का स्त्रीलिंग <strong>'विदुषी'</strong> होता है।</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: गद्यांश एवं अलंकार — अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल</h2>
+    <span class="badge">15 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल शब्दालंकार: अनुप्रास (वर्ण आवृत्ति) • यमक (शब्द बार-बार, अर्थ भिन्न) • श्लेष (शब्द एक, अर्थ अनेक) | अर्थालंकार: उपमा • रूपक • उत्प्रेक्षा • अतिशयोक्ति अलंकार पहचान के अचूक सूत्र: (1) यमक अलंकार: &#x27;कनक कनक ते सौ गुनी&#x27; (कनक = सोना व धतूरा), &#x27;तीन बेर खाती थीं वे तीन बेर खाती हैं&#x27; (तीन बार व तीन बेर फल); (2) श्लेष अलंकार (चिपका हुआ अर्थ): &#x27;रहिमन पानी राखिए, बिन पानी सब सून, पानी गए न ऊबरे, मोती, मानुष, चून&#x27; (पानी = चमक, प्रतिष्ठा, जल); (3) उपमा (सा, से, सी, सरिस, सम): &#x27;पीपर पात सरिस मन डोला&#x27;; (4) रूपक (अभेद आरोप): &#x27;चरण कमल बंदौ हरिराई&#x27;; (5) उत्प्रेक्षा (मनु, मानो, जनु, जानो): &#x27;सोहत ओढ़े पीत पट, श्याम सलोने गात, मनहुँ नीलमणि शैल पर, आतप परयो प्रभात&#x27;। hinglish tip: जहाँ &#x27;सा, सी, सम, सरिस&#x27; दिखे = उपमा अलंकार; जहाँ &#x27;मनु, मानो, जनु, जानो&#x27; दिखे = उत्प्रेक्षा अलंकार; और जहाँ उपमेय-उपमान के बीच योजक (-) के साथ कोई वाचक शब्द न हो (&#x27;मैया मैं तो चंद्र-खिलौना लैहों&#x27;) = रूपक अलंकार!">
+  <div class="sub-h">📌 7.1 अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 शब्दालंकार: अनुप्रास (वर्ण आवृत्ति)</li><li>🔹 यमक (शब्द बार-बार, अर्थ भिन्न)</li><li>🔹 श्लेष (शब्द एक, अर्थ अनेक) | अर्थालंकार: उपमा</li><li>🔹 रूपक</li><li>🔹 उत्प्रेक्षा</li><li>🔹 अतिशयोक्ति</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>अलंकार पहचान के अचूक सूत्र: (1) यमक अलंकार: <strong>'कनक कनक ते सौ गुनी'</strong> (कनक = सोना व धतूरा), <strong>'तीन बेर खाती थीं वे तीन बेर खाती हैं'</strong> (तीन बार व तीन बेर फल)</li><li>(2) श्लेष अलंकार (चिपका हुआ अर्थ): &#x27;रहिमन पानी राखिए, बिन पानी सब सून, पानी गए न ऊबरे, मोती, मानुष, चून&#x27; (पानी = चमक, प्रतिष्ठा, जल)</li><li>(3) उपमा (सा, से, सी, सरिस, सम): <strong>'पीपर पात सरिस मन डोला'</strong></li><li>(4) रूपक (अभेद आरोप): <strong>'चरण कमल बंदौ हरिराई'</strong></li><li>(5) उत्प्रेक्षा (मनु, मानो, जनु, जानो): &#x27;सोहत ओढ़े पीत पट, श्याम सलोने गात, मनहुँ नीलमणि शैल पर, आतप परयो प्रभात&#x27;।</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> नवरस एवं उनके स्थायी भाव: शृंगार (रति — रसराज), हास्य (हास), करुण (शोक), रौद्र (क्रोध), वीर (उत्साह), भयानक (भय), वीभत्स (जुगुप्सा/घृणा), अद्भुत (विस्मय), शांत (निर्वेद), वात्सल्य (वत्सलता)।</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: जहाँ <strong>'सा, सी, सम, सरिस'</strong> दिखे = उपमा अलंकार; जहाँ <strong>'मनु, मानो, जनु, जानो'</strong> दिखे = उत्प्रेक्षा अलंकार; और जहाँ उपमेय-उपमान के बीच योजक (-) के साथ कोई वाचक शब्द न हो (<strong>'मैया मैं तो चंद्र-खिलौना लैहों'</strong>) = रूपक अलंकार!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="&#x27;क, ग, ज, फ&#x27; ध्वनियाँ जिनके नीचे नुक्ता लगा होता है, किस भाषा की आगत ध्वनियाँ मानी जाती हैं? नुक्ता युक्त &#x27;क़, ख़, ग़, ज़, फ़&#x27; अरबी-फारसी की आगत ध्वनियाँ हैं।">
+  <div class="in-note-stem">Q7.1: &#x27;क, ग, ज, फ&#x27; ध्वनियाँ जिनके नीचे नुक्ता लगा होता है, किस भाषा की आगत ध्वनियाँ मानी जाती हैं?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> अंग्रेजी की</div><div class="in-opt"><strong>(B)</strong> संस्कृत की</div><div class="in-opt"><strong>(C)</strong> तुर्की की</div><div class="in-opt ans"><strong>(D)</strong> अरबी-फारसी की ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> नुक्ता युक्त <strong>'क़, ख़, ग़, ज़, फ़'</strong> अरबी-फारसी की आगत ध्वनियाँ हैं।</div>
+</div><div class="in-note-q" data-search="&#x27;कनक&#x27; शब्द के दो प्रमुख अनेकार्थी अर्थ क्या हैं जिनके कारण यमक अलंकार का प्रसिद्ध दोहा बना है? &#x27;कनक कनक ते सौ गुनी मादकता अधिकाय&#x27; में एक कनक का अर्थ &#x27;धतूरा&#x27; और दूसरे का &#x27;सोना&#x27; है।">
+  <div class="in-note-stem">Q7.2: &#x27;कनक&#x27; शब्द के दो प्रमुख अनेकार्थी अर्थ क्या हैं जिनके कारण यमक अलंकार का प्रसिद्ध दोहा बना है?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> सोना (स्वर्ण) और धतूरा (तथा गेहूँ) ✅</div><div class="in-opt"><strong>(B)</strong> चाँदी और हीरा</div><div class="in-opt"><strong>(C)</strong> पानी और मोती</div><div class="in-opt"><strong>(D)</strong> चन्द्रमा और सूर्य</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> <strong>'कनक कनक ते सौ गुनी मादकता अधिकाय'</strong> में एक कनक का अर्थ <strong>'धतूरा'</strong> और दूसरे का <strong>'सोना'</strong> है।</div>
+</div><div class="in-note-q" data-search="भरतमुनि के &#x27;नाट्यशास्त्र&#x27; के अनुसार रसों की संख्या कितनी मानी गई है और &#x27;शांत रस&#x27; का स्थायी भाव क्या है? भरतमुनि ने 8 रस माने हैं (शांत रस को नहीं गिना); काव्य में कुल 9 रस हैं और शांत रस का स्थायी भाव &#x27;निर्वेद&#x27; है।">
+  <div class="in-note-stem">Q7.3: भरतमुनि के &#x27;नाट्यशास्त्र&#x27; के अनुसार रसों की संख्या कितनी मानी गई है और &#x27;शांत रस&#x27; का स्थायी भाव क्या है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 11 रस; शांत रस का स्थायी भाव &#x27;उत्साह&#x27; है</div><div class="in-opt ans"><strong>(B)</strong> भरतमुनि के अनुसार 8 रस; शांत रस का स्थायी भाव &#x27;निर्वेद (शम)&#x27; है ✅</div><div class="in-opt"><strong>(C)</strong> 9 रस; शांत रस का स्थायी भाव &#x27;जुगुप्सा&#x27; है</div><div class="in-opt"><strong>(D)</strong> 10 रस; शांत रस का स्थायी भाव &#x27;विस्मय&#x27; है</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> भरतमुनि ने 8 रस माने हैं (शांत रस को नहीं गिना); काव्य में कुल 9 रस हैं और शांत रस का स्थायी भाव <strong>'निर्वेद'</strong> है।</div>
+</div><div class="in-note-q" data-search="&#x27;चरण कमल बंदौ हरिराई&#x27; पंक्ति में कौन-सा अलंकार है? उपमेय (चरण) पर उपमान (कमल) का अभेद आरोप होने से यहाँ रूपक अलंकार है।">
+  <div class="in-note-stem">Q7.4: &#x27;चरण कमल बंदौ हरिराई&#x27; पंक्ति में कौन-सा अलंकार है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> उपमा अलंकार</div><div class="in-opt"><strong>(B)</strong> उत्प्रेक्षा अलंकार</div><div class="in-opt ans"><strong>(C)</strong> रूपक अलंकार ✅</div><div class="in-opt"><strong>(D)</strong> यमक अलंकार</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> उपमेय (चरण) पर उपमान (कमल) का अभेद आरोप होने से यहाँ रूपक अलंकार है।</div>
+</div><div class="in-note-q" data-search="&#x27;काली घटा का घमंड घटा&#x27; पंक्ति में &#x27;घटा&#x27; शब्द की आवृत्ति भिन्न-भिन्न अर्थों (बादलों की घटा और कम हुआ) में होने से कौन-सा अलंकार है? जब एक ही शब्द दो या अधिक बार आए और प्रत्येक बार उसका अर्थ भिन्न हो, तो यमक अलंकार होता है।">
+  <div class="in-note-stem">Q7.5: &#x27;काली घटा का घमंड घटा&#x27; पंक्ति में &#x27;घटा&#x27; शब्द की आवृत्ति भिन्न-भिन्न अर्थों (बादलों की घटा और कम हुआ) में होने से कौन-सा अलंकार है?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> श्लेष अलंकार</div><div class="in-opt"><strong>(B)</strong> अनुप्रास अलंकार</div><div class="in-opt"><strong>(C)</strong> वक्रोक्ति अलंकार</div><div class="in-opt ans"><strong>(D)</strong> यमक अलंकार ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> जब एक ही शब्द दो या अधिक बार आए और प्रत्येक बार उसका अर्थ भिन्न हो, तो यमक अलंकार होता है।</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (सामान्य हिन्दी)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — काल एवं वाच्य — काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)]</strong> भूतकाल के 6 भेद: सामान्य</li><li>🔹 <strong>[काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)]</strong> आसन्न (अभी समाप्त: <strong>'है'</strong> लगा हो)</li><li>🔹 <strong>[काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)]</strong> पूर्ण (<strong>'था/थी/थे'</strong>)</li><li>🔹 <strong>[काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)]</strong> अपूर्ण (<strong>'रहा था'</strong>)</li><li>🔹 <strong>[काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)]</strong> संदिग्ध (<strong>'होगा'</strong>)</li><li>🔹 <strong>[काल (Tense) के 14 उपभेद — भूतकाल (6), वर्तमान काल (5) एवं भविष्यत् काल (3)]</strong> हेतुहेतुमद्भूत (शर्त: <strong>'यदि...तो'</strong>)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: <strong>'मैंने खाना खाया है'</strong> में अंत में <strong>'है'</strong> देखकर वर्तमान काल मत लगा देना — क्रिया अभी-अभी पूर्ण हुई है इसलिए यह <strong>'आसन्न भूतकाल'</strong> (Recent Past) है!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — संधि एवं समास — संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम]</strong> स्वर संधि (5 भेद): दीर्घ (आ, ई, ऊ)</li><li>🔹 <strong>[संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम]</strong> गुण (ए, ओ, अर्)</li><li>🔹 <strong>[संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम]</strong> वृद्धि (ऐ, औ)</li><li>🔹 <strong>[संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम]</strong> यण (य्, व्, र् के पहले आधा अक्षर)</li><li>🔹 <strong>[संधि-विच्छेद — स्वर संधि (5 भेद), व्यंजन संधि एवं विसर्ग संधि के नियम]</strong> अयादि (अय, आय, अव, आव)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: एक मात्रा (े, ो) = गुण संधि; दो मात्रा (ै, ौ) = वृद्धि संधि; <strong>'य/व'</strong> के ठीक पहले आधा अक्षर = यण संधि; और 3 अक्षर का बिना मात्रा का शब्द (नयन, पवन, पावक, नाविक) = अयादि संधि!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — वर्तनी एवं वाक्य शुद्धि — मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम]</strong> सदा शुद्ध वर्तनी: उज्ज्वल (दोनों &#x27;ज&#x27; आधे)</li><li>🔹 <strong>[मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम]</strong> कवयित्री</li><li>🔹 <strong>[मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम]</strong> आशीर्वाद (<strong>'वा'</strong> पर रेफ)</li><li>🔹 <strong>[मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम]</strong> संन्यासी (अनुस्वार + आधा न)</li><li>🔹 <strong>[मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम]</strong> अनुगृहीत</li><li>🔹 <strong>[मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम]</strong> प्रज्वलित</li><li>🔹 <strong>[मानक वर्तनी शुद्धि एवं वाक्य शुद्धि के उच्च-स्कोरिंग नियम]</strong> वाल्मीकि</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: <strong>'अनेकों'</strong> शब्द हिन्दी व्याकरण में पूर्णतः अशुद्ध है क्योंकि <strong>'एक'</strong> का बहुवचन <strong>'अनेक'</strong> ही होता है! इसी प्रकार <strong>'दरअसल में'</strong> और <strong>'बावजूद भी'</strong> अशुद्ध हैं।</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — शब्द भंडार — शब्द भंडार — तत्सम-तद्भव पहचान, पर्यायवाची, विलोम एवं अनेकार्थी शब्द</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[शब्द भंडार — तत्सम-तद्भव पहचान, पर्यायवाची, विलोम एवं अनेकार्थी शब्द]</strong> तत्सम पहचान चिह्न: क्ष, त्र, ज्ञ, श्र, ऋ, ष, विसर्ग (ः) एवं रेफ (र्) वाले शब्द प्रायः तत्सम (संस्कृत) होते हैं; चंद्रबिंदु (ँ) वाले शब्द सदैव तद्भव होते हैं!</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: जहाँ भी चंद्रबिंदु (ँ) दिखे (जैसे—आँख, चाँद, मुँह, गाँव, गेहूँ, पाँच) वह 100% तद्भव शब्द है! और <strong>'क्ष'</strong> का तद्भव &#x27;ख<strong>' या '</strong>छ&#x27; बनता है (क्षीर -&gt; खीर, क्षेत्र -&gt; खेत)।</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — मुहावरे व लोकोक्तियाँ — प्रमुख मुहावरे, लोकोक्तियाँ एवं वाक्यांश के लिए एक शब्द</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[प्रमुख मुहावरे, लोकोक्तियाँ एवं वाक्यांश के लिए एक शब्द]</strong> मुहावरा = वाक्यांश (अंत में प्रायः <strong>'ना'</strong> क्रिया: नौ दो ग्यारह होना)</li><li>🔹 <strong>[प्रमुख मुहावरे, लोकोक्तियाँ एवं वाक्यांश के लिए एक शब्द]</strong> लोकोक्ति = पूर्ण स्वतंत्र लोक-कथन (अधजल गगरी छलकत जाए)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: मुहावरे के अर्थ में कभी भी शाब्दिक (Literal) अर्थ वाला विकल्प न चुनें — सदैव लाक्षणिक (Figurative) अर्थ चुनें!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — व्याकरण भेद व विराम चिह्न — संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न]</strong> सर्वनाम के 6 भेद (कुल 11 मूल सर्वनाम): पुरुषवाचक</li><li>🔹 <strong>[संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न]</strong> निश्चयवाचक</li><li>🔹 <strong>[संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न]</strong> अनिश्चयवाचक</li><li>🔹 <strong>[संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न]</strong> संबंधवाचक</li><li>🔹 <strong>[संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न]</strong> प्रश्नवाचक</li><li>🔹 <strong>[संज्ञा, सर्वनाम (6 भेद), विशेषण (4 भेद), क्रिया, कारक (8 भेद) एवं विराम चिह्न]</strong> निजवाचक (<strong>'आप/स्वयं'</strong>)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: <strong>'दान देने'</strong> (जहाँ वस्तु वापस न ली जाए) में <strong>'को'</strong> विभक्ति होने पर भी कर्म कारक नहीं बल्कि <strong>'संप्रदान कारक'</strong> होता है! और डर, तुलना, घृणा व अलगाव में <strong>'से'</strong> हमेशा <strong>'अपादान कारक'</strong> होता है!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — गद्यांश एवं अलंकार — अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल]</strong> शब्दालंकार: अनुप्रास (वर्ण आवृत्ति)</li><li>🔹 <strong>[अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल]</strong> यमक (शब्द बार-बार, अर्थ भिन्न)</li><li>🔹 <strong>[अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल]</strong> श्लेष (शब्द एक, अर्थ अनेक) | अर्थालंकार: उपमा</li><li>🔹 <strong>[अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल]</strong> रूपक</li><li>🔹 <strong>[अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल]</strong> उत्प्रेक्षा</li><li>🔹 <strong>[अलंकार (शब्दालंकार व अर्थालंकार), रस-निष्पत्ति एवं अपठित गद्यांश कौशल]</strong> अतिशयोक्ति</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: जहाँ <strong>'सा, सी, सम, सरिस'</strong> दिखे = उपमा अलंकार; जहाँ <strong>'मनु, मानो, जनु, जानो'</strong> दिखे = उत्प्रेक्षा अलंकार; और जहाँ उपमेय-उपमान के बीच योजक (-) के साथ कोई वाचक शब्द न हो (<strong>'मैया मैं तो चंद्र-खिलौना लैहों'</strong>) = रूपक अलंकार!</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

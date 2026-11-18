@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programming &amp; Data Structures — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Programming &amp; Data Structures</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="13_B08_Programming_C_CPP_DSA_Java_Python_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/13_B08_Programming_C_CPP_DSA_Java_Python_Question_Booklet.html">📝 Question Booklet (60 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 10–12 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Programming &amp; Data Structures (C/C++, Stacks &amp; Queues, Linked Lists, Trees &amp; BST, OOP, Java &amp; Python)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/13_B08_Programming_C_CPP_DSA_Java_Python_Question_Booklet.html">📝 Open 60-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: C/C++ Fundamentals — C/C++ S</a><a class="pill" href="#ch2">Ch 2: Stacks &amp; Queues — Stacks (LI</a><a class="pill" href="#ch3">Ch 3: Linked Lists — Singly, Doubl</a><a class="pill" href="#ch4">Ch 4: Trees &amp; BST — Binary Trees, </a><a class="pill" href="#ch5">Ch 5: OOP Principles — OOP Four Pi</a><a class="pill" href="#ch6">Ch 6: Java Architecture — Java Arc</a><a class="pill" href="#ch7">Ch 7: Python Concepts — Python Mut</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Programming &amp; Data Structures — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Programming (C / C++ / Java / Python) &amp; Data Structures</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Concept / Data Structure</th><th>Formula / Syntax Rule</th><th>Key Exam Traps &amp; Complexity Bounds</th></tr></thead>
+  <tbody>
+    <tr><td><strong>2D Array Address Calculation</strong></td><td><code>A[L1..U1, L2..U2]</code> with <code>R</code> rows, <code>C</code> cols, element size <code>W</code></td><td><strong>Row-Major (C/C++/Java/Python):</strong> <code>Base + W × [(i − L1) × C + (j − L2)]</code><br><strong>Column-Major (FORTRAN/MATLAB):</strong> <code>Base + W × [(j − L2) × R + (i − L1)]</code></td></tr>
+    <tr><td><strong>Binary Tree &amp; AVL / B+ Tree</strong></td><td>Leaf nodes with 2 children: <code>L = I + 1</code> (strict binary tree: <code>L = (k−1)I + 1</code> for k-ary)</td><td>• <code>n</code> nodes form <code>C_n = (1/(n+1)) C(2n, n)</code> distinct unlabeled Binary Trees / BSTs (Catalan number: 1, 2, 5, 14, 42 for n=1..5)<br>• Unique Binary Tree reconstruction requires <strong>Inorder + (Preorder OR Postorder)</strong><br>• <strong>AVL Tree:</strong> Balance factor <code>∈ {−1, 0, +1}</code>; min nodes of height <code>h</code>: <code>N(h) = N(h−1) + N(h−2) + 1</code></td></tr>
+    <tr><td><strong>C / C++ / Java / Python OOP</strong></td><td>C++ <code>virtual</code> vtable/vptr vs Java <code>interface</code> vs Python C3 MRO</td><td>• C++ base classes with virtual functions MUST have a <strong><code>virtual</code> destructor</strong> to prevent memory leaks<br>• Java: all methods (except <code>static/final/private</code>) are virtual by default; no operator overloading; multiple inheritance via <code>interface</code><br>• Python: <code>tuple, str, frozenset</code> are <strong>immutable</strong> (valid dict keys); <code>list, dict, set</code> are <strong>mutable</strong></td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: C/C++ Fundamentals — C/C++ Storage Classes, Pointers, Dynamic Memory, Struct vs Union &amp; Preprocessor Macros</h2>
+    <span class="badge">17 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="c/c++ storage classes, pointers, dynamic memory, struct vs union &amp; preprocessor macros array-pointer identity: arr[i] == *(arr + i) == *(i + arr) == i[arr] • 2d row-major address(a[i][j]) = base + [(i × cols) + j] × sizeof(elem) • column-major = base + [(j × rows) + i] × w c storage classes table: (1) `auto` (memory: stack, default value: garbage, scope: local block, lifetime: function call), (2) `register` (memory: cpu register, default: garbage, scope: local, note: cannot apply address-of `&amp;` operator!), (3) `static` (memory: data/bss segment, default: zero `0`, scope: local to block/file, lifetime: entire program execution — retains value across function calls!), (4) `extern` (memory: data segment, default: zero `0`, scope: global across multiple files). `struct` allocates sum of all member sizes (plus alignment padding), whereas `union` allocates size equal to its largest member (all members share offset 0). dangling pointer points to freed/deallocated memory; memory leak occurs when heap memory (`malloc`/`new`) loses its pointer without `free()`/`delete`. hinglish tip: `static` variable sirf ek baar initialize hota hai (default 0) aur function khatam hone par bhi apni purani value yaad rakhta hai! aur c me `sizeof(&#x27;a&#x27;)` = `sizeof(int)` = 4 bytes hota hai, jabki c++ me `sizeof(&#x27;a&#x27;)` = 1 byte hota hai!">
+  <div class="sub-h">📌 1.1 C/C++ Storage Classes, Pointers, Dynamic Memory, Struct vs Union &amp; Preprocessor Macros</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Array-Pointer Identity: arr[i] == *(arr + i) == *(i + arr) == i[arr]</li><li>🔹 2D Row-Major Address(A[i][j]) = Base + [(i × Cols) + j] × sizeof(elem)</li><li>🔹 Column-Major = Base + [(j × Rows) + i] × W</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>C Storage Classes Table: (1) `auto` (Memory: Stack, Default value: Garbage, Scope: Local block, Lifetime: Function call), (2) `register` (Memory: CPU Register, Default: Garbage, Scope: Local, Note: Cannot apply address-of `&amp;` operator!), (3) `static` (Memory: Data/BSS Segment, Default: Zero `0`, Scope: Local to block/file, Lifetime: Entire program execution — retains value across function calls!), (4) `extern` (Memory: Data Segment, Default: Zero `0`, Scope: Global across multiple files).</li><li>`struct` allocates sum of all member sizes (plus alignment padding), whereas `union` allocates size equal to its LARGEST member (all members share offset 0).</li><li>Dangling Pointer points to freed/deallocated memory</li><li>Memory Leak occurs when heap memory (`malloc`/`new`) loses its pointer without `free()`/`delete`.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Row-Major Address Math: Given 2D array `int A[10][20]` stored in Row-Major order with Base Address = 1000 and `sizeof(int) = 4` bytes. Address of `A[3][5]` = 1000 + (3 × 20 + 5) × 4 = 1000 + 65 × 4 = 1260.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: `static` variable sirf EK baar initialize hota hai (default 0) aur function khatam hone par bhi apni purani value yaad rakhta hai! Aur C me `sizeof(&#x27;A&#x27;)` = `sizeof(int)` = 4 bytes hota hai, jabki C++ me `sizeof(&#x27;A&#x27;)` = 1 byte hota hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="who developed the c programming language at at&amp;t bell labs in 1972? creators: c = dennis ritchie (1972); c++ = bjarne stroustrup (1979); java = james gosling (1995); python = guido van rossum (1991).">
+  <div class="in-note-stem">Q1.1: Who developed the C programming language at AT&amp;T Bell Labs in 1972?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Dennis Ritchie ✅</div><div class="in-opt"><strong>(B)</strong> Bjarne Stroustrup (C++)</div><div class="in-opt"><strong>(C)</strong> James Gosling (Java)</div><div class="in-opt"><strong>(D)</strong> Guido van Rossum (Python)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Creators: C = Dennis Ritchie (<mark class="hl">1972</mark>); C++ = Bjarne Stroustrup (<mark class="hl">1979</mark>); Java = James Gosling (<mark class="hl">1995</mark>); Python = Guido van Rossum (<mark class="hl">1991</mark>).</div>
+</div><div class="in-note-q" data-search="which of the following is a valid c/c++/java/python identifier (variable name)? an identifier must begin with a letter (`a–z, a–z`) or underscore (`_`), followed by letters, digits, or underscores, and cannot be a keyword.">
+  <div class="in-note-stem">Q1.2: Which of the following is a valid C/C++/Java/Python identifier (variable name)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1st_rank (starts with digit)</div><div class="in-opt ans"><strong>(B)</strong> _total_marks_1 ✅</div><div class="in-opt"><strong>(C)</strong> total-marks (contains hyphen)</div><div class="in-opt"><strong>(D)</strong> switch (reserved keyword)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> An identifier must begin with a letter (`A–Z, a–z`) or underscore (`_`), followed by letters, digits, or underscores, and cannot be a keyword.</div>
+</div><div class="in-note-q" data-search="in c, what is the output of `printf(&quot;%d&quot;, 17 % 5);` and `printf(&quot;%d&quot;, -17 % 5);`? 2 and -2 (in c/c++/java, the remainder `%` takes the sign of the dividend/numerator) — in c/c++/java, `a % b` has the sign of the dividend `a` (`-17 % 5 = -2`), whereas in python `a % b` has the sign of the divisor `b` (`-17 % 5 = +3`).">
+  <div class="in-note-stem">Q1.3: In C, what is the output of `printf(&quot;%d&quot;, 17 % 5);` and `printf(&quot;%d&quot;, -17 % 5);`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 2 and +3</div><div class="in-opt"><strong>(B)</strong> 3 and -3</div><div class="in-opt ans"><strong>(C)</strong> 2 and -2 ✅</div><div class="in-opt"><strong>(D)</strong> 3.4 and -3.4</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> 2 and -2 (in C/C++/Java, the remainder `%` takes the sign of the dividend/numerator) — In C/C++/Java, `a % b` has the sign of the dividend `a` (`-17 % 5 = -2`), whereas in Python `a % b` has the sign of the divisor `b` (`-17 % 5 = +3`).</div>
+</div><div class="in-note-q" data-search="in c, if `int x = 5;`, what is the difference between pre-increment `y = ++x;` and post-increment `y = x++;`? in `y = ++x`, x increments first so y = 6, x = 6; in `y = x++`, old value is assigned first so y = 5, x = 6. pre-increment (`++x`) increments then returns the new value; post-increment (`x++`) returns the old value then increments.">
+  <div class="in-note-stem">Q1.4: In C, if `int x = 5;`, what is the difference between pre-increment `y = ++x;` and post-increment `y = x++;`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Both give y = 5</div><div class="in-opt"><strong>(B)</strong> Both give y = 6</div><div class="in-opt"><strong>(C)</strong> Post-increment decrements x</div><div class="in-opt ans"><strong>(D)</strong> In `y = ++x`, x increments first so y = 6, x = 6 ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> In `y = ++x`, x increments first so y = 6, x = 6; in `y = x++`, old value is assigned first so y = 5, x = 6. Pre-increment (`++x`) increments then returns the new value; Post-increment (`x++`) returns the old value then increments.</div>
+</div><div class="in-note-q" data-search="among the four c storage classes (`auto, register, static, extern`), what is the default initial value and lifetime of a `static` local variable? default initial value = 0; lifetime = throughout the entire program execution (retains value across function calls) — `auto` and `register` have garbage default values and block lifetime; `static` and `extern` (global) are zero-initialized and persist for the whole program lifetime.">
+  <div class="in-note-stem">Q1.5: Among the four C Storage Classes (`auto, register, static, extern`), what is the default initial value and lifetime of a `static` local variable?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Default initial value = 0; Lifetime = throughout the entire program execution ✅</div><div class="in-opt"><strong>(B)</strong> Default initial value = Garbage; Lifetime = destroyed on function return (like `auto`)</div><div class="in-opt"><strong>(C)</strong> Stored in CPU registers</div><div class="in-opt"><strong>(D)</strong> Accessible from all other files without declaration</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Default initial value = 0; Lifetime = throughout the entire program execution (retains value across function calls) — `auto` and `register` have garbage default values and block lifetime; `static` and `extern` (global) are zero-initialized and persist for the whole program lifetime.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Stacks &amp; Queues — Stacks (LIFO), Infix-to-Postfix/Prefix Conversion, Recursion &amp; Circular Queues (FIFO)</h2>
+    <span class="badge">11 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="stacks (lifo), infix-to-postfix/prefix conversion, recursion &amp; circular queues (fifo) circular queue (array size n): enqueue -&gt; rear = (rear + 1) % n • dequeue -&gt; front = (front + 1) % n • full -&gt; (rear + 1) % n == front • count = (rear − front + n) % n + 1 stack (lifo) operations (`push`, `pop`, `peek` all o(1)) power function call activation records, undo/redo, backtracking, balanced parentheses checking, and expression evaluation. operator precedence &amp; associativity in infix-to-postfix: exponentiation (`^` or `**`) has highest precedence and is right-associative (`a ^ b ^ c` -&gt; `a b c ^ ^`!); multiplication/division (`*`, `/`) are higher than addition/subtraction (`+`, `-`) and are left-associative (`a - b - c` -&gt; `a b - c -`). to implement a queue using stacks requires minimum 2 stacks; to implement a stack using queues requires 2 queues. catalan number `c_n = (1/(n+1)) × (2n choose n)` gives the number of valid stack-sortable permutations of `1..n`! exam trap: exponentiation operator `^` right-to-left associative hota hai (`2 ^ 3 ^ 2 = 2 ^ 9 = 512`), isliye `a ^ b ^ c` ka postfix `a b c ^ ^` banta hai (na ki `a b ^ c ^`)!">
+  <div class="sub-h">📌 2.1 Stacks (LIFO), Infix-to-Postfix/Prefix Conversion, Recursion &amp; Circular Queues (FIFO)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Circular Queue (Array size N): Enqueue -&gt; rear = (rear + 1) % N</li><li>🔹 Dequeue -&gt; front = (front + 1) % N</li><li>🔹 Full -&gt; (rear + 1) % N == front</li><li>🔹 Count = (rear − front + N) % N + 1</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Stack (LIFO) Operations (`push`, `pop`, `peek` all O(1)) power Function Call Activation Records, Undo/Redo, Backtracking, Balanced Parentheses Checking, and Expression Evaluation.</li><li>Operator Precedence &amp; Associativity in Infix-to-Postfix: Exponentiation (`^` or `**`) has highest precedence and is RIGHT-associative (`A ^ B ^ C` -&gt; `A B C ^ ^`!)</li><li>Multiplication/Division (`*`, `/`) are higher than Addition/Subtraction (`+`, `-`) and are LEFT-associative (`A - B - C` -&gt; `A B - C -`).</li><li>To implement a Queue using Stacks requires minimum 2 Stacks</li><li>to implement a Stack using Queues requires 2 Queues.</li><li>Catalan Number `C_n = (1/(n+1)) × (2n choose n)` gives the number of valid stack-sortable permutations of `1..n`!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Postfix Evaluation: Evaluate Postfix expression `6 5 2 3 + 8 * + 3 + *`. Step 1: `2 3 +` = 5. Step 2: `5 8 *` = 40. Step 3: `5 40 +` = 45. Step 4: `45 3 +` = 48. Step 5: `6 48 *` = 288.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Exponentiation operator `^` RIGHT-to-LEFT associative hota hai (`2 ^ 3 ^ 2 = 2 ^ 9 = 512`), isliye `A ^ B ^ C` ka Postfix `A B C ^ ^` banta hai (na ki `A B ^ C ^`)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the time complexity of accessing the `i-th` element `a[i]` in a 1d array vs a singly linked list of `n` nodes? arrays store elements in contiguous memory (`addr(a[i]) = base + i × w` in `o(1)` time); linked lists require following `next` pointers sequentially (`o(n)`).">
+  <div class="in-note-stem">Q2.1: What is the time complexity of accessing the `i-th` element `A[i]` in a 1D Array vs a Singly Linked List of `n` nodes?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Array = O(n); Linked List = O(1)</div><div class="in-opt ans"><strong>(B)</strong> Array = O(1) random access; Singly Linked List = O(n) sequential traversal ✅</div><div class="in-opt"><strong>(C)</strong> Both are O(1)</div><div class="in-opt"><strong>(D)</strong> Both are O(log n)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Arrays store elements in contiguous memory (`Addr(A[i]) = Base + i × W` in `O(1)` time); Linked Lists require following `next` pointers sequentially (`O(n)`).</div>
+</div><div class="in-note-q" data-search="for a 2d array `int a[10][20]` (10 rows, 20 columns, `0`-indexed) stored in row-major order with base address `1000` and element size `w = 4 bytes`, what is the address of element `a[3][5]`? 1260 (base + w × [i × c + j] = 1000 + 4 × [3 × 20 + 5] = 1000 + 4 × 65 = 1260) — in 0-indexed row-major order (`c = 20` columns): `address(a[i][j]) = base + w × (i × c + j) = 1000 + 4 × (3 × 20 + 5) = 1260`.">
+  <div class="in-note-stem">Q2.2: For a 2D array `int A[10][20]` (10 rows, 20 columns, `0`-indexed) stored in Row-Major Order with Base Address `1000` and element size `W = 4 Bytes`, what is the address of element `A[3][5]`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1140</div><div class="in-opt"><strong>(B)</strong> 1200</div><div class="in-opt ans"><strong>(C)</strong> 1260 ✅</div><div class="in-opt"><strong>(D)</strong> 1300</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> 1260 (Base + W × [i × C + j] = 1000 + 4 × [3 × 20 + 5] = 1000 + 4 × 65 = 1260) — In 0-indexed Row-Major order (`C = 20` columns): `Address(A[i][j]) = Base + W × (i × C + j) = 1000 + 4 × (3 × 20 + 5) = 1260`.</div>
+</div><div class="in-note-q" data-search="which data structure follows the &#x27;lifo&#x27; (last-in, first-out) principle, and what are its two primary applications? stack (lifo); used in function call recursion, infix-to-postfix conversion, balanced parentheses checking, and undo operations. stack (lifo); used in function call recursion (activation records), infix-to-postfix conversion, balanced parentheses checking, and undo operations — stack operates on lifo (`push` and `pop` at top in `o(1)` time); queue operates on fifo (`enqueue` at rear, `dequeue` at front).">
+  <div class="in-note-stem">Q2.3: Which data structure follows the &#x27;LIFO&#x27; (Last-In, First-Out) principle, and what are its two primary applications?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Queue (FIFO)</div><div class="in-opt"><strong>(B)</strong> Binary Search Tree</div><div class="in-opt"><strong>(C)</strong> Hash Table</div><div class="in-opt ans"><strong>(D)</strong> Stack (LIFO) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Stack (LIFO); used in Function Call Recursion, Infix-to-Postfix conversion, Balanced Parentheses checking, and Undo operations. Stack (LIFO); used in Function Call Recursion (Activation Records), Infix-to-Postfix conversion, Balanced Parentheses checking, and Undo operations — Stack operates on LIFO (`push` and `pop` at Top in `O(1)` time); Queue operates on FIFO (`enqueue` at Rear, `dequeue` at Front).</div>
+</div><div class="in-note-q" data-search="convert the infix arithmetic expression `a + b * c` into its equivalent postfix (reverse polish) and prefix (polish) notations: since `*` has higher precedence than `+`, `b * c` is evaluated first: postfix = `a (b c *) +` = `a b c * +`; prefix = `+ a (* b c)` = `+ a * b c`.">
+  <div class="in-note-stem">Q2.4: Convert the Infix arithmetic expression `A + B * C` into its equivalent Postfix (Reverse Polish) and Prefix (Polish) notations:</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Postfix = `A B C * +`; Prefix = `+ A * B C` ✅</div><div class="in-opt"><strong>(B)</strong> Postfix = `A B + C *`; Prefix = `* + A B C`</div><div class="in-opt"><strong>(C)</strong> Postfix = `+ * A B C`</div><div class="in-opt"><strong>(D)</strong> Postfix = `A + B C *`</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Since `*` has higher precedence than `+`, `B * C` is evaluated first: Postfix = `A (B C *) +` = `A B C * +`; Prefix = `+ A (* B C)` = `+ A * B C`.</div>
+</div><div class="in-note-q" data-search="evaluate the postfix expression: `6 3 2 + * 4 −` push 6, 3, 2 -&gt; `+` pops 3,2 and pushes `3+2 = 5` -&gt; `*` pops 6,5 and pushes `6×5 = 30` -&gt; push 4 -&gt; `−` pops 30,4 and computes `30 − 4 = 26`.">
+  <div class="in-note-stem">Q2.5: Evaluate the Postfix expression: `6 3 2 + * 4 −`</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 16</div><div class="in-opt ans"><strong>(B)</strong> 26 ✅</div><div class="in-opt"><strong>(C)</strong> 20</div><div class="in-opt"><strong>(D)</strong> 14</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Push 6, 3, 2 -&gt; `+` pops 3,2 and pushes `3+2 = 5` -&gt; `*` pops 6,5 and pushes `6×5 = 30` -&gt; push 4 -&gt; `−` pops 30,4 and computes `30 − 4 = 26`.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: Linked Lists — Singly, Doubly &amp; Circular Linked Lists, Pointer Manipulation &amp; Floyd&#x27;s Cycle Detection</h2>
+    <span class="badge">3 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="singly, doubly &amp; circular linked lists, pointer manipulation &amp; floyd&#x27;s cycle detection singly ll complexities: insert/delete at head = o(1) • search = o(n) • delete given node with tail/last -&gt; o(n) • reverse singly ll in-place = o(n) time, o(1) space (3 pointers: prev, curr, next) in a singly linked list, inserting at the head (`newnode-&gt;next = head; head = newnode;`) and deleting the head take o(1) time. if a circular linked list maintains a pointer to the last (tail) node instead of head (`tail-&gt;next` is head!), both insertion at the front and insertion at the rear take o(1) constant time! in a doubly linked list, inserting a node x after node p executes: `x-&gt;next = p-&gt;next; x-&gt;prev = p; if(p-&gt;next) p-&gt;next-&gt;prev = x; p-&gt;next = x;`. floyd&#x27;s cycle-finding algorithm (tortoise and hare) uses `slow = slow-&gt;next` and `fast = fast-&gt;next-&gt;next` to detect a loop in o(n) time and o(1) auxiliary space. hinglish tip: circular singly linked list me agar pointer &#x27;head&#x27; ke bajay &#x27;last/tail node&#x27; par rakha jaye, to front aur rear dono jagah insertion o(1) time me ho jata hai (kyunki `last-&gt;next` hi head hota hai)!">
+  <div class="sub-h">📌 3.1 Singly, Doubly &amp; Circular Linked Lists, Pointer Manipulation &amp; Floyd&#x27;s Cycle Detection</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Singly LL Complexities: Insert/Delete at Head = O(1)</li><li>🔹 Search = O(n)</li><li>🔹 Delete Given Node with Tail/Last -&gt; O(n)</li><li>🔹 Reverse Singly LL In-Place = O(n) time, O(1) space (3 pointers: prev, curr, next)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In a Singly Linked List, inserting at the head (`newNode-&gt;next = head</li><li>head = newNode;`) and deleting the head take O(1) time.</li><li>If a Circular Linked List maintains a pointer to the LAST (Tail) node instead of Head (`tail-&gt;next` is Head!), BOTH insertion at the front AND insertion at the rear take O(1) constant time!</li><li>In a Doubly Linked List, inserting a node X after node P executes: `X-&gt;next = P-&gt;next</li><li>X-&gt;prev = P</li><li>if(P-&gt;next) P-&gt;next-&gt;prev = X</li><li>P-&gt;next = X;`.</li><li>Floyd&#x27;s Cycle-Finding Algorithm (Tortoise and Hare) uses `slow = slow-&gt;next` and `fast = fast-&gt;next-&gt;next` to detect a loop in O(n) time and O(1) auxiliary space.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Xor Linked List (Memory-Efficient Doubly Linked List): Stores `npx = prev ⊕ next` (bitwise XOR of previous and next addresses) in a single pointer field per node, allowing bidirectional traversal using only 1 pointer per node!</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Circular Singly Linked List me agar pointer <strong>'Head'</strong> ke bajay <strong>'Last/Tail node'</strong> par rakha jaye, to Front aur Rear DONO jagah insertion O(1) time me ho jata hai (kyunki `last-&gt;next` hi Head hota hai)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in a singly linked list vs a doubly linked list, how many pointers does each node contain, and what is the advantage of a doubly linked list? singly linked list node has 1 pointer (`next`); doubly linked list node has 2 pointers, allowing bidirectional traversal and `o(1)` deletion of a node given only a pointer to that node itself. singly linked list node has 1 pointer (`next`); doubly linked list node has 2 pointers (`prev` and `next`), allowing bidirectional traversal and `o(1)` deletion of a node given only a pointer to that node itself — in a singly linked list, deleting a node `p` requires knowing its predecessor (`o(n)` search unless head), whereas a doubly linked list accesses `p-&gt;prev` directly in `o(1)` time.">
+  <div class="in-note-stem">Q3.1: In a Singly Linked List vs a Doubly Linked List, how many pointers does each node contain, and what is the advantage of a Doubly Linked List?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Singly Linked List node has 1 pointer (`next`) ✅</div><div class="in-opt"><strong>(B)</strong> Singly Linked List allows O(1) backward traversal</div><div class="in-opt"><strong>(C)</strong> Doubly Linked List uses less memory per node than Singly Linked List</div><div class="in-opt"><strong>(D)</strong> Linked lists store nodes in contiguous memory</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Singly Linked List node has 1 pointer (`next`); Doubly Linked List node has 2 pointers, allowing bidirectional traversal and `O(1)` deletion of a node given only a pointer to that node itself. Singly Linked List node has 1 pointer (`next`); Doubly Linked List node has 2 pointers (`prev` and `next`), allowing bidirectional traversal and `O(1)` deletion of a node given only a pointer to that node itself — In a Singly Linked List, deleting a node `p` requires knowing its predecessor (`O(n)` search unless head), whereas a Doubly Linked List accesses `p-&gt;prev` directly in `O(1)` time.</div>
+</div><div class="in-note-q" data-search="what is the time complexity of finding the middle element or detecting a cycle in a singly linked list of `n` nodes using floyd&#x27;s cycle-finding (tortoise and hare / slow and fast pointer) algorithm? o(n) time and o(1) auxiliary space (slow pointer moves 1 step `slow = slow-&gt;next`, fast pointer moves 2 steps `fast = fast-&gt;next-&gt;next`) — floyd&#x27;s two-pointer technique detects a cycle (when `slow == fast`) or finds the middle node (when `fast` reaches `null`) in a single `o(n)` pass with `o(1)` extra space.">
+  <div class="in-note-stem">Q3.2: What is the time complexity of finding the middle element or detecting a cycle in a Singly Linked List of `n` nodes using Floyd&#x27;s Cycle-Finding (Tortoise and Hare / Slow and Fast Pointer) Algorithm?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> O(n²) time and O(n) space</div><div class="in-opt ans"><strong>(B)</strong> O(n) time and O(1) auxiliary space ✅</div><div class="in-opt"><strong>(C)</strong> O(log n) time</div><div class="in-opt"><strong>(D)</strong> It requires modifying node values</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> O(n) time and O(1) auxiliary space (Slow pointer moves 1 step `slow = slow-&gt;next`, Fast pointer moves 2 steps `fast = fast-&gt;next-&gt;next`) — Floyd&#x27;s two-pointer technique detects a cycle (when `slow == fast`) or finds the middle node (when `fast` reaches `NULL`) in a single `O(n)` pass with `O(1)` extra space.</div>
+</div><div class="in-note-q" data-search="in a circular linked list, what does the `next` pointer of the last node point to? it points back to the first (`head`) node (never `null`) — in a circular linked list, the last node&#x27;s `next` links back to `head`, forming a closed ring.">
+  <div class="in-note-stem">Q3.3: In a Circular Linked List, what does the `next` pointer of the LAST node point to?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> It points to `NULL`</div><div class="in-opt"><strong>(B)</strong> It points to itself always</div><div class="in-opt ans"><strong>(C)</strong> It points back to the FIRST (`head`) node ✅</div><div class="in-opt"><strong>(D)</strong> It points to the middle node</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> It points back to the FIRST (`head`) node (never `NULL`) — In a Circular Linked List, the last node&#x27;s `next` links back to `head`, forming a closed ring.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Trees &amp; BST — Binary Trees, Traversals (Inorder, Preorder, Postorder), BSTs, AVL Rotations &amp; Binary Heaps</h2>
+    <span class="badge">10 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="binary trees, traversals (inorder, preorder, postorder), bsts, avl rotations &amp; binary heaps binary tree degree-0/2 theorem: leaf nodes l = n_2 + 1 • max nodes at level l (root=0) = 2^l • max nodes of height h = 2^(h+1) − 1 • strictly binary tree (n_1=0) total nodes = 2l − 1 tree traversals: preorder (`root-left-right`), inorder (`left-root-right`), postorder (`left-right-root`). crucial theorem: inorder traversal of a binary search tree (bst) always produces keys in strictly sorted ascending order! to uniquely reconstruct a general binary tree, you must have inorder + (preorder or postorder or level-order); preorder + postorder alone cannot uniquely reconstruct a general binary tree (unless it is a full/strict binary tree). avl tree (height-balanced bst where balance factor `bf = |h_l − h_r| &lt;= 1` for every node): ll and rr imbalances require a single rotation (1 rotation); lr and rl imbalances require a double rotation (2 rotations). a binary heap is a complete binary tree stored in an array (for 0-indexed node `i`, left child = `2i+1`, right child = `2i+2`, parent = `⌊(i−1)/2⌋`). exam trap: kisi bhi binary tree me leaf nodes (degree 0) ki sankhya hamesha degree-2 wale internal nodes se ek zyada hoti hai (`l = n_2 + 1`)! aur binary tree ko uniquely construct karne ke liye &#x27;inorder&#x27; traversal hona 100% zaroori hai!">
+  <div class="sub-h">📌 4.1 Binary Trees, Traversals (Inorder, Preorder, Postorder), BSTs, AVL Rotations &amp; Binary Heaps</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Binary Tree Degree-0/2 Theorem: Leaf Nodes L = n_2 + 1</li><li>🔹 Max Nodes at Level l (root=0) = 2^l</li><li>🔹 Max Nodes of Height h = 2^(h+1) − 1</li><li>🔹 Strictly Binary Tree (n_1=0) Total Nodes = 2L − 1</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Tree Traversals: Preorder (`Root-Left-Right`), Inorder (`Left-Root-Right`), Postorder (`Left-Right-Root`).</li><li>Crucial Theorem: Inorder traversal of a Binary Search Tree (BST) ALWAYS produces keys in strictly sorted ascending order!</li><li>To uniquely reconstruct a general Binary Tree, you MUST have Inorder + (Preorder OR Postorder OR Level-order)</li><li>Preorder + Postorder alone CANNOT uniquely reconstruct a general binary tree (unless it is a Full/Strict Binary Tree).</li><li>AVL Tree (Height-Balanced BST where Balance Factor `BF = |h_L − h_R| &lt;= 1` for every node): LL and RR imbalances require a Single Rotation (1 rotation)</li><li>LR and RL imbalances require a Double Rotation (2 rotations).</li><li>A Binary Heap is a Complete Binary Tree stored in an array (for 0-indexed node `i`, Left Child = `2i+1`, Right Child = `2i+2`, Parent = `⌊(i−1)/2⌋`).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Tree Reconstruction: Given Inorder `D B E A F C` and Preorder `A B D E C F`. First node of Preorder is Root (`A`). In Inorder, `D B E` is Left subtree and `F C` is Right subtree. Recursively, Postorder (`Left-Right-Root`) is `D E B F C A`.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Kisi bhi Binary Tree me Leaf nodes (degree 0) ki sankhya hamesha Degree-2 wale internal nodes se EK ZYADA hoti hai (`L = n_2 + 1`)! Aur Binary Tree ko uniquely construct karne ke liye <strong>'Inorder'</strong> traversal hona 100% zaroori hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the maximum number of nodes at level `k` (where root is at level `0`) and the maximum total nodes in a binary tree of height `h` (root at height 0)? at level 0 (root): `2⁰ = 1` node; level 1: `2¹ = 2` nodes; level `k`: `2^k` nodes. sum from `0` to `h` = `2^(h+1) − 1`.">
+  <div class="in-note-stem">Q4.1: What is the maximum number of nodes at level `k` (where root is at level `0`) and the maximum total nodes in a Binary Tree of height `h` (root at height 0)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Max at level k = 2k; Max total = 2^h</div><div class="in-opt"><strong>(B)</strong> Max at level k = k²; Max total = h + 1</div><div class="in-opt"><strong>(C)</strong> Max total = 2^h − 1</div><div class="in-opt ans"><strong>(D)</strong> Max nodes at level k = 2^k; Max total nodes of height h = 2^(h+1) − 1 ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> At level 0 (root): `2⁰ = 1` node; level 1: `2¹ = 2` nodes; level `k`: `2^k` nodes. Sum from `0` to `h` = `2^(h+1) − 1`.</div>
+</div><div class="in-note-q" data-search="in any strict (full) binary tree where every internal node has exactly 2 children, if there are `i` internal nodes, how many leaf nodes `l` are there? l = i + 1 (number of leaf nodes is always 1 more than the number of degree-2 internal nodes) — in any binary tree, the number of leaf nodes `n₀` and degree-2 nodes `n₂` always satisfy `n₀ = n₂ + 1`.">
+  <div class="in-note-stem">Q4.2: In any strict (full) Binary Tree where every internal node has exactly 2 children, if there are `I` internal nodes, how many Leaf nodes `L` are there?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> L = I + 1 ✅</div><div class="in-opt"><strong>(B)</strong> L = I</div><div class="in-opt"><strong>(C)</strong> L = 2I</div><div class="in-opt"><strong>(D)</strong> L = I − 1</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> L = I + 1 (Number of Leaf nodes is always 1 more than the number of degree-2 internal nodes) — In any binary tree, the number of leaf nodes `n₀` and degree-2 nodes `n₂` always satisfy `n₀ = n₂ + 1`.</div>
+</div><div class="in-note-q" data-search="which pair of tree traversals is required and sufficient to uniquely reconstruct a general binary tree? preorder gives the root first (`[root] [left] [right]`), and inorder splits `[left] [root] [right]` uniquely.">
+  <div class="in-note-stem">Q4.3: Which pair of tree traversals is required and sufficient to uniquely reconstruct a general Binary Tree?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Preorder + Postorder Traversal (cannot distinguish left vs right child when a node has 1 child)</div><div class="in-opt ans"><strong>(B)</strong> Inorder Traversal + Preorder Traversal (OR Inorder + Postorder Traversal) ✅</div><div class="in-opt"><strong>(C)</strong> Only Preorder Traversal</div><div class="in-opt"><strong>(D)</strong> Only Level-Order Traversal</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Preorder gives the Root first (`[Root] [Left] [Right]`), and Inorder splits `[Left] [Root] [Right]` uniquely.</div>
+</div><div class="in-note-q" data-search="in an avl (height-balanced binary search) tree, what are the only permissible values of the balance factor (`bf = height(left) − height(right)`) at every node? if an insertion or deletion causes `|bf| = 2`, the avl tree restores balance in `o(1)` rotations (`ll, rr` single rotations or `lr, rl` double rotations).">
+  <div class="in-note-stem">Q4.4: In an AVL (Height-Balanced Binary Search) Tree, what are the only permissible values of the Balance Factor (`BF = Height(Left) − Height(Right)`) at every node?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> {0} only</div><div class="in-opt"><strong>(B)</strong> {−2, −1, 0, +1, +2}</div><div class="in-opt ans"><strong>(C)</strong> {−1, 0, +1} ✅</div><div class="in-opt"><strong>(D)</strong> Any integer</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> If an insertion or deletion causes `|BF| = 2`, the AVL tree restores balance in `O(1)` rotations (`LL, RR` single rotations or `LR, RL` double rotations).</div>
+</div><div class="in-note-q" data-search="in a hash table of size `m` holding `n` keys, what is the load factor `α`, and what are the two main families of collision resolution techniques? load factor α = n / m; 1. separate chaining (open hashing using linked lists) and 2. open addressing (linear probing, quadratic probing, double hashing) — linear probing (`(h(k) + i) mod m`) suffers from **primary clustering**; quadratic probing (`(h(k) + i²) mod m`) suffers from **secondary clustering**; double hashing (`(h₁(k) + i · h₂(k)) mod m`) eliminates both.">
+  <div class="in-note-stem">Q4.5: In a Hash Table of size `m` holding `n` keys, what is the Load Factor `α`, and what are the two main families of Collision Resolution techniques?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Load Factor α = m × n</div><div class="in-opt"><strong>(B)</strong> Collisions cannot occur in hashing</div><div class="in-opt"><strong>(C)</strong> Linear Probing eliminates Primary Clustering</div><div class="in-opt ans"><strong>(D)</strong> Load Factor α = n / m; 1. Separate Chaining and 2. Open Addressing ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Load Factor α = n / m; 1. Separate Chaining (open hashing using linked lists) and 2. Open Addressing (Linear Probing, Quadratic Probing, Double Hashing) — Linear Probing (`(h(k) + i) mod m`) suffers from **Primary Clustering**; Quadratic Probing (`(h(k) + i²) mod m`) suffers from **Secondary Clustering**; Double Hashing (`(h₁(k) + i · h₂(k)) mod m`) eliminates both.</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: OOP Principles — OOP Four Pillars, Access Specifiers, Constructors/Destructors, Virtual Functions &amp; vtable</h2>
+    <span class="badge">6 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="oop four pillars, access specifiers, constructors/destructors, virtual functions &amp; vtable compile-time (static/early) binding = function &amp; operator overloading • run-time (dynamic/late) binding = function overriding via `virtual` keyword + vptr/vtable encapsulation binds data and methods while data hiding restricts direct access via `private`/`protected`/`public` specifiers. inheritance modes in c++: public inheritance preserves `public -&gt; public` and `protected -&gt; protected`; protected inheritance turns both into `protected`; private inheritance turns both into `private` (note: `private` base members are never directly accessible in derived classes!). constructor vs destructor order: constructors execute from base -&gt; derived (top-down), whereas destructors execute in exact reverse order from derived -&gt; base (bottom-up)! always declare base class destructors `virtual` to prevent memory leaks when deleting a derived object through a base pointer. c++ operators that cannot be overloaded: `::` (scope resolution), `.` (member access), `.*` (pointer-to-member), `?:` (ternary conditional), and `sizeof`! hinglish tip: c++ me 5 operators kabhi overload nahi ho sakte: `.`, `.*`, `::`, `?:`, aur `sizeof`! aur constructor hamesha base-to-derived chalta hai, jabki destructor ulta derived-to-base chalta hai!">
+  <div class="sub-h">📌 5.1 OOP Four Pillars, Access Specifiers, Constructors/Destructors, Virtual Functions &amp; vtable</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Compile-Time (Static/Early) Binding = Function &amp; Operator Overloading</li><li>🔹 Run-Time (Dynamic/Late) Binding = Function Overriding via `virtual` keyword + vptr/vtable</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Encapsulation binds data and methods while Data Hiding restricts direct access via `private`/`protected`/`public` specifiers.</li><li>Inheritance Modes in C++: Public inheritance preserves `public -&gt; public` and `protected -&gt; protected`</li><li>Protected inheritance turns both into `protected`</li><li>Private inheritance turns both into `private` (Note: `private` base members are NEVER directly accessible in derived classes!).</li><li>Constructor vs Destructor Order: Constructors execute from Base -&gt; Derived (Top-Down), whereas Destructors execute in exact reverse order from Derived -&gt; Base (Bottom-Up)!</li><li>Always declare Base class destructors `virtual` to prevent memory leaks when deleting a derived object through a base pointer.</li><li>C++ Operators that CANNOT be overloaded: `::` (Scope resolution), `.` (Member access), `.*` (Pointer-to-member), `?:` (Ternary conditional), and `sizeof`!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Diamond Problem in Multiple Inheritance: When class D inherits from B and C which both inherit from A, D gets two copies of A&#x27;s members (ambiguity error), resolved in C++ using `virtual public A` (Virtual Base Class).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: C++ me 5 operators kabhi overload NAHI ho sakte: `.`, `.*`, `::`, `?:`, aur `sizeof`! Aur Constructor hamesha Base-to-Derived chalta hai, jabki Destructor ulta Derived-to-Base chalta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what are the four core pillars of object-oriented programming (oop)? 1. encapsulation (data hiding), 2. abstraction, 3. inheritance (is-a relationship), and 4. polymorphism — encapsulation binds data + methods and hides private state; inheritance enables code reuse; polymorphism = &#x27;one interface, multiple implementations&#x27;.">
+  <div class="in-note-stem">Q5.1: What are the FOUR core pillars of Object-Oriented Programming (OOP)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1. Loops, 2. Arrays, 3. Pointers, and 4. Structs</div><div class="in-opt ans"><strong>(B)</strong> 1. Encapsulation, 2. Abstraction, 3. Inheritance, and 4. Polymorphism ✅</div><div class="in-opt"><strong>(C)</strong> 1. Compilation, 2. Linking, 3. Loading, and 4. Execution</div><div class="in-opt"><strong>(D)</strong> 1. HTML, 2. CSS, 3. JS, and 4. SQL</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> 1. Encapsulation (Data Hiding), 2. Abstraction, 3. Inheritance (IS-A relationship), and 4. Polymorphism — Encapsulation binds data + methods and hides private state; Inheritance enables code reuse; Polymorphism = <strong>'One interface, multiple implementations'</strong>.</div>
+</div><div class="in-note-q" data-search="in oop, what is the difference between compile-time (static) polymorphism and run-time (dynamic) polymorphism? compile-time polymorphism = function overloading &amp; operator overloading; run-time polymorphism = method overriding via `virtual` functions. compile-time polymorphism = function overloading &amp; operator overloading (early binding); run-time polymorphism = method overriding via `virtual` functions (late binding) — note: in c++, **constructors can never be `virtual`**, whereas base class **destructors should be `virtual`** so derived objects are cleaned up properly via base pointers.">
+  <div class="in-note-stem">Q5.2: In OOP, what is the difference between Compile-Time (Static) Polymorphism and Run-Time (Dynamic) Polymorphism?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Method Overriding is Compile-Time and Function Overloading is Run-Time</div><div class="in-opt"><strong>(B)</strong> Constructors can be virtual in C++</div><div class="in-opt ans"><strong>(C)</strong> Compile-Time Polymorphism = Function Overloading &amp; Operator Overloading ✅</div><div class="in-opt"><strong>(D)</strong> Static methods can be overridden at runtime</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Compile-Time Polymorphism = Function Overloading &amp; Operator Overloading; Run-Time Polymorphism = Method Overriding via `virtual` functions. Compile-Time Polymorphism = Function Overloading &amp; Operator Overloading (early binding); Run-Time Polymorphism = Method Overriding via `virtual` functions (late binding) — Note: In C++, **Constructors can NEVER be `virtual`**, whereas base class **Destructors SHOULD be `virtual`** so derived objects are cleaned up properly via base pointers.</div>
+</div><div class="in-note-q" data-search="in c++ and java inheritance, which members of a base class are accessible inside a derived subclass, and which access specifier keeps members private to outside classes while allowing subclass access? `protected` members are accessible in derived subclasses (and same class), whereas `private` members are not directly accessible in subclasses — access hierarchy from most restrictive to least restrictive: `private` (class only) &lt; `default/package` (java package) &lt; `protected` (class + subclasses) &lt; `public` (everywhere).">
+  <div class="in-note-stem">Q5.3: In C++ and Java Inheritance, which members of a Base class are accessible inside a Derived subclass, and which access specifier keeps members private to outside classes while allowing subclass access?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `private` members are directly accessible in all subclasses</div><div class="in-opt"><strong>(B)</strong> `public` members are hidden from outside classes</div><div class="in-opt"><strong>(C)</strong> `protected` is identical to `private`</div><div class="in-opt ans"><strong>(D)</strong> `protected` members are accessible in Derived subclasses, whereas `private` members are NOT directly accessible in subclasses ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> `protected` members are accessible in Derived subclasses (and same class), whereas `private` members are NOT directly accessible in subclasses — Access hierarchy from most restrictive to least restrictive: `private` (class only) &lt; `default/package` (Java package) &lt; `protected` (class + subclasses) &lt; `public` (everywhere).</div>
+</div><div class="in-note-q" data-search="in c++, what is a `friend` function or `friend` class? a non-member function (or another class) granted special permission by a class to access its `private` and `protected` members directly — note: in c++, **friendship is not mutual, not inherited, and not transitive** (if a is a friend of b, and b is a friend of c, a is not automatically a friend of c).">
+  <div class="in-note-stem">Q5.4: In C++, what is a `friend` function or `friend` class?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> A non-member function granted special permission by a class to access its `private` and `protected` members directly ✅</div><div class="in-opt"><strong>(B)</strong> A member function inherited by all subclasses</div><div class="in-opt"><strong>(C)</strong> A function that cannot access public members</div><div class="in-opt"><strong>(D)</strong> Friendship in C++ is transitive and inherited</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> A non-member function (or another class) granted special permission by a class to access its `private` and `protected` members directly — Note: In C++, **Friendship is NOT mutual, NOT inherited, and NOT transitive** (if A is a friend of B, and B is a friend of C, A is NOT automatically a friend of C).</div>
+</div><div class="in-note-q" data-search="in c++, what is a &#x27;pure virtual function&#x27; (`virtual void draw() = 0;`), and what is a class containing at least one pure virtual function called? a virtual function equated to `= 0` with no required base implementation; the class becomes an &#x27;abstract class&#x27; (cannot be instantiated directly as an object, only used as a base class pointer/reference) — if a derived class fails to override all pure virtual functions of its abstract base class, the derived class also becomes an abstract class.">
+  <div class="in-note-stem">Q5.5: In C++, what is a &#x27;Pure Virtual Function&#x27; (`virtual void draw() = 0;`), and what is a class containing at least one Pure Virtual Function called?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> An Abstract Class can be instantiated with `new AbstractClass()`</div><div class="in-opt ans"><strong>(B)</strong> A virtual function equated to `= 0` with no required base implementation ✅</div><div class="in-opt"><strong>(C)</strong> A pure virtual function cannot be overridden in derived classes</div><div class="in-opt"><strong>(D)</strong> It is a static function</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A virtual function equated to `= 0` with no required base implementation; the class becomes an <strong>'Abstract Class'</strong> (cannot be instantiated directly as an object, only used as a base class pointer/reference) — If a derived class fails to override all pure virtual functions of its abstract base class, the derived class also becomes an Abstract Class.</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Java Architecture — Java Architecture (JDK/JRE/JVM), Bytecode, String Pool, Exception Handling &amp; Multithreading</h2>
+    <span class="badge">5 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="java architecture (jdk/jre/jvm), bytecode, string pool, exception handling &amp; multithreading java `==` compares object reference (memory address) vs `.equals()` compares content • `final` (constant/no-override/no-inherit) vs `finally` (always executes) vs `finalize()` (gc hook) java compiles `.java` source into platform-independent `.class` bytecode executed by the jvm (interpreter + jit compiler). in java, `string` objects are strictly immutable (stored in the string constant pool inside the heap; `stringbuffer` is mutable &amp; thread-safe synchronized; `stringbuilder` is mutable &amp; faster non-synchronized). java does not support multiple inheritance of classes (to avoid the diamond problem), achieving it instead through `interface`. exception hierarchy (`throwable` -&gt; `error` vs `exception` -&gt; checked exceptions vs unchecked `runtimeexception`). a `finally` block always executes whether an exception is thrown or caught, except when `system.exit(0)` or a fatal jvm crash occurs! exam trap: java me primitives (`int, double, boolean`) call-by-value pass hote hain, aur string literal `string s1 = &quot;hello&quot;; string s2 = &quot;hello&quot;;` string constant pool me ek hi object point karte hain (`s1 == s2` is `true`, whereas `new string(&quot;hello&quot;)` creates a new heap object so `==` is `false`)!">
+  <div class="sub-h">📌 6.1 Java Architecture (JDK/JRE/JVM), Bytecode, String Pool, Exception Handling &amp; Multithreading</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Java `==` compares Object Reference (Memory Address) vs `.equals()` compares Content</li><li>🔹 `final` (Constant/No-Override/No-Inherit) vs `finally` (Always executes) vs `finalize()` (GC hook)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Java compiles `.java` source into platform-independent `.class` Bytecode executed by the JVM (Interpreter + JIT Compiler).</li><li>In Java, `String` objects are strictly IMMUTABLE (stored in the String Constant Pool inside the Heap</li><li>`StringBuffer` is mutable &amp; thread-safe synchronized</li><li>`StringBuilder` is mutable &amp; faster non-synchronized).</li><li>Java does NOT support multiple inheritance of classes (to avoid the Diamond Problem), achieving it instead through `interface`.</li><li>Exception Hierarchy (`Throwable` -&gt; `Error` vs `Exception` -&gt; Checked Exceptions vs Unchecked `RuntimeException`).</li><li>A `finally` block ALWAYS executes whether an exception is thrown or caught, EXCEPT when `System.exit(0)` or a fatal JVM crash occurs!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Java Snippet: What does `System.out.println(10 + 20 + <strong>"Java"</strong> + 10 + 20);` print? Left-to-right evaluation: `10 + 20` is integer addition `30`, then `30 + <strong>"Java"</strong>` becomes String `<strong>"30Java"</strong>`, then string concatenation continues: `<strong>"30Java1020"</strong>`!</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Java me primitives (`int, double, boolean`) Call-by-Value pass hote hain, aur String literal `String s1 = <strong>"Hello"</strong>; String s2 = <strong>"Hello"</strong>;` String Constant Pool me EK hi object point karte hain (`s1 == s2` is `true`, whereas `new String(<strong>"Hello"</strong>)` creates a new Heap object so `==` is `false`)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in c++, which problem arises in multiple inheritance when class `d` inherits from both `b` and `c`, and both `b` and `c` inherit from a common base class `a` (and how is it solved in c++ vs java)? the diamond problem; solved in c++ using `virtual` base classes, and in java by disallowing multiple inheritance of classes. the diamond problem (ambiguous duplicate copies of `a` in `d`); solved in c++ using `virtual` base classes (`class b : virtual public a`), and in java by disallowing multiple inheritance of classes (allowing multiple `interface` implementation instead) — in java, a class can `extend` only one superclass, but can `implement` multiple `interfaces`.">
+  <div class="in-note-stem">Q6.1: In C++, which problem arises in Multiple Inheritance when class `D` inherits from both `B` and `C`, and both `B` and `C` inherit from a common base class `A` (and how is it solved in C++ vs Java)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Solved in C++ by deleting class A</div><div class="in-opt"><strong>(B)</strong> Java allows a class to `extend` 5 base classes simultaneously</div><div class="in-opt"><strong>(C)</strong> C++ does not support multiple inheritance</div><div class="in-opt ans"><strong>(D)</strong> The Diamond Problem ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> The Diamond Problem; solved in C++ using `virtual` Base Classes, and in Java by disallowing multiple inheritance of classes. The Diamond Problem (ambiguous duplicate copies of `A` in `D`); solved in C++ using `virtual` Base Classes (`class B : virtual public A`), and in Java by disallowing multiple inheritance of classes (allowing multiple `interface` implementation instead) — In Java, a class can `extend` only ONE superclass, but can `implement` multiple `interfaces`.</div>
+</div><div class="in-note-q" data-search="in java, what is the difference between the keywords `final`, `finally`, and `finalize()`? `final` defines a constant variable, non-overridable method, or non-inheritable class; `finally` is an exception-handling block (`try-catch-finally`) that always executes for cleanup; `finalize()` is a deprecated object method called before garbage collection. `finally` always runs whether an exception is thrown or caught (except if `system.exit()` is called or the jvm crashes).">
+  <div class="in-note-stem">Q6.2: In Java, what is the difference between the keywords `final`, `finally`, and `finalize()`?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> `final` defines a constant variable, non-overridable method, or non-inheritable class ✅</div><div class="in-opt"><strong>(B)</strong> `finally` declares a constant variable</div><div class="in-opt"><strong>(C)</strong> `final` is used in try-catch blocks</div><div class="in-opt"><strong>(D)</strong> All three are identical</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> `final` defines a constant variable, non-overridable method, or non-inheritable class; `finally` is an exception-handling block (`try-catch-finally`) that ALWAYS executes for cleanup; `finalize()` is a deprecated Object method called before Garbage Collection. `finally` always runs whether an exception is thrown or caught (except if `System.exit()` is called or the JVM crashes).</div>
+</div><div class="in-note-q" data-search="in java, what is the root superclass of all classes by default, and what is the difference between `==` and `.equals()` when comparing two `string` objects? `java.lang.object` is the root superclass; `==` compares memory reference addresses, whereas `.equals()` compares the actual character contents of the strings. `java.lang.object` is the root superclass; `==` compares memory reference addresses (whether both variables point to the exact same object), whereas `.equals()` compares the actual character contents of the strings — if `string s1 = new string(&quot;cs&quot;); string s2 = new string(&quot;cs&quot;);`, then `s1 == s2` is `false` (two distinct heap objects), while `s1.equals(s2)` is `true`!">
+  <div class="in-note-stem">Q6.3: In Java, what is the root superclass of ALL classes by default, and what is the difference between `==` and `.equals()` when comparing two `String` objects?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `==` compares string text content and `.equals()` compares memory addresses</div><div class="in-opt ans"><strong>(B)</strong> `java.lang.Object` is the root superclass ✅</div><div class="in-opt"><strong>(C)</strong> Java does not have a root Object class</div><div class="in-opt"><strong>(D)</strong> `String` in Java is a mutable primitive type</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> `java.lang.Object` is the root superclass; `==` compares memory reference addresses, whereas `.equals()` compares the actual character contents of the strings. `java.lang.Object` is the root superclass; `==` compares memory reference addresses (whether both variables point to the exact same object), whereas `.equals()` compares the actual character contents of the strings — If `String s1 = new String(<strong>"CS"</strong>); String s2 = new String(<strong>"CS"</strong>);`, then `s1 == s2` is `false` (two distinct heap objects), while `s1.equals(s2)` is `true`!</div>
+</div><div class="in-note-q" data-search="why is java called &#x27;platform independent&#x27; (&#x27;write once, run anywhere — wora&#x27;)? jvm interprets/jit-compiles the portable `.class` bytecode into the host machine&#x27;s native instructions.">
+  <div class="in-note-stem">Q6.4: Why is Java called &#x27;Platform Independent&#x27; (&#x27;Write Once, Run Anywhere — WORA&#x27;)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Java compiles directly to Windows `.exe` files</div><div class="in-opt"><strong>(B)</strong> Java runs without a CPU</div><div class="in-opt ans"><strong>(C)</strong> The Java compiler (`javac`) compiles `.java` source into platform-neutral Bytecode (`.class`), which runs on any OS that has a Java Virtual Machine (JVM) ✅</div><div class="in-opt"><strong>(D)</strong> Java uses C pointers</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> JVM interprets/JIT-compiles the portable `.class` Bytecode into the host machine&#x27;s native instructions.</div>
+</div><div class="in-note-q" data-search="in java, which keyword is used to inherit a class, and which keyword is used to implement an interface? `extends` for inheriting a class; `implements` for implementing an interface. example: `class dog extends animal implements pet { ... }`.">
+  <div class="in-note-stem">Q6.5: In Java, which keyword is used to inherit a class, and which keyword is used to implement an interface?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `inherits` for class and `uses` for interface</div><div class="in-opt"><strong>(B)</strong> `implements` for class and `extends` for interface</div><div class="in-opt"><strong>(C)</strong> `super` for both</div><div class="in-opt ans"><strong>(D)</strong> `extends` for inheriting a class ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> `extends` for inheriting a class; `implements` for implementing an interface. Example: `class Dog extends Animal implements Pet { ... }`.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Python Concepts — Python Mutability vs Immutability, Slicing, Comprehensions, LEGB Scope &amp; `*args`/`**kwargs`</h2>
+    <span class="badge">8 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="python mutability vs immutability, slicing, comprehensions, legb scope &amp; `*args`/`**kwargs` immutable types (hashable): `int, float, bool, str, tuple, frozenset` • mutable types (unhashable): `list, dict, set, bytearray` • slicing `s[start:stop:step]` (`s[::-1]` reverses) in python, dictionary keys and set elements must be immutable (hashable) — hence a `tuple` of primitives can be a `dict` key, whereas a `list` raises `typeerror: unhashable type: &#x27;list&#x27;`! beware the single-element tuple syntax trap: `t = (5)` is an `int`, whereas `t = (5,)` (with trailing comma!) is a `tuple`! python resolves variable names using the legb rule: local -&gt; enclosing (nonlocal) -&gt; global -&gt; built-in. default mutable argument trap: `def append_to(x, lst=[]): lst.append(x); return lst` evaluates the default list `[]` only once at function definition time (`def`), sharing the same list across subsequent calls! floor division `//` rounds toward negative infinity (`-7 // 2 == -4`, whereas `7 // 2 == 3`, and `-7 % 2 == 1`). hinglish tip: python me `-7 // 2` ka answer `-3` nahi balki `-4` hota hai (floor towards −∞)! aur `list.sort()` list ko in-place sort karke `none` return karta hai, jabki `sorted(list)` ek nayi sorted list return karta hai!">
+  <div class="sub-h">📌 7.1 Python Mutability vs Immutability, Slicing, Comprehensions, LEGB Scope &amp; `*args`/`**kwargs`</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Immutable Types (Hashable): `int, float, bool, str, tuple, frozenset`</li><li>🔹 Mutable Types (Unhashable): `list, dict, set, bytearray`</li><li>🔹 Slicing `s[start:stop:step]` (`s[::-1]` reverses)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In Python, Dictionary keys and Set elements MUST be Immutable (Hashable) — hence a `tuple` of primitives can be a `dict` key, whereas a `list` raises `TypeError: unhashable type: <strong>'list'</strong>`!</li><li>Beware the single-element tuple syntax trap: `t = (5)` is an `int`, whereas `t = (5,)` (with trailing comma!) is a `tuple`!</li><li>Python resolves variable names using the LEGB Rule: Local -&gt; Enclosing (nonlocal) -&gt; Global -&gt; Built-in.</li><li>Default Mutable Argument Trap: `def append_to(x, lst=[]): lst.append(x)</li><li>return lst` evaluates the default list `[]` ONLY ONCE at function definition time (`def`), sharing the same list across subsequent calls!</li><li>Floor division `//` rounds toward negative infinity (`-7 // 2 == -4`, whereas `7 // 2 == 3`, and `-7 % 2 == 1`).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Python Trace: Given `a = [1, 2, 3]; b = a; b.append(4); print(a)` -&gt; Since `b = a` copies the reference (aliasing, not a copy), mutating `b` mutates `a`, printing `[1, 2, 3, 4]`. Using `b = a[:]` or `a.copy()` creates a shallow copy.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Python me `-7 // 2` ka answer `-3` nahi balki `-4` hota hai (floor towards −∞)! Aur `list.sort()` list ko in-place sort karke `None` return karta hai, jabki `sorted(list)` ek nayi sorted list return karta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in python, classify the built-in data types `list`, `tuple`, `dict`, `set`, `str`, and `frozenset` into mutable (changeable in-place) vs immutable: immutable: `int, float, str, tuple, frozenset` (can be used as dictionary keys); mutable: `list, dict, set` (cannot be used as dict keys) — in python, dictionary keys and set elements must be **hashable (immutable)**, so a `tuple` or `str` can be a `dict` key, whereas a `list` raises `typeerror: unhashable type: &#x27;list&#x27;`.">
+  <div class="in-note-stem">Q7.1: In Python, classify the built-in data types `list`, `tuple`, `dict`, `set`, `str`, and `frozenset` into Mutable (changeable in-place) vs Immutable:</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Immutable: `int, float, str, tuple, frozenset`; Mutable: `list, dict, set` ✅</div><div class="in-opt"><strong>(B)</strong> `tuple` and `str` are Mutable, whereas `list` and `dict` are Immutable</div><div class="in-opt"><strong>(C)</strong> `list` can be used as a dictionary key</div><div class="in-opt"><strong>(D)</strong> `set` allows duplicate elements</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Immutable: `int, float, str, tuple, frozenset` (can be used as dictionary keys); Mutable: `list, dict, set` (cannot be used as dict keys) — In Python, dictionary keys and set elements must be **hashable (immutable)**, so a `tuple` or `str` can be a `dict` key, whereas a `list` raises `TypeError: unhashable type: <strong>'list'</strong>`.</div>
+</div><div class="in-note-q" data-search="in python, what is the output of slicing `s = &#x27;computer&#x27;; print(s[1:5], s[::-1])`? `s[1:5]` extracts indices `1, 2, 3, 4` (`&#x27;ompu&#x27;`, stop index `5` is excluded); `s[::-1]` reverses the entire string (`&#x27;retupmoc&#x27;`).">
+  <div class="in-note-stem">Q7.2: In Python, what is the output of slicing `s = &#x27;COMPUTER&#x27;; print(s[1:5], s[::-1])`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `COMP` and `COMPUTER`</div><div class="in-opt ans"><strong>(B)</strong> `OMPU` and `RETUPMOC` ✅</div><div class="in-opt"><strong>(C)</strong> `OMPUT` and `RETUP`</div><div class="in-opt"><strong>(D)</strong> `CMPU` and `Error`</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> `s[1:5]` extracts indices `1, 2, 3, 4` (`<strong>'OMPU'</strong>`, stop index `5` is excluded); `s[::-1]` reverses the entire string (`<strong>'RETUPMOC'</strong>`).</div>
+</div><div class="in-note-q" data-search="in python, what is the difference between the floor division operator `//` and true division `/`, e.g., `print(7 / 2, 7 // 2, -7 // 2, 2 ** 3)`? `7 / 2 = 3.5`, `7 // 2 = 3`, `-7 // 2 = -4` (floors towards `−∞`), and `2 ** 3 = 8` (exponentiation) — in python 3, `/` always performs floating-point division (`3.5`), `//` performs floor division rounding down toward negative infinity (`-7 // 2 = -4`), and `**` is exponentiation (right-associative: `2 ** 3 ** 2 = 2⁹ = 512`).">
+  <div class="in-note-stem">Q7.3: In Python, what is the difference between the floor division operator `//` and true division `/`, e.g., `print(7 / 2, 7 // 2, -7 // 2, 2 ** 3)`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `7 / 2 = 3` and `-7 // 2 = -3`</div><div class="in-opt"><strong>(B)</strong> `2 ** 3 = 6`</div><div class="in-opt ans"><strong>(C)</strong> `7 / 2 = 3.5`, `7 // 2 = 3`, `-7 // 2 = -4`, and `2 ** 3 = 8` (exponentiation) ✅</div><div class="in-opt"><strong>(D)</strong> `7 // 2 = 3.5`</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> `7 / 2 = 3.5`, `7 // 2 = 3`, `-7 // 2 = -4` (floors towards `−∞`), and `2 ** 3 = 8` (exponentiation) — In Python 3, `/` always performs floating-point division (`3.5`), `//` performs floor division rounding down toward negative infinity (`-7 // 2 = -4`), and `**` is exponentiation (right-associative: `2 ** 3 ** 2 = 2⁹ = 512`).</div>
+</div><div class="in-note-q" data-search="in python, what do `*args` and `**kwargs` in a function definition `def func(*args, **kwargs):` collect? `*args` collects variable-length positional arguments into a `tuple`; `**kwargs` collects variable-length keyword (`key=value`) arguments into a `dict` (dictionary). in python, `def f(a, b=10, *args, **kwargs):` packs extra positional arguments into tuple `args` and extra named arguments into dictionary `kwargs`.">
+  <div class="in-note-stem">Q7.4: In Python, what do `*args` and `**kwargs` in a function definition `def func(*args, **kwargs):` collect?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `*args` creates a dictionary and `**kwargs` creates a tuple</div><div class="in-opt"><strong>(B)</strong> `*args` is a C pointer</div><div class="in-opt"><strong>(C)</strong> Python does not support default arguments</div><div class="in-opt ans"><strong>(D)</strong> `*args` collects variable-length positional arguments into a `tuple` ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> `*args` collects variable-length positional arguments into a `tuple`; `**kwargs` collects variable-length keyword (`key=value`) arguments into a `dict` (dictionary). In Python, `def f(a, b=10, *args, **kwargs):` packs extra positional arguments into tuple `args` and extra named arguments into dictionary `kwargs`.</div>
+</div><div class="in-note-q" data-search="in python, what is a `lambda` function, and what do `map()`, `filter()`, and list comprehensions `[x*x for x in range(5) if x % 2 == 0]` return? `lambda` creates a small anonymous single-expression inline function; `[x*x for x in range(5) if x % 2 == 0]` returns `[0, 4, 16]`. `lambda` creates a small anonymous single-expression inline function (`lambda x: x * 2`); `[x*x for x in range(5) if x % 2 == 0]` returns `[0, 4, 16]` — `range(5)` generates `0, 1, 2, 3, 4`; filtering even numbers (`0, 2, 4`) and squaring them gives `[0, 4, 16]`.">
+  <div class="in-note-stem">Q7.5: In Python, what is a `lambda` function, and what do `map()`, `filter()`, and List Comprehensions `[x*x for x in range(5) if x % 2 == 0]` return?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> `lambda` creates a small anonymous single-expression inline function ✅</div><div class="in-opt"><strong>(B)</strong> A lambda function can contain multiple `for` statements and `return` keywords</div><div class="in-opt"><strong>(C)</strong> The list comprehension returns `[0, 1, 4, 9, 16]`</div><div class="in-opt"><strong>(D)</strong> `range(5)` includes the number 5</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> `lambda` creates a small anonymous single-expression inline function; `[x*x for x in range(5) if x % 2 == 0]` returns `[0, 4, 16]`. `lambda` creates a small anonymous single-expression inline function (`lambda x: x * 2`); `[x*x for x in range(5) if x % 2 == 0]` returns `[0, 4, 16]` — `range(5)` generates `0, 1, 2, 3, 4`; filtering even numbers (`0, 2, 4`) and squaring them gives `[0, 4, 16]`.</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Programming &amp; Data Structures)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — C/C++ Fundamentals — C/C++ Storage Classes, Pointers, Dynamic Memory, Struct vs Union &amp; Preprocessor Macros</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[C/C++ Storage Classes, Pointers, Dynamic Memory, Struct vs Union]</strong> Array-Pointer Identity: arr[i] == *(arr + i) == *(i + arr) == i[arr]</li><li>🔹 <strong>[C/C++ Storage Classes, Pointers, Dynamic Memory, Struct vs Union]</strong> 2D Row-Major Address(A[i][j]) = Base + [(i × Cols) + j] × sizeof(elem)</li><li>🔹 <strong>[C/C++ Storage Classes, Pointers, Dynamic Memory, Struct vs Union]</strong> Column-Major = Base + [(j × Rows) + i] × W</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: `static` variable sirf EK baar initialize hota hai (default 0) aur function khatam hone par bhi apni purani value yaad rakhta hai! Aur C me `sizeof(&#x27;A&#x27;)` = `sizeof(int)` = 4 bytes hota hai, jabki C++ me `sizeof(&#x27;A&#x27;)` = 1 byte hota hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Stacks &amp; Queues — Stacks (LIFO), Infix-to-Postfix/Prefix Conversion, Recursion &amp; Circular Queues (FIFO)</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Stacks (LIFO), Infix-to-Postfix/Prefix Conversion, Recursion]</strong> Circular Queue (Array size N): Enqueue -&gt; rear = (rear + 1) % N</li><li>🔹 <strong>[Stacks (LIFO), Infix-to-Postfix/Prefix Conversion, Recursion]</strong> Dequeue -&gt; front = (front + 1) % N</li><li>🔹 <strong>[Stacks (LIFO), Infix-to-Postfix/Prefix Conversion, Recursion]</strong> Full -&gt; (rear + 1) % N == front</li><li>🔹 <strong>[Stacks (LIFO), Infix-to-Postfix/Prefix Conversion, Recursion]</strong> Count = (rear − front + N) % N + 1</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Exponentiation operator `^` RIGHT-to-LEFT associative hota hai (`2 ^ 3 ^ 2 = 2 ^ 9 = 512`), isliye `A ^ B ^ C` ka Postfix `A B C ^ ^` banta hai (na ki `A B ^ C ^`)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — Linked Lists — Singly, Doubly &amp; Circular Linked Lists, Pointer Manipulation &amp; Floyd&#x27;s Cycle Detection</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Singly, Doubly]</strong> Singly LL Complexities: Insert/Delete at Head = O(1)</li><li>🔹 <strong>[Singly, Doubly]</strong> Search = O(n)</li><li>🔹 <strong>[Singly, Doubly]</strong> Delete Given Node with Tail/Last -&gt; O(n)</li><li>🔹 <strong>[Singly, Doubly]</strong> Reverse Singly LL In-Place = O(n) time, O(1) space (3 pointers: prev, curr, next)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Circular Singly Linked List me agar pointer <strong>'Head'</strong> ke bajay <strong>'Last/Tail node'</strong> par rakha jaye, to Front aur Rear DONO jagah insertion O(1) time me ho jata hai (kyunki `last-&gt;next` hi Head hota hai)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Trees &amp; BST — Binary Trees, Traversals (Inorder, Preorder, Postorder), BSTs, AVL Rotations &amp; Binary Heaps</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Binary Trees, Traversals (Inorder, Preorder, Postorder), BSTs, AVL Rotations]</strong> Binary Tree Degree-0/2 Theorem: Leaf Nodes L = n_2 + 1</li><li>🔹 <strong>[Binary Trees, Traversals (Inorder, Preorder, Postorder), BSTs, AVL Rotations]</strong> Max Nodes at Level l (root=0) = 2^l</li><li>🔹 <strong>[Binary Trees, Traversals (Inorder, Preorder, Postorder), BSTs, AVL Rotations]</strong> Max Nodes of Height h = 2^(h+1) − 1</li><li>🔹 <strong>[Binary Trees, Traversals (Inorder, Preorder, Postorder), BSTs, AVL Rotations]</strong> Strictly Binary Tree (n_1=0) Total Nodes = 2L − 1</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Kisi bhi Binary Tree me Leaf nodes (degree 0) ki sankhya hamesha Degree-2 wale internal nodes se EK ZYADA hoti hai (`L = n_2 + 1`)! Aur Binary Tree ko uniquely construct karne ke liye <strong>'Inorder'</strong> traversal hona 100% zaroori hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — OOP Principles — OOP Four Pillars, Access Specifiers, Constructors/Destructors, Virtual Functions &amp; vtable</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[OOP Four Pillars, Access Specifiers, Constructors/Destructors, Virtual Functions]</strong> Compile-Time (Static/Early) Binding = Function &amp; Operator Overloading</li><li>🔹 <strong>[OOP Four Pillars, Access Specifiers, Constructors/Destructors, Virtual Functions]</strong> Run-Time (Dynamic/Late) Binding = Function Overriding via `virtual` keyword + vptr/vtable</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: C++ me 5 operators kabhi overload NAHI ho sakte: `.`, `.*`, `::`, `?:`, aur `sizeof`! Aur Constructor hamesha Base-to-Derived chalta hai, jabki Destructor ulta Derived-to-Base chalta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Java Architecture — Java Architecture (JDK/JRE/JVM), Bytecode, String Pool, Exception Handling &amp; Multithreading</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Java Architecture (JDK/JRE/JVM), Bytecode, String Pool, Exception Handling]</strong> Java `==` compares Object Reference (Memory Address) vs `.equals()` compares Content</li><li>🔹 <strong>[Java Architecture (JDK/JRE/JVM), Bytecode, String Pool, Exception Handling]</strong> `final` (Constant/No-Override/No-Inherit) vs `finally` (Always executes) vs `finalize()` (GC hook)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Java me primitives (`int, double, boolean`) Call-by-Value pass hote hain, aur String literal `String s1 = <strong>"Hello"</strong>; String s2 = <strong>"Hello"</strong>;` String Constant Pool me EK hi object point karte hain (`s1 == s2` is `true`, whereas `new String(<strong>"Hello"</strong>)` creates a new Heap object so `==` is `false`)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Python Concepts — Python Mutability vs Immutability, Slicing, Comprehensions, LEGB Scope &amp; `*args`/`**kwargs`</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Python Mutability vs Immutability, Slicing, Comprehensions, LEGB Scope]</strong> Immutable Types (Hashable): `int, float, bool, str, tuple, frozenset`</li><li>🔹 <strong>[Python Mutability vs Immutability, Slicing, Comprehensions, LEGB Scope]</strong> Mutable Types (Unhashable): `list, dict, set, bytearray`</li><li>🔹 <strong>[Python Mutability vs Immutability, Slicing, Comprehensions, LEGB Scope]</strong> Slicing `s[start:stop:step]` (`s[::-1]` reverses)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Python me `-7 // 2` ka answer `-3` nahi balki `-4` hota hai (floor towards −∞)! Aur `list.sort()` list ko in-place sort karke `None` return karta hai, jabki `sorted(list)` ek nayi sorted list return karta hai!</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

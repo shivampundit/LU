@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discrete Mathematics, Logic, Combinatorics, Matrices, Probability, Statistics &amp; Numerical Methods — Chapter-Wise Question Booklet (32 Qs) | DSSSB TGT CS</title>
+<style>
+
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+
+.toolbar {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 15px; margin-bottom: 16px; display: flex; flex-wrap: wrap;
+  gap: 9px; align-items: center; position: sticky; top: 50px; z-index: 90;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+.sel-box {
+  padding: 7px 11px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.85rem; font-weight: 600; background: #fff;
+}
+.q-card {
+  background: #fff; border: 1px solid #cbd5e1; border-radius: 10px;
+  padding: 15px 17px; margin-bottom: 12px;
+}
+.q-head {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  font-size: 0.77rem; font-weight: 700; color: #475569; margin-bottom: 6px;
+}
+.q-text { font-weight: 700; font-size: 0.96rem; color: #0f172a; margin-bottom: 10px; }
+.opts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 7px; }
+.opt-btn {
+  text-align: left; padding: 8px 11px; border-radius: 7px; border: 1.5px solid #cbd5e1;
+  background: #f8fafc; font-size: 0.88rem; color: #1e293b; cursor: pointer; transition: 0.1s;
+}
+.opt-btn:hover { border-color: #2563eb; background: #eff6ff; }
+.opt-btn.correct { background: #dcfce7 !important; border-color: #16a34a !important; color: #14532d !important; font-weight: 700; }
+.opt-btn.wrong { background: #fee2e2 !important; border-color: #dc2626 !important; color: #7f1d1d !important; }
+.exp-strip {
+  margin-top: 9px; padding: 8px 12px; border-radius: 6px;
+  background: #eff6ff; border-left: 4px solid #2563eb; font-size: 0.86rem; color: #1e3a8a;
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📝 DSSSB TGT CS Question Booklet • Discrete Mathematics, Logic, Combinatorics, Matrices, Probability, Statistics &amp; Numerical Methods</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon</a>
+    <a href="../Revision_Notes/19_B14_Discrete_Math_Stats_Numerical_Revision_Notes.html">📘 Revision Notes</a>
+    <a href="19_B14_Discrete_Math_Stats_Numerical_Question_Booklet.html" class="active">📝 Question Booklet (32 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 4–6 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">32 100% Hand-Crafted Easy-to-Medium MCQs</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter Alignment</span>
+    </div>
+    <h1>📝 Discrete Mathematics, Logic, Combinatorics, Matrices, Probability, Statistics &amp; Numerical Methods — Chapter-Wise Question Booklet</h1>
+    <p>32 pure, simple, exam-expected DSSSB questions matched strictly to each chapter. Read in <strong>📖 Revision Mode</strong> or switch to <strong>✍️ Quiz Mode</strong> for timed +1.00 / -0.25 self-testing.</p>
+  </div>
+
+  <div class="toolbar">
+    <select id="chFilter" class="sel-box" onchange="renderList()">
+      <option value="ALL">All 7 Chapters (32 Questions)</option><option value="Chapter 1:">Chapter 1: Set Theory &amp; Relations — Set Theory, Inclusio (6 Qs)</option><option value="Chapter 2:">Chapter 2: Logic &amp; Quantifiers — Propositional Logic, Tr (4 Qs)</option><option value="Chapter 3:">Chapter 3: Combinatorics &amp; Counting — Combinatorics, Per (8 Qs)</option><option value="Chapter 4:">Chapter 4: Linear Algebra &amp; Matrices — Linear Algebra —  (4 Qs)</option><option value="Chapter 5:">Chapter 5: Probability &amp; Bayes — Probability Axioms, Con (3 Qs)</option><option value="Chapter 6:">Chapter 6: Statistics &amp; Distributions — Descriptive Stat (4 Qs)</option><option value="Chapter 7:">Chapter 7: Numerical Methods &amp; Roots — Numerical Methods (3 Qs)</option>
+    </select>
+    <input type="text" id="qSearch" class="search-input" style="max-width:240px;" placeholder="🔍 Filter questions..." oninput="renderList()">
+    <button class="btn btn-green" id="modeBtn" onclick="toggleMode()">📖 Mode: Revision (Answers Visible)</button>
+    <button class="btn btn-outline" onclick="shuffleOpts()">🔀 Shuffle Options</button>
+    <span id="statLabel" style="margin-left:auto;font-weight:800;font-size:0.85rem;color:#1e3a8a;">Total: 32 Qs</span>
+  </div>
+
+  <div id="qContainer"></div>
+</div>
+<script>
+const QUESTIONS = [{"id": 1, "chapter": "Chapter 1: Set Theory & Relations — Set Theory, Inclusion-Exclusion, Relations (Reflexive, Symmetric, Transitive), Equivalence & POSETs", "q": "If a finite set `A` has `n = 5` elements, how many elements are in its Power Set `P(A)`, how many Proper Subsets does `A` have, and how many binary Relations can be defined from `A` to `A`?", "options": ["Power Set |P(A)| = 2⁵ = 32 subsets; Proper Subsets = 2⁵ − 1 = 31; Binary Relations on A = 2^(n²) = 2²⁵", "Power Set = 10; Relations = 2⁵", "Power Set = 25; Proper Subsets = 24", "Power Set = 64"], "answer": 0, "explanation": "For `|A| = n`: `|P(A)| = 2^n`; Total Relations on `A` = `2^(n²)`; Reflexive Relations = `2^(n(n−1))`; Symmetric Relations = `2^(n(n+1)/2)`.", "tag": "DSSSB Expected / PYQ"}, {"id": 2, "chapter": "Chapter 1: Set Theory & Relations — Set Theory, Inclusion-Exclusion, Relations (Reflexive, Symmetric, Transitive), Equivalence & POSETs", "q": "What are the three required properties for a binary relation `R` on a set `A` to be (1) an 'Equivalence Relation' vs (2) a 'Partial Order Relation (POSET)'?", "options": ["Equivalence Relation is Anti-Symmetric", "Equivalence Relation = Reflexive + Symmetric + Transitive", "POSET is Symmetric", "Neither requires Transitivity"], "answer": 1, "explanation": "Equivalence Relation = Reflexive + Symmetric + Transitive; Partial Order (POSET) = Reflexive + Anti-Symmetric + Transitive. Equivalence Relation = Reflexive + Symmetric + Transitive (partitions A into Equivalence Classes); Partial Order (POSET) = Reflexive + Anti-Symmetric + Transitive (drawn as a Hasse Diagram) — The ONLY difference is the middle property: Equivalence Relation requires **Symmetric** (`aRb => bRa`), whereas POSET requires **Anti-Symmetric** (`aRb and bRa => a == b`).", "tag": "DSSSB Expected / PYQ"}, {"id": 3, "chapter": "Chapter 1: Set Theory & Relations — Set Theory, Inclusion-Exclusion, Relations (Reflexive, Symmetric, Transitive), Equivalence & POSETs", "q": "For two functions `f: A -> B` and `g: B -> C`, what makes a function 'Injective (One-to-One)', 'Surjective (Onto)', and 'Bijective'?", "options": ["A function is invertible even if it is not one-to-one", "Surjective requires |A| < |B|", "Injective (1-1): distinct inputs map to distinct outputs", "Total functions from A(m) to B(n) is m^n (Correct is n^m)"], "answer": 2, "explanation": "Injective (1-1): distinct inputs map to distinct outputs; Surjective (Onto): Range == Codomain B; Bijective: Both One-to-One AND Onto. Injective (1-1): distinct inputs map to distinct outputs (requires |A| ≤ |B|); Surjective (Onto): Range == Codomain B (requires |A| ≥ |B|); Bijective: Both One-to-One AND Onto (invertible, requires |A| == |B|, total bijections = n!) — For `|A| = m, |B| = n`: Total functions `A -> B` = `n^m`; Injective (1-1) functions = `P(n, m) = n! / (n − m)!` (for `m ≤ n`); Bijections (when `m = n`) = `n!`.", "tag": "DSSSB Expected / PYQ"}, {"id": 4, "chapter": "Chapter 1: Set Theory & Relations — Set Theory, Inclusion-Exclusion, Relations (Reflexive, Symmetric, Transitive), Equivalence & POSETs", "q": "In Set Theory, what is the Principle of Inclusion-Exclusion for two sets A, B and three sets A, B, C?", "options": ["|A ∪ B| = |A| + |B| + |A ∩ B|", "|A ∪ B| = |A| × |B|", "|A ∩ B| = |A| + |B|", "|A ∪ B| = |A| + |B| − |A ∩ B|"], "answer": 3, "explanation": "|A ∪ B| = |A| + |B| − |A ∩ B|; |A ∪ B ∪ C| = |A| + |B| + |C| − |A∩B| − |B∩C| − |A∩C| + |A∩B∩C|. Inclusion-Exclusion avoids double-counting elements belonging to intersections.", "tag": "DSSSB Expected / PYQ"}, {"id": 5, "chapter": "Chapter 1: Set Theory & Relations — Set Theory, Inclusion-Exclusion, Relations (Reflexive, Symmetric, Transitive), Equivalence & POSETs", "q": "If `|A| = 3` and `|B| = 4`, how many elements are in the Cartesian Product `A × B`, and how many total binary relations exist from `A` to `B`?", "options": ["|A × B| = 3 × 4 = 12 ordered pairs; Total relations from A to B = 2¹² = 4,096", "|A × B| = 7; Total relations = 2⁷", "|A × B| = 12; Total relations = 12", "Total relations = 3⁴"], "answer": 0, "explanation": "Every subset of `A × B` is a relation from `A` to `B`, so there are `2^(|A| × |B|)` relations.", "tag": "DSSSB Expected / PYQ"}, {"id": 6, "chapter": "Chapter 1: Set Theory & Relations — Set Theory, Inclusion-Exclusion, Relations (Reflexive, Symmetric, Transitive), Equivalence & POSETs", "q": "In a Hasse Diagram of a Partial Order Set (POSET), which edges are intentionally omitted to keep the diagram clean?", "options": ["All edges between adjacent elements", "All Self-Loops, all Transitive shortcut edges, and arrowheads", "All vertex labels", "Only the top element"], "answer": 1, "explanation": "All Self-Loops (due to Reflexivity), all Transitive shortcut edges (due to Transitivity), and arrowheads (since edges are drawn upward) — A Hasse diagram shows only the immediate covering relations of a POSET directed upward.", "tag": "DSSSB Expected / PYQ"}, {"id": 7, "chapter": "Chapter 2: Logic & Quantifiers — Propositional Logic, Truth Tables, Conditional Contrapositive, Tautologies & First-Order Quantifiers", "q": "In Propositional Logic, when is the Conditional Implication `p -> q` ('If p then q') FALSE, and what is its logically equivalent 'Contrapositive'?", "options": ["`p -> q` is false when both p and q are false", "The Converse `q -> p` is logically equivalent to `p -> q`", "`p -> q` is FALSE ONLY when `p` is True and `q` is False", "The Inverse `¬p -> ¬q` is equivalent to `p -> q`"], "answer": 2, "explanation": "`p -> q` is FALSE ONLY when `p` is True and `q` is False; its logically equivalent Contrapositive is `¬q -> ¬p`. `p -> q` is FALSE ONLY when `p` is True and `q` is False (`T -> F = F`); its logically equivalent Contrapositive is `¬q -> ¬p` (also equivalent to `¬p ∨ q`) — Memorize the pairs for `p -> q`: **Contrapositive `¬q -> ¬p` is ALWAYS equivalent to `p -> q`**; Converse (`q -> p`) and Inverse (`¬p -> ¬q`) are equivalent to each other, NOT to `p -> q`! A formula that is always True is a **Tautology**; always False is a **Contradiction**; sometimes True/False is a **Contingency**.", "tag": "DSSSB Expected / PYQ"}, {"id": 8, "chapter": "Chapter 2: Logic & Quantifiers — Propositional Logic, Truth Tables, Conditional Contrapositive, Tautologies & First-Order Quantifiers", "q": "In Propositional Logic, what are the two laws of De Morgan for negation of AND (`∧`) and OR (`∨`)?", "options": ["¬(p ∧ q) ≡ ¬p ∧ ¬q", "¬(p ∨ q) ≡ p ∧ q", "¬(p -> q) ≡ ¬p -> ¬q", "¬(p ∧ q) ≡ (¬p ∨ ¬q) and ¬(p ∨ q) ≡ (¬p ∧ ¬q)"], "answer": 3, "explanation": "Negating `p -> q` (`¬p ∨ q`) yields `p ∧ ¬q`!", "tag": "DSSSB Expected / PYQ"}, {"id": 9, "chapter": "Chapter 2: Logic & Quantifiers — Propositional Logic, Truth Tables, Conditional Contrapositive, Tautologies & First-Order Quantifiers", "q": "What is the negation of the Quantified Predicate statement `∀x P(x)` ('For all x, P(x) is true') and `∃x P(x)` ('There exists an x such that P(x) is true')?", "options": ["¬(∀x P(x)) ≡ ∃x ¬P(x); ¬(∃x P(x)) ≡ ∀x ¬P(x)", "¬(∀x P(x)) ≡ ∀x ¬P(x)", "¬(∃x P(x)) ≡ ∃x ¬P(x)", "Quantifiers cannot be negated"], "answer": 0, "explanation": "De Morgan's Laws for Quantifiers flip `∀` to `∃` and `∃` to `∀` while moving `¬` inside.", "tag": "DSSSB Expected / PYQ"}, {"id": 10, "chapter": "Chapter 2: Logic & Quantifiers — Propositional Logic, Truth Tables, Conditional Contrapositive, Tautologies & First-Order Quantifiers", "q": "In Propositional Logic Inference Rules, what are 'Modus Ponens' and 'Modus Tollens'?", "options": ["Modus Ponens: From `p -> q` and `q`, conclude `p` (Fallacy!)", "Modus Ponens: From `p -> q` and `p`, conclude `q`", "Modus Tollens: From `p -> q` and `¬p`, conclude `¬q` (Fallacy!)", "Both are invalid fallacies"], "answer": 1, "explanation": "Modus Ponens: From `p -> q` and `p`, conclude `q`; Modus Tollens: From `p -> q` and `¬q`, conclude `¬p`. Remember: `p -> q` with `q` does NOT prove `p` (Fallacy of Affirming the Consequent)!", "tag": "DSSSB Expected / PYQ"}, {"id": 11, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "According to the Handshaking Lemma in Graph Theory, for any undirected graph `G(V, E)`, what is the sum of degrees of all vertices `Σ deg(v)` equal to?", "options": ["|E|", "|V| + |E|", "2|E|", "|E|²"], "answer": 2, "explanation": "2|E| (twice the number of edges — which implies that the number of vertices with ODD degree is ALWAYS EVEN!) — If a graph has 6 vertices each of degree 3, then `2|E| = 6 × 3 = 18 => |E| = 9` edges.", "tag": "DSSSB Expected / PYQ"}, {"id": 12, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "In a Simple Complete Undirected Graph `K_n` with `n` vertices, how many edges does `K_n` have, what is the degree of each vertex, and how many labeled Spanning Trees does `K_n` have (Cayley's Formula)?", "options": ["Edges = n²; Spanning Trees = 2^n", "Edges = n − 1; Spanning Trees = n!", "Degree = n", "Edges in K_n = n(n − 1) / 2; Degree of each vertex = n − 1; Labeled Spanning Trees = n^(n − 2)"], "answer": 3, "explanation": "For `K₄` (`n = 4`): Edges = `4×3/2 = 6`, vertex degree = `3`, and labeled Spanning Trees = `4^(4−2) = 4² = 16`.", "tag": "DSSSB Expected / PYQ"}, {"id": 13, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "What is the exact degree condition for a connected undirected graph to possess an 'Euler Circuit' (traversing every EDGE exactly once and returning to start) vs an 'Euler Path'?", "options": ["Euler Circuit: ALL vertices must have EVEN degree", "Euler Circuit requires all vertices to have odd degree", "Hamiltonian Cycle visits every edge once", "A tree always has an Euler Circuit"], "answer": 0, "explanation": "Euler Circuit: ALL vertices must have EVEN degree; Euler Path: Exactly 2 vertices have ODD degree. Euler Circuit: ALL vertices must have EVEN degree; Euler Path (not a circuit): Exactly 2 vertices have ODD degree — Note: **Euler** = visits every **Edge** once (easy degree test); **Hamiltonian** = visits every **Vertex** once (NP-Complete).", "tag": "DSSSB Expected / PYQ"}, {"id": 14, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "For a Connected Planar Graph with `V` vertices, `E` edges, and `R` faces (regions, including the infinite outer region), what is Euler's Planar Graph Formula?", "options": ["V + E + R = 2", "V − E + R = 2", "V − E − R = 0", "E = 3V + 6"], "answer": 1, "explanation": "V − E + R = 2 (and for any simple planar graph with V ≥ 3, E ≤ 3V − 6; if triangle-free/bipartite, E ≤ 2V − 4) — If a connected planar graph has `V = 6` vertices and `E = 9` edges, then the number of regions is `R = E − V + 2 = 9 − 6 + 2 = 5`.", "tag": "DSSSB Expected / PYQ"}, {"id": 15, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "According to the Pigeonhole Principle, if `n = 13` people are in a room, at least how many of them must share the exact same birth month (out of 12 months)?", "options": ["At least 3 people", "Exactly 1 person", "At least 2 people", "0 people"], "answer": 2, "explanation": "At least 2 people (`⌈13 / 12⌉ = 2`) — Generalized Pigeonhole Principle: If `N` objects are placed into `k` boxes, at least one box contains at least `⌈N / k⌉` objects.", "tag": "DSSSB Expected / PYQ"}, {"id": 16, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "In how many distinct ways can the letters of the word `'BANANA'` (6 letters: 1 B, 3 A's, 2 N's) be arranged?", "options": ["720 ways (6!)", "120 ways", "30 ways", "60 ways (6! / = 720 / 12 = 60)"], "answer": 3, "explanation": "60 ways (6! / (3! × 2! × 1!) = 720 / 12 = 60) — Permutations of `n` objects with repeated counts `n₁, n₂, ...` = `n! / (n₁! n₂! ...)`.", "tag": "DSSSB Expected / PYQ"}, {"id": 17, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "How many 4-member committees can be chosen from a group of 7 teachers (`C(7, 4)`)?", "options": ["35 committees (7! / (4! × 3!) = (7 × 6 × 5) / 6 = 35)", "28 committees", "840 committees", "21 committees"], "answer": 0, "explanation": "Combinations (order does not matter): `C(n, r) = n! / (r!(n − r)!)`.", "tag": "DSSSB Expected / PYQ"}, {"id": 18, "chapter": "Chapter 3: Combinatorics & Counting — Combinatorics, Permutations & Combinations, Stars-and-Bars, Pigeonhole Principle & Graph Handshaking Lemma", "q": "What is the chromatic number `χ(G)` (minimum colors needed so no two adjacent vertices share a color) of (1) a Non-empty Tree / Bipartite Graph, (2) a Complete Graph `K_n`, and (3) any Planar Graph?", "options": ["Tree = 3 colors; K_n = 2 colors", "(1) Tree / Bipartite = 2 colors; (2) Complete Graph K_n = n colors; (3) Any Planar Graph ≤ 4 colors", "Planar Graph requires 6 colors", "Odd cycle C₅ needs 2 colors (Correct: Odd cycle needs 3 colors!)"], "answer": 1, "explanation": "(1) Tree / Bipartite = 2 colors; (2) Complete Graph K_n = n colors; (3) Any Planar Graph ≤ 4 colors (Four Color Theorem) — Even cycles `C_{2k}` are bipartite (2-colorable); Odd cycles `C_{2k+1}` require 3 colors.", "tag": "DSSSB Expected / PYQ"}, {"id": 19, "chapter": "Chapter 4: Linear Algebra & Matrices — Linear Algebra — Matrix Rank, Determinants, System of Equations (AX = B), Eigenvalues & Cayley-Hamilton", "q": "For the `2 × 2` matrix `A = [[4, 2], [1, 3]]`, what are its Trace, Determinant, and two Eigenvalues `λ₁, λ₂`?", "options": ["Eigenvalues are 4 and 3", "Eigenvalues are 6 and 1", "Trace = 4 + 3 = 7", "Determinant is 14"], "answer": 2, "explanation": "Trace = 4 + 3 = 7; Determinant = (4×3 − 2×1) = 10; Eigenvalues are λ₁ = 5 and λ₂ = 2 (since 5 + 2 = 7 and 5 × 2 = 10) — Shortcut: Never expand the characteristic polynomial `det(A − λI) = 0` in MCQs! Just check the options where **Sum of Eigenvalues = Trace(A) = 7** and **Product of Eigenvalues = det(A) = 10** (`5 + 2 = 7` and `5 × 2 = 10`)!", "tag": "DSSSB Expected / PYQ"}, {"id": 20, "chapter": "Chapter 4: Linear Algebra & Matrices — Linear Algebra — Matrix Rank, Determinants, System of Equations (AX = B), Eigenvalues & Cayley-Hamilton", "q": "For a system of `n` linear equations `A X = B`, what is the condition on `Rank(A)` and the augmented matrix `Rank([A | B])` for the system to have (1) a Unique Solution, (2) Infinitely Many Solutions, and (3) No Solution (Inconsistent)?", "options": ["No Solution occurs when Rank(A) == Rank([A|B])", "Unique Solution occurs when det(A) == 0", "Homogeneous system AX = 0 can have No Solution", "(1) Unique: Rank(A) == Rank([A|B]) == n"], "answer": 3, "explanation": "(1) Unique: Rank(A) == Rank([A|B]) == n; (2) Infinite: Rank(A) == Rank([A|B]) < n; (3) No Solution: Rank(A) < Rank([A|B]). By the Rouché–Capelli Theorem, a system is consistent iff `Rank(A) == Rank([A|B])`.", "tag": "DSSSB Expected / PYQ"}, {"id": 21, "chapter": "Chapter 4: Linear Algebra & Matrices — Linear Algebra — Matrix Rank, Determinants, System of Equations (AX = B), Eigenvalues & Cayley-Hamilton", "q": "If a `3 × 3` square matrix `A` has determinant `det(A) = 5`, what is `det(2A)` and `det(A⁻¹)`?", "options": ["det(2A) = 2³ × 5 = 40; det(A⁻¹) = 1 / 5 = 0.2", "det(2A) = 2 × 5 = 10; det(A⁻¹) = −5", "det(2A) = 25; det(A⁻¹) = 5", "det(2A) = 15"], "answer": 0, "explanation": "For an `n × n` matrix: `det(kA) = k^n · det(A)`, `det(A^T) = det(A)`, `det(AB) = det(A)det(B)`, and `det(A⁻¹) = 1 / det(A)`.", "tag": "DSSSB Expected / PYQ"}, {"id": 22, "chapter": "Chapter 4: Linear Algebra & Matrices — Linear Algebra — Matrix Rank, Determinants, System of Equations (AX = B), Eigenvalues & Cayley-Hamilton", "q": "When is a square matrix `A` called (1) Singular, (2) Symmetric, (3) Skew-Symmetric, and (4) Orthogonal?", "options": ["Singular has `det(A) = 1`", "Singular: `det(A) = 0` (no inverse)", "Orthogonal has `A^T = −A`", "Symmetric has `det(A) = 0` always"], "answer": 1, "explanation": "Singular: `det(A) = 0` (no inverse); Symmetric: `A^T = A`; Skew-Symmetric: `A^T = −A`; Orthogonal: `A^T A = I`. Singular: `det(A) = 0` (no inverse); Symmetric: `A^T = A`; Skew-Symmetric: `A^T = −A` (diagonal entries are 0); Orthogonal: `A^T A = I` (`A⁻¹ = A^T`) — Also remember: For a **Real Symmetric Matrix**, all Eigenvalues are ALWAYS **Real**!", "tag": "DSSSB Expected / PYQ"}, {"id": 23, "chapter": "Chapter 5: Probability & Bayes — Probability Axioms, Conditional Probability P(A|B), Independence & Bayes' Theorem", "q": "If two events `A` and `B` have `P(A) = 0.5` and `P(B) = 0.4`, what is `P(A ∪ B)` if (1) `A` and `B` are Mutually Exclusive (Disjoint) vs (2) `A` and `B` are Independent?", "options": ["Both give 0.90", "If Independent, P(A∪B) = 0.20", "If Mutually Exclusive (P(A∩B) = 0): P(A∪B) = 0.5 + 0.4 = 0.90", "If Mutually Exclusive, P(A∩B) = 0.20"], "answer": 2, "explanation": "If Mutually Exclusive (P(A∩B) = 0): P(A∪B) = 0.5 + 0.4 = 0.90; If Independent (P(A∩B) = 0.5×0.4 = 0.20): P(A∪B) = 0.5 + 0.4 − 0.20 = 0.70. Addition Law: `P(A ∪ B) = P(A) + P(B) − P(A ∩ B)`. Disjoint => `P(A ∩ B) = 0`; Independent => `P(A ∩ B) = P(A) · P(B)`.", "tag": "DSSSB Expected / PYQ"}, {"id": 24, "chapter": "Chapter 5: Probability & Bayes — Probability Axioms, Conditional Probability P(A|B), Independence & Bayes' Theorem", "q": "Two fair six-sided dice are rolled simultaneously. What is the probability that the sum of the two faces is equal to `7`?", "options": ["1/12", "5/36", "7/36", "1/6 (6 favorable outcomes out of 36: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1))"], "answer": 3, "explanation": "7 is the most probable sum on two dice (`6 / 36 = 1/6`).", "tag": "DSSSB Expected / PYQ"}, {"id": 25, "chapter": "Chapter 5: Probability & Bayes — Probability Axioms, Conditional Probability P(A|B), Independence & Bayes' Theorem", "q": "In Bayes' Theorem for conditional probability, what is `P(A | B)`?", "options": ["P(A | B) = [P(B | A) · P(A)] / P(B)", "P(A | B) = P(A) + P(B)", "P(A | B) = P(A) / P(B)", "P(A | B) = P(B | A) always"], "answer": 0, "explanation": "Conditional probability definition: `P(A | B) = P(A ∩ B) / P(B)`.", "tag": "DSSSB Expected / PYQ"}, {"id": 26, "chapter": "Chapter 6: Statistics & Distributions — Descriptive Statistics (Mean, Median, Mode, Variance, CV), Correlation/Regression & Binomial/Poisson/Normal", "q": "In Statistics and Probability, for a moderately skewed distribution, what is Karl Pearson's Empirical Formula relating Mean, Median, and Mode? If Mean = 20 and Median = 22, what is the Mode?", "options": ["Mode = 2 × Median − 3 × Mean; Mode = 16", "Mode = 3 × Median − 2 × Mean; here Mode = 3(22) − 2(20) = 66 − 40 = 26", "Mean = 3 × Median − 2 × Mode", "Mode = Mean + Median = 42"], "answer": 1, "explanation": "Memorize: **`Mode = 3 Median − 2 Mean`**. Also remember: for a Poisson Distribution (`P(X=k) = e^{−λ} λ^k / k!`), **Mean = Variance = λ**; for a Binomial Distribution `B(n, p)`, **Mean = `np`** and **Variance = `npq`** (so for Binomial, `Mean > Variance` since `0 < q < 1`!).", "tag": "DSSSB Expected / PYQ"}, {"id": 27, "chapter": "Chapter 6: Statistics & Distributions — Descriptive Statistics (Mean, Median, Mode, Variance, CV), Correlation/Regression & Binomial/Poisson/Normal", "q": "Which measure of Central Tendency is affected the MOST by extreme outliers, and which measure is unaffected by outliers?", "options": ["Median is affected the most by outliers", "Mode is affected the most by outliers", "Arithmetic Mean is affected the MOST by extreme outliers", "Standard Deviation is unaffected by outliers"], "answer": 2, "explanation": "Arithmetic Mean is affected the MOST by extreme outliers; Median is robust (unaffected) by outliers. Adding an extreme value (like a billionaire's income) pulls the Mean sharply upward while leaving the Median nearly unchanged.", "tag": "DSSSB Expected / PYQ"}, {"id": 28, "chapter": "Chapter 6: Statistics & Distributions — Descriptive Statistics (Mean, Median, Mode, Variance, CV), Correlation/Regression & Binomial/Poisson/Normal", "q": "If every observation in a dataset with Mean `μ = 20` and Standard Deviation `σ = 4` (Variance `σ² = 16`) is increased by `+5` (change of origin), what are the NEW Mean and NEW Standard Deviation?", "options": ["New Mean = 25; New SD = 9", "New Mean = 20; New SD = 4", "New Mean = 25; New SD = 20", "New Mean = 25; New Standard Deviation = 4"], "answer": 3, "explanation": "New Mean = 25 (shifts by +5); New Standard Deviation = 4 (UNCHANGED by adding/subtracting a constant!) — Standard Deviation & Variance are **independent of change of origin** (`+c`), but **depend on change of scale** (`×k` multiplies SD by `|k|` and Variance by `k²`)!", "tag": "DSSSB Expected / PYQ"}, {"id": 29, "chapter": "Chapter 6: Statistics & Distributions — Descriptive Statistics (Mean, Median, Mode, Variance, CV), Correlation/Regression & Binomial/Poisson/Normal", "q": "In a Normal (Gaussian) Distribution `N(μ, σ²)`, approximately what percentage of observations fall within `μ ± 1σ`, `μ ± 2σ`, and `μ ± 3σ` (the Empirical 68–95–99.7 Rule)?", "options": ["±1σ = 68.27%, ±2σ = 95.45%, and ±3σ = 99.73%", "±1σ = 50%, ±2σ = 75%, ±3σ = 90%", "±1σ = 95%, ±2σ = 99%", "Mean > Median > Mode"], "answer": 0, "explanation": "±1σ = 68.27%, ±2σ = 95.45%, and ±3σ = 99.73% (with Mean = Median = Mode and Skewness = 0) — A standard Normal curve is symmetric and bell-shaped (`Mean = Median = Mode`).", "tag": "DSSSB Expected / PYQ"}, {"id": 30, "chapter": "Chapter 7: Numerical Methods & Roots — Numerical Methods — Root Finding (Bisection, Regula-Falsi, Secant, Newton-Raphson) & Numerical Integration", "q": "In Numerical Methods for finding roots of a non-linear equation `f(x) = 0`, compare the Order of Convergence and formula of the Bisection Method vs the Newton-Raphson Method:", "options": ["Bisection has Order 2 and Newton-Raphson has Order 1", "Bisection Method: Linear convergence (Order = 1, guaranteed to converge if f(a)·f(b) < 0)", "Secant Method has Order 3 (Correct is 1.618)", "Newton-Raphson does not use the derivative f'(x)"], "answer": 1, "explanation": "Bisection Method: Linear convergence (Order = 1, guaranteed to converge if f(a)·f(b) < 0); Newton-Raphson (`x_{n+1} = x_n − f(x_n)/f'(x_n)`): Quadratic convergence (Order = 2, doubles accurate digits per step, fails if f'(x_n) = 0). Convergence Orders: Bisection = `1`, Regula-Falsi (False Position) = `1`, Secant Method = `1.618` (Golden Ratio), Newton-Raphson = `2` (Quadratic).", "tag": "DSSSB Expected / PYQ"}, {"id": 31, "chapter": "Chapter 7: Numerical Methods & Roots — Numerical Methods — Root Finding (Bisection, Regula-Falsi, Secant, Newton-Raphson) & Numerical Integration", "q": "In Numerical Integration of `∫ f(x) dx` over `n` sub-intervals of width `h`, what restriction on the number of sub-intervals `n` is required by (1) Trapezoidal Rule, (2) Simpson's 1/3 Rule, and (3) Simpson's 3/8 Rule?", "options": ["Simpson's 1/3 Rule works for any odd n", "Trapezoidal Rule requires n to be a multiple of 3", "Trapezoidal Rule: any integer n ≥ 1", "Simpson's 3/8 Rule requires n to be prime"], "answer": 2, "explanation": "Trapezoidal Rule: any integer n ≥ 1; Simpson's 1/3 Rule: n MUST be an EVEN integer; Simpson's 3/8 Rule: n MUST be a MULTIPLE OF 3. Trapezoidal Rule: any integer n ≥ 1 (degree 1 linear); Simpson's 1/3 Rule: n MUST be an EVEN integer (parabolic degree 2, exact up to cubics); Simpson's 3/8 Rule: n MUST be a MULTIPLE OF 3 — Also in ODE numerical solvers for `dy/dx = f(x, y)`: Euler's Method (`y_{n+1} = y_n + h f(x_n, y_n)`) is `1st-Order` accurate (`O(h)` global error), whereas the **Classical 4th-Order Runge-Kutta (RK4) Method** is `4th-Order` accurate (`O(h⁴)` global error).", "tag": "DSSSB Expected / PYQ"}, {"id": 32, "chapter": "Chapter 7: Numerical Methods & Roots — Numerical Methods — Root Finding (Bisection, Regula-Falsi, Secant, Newton-Raphson) & Numerical Integration", "q": "What is the 'Interpolation Formula' used to fit a unique polynomial of degree at most `n` through `(n + 1)` UNEQUALLY spaced data points `(x₀, y₀), ..., (x_n, y_n)`?", "options": ["Newton's Forward Difference Formula (requires EQUALLY spaced points)", "Bisection Method", "Simpson's 1/3 Rule", "Lagrange's Interpolation Formula (or Newton's Divided Difference Formula)"], "answer": 3, "explanation": "Newton Forward/Backward Difference requires **equally spaced** `x` values; Lagrange and Newton Divided Difference work for **unequally spaced** `x` values.", "tag": "DSSSB Expected / PYQ"}];
+let revMode = true;
+let userPicks = {};
+
+function toggleMode() {
+  revMode = !revMode;
+  const b = document.getElementById('modeBtn');
+  b.textContent = revMode ? '📖 Mode: Revision (Answers Visible)' : '✍️ Mode: Quiz Practice (Click Option)';
+  b.className = revMode ? 'btn btn-green' : 'btn btn-blue';
+  renderList();
+}
+
+function shuffleOpts() {
+  QUESTIONS.forEach(q => {
+    const cVal = q.options[q.answer];
+    for (let i = q.options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+    }
+    q.answer = q.options.indexOf(cVal);
+  });
+  userPicks = {};
+  renderList();
+}
+
+function pickAns(qid, oi) {
+  if (revMode || userPicks[qid] !== undefined) return;
+  userPicks[qid] = oi;
+  renderList();
+}
+
+function renderList() {
+  const ch = document.getElementById('chFilter').value;
+  const s = (document.getElementById('qSearch').value || '').toLowerCase().trim();
+  const letters = ['A', 'B', 'C', 'D'];
+  let htmlOut = '';
+  let shown = 0, cCnt = 0, wCnt = 0;
+
+  QUESTIONS.forEach(q => {
+    if (ch !== 'ALL' && !q.chapter.startsWith(ch)) return;
+    const hay = (q.q + ' ' + q.options.join(' ') + ' ' + q.explanation).toLowerCase();
+    if (s && !hay.includes(s)) return;
+    shown++;
+
+    const picked = userPicks[q.id];
+    if (picked !== undefined) {
+      if (picked === q.answer) cCnt++; else wCnt++;
+    }
+    const show = revMode || (picked !== undefined);
+
+    let oHtml = '';
+    q.options.forEach((ot, oi) => {
+      let cls = 'opt-btn';
+      let tag = '';
+      if (show) {
+        if (oi === q.answer) { cls += ' correct'; tag = ' ✅'; }
+        else if (picked === oi) { cls += ' wrong'; tag = ' ❌'; }
+      }
+      oHtml += `<button class="${cls}" onclick="pickAns(${q.id}, ${oi})"><strong>(${letters[oi]})</strong> ${ot}${tag}</button>`;
+    });
+
+    const expHtml = show ? `<div class="exp-strip"><strong>Answer (${letters[q.answer]}):</strong> ${q.explanation}</div>` : '';
+
+    htmlOut += `<div class="q-card">
+      <div class="q-head">
+        <span>Q#${q.id} • ${q.chapter}</span>
+        <span style="color:#15803d;">${q.tag}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="opts-grid">${oHtml}</div>
+      ${expHtml}
+    </div>`;
+  });
+
+  if (revMode) {
+    document.getElementById('statLabel').textContent = `Showing ${shown} Questions`;
+  } else {
+    const net = (cCnt * 1.0 - wCnt * 0.25).toFixed(2);
+    document.getElementById('statLabel').textContent = `Score: ${net} | ✅ ${cCnt} | ❌ ${wCnt} | Shown: ${shown}`;
+  }
+  document.getElementById('qContainer').innerHTML = htmlOut || '<div class="ch-card">No matching questions.</div>';
+}
+renderList();
+</script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Engineering — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Software Engineering</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="12_B07_Software_Engineering_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/12_B07_Software_Engineering_Question_Booklet.html">📝 Question Booklet (54 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 6–8 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Software Engineering (SDLC Models, SRS, DFD, Coupling &amp; Cohesion, Testing, Maintenance/COCOMO &amp; CMMI)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/12_B07_Software_Engineering_Question_Booklet.html">📝 Open 54-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: SDLC Models — SDLC Process M</a><a class="pill" href="#ch2">Ch 2: Requirements &amp; SRS — Require</a><a class="pill" href="#ch3">Ch 3: Analysis Tools &amp; DFD — Struc</a><a class="pill" href="#ch4">Ch 4: Design: Coupling &amp; Cohesion </a><a class="pill" href="#ch5">Ch 5: Testing Strategies — Softwar</a><a class="pill" href="#ch6">Ch 6: Maintenance &amp; Metrics — Soft</a><a class="pill" href="#ch7">Ch 7: Quality &amp; CMM Levels — Softw</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Software Engineering — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Software Engineering — SDLC, Coupling/Cohesion, COCOMO &amp; Testing</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>SE Domain</th><th>Formula / Hierarchy Order</th><th>Key Exam Benchmarks &amp; Rules</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Cohesion (Best to Worst)</strong></td><td>Mnemonic: <strong>F-S-C-P-T-L-C</strong> (Maximize Cohesion!)</td><td>1. <strong>Functional (Best)</strong> &gt; 2. Sequential &gt; 3. Communicational &gt; 4. Procedural &gt; 5. Temporal &gt; 6. Logical &gt; 7. <strong>Coincidental (Worst)</strong></td></tr>
+    <tr><td><strong>Coupling (Best/Loosest to Worst)</strong></td><td>Mnemonic: <strong>D-S-C-E-C-C</strong> (Minimize Coupling!)</td><td>1. <strong>Data (Best)</strong> &gt; 2. Stamp (Struct) &gt; 3. Control (Flag) &gt; 4. External &gt; 5. Common (Global vars) &gt; 6. <strong>Content (Worst)</strong></td></tr>
+    <tr><td><strong>Basic COCOMO Model</strong></td><td>Effort <code>E = a × (KLOC)^b</code> PM | Time <code>D = c × E^d</code> months</td><td><strong>Organic:</strong> <code>a=2.4, b=1.05</code> (2–50 KLOC) | <strong>Semi-Detached:</strong> <code>a=3.0, b=1.12</code> (50–300 KLOC) | <strong>Embedded:</strong> <code>a=3.6, b=1.20</code> (&gt;300 KLOC, real-time avionics)</td></tr>
+    <tr><td><strong>Cyclomatic Complexity V(G)</strong></td><td><code>V(G) = E − N + 2P = D + 1 = Number of Regions</code></td><td>Equals the upper bound on independent basis paths for 100% <strong>Branch Coverage</strong>. Subsumption: <code>Path Coverage =&gt; Branch Coverage =&gt; Statement Coverage</code></td></tr>
+    <tr><td><strong>Maintenance &amp; CMMI Levels</strong></td><td><strong>CMMI 1–5:</strong> Initial -&gt; Managed -&gt; Defined -&gt; Quantitatively Managed -&gt; Optimizing</td><td><strong>Maintenance Share:</strong> <strong>Perfective (~55% highest)</strong> &gt; Adaptive (~25% new OS/platform) &gt; Corrective (~20% bug fixes) &gt; Preventive (~5% refactoring)</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) &amp; Agile Scrum</h2>
+    <span class="badge">10 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="sdlc process models — waterfall, v-model, prototyping, incremental, spiral (boehm) &amp; agile scrum boehm&#x27;s spiral model = 4 quadrants per loop (1. objectives -&gt; 2. risk analysis &amp; prototyping -&gt; 3. engineering &amp; testing -&gt; 4. customer evaluation &amp; next planning) sdlc model selection criteria: (1) classical waterfall (royce, 1970): rigid sequential phases; suitable only when requirements are 100% frozen, well-understood, and stable upfront; customer sees working software only at the very end; (2) prototyping model: best when customer requirements are vague/unclear upfront; (3) rad (rapid application development): component-based high-speed delivery in 60–90 days using reusable case tools; (4) spiral model (barry boehm, 1986): meta-model driven by explicit risk analysis at every loop — ideal for large, complex, high-risk systems; (5) agile / scrum: iterative 2–4 week sprints, product backlog, daily standup (15 min), welcomes changing requirements. exam trap: agar question me &#x27;risk analysis / risk handling&#x27; ya &#x27;meta-model&#x27; shabd aaye, to 100% answer &#x27;spiral model (barry boehm)&#x27; hoga! aur agar &#x27;unclear/ambiguous user requirements&#x27; aaye, to &#x27;prototyping model&#x27; hoga!">
+  <div class="sub-h">📌 1.1 SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) &amp; Agile Scrum</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Boehm&#x27;s Spiral Model = 4 Quadrants per Loop (1. Objectives -&gt; 2. Risk Analysis &amp; Prototyping -&gt; 3. Engineering &amp; Testing -&gt; 4. Customer Evaluation &amp; Next Planning)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>SDLC Model Selection Criteria: (1) Classical Waterfall (Royce, <mark class="hl">1970</mark>): Rigid sequential phases</li><li>suitable ONLY when requirements are 100% frozen, well-understood, and stable upfront</li><li>customer sees working software only at the very end</li><li>(2) Prototyping Model: Best when customer requirements are vague/unclear upfront</li><li>(3) RAD (Rapid Application Development): Component-based high-speed delivery in 60–90 days using reusable CASE tools</li><li>(4) Spiral Model (Barry Boehm, <mark class="hl">1986</mark>): Meta-model driven by explicit RISK ANALYSIS at every loop — ideal for large, complex, high-risk systems</li><li>(5) Agile / Scrum: Iterative 2–4 week Sprints, Product Backlog, Daily Standup (15 min), welcomes changing requirements.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> V-Model (Verification &amp; Validation Mapping): Requirements Specification &lt;-&gt; Acceptance Testing; System/High-Level Design &lt;-&gt; System &amp; Integration Testing; Detailed Module Design &lt;-&gt; Unit Testing.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Agar question me <strong>'Risk Analysis / Risk Handling'</strong> ya <strong>'Meta-Model'</strong> shabd aaye, to 100% answer <strong>'Spiral Model (Barry Boehm)'</strong> hoga! Aur agar <strong>'Unclear/Ambiguous User Requirements'</strong> aaye, to <strong>'Prototyping Model'</strong> hoga!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which sdlc model is best suited when all software requirements are 100% clear, fixed, and well-understood from the very beginning? the waterfall model is a linear sequential model suitable only when requirements are stable and frozen upfront.">
+  <div class="in-note-stem">Q1.1: Which SDLC model is best suited when all software requirements are 100% clear, fixed, and well-understood from the very beginning?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Classical Waterfall Model ✅</div><div class="in-opt"><strong>(B)</strong> Spiral Model</div><div class="in-opt"><strong>(C)</strong> Agile Scrum</div><div class="in-opt"><strong>(D)</strong> Prototyping Model</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The Waterfall Model is a linear sequential model suitable only when requirements are stable and frozen upfront.</div>
+</div><div class="in-note-q" data-search="which sdlc model builds a quick working throwaway or evolutionary mock-up of the system so users can clarify unclear gui/functional requirements early? prototyping is ideal when customers cannot articulate detailed requirements upfront without seeing a working model.">
+  <div class="in-note-stem">Q1.2: Which SDLC model builds a quick working throwaway or evolutionary mock-up of the system so users can clarify unclear GUI/functional requirements early?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Classical Waterfall Model</div><div class="in-opt ans"><strong>(B)</strong> Prototyping Model ✅</div><div class="in-opt"><strong>(C)</strong> Big Bang Model</div><div class="in-opt"><strong>(D)</strong> V-Model</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Prototyping is ideal when customers cannot articulate detailed requirements upfront without seeing a working model.</div>
+</div><div class="in-note-q" data-search="in the v-model (verification and validation model) of sdlc, which testing phase directly corresponds to (1) high-level architectural design and (2) low-level detailed module design? in the v-model: requirements &lt;-&gt; acceptance testing; system analysis/srs &lt;-&gt; system testing; high-level design &lt;-&gt; integration testing; low-level module design &lt;-&gt; unit testing.">
+  <div class="in-note-stem">Q1.3: In the V-Model (Verification and Validation Model) of SDLC, which testing phase directly corresponds to (1) High-Level Architectural Design and (2) Low-Level Detailed Module Design?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> (1) Unit Testing and (2) Acceptance Testing</div><div class="in-opt"><strong>(B)</strong> (1) System Testing and (2) Regression Testing</div><div class="in-opt ans"><strong>(C)</strong> (1) Integration Testing and (2) Unit Testing ✅</div><div class="in-opt"><strong>(D)</strong> Both map to Alpha Testing</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> In the V-Model: Requirements &lt;-&gt; Acceptance Testing; System Analysis/SRS &lt;-&gt; System Testing; High-Level Design &lt;-&gt; Integration Testing; Low-Level Module Design &lt;-&gt; Unit Testing.</div>
+</div><div class="in-note-q" data-search="what is the typical duration of a &#x27;sprint&#x27; (time-boxed iteration) in the agile scrum software development framework? 2 to 4 weeks (with a daily 15-minute stand-up / daily scrum meeting) — scrum works in 1–4 week sprints, with a daily 15-minute stand-up meeting to track progress and blockers.">
+  <div class="in-note-stem">Q1.4: What is the typical duration of a &#x27;Sprint&#x27; (time-boxed iteration) in the Agile Scrum software development framework?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 6 to 12 months</div><div class="in-opt"><strong>(B)</strong> 1 hour</div><div class="in-opt"><strong>(C)</strong> 5 years</div><div class="in-opt ans"><strong>(D)</strong> 2 to 4 weeks ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> 2 to 4 weeks (with a daily 15-minute Stand-up / Daily Scrum meeting) — Scrum works in 1–4 week Sprints, with a daily 15-minute stand-up meeting to track progress and blockers.</div>
+</div><div class="in-note-q" data-search="what shape does the classic hardware/software failure rate curve (&#x27;bathtub curve&#x27;) vs software failure curve follow over a product&#x27;s lifetime? hardware follows the u-shaped &#x27;bathtub curve&#x27;; software does not physically wear out, but experiences failure spikes due to side-effects introduced by repeated maintenance updates. hardware follows the u-shaped &#x27;bathtub curve&#x27; (infant mortality -&gt; constant useful life -&gt; wear-out due to aging); software does not physically wear out, but experiences failure spikes due to side-effects introduced by repeated maintenance updates — software does not suffer from physical wear-out; instead, repeated feature/patch updates degrade structure unless preventive refactoring is performed.">
+  <div class="in-note-stem">Q1.5: What shape does the classic hardware/software failure rate curve (&#x27;Bathtub Curve&#x27;) vs software failure curve follow over a product&#x27;s lifetime?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Hardware follows the U-shaped &#x27;Bathtub Curve&#x27; ✅</div><div class="in-opt"><strong>(B)</strong> Software physically rusts and wears out over time</div><div class="in-opt"><strong>(C)</strong> Hardware never wears out</div><div class="in-opt"><strong>(D)</strong> Both curves are flat straight lines</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Hardware follows the U-shaped <strong>'Bathtub Curve'</strong>; Software does NOT physically wear out, but experiences failure spikes due to side-effects introduced by repeated maintenance updates. Hardware follows the U-shaped <strong>'Bathtub Curve'</strong> (Infant Mortality -&gt; Constant Useful Life -&gt; Wear-out due to aging); Software does NOT physically wear out, but experiences failure spikes due to side-effects introduced by repeated maintenance updates — Software does not suffer from physical wear-out; instead, repeated feature/patch updates degrade structure unless Preventive refactoring is performed.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Requirements &amp; SRS — Requirement Engineering, IEEE 830 SRS Characteristics &amp; Verification vs Validation</h2>
+    <span class="badge">4 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="requirement engineering, ieee 830 srs characteristics &amp; verification vs validation verification (&#x27;are we building the product right?&#x27;) = static reviews/inspections against srs • validation (&#x27;are we building the right product?&#x27;) = dynamic execution against user needs requirement engineering phases: elicitation (gathering) -&gt; analysis &amp; negotiation -&gt; specification (producing the srs document — a legally binding black-box contract between customer and developer) -&gt; validation -&gt; management. per ieee 830 standard, a good srs must be correct, unambiguous (every requirement has only one interpretation), complete, consistent, ranked for importance/stability, verifiable (testable), modifiable, and traceable (forward and backward traceability matrix). hinglish tip: verification = &#x27;building the product right&#x27; (bina code run kiye static review/walkthrough/inspection); validation = &#x27;building the right product&#x27; (code run karke dynamic testing ki user ko jo chahiye tha wahi bana ya nahi)!">
+  <div class="sub-h">📌 2.1 Requirement Engineering, IEEE 830 SRS Characteristics &amp; Verification vs Validation</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Verification (<strong>'Are we building the product RIGHT?'</strong>) = Static Reviews/Inspections against SRS</li><li>🔹 Validation (<strong>'Are we building the RIGHT product?'</strong>) = Dynamic Execution against User Needs</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Requirement Engineering Phases: Elicitation (gathering) -&gt; Analysis &amp; Negotiation -&gt; Specification (producing the SRS document — a legally binding black-box contract between customer and developer) -&gt; Validation -&gt; Management.</li><li>Per <mark class="hl">IEEE 830</mark> standard, a good SRS must be Correct, Unambiguous (every requirement has ONLY ONE interpretation), Complete, Consistent, Ranked for importance/stability, Verifiable (testable), Modifiable, and Traceable (Forward and Backward Traceability Matrix).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Functional vs Non-Functional Requirements: Functional specifies WHAT the system transforms (inputs -&gt; outputs), whereas Non-Functional specifies quality attributes &amp; constraints (Response time &lt; <mark class="hl">200 ms</mark>, 99.99% Availability, AES-256 Security, Portability).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Verification = <strong>'Building the product RIGHT'</strong> (Bina code run kiye static review/walkthrough/inspection); Validation = <strong>'Building the RIGHT product'</strong> (Code run karke dynamic testing ki user ko jo chahiye tha wahi bana ya nahi)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what does &#x27;fast&#x27; stand for in software requirement elicitation workshops? fast brings developers and customers together in a joint team workshop to identify requirements collaboratively.">
+  <div class="in-note-stem">Q2.1: What does &#x27;FAST&#x27; stand for in Software Requirement Elicitation workshops?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Fast Automated Software Testing</div><div class="in-opt"><strong>(B)</strong> File Allocation System Table</div><div class="in-opt ans"><strong>(C)</strong> Facilitated Application Specification Technique ✅</div><div class="in-opt"><strong>(D)</strong> Functional Analysis and System Tool</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> FAST brings developers and customers together in a joint team workshop to identify requirements collaboratively.</div>
+</div><div class="in-note-q" data-search="which document serves as the official legal contract between the customer and the software development team? srs (software requirements specification) — srs (ieee 830) specifies all functional and non-functional requirements clearly before design begins.">
+  <div class="in-note-stem">Q2.2: Which document serves as the official legal contract between the customer and the software development team?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> User Manual</div><div class="in-opt"><strong>(B)</strong> Source Code</div><div class="in-opt"><strong>(C)</strong> Test Log</div><div class="in-opt ans"><strong>(D)</strong> SRS ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> SRS (Software Requirements Specification) — SRS (<mark class="hl">IEEE 830</mark>) specifies all Functional and Non-Functional requirements clearly before design begins.</div>
+</div><div class="in-note-q" data-search="response time under 2 seconds, 99.9% uptime, and aes-256 encryption are examples of which type of software requirements? non-functional requirements (quality attributes) — functional requirements define what the system does; non-functional requirements define how well it performs (speed, security, usability).">
+  <div class="in-note-stem">Q2.3: Response time under 2 seconds, 99.9% uptime, and AES-256 encryption are examples of which type of software requirements?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Non-Functional Requirements ✅</div><div class="in-opt"><strong>(B)</strong> Functional Requirements</div><div class="in-opt"><strong>(C)</strong> Hardware Requirements</div><div class="in-opt"><strong>(D)</strong> User Stories only</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Non-Functional Requirements (Quality Attributes) — Functional requirements define WHAT the system does; Non-Functional requirements define HOW WELL it performs (speed, security, usability).</div>
+</div><div class="in-note-q" data-search="which quality attribute of a software requirements specification (srs) document (ieee 830) is satisfied when every stated requirement has only one single interpretation? an srs is &#x27;unambiguous&#x27; if and only if every requirement stated therein has only one interpretation; it is &#x27;verifiable&#x27; if there exists a finite cost-effective process to test whether the software meets it.">
+  <div class="in-note-stem">Q2.4: Which quality attribute of a Software Requirements Specification (SRS) document (IEEE 830) is satisfied when every stated requirement has ONLY one single interpretation?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Traceable</div><div class="in-opt ans"><strong>(B)</strong> Unambiguous ✅</div><div class="in-opt"><strong>(C)</strong> Modifiable</div><div class="in-opt"><strong>(D)</strong> Ranked for importance</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> An SRS is <strong>'Unambiguous'</strong> if and only if every requirement stated therein has only one interpretation; it is <strong>'Verifiable'</strong> if there exists a finite cost-effective process to test whether the software meets it.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: Analysis Tools &amp; DFD — Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing &amp; Data Dictionary</h2>
+    <span class="badge">5 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="structured analysis tools — data flow diagrams (dfd level 0/1/2), balancing &amp; data dictionary dfd symbols (yourdon / gane-sarson): circle/bubble = process • arrow = data flow • open rectangle/parallel lines = data store • square/rectangle = external entity (source/sink) level 0 dfd (context diagram) represents the entire software system as a single process bubble interacting with external entities (it never contains any data stores!). dfd balancing rule: the net input and output data flows of a parent process bubble at level k must exactly match the external input and output flows of its decomposed child dfd at level k+1. illegal dfd constructs (strict exam rules): data cannot flow directly without an intervening process bubble: (1) external entity -&gt; external entity (illegal!), (2) external entity -&gt; data store or data store -&gt; external entity (illegal!), (3) data store -&gt; data store (illegal!). also note: a dfd shows data flow, never control flow, loops, or decision arrows (unlike a flowchart)! exam trap: context diagram (level 0 dfd) me poore system ko sirf ek single process bubble se dikhaya jata hai aur usme koi data store nahi hota! aur dfd me do external entities ya external entity aur data store ke beech direct arrow lagana 100% illegal hai!">
+  <div class="sub-h">📌 3.1 Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing &amp; Data Dictionary</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 DFD Symbols (Yourdon / Gane-Sarson): Circle/Bubble = Process</li><li>🔹 Arrow = Data Flow</li><li>🔹 Open Rectangle/Parallel Lines = Data Store</li><li>🔹 Square/Rectangle = External Entity (Source/Sink)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Level 0 DFD (Context Diagram) represents the entire software system as a SINGLE process bubble interacting with external entities (it NEVER contains any Data Stores!).</li><li>DFD Balancing Rule: The net input and output data flows of a parent process bubble at Level k must exactly match the external input and output flows of its decomposed child DFD at Level k+1.</li><li>Illegal DFD Constructs (Strict Exam Rules): Data CANNOT flow directly without an intervening Process bubble: (1) External Entity -&gt; External Entity (Illegal!), (2) External Entity -&gt; Data Store or Data Store -&gt; External Entity (Illegal!), (3) Data Store -&gt; Data Store (Illegal!).</li><li>Also note: A DFD shows data flow, NEVER control flow, loops, or decision arrows (unlike a Flowchart)!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Data Dictionary (Metadata Repository): Defines the exact composition of every DFD data element using BNF-like notation: `=` (is composed of), `+` (AND / sequence), `[ | ]` (OR / selection), `{ }` (repetition/iteration), `( )` (optional).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Context Diagram (Level 0 DFD) me poore system ko SIRF EK single Process Bubble se dikhaya jata hai aur usme koi Data Store nahi hota! Aur DFD me do External Entities ya External Entity aur Data Store ke beech direct arrow lagana 100% ILLEGAL hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in a data flow diagram (dfd), what do the four basic symbols — (1) circle/bubble, (2) arrow, (3) open-ended parallel lines, and (4) rectangle — represent? in yourdon/gane-sarson dfd notation: circle/rounded-rect = process; arrow = data flow; parallel lines = data store; rectangle/square = external entity.">
+  <div class="in-note-stem">Q3.1: In a Data Flow Diagram (DFD), what do the four basic symbols — (1) Circle/Bubble, (2) Arrow, (3) Open-ended Parallel Lines, and (4) Rectangle — represent?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> (1) Loop, (2) Branch, (3) Subroutine, (4) Terminal</div><div class="in-opt"><strong>(B)</strong> (1) Entity, (2) Relationship, (3) Attribute</div><div class="in-opt ans"><strong>(C)</strong> (1) Process, (2) Data Flow, (3) Data Store (File/DB), and (4) External Entity (Source/Sink) ✅</div><div class="in-opt"><strong>(D)</strong> All four represent databases</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> In Yourdon/Gane-Sarson DFD notation: Circle/Rounded-Rect = Process; Arrow = Data Flow; Parallel lines = Data Store; Rectangle/Square = External Entity.</div>
+</div><div class="in-note-q" data-search="which rule is strictly forbidden in any valid data flow diagram (dfd)? every data transformation or movement in a dfd must be mediated by a process bubble.">
+  <div class="in-note-stem">Q3.2: Which rule is strictly FORBIDDEN in any valid Data Flow Diagram (DFD)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A Process can read from a Data Store</div><div class="in-opt"><strong>(B)</strong> An External Entity can send data to a Process</div><div class="in-opt"><strong>(C)</strong> A Process can have two outputs</div><div class="in-opt ans"><strong>(D)</strong> A Data Flow can NEVER connect two External Entities directly or two Data Stores directly without passing through a Process bubble ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Every data transformation or movement in a DFD must be mediated by a Process bubble.</div>
+</div><div class="in-note-q" data-search="in a data flow diagram (dfd), what is another name for the level-0 dfd that shows the entire system as one single process bubble? a level-0 dfd (context diagram) shows the system boundary and all external entities interacting with it.">
+  <div class="in-note-stem">Q3.3: In a Data Flow Diagram (DFD), what is another name for the Level-0 DFD that shows the entire system as one single process bubble?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Context Diagram ✅</div><div class="in-opt"><strong>(B)</strong> Entity Diagram</div><div class="in-opt"><strong>(C)</strong> Class Diagram</div><div class="in-opt"><strong>(D)</strong> Flowchart</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> A Level-0 DFD (Context Diagram) shows the system boundary and all external entities interacting with it.</div>
+</div><div class="in-note-q" data-search="which structured analysis tool stores the exact definitions, data types, and formats of all data flows and data stores in a dfd? a data dictionary is the central repository of metadata for every data element in the system.">
+  <div class="in-note-stem">Q3.4: Which structured analysis tool stores the exact definitions, data types, and formats of all data flows and data stores in a DFD?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Gantt Chart</div><div class="in-opt ans"><strong>(B)</strong> Data Dictionary ✅</div><div class="in-opt"><strong>(C)</strong> PERT Chart</div><div class="in-opt"><strong>(D)</strong> Decision Tree</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A Data Dictionary is the central repository of metadata for every data element in the system.</div>
+</div><div class="in-note-q" data-search="in a data flow diagram (dfd), what is the difference between a &#x27;context diagram (level-0 dfd)&#x27; and a &#x27;level-1 dfd&#x27;, and what defines &#x27;dfd balancing&#x27;? level-0 dfd represents the entire software system as a single process bubble interacting with external entities; dfd balancing requires that the net input and output data flows of a parent process exactly match those of its decomposed child dfd. in a dfd, data cannot move directly between two external entities or two data stores without passing through a process bubble, and every decomposed level-(k+1) dfd must conserve the inputs/outputs of its parent (balancing).">
+  <div class="in-note-stem">Q3.5: In a Data Flow Diagram (DFD), what is the difference between a &#x27;Context Diagram (Level-0 DFD)&#x27; and a &#x27;Level-1 DFD&#x27;, and what defines &#x27;DFD Balancing&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Level-0 DFD shows database foreign keys and Level-1 DFD shows C++ class inheritance</div><div class="in-opt"><strong>(B)</strong> A DFD uses diamond symbols for loops and arrows for control flow</div><div class="in-opt ans"><strong>(C)</strong> Level-0 DFD represents the entire software system as a single process bubble interacting with external entities ✅</div><div class="in-opt"><strong>(D)</strong> Data stores and external entities are allowed to exchange data flows directly without a process bubble</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Level-0 DFD represents the entire software system as a single process bubble interacting with external entities; DFD Balancing requires that the net input and output data flows of a parent process exactly match those of its decomposed child DFD. In a DFD, data cannot move directly between two external entities or two data stores without passing through a Process bubble, and every decomposed Level-(k+1) DFD must conserve the inputs/outputs of its parent (Balancing).</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Design: Coupling &amp; Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) &amp; Spectrum Rankings</h2>
+    <span class="badge">9 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="software design — modularity, coupling (low) vs cohesion (high) &amp; spectrum rankings golden design principle: high cohesion (intra-module single responsibility) + low coupling (inter-module independence) coupling spectrum (best / loosest to worst / tightest — mnemonic &#x27;d-s-c-e-c-c&#x27;): (1) data coupling (best — modules pass only primitive data parameters), (2) stamp coupling (pass composite data structure/record when only a few fields are needed), (3) control coupling (pass control flags/switches that dictate internal branching of another module), (4) external coupling (share external hardware/device protocol), (5) common coupling (share global variables!), (6) content coupling (worst — one module directly modifies or jumps into the internal code/data of another module!). cohesion spectrum (best / strongest to worst / weakest — mnemonic &#x27;f-s-c-p-t-l-c&#x27;): (1) functional cohesion (best — all elements perform a single well-defined task), (2) sequential (output of one part is input to next), (3) communicational (operate on same input/output data structure), (4) procedural, (5) temporal (executed at same time, e.g., `init()` / startup routine), (6) logical (grouped by category using switch flag), (7) coincidental cohesion (worst — random unrelated functions thrown together). hinglish tip: best coupling = data coupling; worst coupling = content coupling! best cohesion = functional cohesion; worst cohesion = coincidental cohesion! global variables share karna = common coupling.">
+  <div class="sub-h">📌 4.1 Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) &amp; Spectrum Rankings</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Golden Design Principle: HIGH Cohesion (Intra-module single responsibility) + LOW Coupling (Inter-module independence)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Coupling Spectrum (Best / Loosest to Worst / Tightest — Mnemonic <strong>'D-S-C-E-C-C'</strong>): (1) Data Coupling (BEST — modules pass only primitive data parameters), (2) Stamp Coupling (pass composite data structure/record when only a few fields are needed), (3) Control Coupling (pass control flags/switches that dictate internal branching of another module), (4) External Coupling (share external hardware/device protocol), (5) Common Coupling (share global variables!), (6) Content Coupling (WORST — one module directly modifies or jumps into the internal code/data of another module!).</li><li>Cohesion Spectrum (Best / Strongest to Worst / Weakest — Mnemonic <strong>'F-S-C-P-T-L-C'</strong>): (1) Functional Cohesion (BEST — all elements perform a single well-defined task), (2) Sequential (output of one part is input to next), (3) Communicational (operate on same input/output data structure), (4) Procedural, (5) Temporal (executed at same time, e.g., `init()` / startup routine), (6) Logical (grouped by category using switch flag), (7) Coincidental Cohesion (WORST — random unrelated functions thrown together).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Fan-In vs Fan-Out in Structure Charts: Fan-In is the number of calling modules that invoke Module M (HIGH Fan-In is desirable as it indicates code reuse!); Fan-Out is the number of subordinate modules directly called by Module M (keep Fan-Out &lt;= 7 to avoid pancake complexity).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Best Coupling = DATA Coupling; Worst Coupling = CONTENT Coupling! Best Cohesion = FUNCTIONAL Cohesion; Worst Cohesion = COINCIDENTAL Cohesion! Global variables share karna = Common Coupling.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in good modular software design, how should &#x27;cohesion&#x27; (intra-module strength) and &#x27;coupling&#x27; (inter-module dependency) be optimized? high cohesion means each module performs one focused task; low coupling means modules depend minimally on each other&#x27;s internals.">
+  <div class="in-note-stem">Q4.1: In good modular software design, how should &#x27;Cohesion&#x27; (intra-module strength) and &#x27;Coupling&#x27; (inter-module dependency) be optimized?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> LOW Cohesion and HIGH (Tight) Coupling</div><div class="in-opt"><strong>(B)</strong> HIGH Cohesion and HIGH Coupling</div><div class="in-opt"><strong>(C)</strong> LOW Cohesion and LOW Coupling</div><div class="in-opt ans"><strong>(D)</strong> HIGH Cohesion and LOW (Loose) Coupling ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> High Cohesion means each module performs one focused task; Low Coupling means modules depend minimally on each other&#x27;s internals.</div>
+</div><div class="in-note-q" data-search="which type of coupling is the worst (tightest), occurring when one module directly reaches inside and modifies the internal local data or code of another module? content coupling is the worst (tightest); common coupling (sharing global variables) is the second worst; data coupling (passing only required primitive parameters) is the best.">
+  <div class="in-note-stem">Q4.2: Which type of Coupling is the WORST (tightest), occurring when one module directly reaches inside and modifies the internal local data or code of another module?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Content Coupling ✅</div><div class="in-opt"><strong>(B)</strong> Data Coupling (Best/Loosest)</div><div class="in-opt"><strong>(C)</strong> Stamp Coupling</div><div class="in-opt"><strong>(D)</strong> Control Coupling</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Content Coupling is the worst (tightest); Common Coupling (sharing global variables) is the second worst; Data Coupling (passing only required primitive parameters) is the best.</div>
+</div><div class="in-note-q" data-search="which type of cohesion is the best (strongest), where every single element inside a module contributes to executing one single well-defined function? functional cohesion is the highest/best; coincidental cohesion is the lowest/worst.">
+  <div class="in-note-stem">Q4.3: Which type of Cohesion is the BEST (strongest), where every single element inside a module contributes to executing ONE single well-defined function?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Coincidental Cohesion (Worst — random unrelated tasks grouped together)</div><div class="in-opt ans"><strong>(B)</strong> Functional Cohesion ✅</div><div class="in-opt"><strong>(C)</strong> Logical Cohesion</div><div class="in-opt"><strong>(D)</strong> Temporal Cohesion</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Functional Cohesion is the highest/best; Coincidental Cohesion is the lowest/worst.</div>
+</div><div class="in-note-q" data-search="if module a passes a boolean control flag (`mode = 1` or `0`) to module b to tell module b which internal branch to execute, what type of coupling is this? passing a control flag that dictates another module&#x27;s internal execution path is control coupling.">
+  <div class="in-note-stem">Q4.4: If Module A passes a boolean control flag (`mode = 1` or `0`) to Module B to tell Module B which internal branch to execute, what type of coupling is this?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Data Coupling</div><div class="in-opt"><strong>(B)</strong> Content Coupling</div><div class="in-opt ans"><strong>(C)</strong> Control Coupling ✅</div><div class="in-opt"><strong>(D)</strong> Common Coupling</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Passing a control flag that dictates another module&#x27;s internal execution path is Control Coupling.</div>
+</div><div class="in-note-q" data-search="if two modules share the same global variables declared in a common global area, what type of coupling exists between them? sharing global data creates common coupling (second worst after content coupling).">
+  <div class="in-note-stem">Q4.5: If two modules share the same global variables declared in a common global area, what type of coupling exists between them?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Data Coupling</div><div class="in-opt"><strong>(B)</strong> Stamp Coupling</div><div class="in-opt"><strong>(C)</strong> Control Coupling</div><div class="in-opt ans"><strong>(D)</strong> Common Coupling ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Sharing global data creates Common Coupling (second worst after Content Coupling).</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) &amp; McCabe Cyclomatic Complexity</h2>
+    <span class="badge">14 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="software testing — unit/integration/system/alpha-beta, black-box (bva/ecp) &amp; mccabe cyclomatic complexity mccabe&#x27;s cyclomatic complexity v(g): (1) e − n + 2p • (2) p_predicates + 1 • (3) number of enclosed regions + 1 • robust bva (k variables) = 6k + 1 test cases (standard bva = 4k + 1) testing hierarchy: (1) unit testing (white-box, tests individual functions/classes), (2) integration testing: top-down uses stubs (dummy subordinate functions called by top module); bottom-up uses drivers (dummy main callers that invoke lower modules); sandwich/hybrid combines both; regression testing re-runs test suite after code changes to ensure no new bugs were introduced; smoke testing is a shallow build-verification sanity check. (3) acceptance testing: alpha testing (at developer&#x27;s site in controlled environment by internal users/testers) vs beta testing (at customer&#x27;s actual site in real environment by end-users). white-box coverage hierarchy: path coverage &gt; branch/decision coverage &gt; statement coverage. mccabe&#x27;s v(g) equals the upper bound on the number of linearly independent paths needed for 100% branch coverage. exam trap: top-down integration me &#x27;stubs&#x27; (dummy child) lagte hain, jabki bottom-up integration me &#x27;drivers&#x27; (dummy parent caller) lagte hain! aur n-variable boundary value analysis (bva) me standard = `4n + 1` test cases aur robust = `6n + 1` test cases bante hain!">
+  <div class="sub-h">📌 5.1 Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) &amp; McCabe Cyclomatic Complexity</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 McCabe&#x27;s Cyclomatic Complexity V(G): (1) E − N + 2P</li><li>🔹 (2) P_predicates + 1</li><li>🔹 (3) Number of Enclosed Regions + 1</li><li>🔹 Robust BVA (k variables) = 6k + 1 test cases (Standard BVA = 4k + 1)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Testing Hierarchy: (1) Unit Testing (White-Box, tests individual functions/classes), (2) Integration Testing: Top-Down uses STUBS (dummy subordinate functions called by top module)</li><li>Bottom-Up uses DRIVERS (dummy main callers that invoke lower modules)</li><li>Sandwich/Hybrid combines both</li><li>Regression Testing re-runs test suite after code changes to ensure no new bugs were introduced</li><li>Smoke Testing is a shallow build-verification sanity check.</li><li>(3) Acceptance Testing: Alpha Testing (at Developer&#x27;s site in controlled environment by internal users/testers) vs Beta Testing (at Customer&#x27;s actual site in real environment by end-users).</li><li>White-Box Coverage Hierarchy: Path Coverage &gt; Branch/Decision Coverage &gt; Statement Coverage.</li><li>McCabe&#x27;s V(G) equals the upper bound on the number of linearly independent paths needed for 100% Branch Coverage.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Cyclomatic Complexity &amp; BVA Math: A program control flow graph has 14 edges (E=14) and 10 nodes (N=10), or 5 `if/while` binary decision predicates. V(G) = 14 − 10 + 2 = 6 (also P + 1 = 5 + 1 = 6 independent paths). For a function with n = 3 input variables, Standard BVA test cases = 4(3) + 1 = 13; Robust BVA = 6(3) + 1 = 19.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Top-Down Integration me <strong>'STUBS'</strong> (dummy child) lagte hain, jabki Bottom-Up Integration me <strong>'DRIVERS'</strong> (dummy parent caller) lagte hain! Aur n-variable Boundary Value Analysis (BVA) me Standard = `4n + 1` test cases aur Robust = `6n + 1` test cases bante hain!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the formula for mccabe&#x27;s cyclomatic complexity `v(g)` of a control flow graph with `e` edges, `n` nodes, `p` connected components, and `d` binary decision (predicate) nodes? if a function contains 5 `if / while` binary decision conditions (`d = 5`), its cyclomatic complexity is `v(g) = d + 1 = 6`.">
+  <div class="in-note-stem">Q5.1: What is the formula for McCabe&#x27;s Cyclomatic Complexity `V(G)` of a Control Flow Graph with `E` edges, `N` nodes, `P` connected components, and `D` binary decision (predicate) nodes?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> V(G) = E − N + 2P = D + 1 ✅</div><div class="in-opt"><strong>(B)</strong> V(G) = N − E + 2</div><div class="in-opt"><strong>(C)</strong> V(G) = E + N − 2</div><div class="in-opt"><strong>(D)</strong> V(G) = D − 1</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> If a function contains 5 `if / while` binary decision conditions (`D = 5`), its Cyclomatic Complexity is `V(G) = D + 1 = 6`.</div>
+</div><div class="in-note-q" data-search="classify the following testing techniques into &#x27;white-box (structural/glass-box) testing&#x27; vs &#x27;black-box (functional/behavioral) testing&#x27;: basis path testing, statement/branch coverage, equivalence partitioning, boundary value analysis, cause-effect graphing: white-box: basis path testing, statement/branch/condition/loop coverage; black-box: equivalence class partitioning (ecp), boundary value analysis (bva), cause-effect graphing (decision tables) — white-box tests internal code structure and control-flow branches; black-box tests functional specifications against inputs/outputs without looking at internal code.">
+  <div class="in-note-stem">Q5.2: Classify the following testing techniques into &#x27;White-Box (Structural/Glass-Box) Testing&#x27; vs &#x27;Black-Box (Functional/Behavioral) Testing&#x27;: Basis Path Testing, Statement/Branch Coverage, Equivalence Partitioning, Boundary Value Analysis, Cause-Effect Graphing:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> BVA and ECP are White-Box techniques</div><div class="in-opt ans"><strong>(B)</strong> White-Box: Basis Path Testing, Statement/Branch/Condition/Loop Coverage ✅</div><div class="in-opt"><strong>(C)</strong> Basis Path Testing is a Black-Box technique</div><div class="in-opt"><strong>(D)</strong> Black-Box testing requires reading the C++ source code</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> White-Box: Basis Path Testing, Statement/Branch/Condition/Loop Coverage; Black-Box: Equivalence Class Partitioning (ECP), Boundary Value Analysis (BVA), Cause-Effect Graphing (Decision Tables) — White-Box tests internal code structure and control-flow branches; Black-Box tests functional specifications against inputs/outputs without looking at internal code.</div>
+</div><div class="in-note-q" data-search="what is the difference between &#x27;verification&#x27; and &#x27;validation&#x27; in software quality assurance (barry boehm&#x27;s definition)? verification = &#x27;are we building the product right?&#x27;; validation = &#x27;are we building the right product?&#x27;. verification = &#x27;are we building the product right?&#x27; (checking against phase specifications via static reviews/inspections); validation = &#x27;are we building the right product?&#x27; (checking against actual user needs via dynamic testing) — static testing (reviews, walkthroughs, formal inspections — no code execution) performs **verification**; dynamic testing (unit, integration, system, uat) performs **validation**.">
+  <div class="in-note-stem">Q5.3: What is the difference between &#x27;Verification&#x27; and &#x27;Validation&#x27; in software quality assurance (Barry Boehm&#x27;s definition)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Verification executes code and Validation reads documents</div><div class="in-opt"><strong>(B)</strong> Both mean the exact same thing</div><div class="in-opt ans"><strong>(C)</strong> Verification = &#x27;Are we building the product RIGHT?&#x27; ✅</div><div class="in-opt"><strong>(D)</strong> Validation is done before writing the SRS</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Verification = <strong>'Are we building the product RIGHT?'</strong>; Validation = <strong>'Are we building the RIGHT product?'</strong>. Verification = <strong>'Are we building the product RIGHT?'</strong> (checking against phase specifications via static reviews/inspections); Validation = <strong>'Are we building the RIGHT product?'</strong> (checking against actual user needs via dynamic testing) — Static Testing (Reviews, Walkthroughs, Formal Inspections — no code execution) performs **Verification**; Dynamic Testing (Unit, Integration, System, UAT) performs **Validation**.</div>
+</div><div class="in-note-q" data-search="what is &#x27;smoke testing&#x27; (build verification testing) vs &#x27;sanity testing&#x27;? smoke testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash; sanity testing is a narrow, deep check of a specific module after a minor bug fix. smoke testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash (&#x27;build stability&#x27;); sanity testing is a narrow, deep check of a specific module after a minor bug fix — smoke testing is wide and shallow (verifying whether the build is stable enough for detailed qa); sanity testing is narrow and deep.">
+  <div class="in-note-stem">Q5.4: What is &#x27;Smoke Testing&#x27; (Build Verification Testing) vs &#x27;Sanity Testing&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Smoke Testing tests hardware power supplies until they smoke</div><div class="in-opt"><strong>(B)</strong> Sanity Testing tests the entire system from scratch</div><div class="in-opt"><strong>(C)</strong> Both are performed before coding starts</div><div class="in-opt ans"><strong>(D)</strong> Smoke Testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Smoke Testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash; Sanity Testing is a narrow, deep check of a specific module after a minor bug fix. Smoke Testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash (<strong>'build stability'</strong>); Sanity Testing is a narrow, deep check of a specific module after a minor bug fix — Smoke testing is wide and shallow (verifying whether the build is stable enough for detailed QA); Sanity testing is narrow and deep.</div>
+</div><div class="in-note-q" data-search="which level of software testing tests individual functions, methods, or classes in isolation and is usually done by the developer? testing hierarchy: unit testing -&gt; integration testing -&gt; system testing -&gt; user acceptance testing (uat).">
+  <div class="in-note-stem">Q5.5: Which level of software testing tests individual functions, methods, or classes in isolation and is usually done by the developer?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Unit Testing ✅</div><div class="in-opt"><strong>(B)</strong> System Testing</div><div class="in-opt"><strong>(C)</strong> Acceptance Testing</div><div class="in-opt"><strong>(D)</strong> Beta Testing</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Testing hierarchy: Unit Testing -&gt; Integration Testing -&gt; System Testing -&gt; User Acceptance Testing (UAT).</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Maintenance &amp; Metrics — Software Maintenance Categories (Lientz-Swanson) &amp; COCOMO / Function Point Estimation</h2>
+    <span class="badge">8 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="software maintenance categories (lientz-swanson) &amp; cocomo / function point estimation basic cocomo: effort e = a · (kloc)^b [person-months]; development time d = c · (e)^d [months] • organic (a=2.4, b=1.05) • semi-detached (a=3.0, b=1.12) • embedded (a=3.6, b=1.20) four categories of software maintenance (by effort share): (1) perfective maintenance (~50–60% — largest share! enhancing functionality, improving performance, adding user-requested features), (2) adaptive maintenance (~25% — porting software to a new os, hardware, database, or regulatory environment), (3) corrective maintenance (~20% — fixing latent bugs/defects discovered in production), (4) preventive maintenance (~5% — code refactoring/restructuring to improve future maintainability). function point analysis (albrecht fpa): computes unadjusted function points (ufp) from 5 user-visible components (external inputs ei, external outputs eo, external inquiries eq, internal logical files ilf, external interface files eif), then multiplies by value adjustment factor `vaf = 0.65 + 0.01 × σ(f_i)` (where 14 gsc factors f_i ∈ [0..5], so vaf ranges from 0.65 to 1.35). hinglish tip: software maintenance me sabse zyada kharcha (~55%) &#x27;perfective maintenance&#x27; (naye features add karne) par hota hai, na ki corrective (bug fixing ~20%) par! os/hardware upgrade ke liye change karna = &#x27;adaptive maintenance&#x27;.">
+  <div class="sub-h">📌 6.1 Software Maintenance Categories (Lientz-Swanson) &amp; COCOMO / Function Point Estimation</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Basic COCOMO: Effort E = a · (KLOC)^b [Person-Months]; Development Time D = c · (E)^d [Months]</li><li>🔹 Organic (a=2.4, b=1.05)</li><li>🔹 Semi-Detached (a=3.0, b=1.12)</li><li>🔹 Embedded (a=3.6, b=1.20)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Four Categories of Software Maintenance (by Effort Share): (1) Perfective Maintenance (~50–60% — LARGEST share!</li><li>Enhancing functionality, improving performance, adding user-requested features), (2) Adaptive Maintenance (~25% — porting software to a new OS, hardware, database, or regulatory environment), (3) Corrective Maintenance (~20% — fixing latent bugs/defects discovered in production), (4) Preventive Maintenance (~5% — code refactoring/restructuring to improve future maintainability).</li><li>Function Point Analysis (Albrecht FPA): Computes Unadjusted Function Points (UFP) from 5 user-visible components (External Inputs EI, External Outputs EO, External Inquiries EQ, Internal Logical Files ILF, External Interface Files EIF), then multiplies by Value Adjustment Factor `VAF = 0.65 + 0.01 × Σ(F_i)` (where 14 GSC factors F_i ∈ [0..5], so VAF ranges from 0.65 to 1.35).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Basic COCOMO Calculation: Estimate Effort for an Organic software project of size 32 KLOC (with a = 2.4, b ≈ 1.05; using simplified exponent 1.05: 32^1.05 ≈ 38). E = 2.4 × (32)^1.05 ≈ 91 Person-Months.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Software Maintenance me sabse ZYADA kharcha (~55%) <strong>'Perfective Maintenance'</strong> (naye features add karne) par hota hai, na ki Corrective (bug fixing ~20%) par! OS/Hardware upgrade ke liye change karna = <strong>'Adaptive Maintenance'</strong>.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what does &#x27;kloc&#x27; stand for in boehm&#x27;s cocomo software cost estimation model? thousands of lines of code (kilo lines of code) — in basic cocomo: `effort e = a × (kloc)^b` person-months, and `development time d = c × (e)^d` months.">
+  <div class="in-note-stem">Q6.1: What does &#x27;KLOC&#x27; stand for in Boehm&#x27;s COCOMO software cost estimation model?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Kilobytes of Local Object Cache</div><div class="in-opt"><strong>(B)</strong> Kernel Level Operating Code</div><div class="in-opt ans"><strong>(C)</strong> Thousands of Lines of Code ✅</div><div class="in-opt"><strong>(D)</strong> Key Logical Output Count</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Thousands of Lines of Code (Kilo Lines of Code) — In Basic COCOMO: `Effort E = a × (KLOC)^b` Person-Months, and `Development Time D = c × (E)^d` Months.</div>
+</div><div class="in-note-q" data-search="in halstead&#x27;s software science metrics, if `n₁` is the number of distinct operators, `n₂` is the number of distinct operands, `n₁` is total operator occurrences, and `n₂` is total operand occurrences, how are &#x27;program vocabulary (n)&#x27; and &#x27;program length (n)&#x27; defined? vocabulary n = n₁ + n₂; program length n = n₁ + n₂ (and volume v = n × log₂ n) — halstead formulas: vocabulary `n = n₁ + n₂`; length `n = n₁ + n₂`; estimated length `n̂ = n₁ log₂ n₁ + n₂ log₂ n₂`; volume `v = n log₂ n`.">
+  <div class="in-note-stem">Q6.2: In Halstead&#x27;s Software Science Metrics, if `n₁` is the number of distinct operators, `n₂` is the number of distinct operands, `N₁` is total operator occurrences, and `N₂` is total operand occurrences, how are &#x27;Program Vocabulary (n)&#x27; and &#x27;Program Length (N)&#x27; defined?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Vocabulary n = N₁ × N₂</div><div class="in-opt"><strong>(B)</strong> Length N = n₁ − n₂</div><div class="in-opt"><strong>(C)</strong> Volume V = n₁ / n₂</div><div class="in-opt ans"><strong>(D)</strong> Vocabulary n = n₁ + n₂ ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Vocabulary n = n₁ + n₂; Program Length N = N₁ + N₂ (and Volume V = N × log₂ n) — Halstead formulas: Vocabulary `n = n₁ + n₂`; Length `N = N₁ + N₂`; Estimated Length `N̂ = n₁ log₂ n₁ + n₂ log₂ n₂`; Volume `V = N log₂ n`.</div>
+</div><div class="in-note-q" data-search="fixing a crash or wrong calculation bug reported by users after the software is deployed is which type of software maintenance? corrective = fixing bugs; adaptive = porting to new os/hardware; perfective = adding new features; preventive = code refactoring.">
+  <div class="in-note-stem">Q6.3: Fixing a crash or wrong calculation bug reported by users after the software is deployed is which type of Software Maintenance?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Corrective Maintenance ✅</div><div class="in-opt"><strong>(B)</strong> Adaptive Maintenance</div><div class="in-opt"><strong>(C)</strong> Perfective Maintenance</div><div class="in-opt"><strong>(D)</strong> Preventive Maintenance</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Corrective = fixing bugs; Adaptive = porting to new OS/hardware; Perfective = adding new features; Preventive = code refactoring.</div>
+</div><div class="in-note-q" data-search="modifying an existing software application so that it runs on a newly released windows 11 / linux os version is which type of maintenance? adaptive maintenance adapts software to changes in its external environment (os, hardware, or government tax rules).">
+  <div class="in-note-stem">Q6.4: Modifying an existing software application so that it runs on a newly released Windows 11 / Linux OS version is which type of maintenance?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Corrective Maintenance</div><div class="in-opt ans"><strong>(B)</strong> Adaptive Maintenance ✅</div><div class="in-opt"><strong>(C)</strong> Perfective Maintenance</div><div class="in-opt"><strong>(D)</strong> Preventive Maintenance</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Adaptive maintenance adapts software to changes in its external environment (OS, hardware, or government tax rules).</div>
+</div><div class="in-note-q" data-search="in boehm&#x27;s basic cocomo (constructive cost model) where effort `e = a × (kloc)^b` person-months, what are the three project modes in increasing order of project size, complexity, and constraint rigidity? organic mode (small, experienced team, flexible) -&gt; semi-detached mode (medium, mixed team) -&gt; embedded mode (large, tight hardware/real-time constraints) — organic mode (`a=2.4, b=1.05`, 2–50 kloc) is for small familiar business apps; semi-detached (`a=3.0, b=1.12`, 50–300 kloc) is for compilers/dbms; embedded (`a=3.6, b=1.20`, &gt;300 kloc) is for avionics/rtos.">
+  <div class="in-note-stem">Q6.5: In Boehm&#x27;s Basic COCOMO (Constructive Cost Model) where Effort `E = a × (KLOC)^b` person-months, what are the three project modes in increasing order of project size, complexity, and constraint rigidity?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Embedded -&gt; Semi-Detached -&gt; Organic</div><div class="in-opt"><strong>(B)</strong> Simple -&gt; Average -&gt; Complex</div><div class="in-opt ans"><strong>(C)</strong> Organic Mode -&gt; Semi-Detached Mode -&gt; Embedded Mode ✅</div><div class="in-opt"><strong>(D)</strong> Alpha -&gt; Beta -&gt; Gamma</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Organic Mode (small, experienced team, flexible) -&gt; Semi-Detached Mode (medium, mixed team) -&gt; Embedded Mode (large, tight hardware/real-time constraints) — Organic mode (`a=2.4, b=1.05`, 2–50 KLOC) is for small familiar business apps; Semi-Detached (`a=3.0, b=1.12`, 50–300 KLOC) is for compilers/DBMS; Embedded (`a=3.6, b=1.20`, &gt;300 KLOC) is for avionics/RTOS.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Quality &amp; CMM Levels — Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels &amp; Reliability Metrics</h2>
+    <span class="badge">4 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="software quality assurance, iso 9001, sei cmm / cmmi 5 maturity levels &amp; reliability metrics mtbf (mean time between failures) = mttf (mean time to failure) + mttr (mean time to repair) • system availability a = mttf / (mttf + mttr) = mttf / mtbf sei capability maturity model (cmm / cmmi) 5 levels in order (mnemonic &#x27;i-r-d-m-o&#x27;): level 1: initial (ad-hoc, chaotic, heroic individual effort); level 2: repeatable / managed (basic project management, cost/schedule tracking, configuration management); level 3: defined (organization-wide standardized, documented software engineering processes); level 4: managed / quantitatively managed (statistical process control and quantitative quality metrics collected); level 5: optimizing (continuous process improvement, defect prevention, and proactive innovation). mccall&#x27;s quality factors are grouped into 3 categories: product operation (correctness, reliability, efficiency, integrity, usability), product revision (maintainability, flexibility, testability), and product transition (portability, reusability, interoperability). exam trap: sei cmm ke 5 levels ka exact kram yaad rakhein: 1. initial -&gt; 2. repeatable -&gt; 3. defined -&gt; 4. managed -&gt; 5. optimizing (&#x27;i-r-d-m-o&#x27;)! organization-wide standard process level 3 (defined) par aata hai.">
+  <div class="sub-h">📌 7.1 Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels &amp; Reliability Metrics</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 MTBF (Mean Time Between Failures) = MTTF (Mean Time To Failure) + MTTR (Mean Time To Repair)</li><li>🔹 System Availability A = MTTF / (MTTF + MTTR) = MTTF / MTBF</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>SEI Capability Maturity Model (CMM / CMMI) 5 Levels in Order (Mnemonic <strong>'I-R-D-M-O'</strong>): Level 1: Initial (Ad-hoc, chaotic, heroic individual effort)</li><li>Level 2: Repeatable / Managed (basic project management, cost/schedule tracking, configuration management)</li><li>Level 3: Defined (organization-wide standardized, documented software engineering processes)</li><li>Level 4: Managed / Quantitatively Managed (statistical process control and quantitative quality metrics collected)</li><li>Level 5: Optimizing (continuous process improvement, defect prevention, and proactive innovation).</li><li>McCall&#x27;s Quality Factors are grouped into 3 categories: Product Operation (Correctness, Reliability, Efficiency, Integrity, Usability), Product Revision (Maintainability, Flexibility, Testability), and Product Transition (Portability, Reusability, Interoperability).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Availability Numerical: A server has Mean Time To Failure (MTTF) = 990 hours and Mean Time To Repair (MTTR) = 10 hours. Then MTBF = 990 + 10 = 1000 hours, and steady-state Availability = 990 / (990 + 10) = 990 / 1000 = 99.0%.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: SEI CMM ke 5 levels ka exact kram yaad rakhein: 1. Initial -&gt; 2. Repeatable -&gt; 3. Defined -&gt; 4. Managed -&gt; 5. Optimizing (<strong>'I-R-D-M-O'</strong>)! Organization-wide standard process Level 3 (Defined) par aata hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in software configuration management (scm) and version control (like git), what is the purpose of a &#x27;baseline&#x27;? an officially reviewed and frozen version of a software work product (srs, design, or code release) that serves as the basis for further development and can only be modified through formal change control procedures — scm manages version control, change control, configuration auditing, and status reporting.">
+  <div class="in-note-stem">Q7.1: In Software Configuration Management (SCM) and Version Control (like Git), what is the purpose of a &#x27;Baseline&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Deleting old versions of code</div><div class="in-opt"><strong>(B)</strong> Running a program without a compiler</div><div class="in-opt ans"><strong>(C)</strong> An officially reviewed and frozen version of a software work product that serves as the basis for further development and can only be modified through formal Change Control procedures ✅</div><div class="in-opt"><strong>(D)</strong> Formatting the hard drive</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> An officially reviewed and frozen version of a software work product (SRS, design, or code release) that serves as the basis for further development and can only be modified through formal Change Control procedures — SCM manages version control, change control, configuration auditing, and status reporting.</div>
+</div><div class="in-note-q" data-search="which international standard family specifies requirements for a quality management system (qms) used in software organizations? iso 9001 (specifically iso 9000-3 for software) — iso 9001 certifies quality management systems; iso/iec 27001 certifies information security management systems (isms).">
+  <div class="in-note-stem">Q7.2: Which international standard family specifies requirements for a Quality Management System (QMS) used in software organizations?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> IEEE 802.3</div><div class="in-opt"><strong>(B)</strong> RFC 791</div><div class="in-opt"><strong>(C)</strong> ISO 27001 (Information Security)</div><div class="in-opt ans"><strong>(D)</strong> ISO 9001 ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> <mark class="hl">ISO 9001</mark> (specifically <mark class="hl">ISO 9000</mark>-3 for software) — <mark class="hl">ISO 9001</mark> certifies Quality Management Systems; ISO/IEC 27001 certifies Information Security Management Systems (ISMS).</div>
+</div><div class="in-note-q" data-search="in the sei capability maturity model integration (cmmi), what is the exact ascending order of the five maturity levels from level 1 to level 5? cmmi levels 1 to 5: (1) initial (ad-hoc/chaotic), (2) managed (project-level tracking), (3) defined (organization-wide standard processes), (4) quantitatively managed (statistical process control), (5) optimizing (continuous process improvement &amp; defect prevention).">
+  <div class="in-note-stem">Q7.3: In the SEI Capability Maturity Model Integration (CMMI), what is the exact ascending order of the five Maturity Levels from Level 1 to Level 5?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Level 1: Initial -&gt; Level 2: Managed -&gt; Level 3: Defined -&gt; Level 4: Quantitatively Managed -&gt; Level 5: Optimizing ✅</div><div class="in-opt"><strong>(B)</strong> Level 1: Defined -&gt; Level 2: Initial -&gt; Level 3: Managed -&gt; Level 4: Optimizing -&gt; Level 5: Quantitative</div><div class="in-opt"><strong>(C)</strong> Level 1: Ad-hoc -&gt; Level 2: Certified -&gt; Level 3: ISO -&gt; Level 4: Agile -&gt; Level 5: DevOps</div><div class="in-opt"><strong>(D)</strong> Level 1: Planning -&gt; Level 2: Coding -&gt; Level 3: Testing -&gt; Level 4: Deployment -&gt; Level 5: Maintenance</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> CMMI Levels 1 to 5: (1) Initial (ad-hoc/chaotic), (2) Managed (project-level tracking), (3) Defined (organization-wide standard processes), (4) Quantitatively Managed (statistical process control), (5) Optimizing (continuous process improvement &amp; defect prevention).</div>
+</div><div class="in-note-q" data-search="if a mission-critical server has a mean time between failures (mtbf) of 1,000 hours and a mean time to repair (mttr) of 5 hours, what are its mean time to failure (mttf) and steady-state operational availability? since mtbf = mttf + mttr, mttf = 1000 − 5 = 995 hours, and availability = mttf / mtbf = 995 / 1000 = 0.995 = 99.5%.">
+  <div class="in-note-stem">Q7.4: If a mission-critical server has a Mean Time Between Failures (MTBF) of 1,000 hours and a Mean Time To Repair (MTTR) of 5 hours, what are its Mean Time To Failure (MTTF) and steady-state Operational Availability?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> MTTF = 1,005 hours and Operational Availability = 95.0%</div><div class="in-opt ans"><strong>(B)</strong> MTTF = 995 hours and Operational Availability = 99.5% ✅</div><div class="in-opt"><strong>(C)</strong> MTTF = 200 hours and Operational Availability = 99.9%</div><div class="in-opt"><strong>(D)</strong> MTTF = 995 hours and Operational Availability = 99.0%</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Since MTBF = MTTF + MTTR, MTTF = 1000 − 5 = 995 hours, and Availability = MTTF / MTBF = 995 / 1000 = 0.995 = 99.5%.</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Software Engineering)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) &amp; Agile Scrum</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm)]</strong> Boehm&#x27;s Spiral Model = 4 Quadrants per Loop (1. Objectives -&gt; 2. Risk Analysis &amp; Prototyping -&gt; 3. Engineering &amp; Testing -&gt; 4. Customer Evaluation &amp; Next Planning)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Agar question me <strong>'Risk Analysis / Risk Handling'</strong> ya <strong>'Meta-Model'</strong> shabd aaye, to 100% answer <strong>'Spiral Model (Barry Boehm)'</strong> hoga! Aur agar <strong>'Unclear/Ambiguous User Requirements'</strong> aaye, to <strong>'Prototyping Model'</strong> hoga!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Requirements &amp; SRS — Requirement Engineering, IEEE 830 SRS Characteristics &amp; Verification vs Validation</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Requirement Engineering, IEEE 830 SRS Characteristics]</strong> Verification (<strong>'Are we building the product RIGHT?'</strong>) = Static Reviews/Inspections against SRS</li><li>🔹 <strong>[Requirement Engineering, IEEE 830 SRS Characteristics]</strong> Validation (<strong>'Are we building the RIGHT product?'</strong>) = Dynamic Execution against User Needs</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Verification = <strong>'Building the product RIGHT'</strong> (Bina code run kiye static review/walkthrough/inspection); Validation = <strong>'Building the RIGHT product'</strong> (Code run karke dynamic testing ki user ko jo chahiye tha wahi bana ya nahi)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — Analysis Tools &amp; DFD — Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing &amp; Data Dictionary</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing]</strong> DFD Symbols (Yourdon / Gane-Sarson): Circle/Bubble = Process</li><li>🔹 <strong>[Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing]</strong> Arrow = Data Flow</li><li>🔹 <strong>[Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing]</strong> Open Rectangle/Parallel Lines = Data Store</li><li>🔹 <strong>[Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing]</strong> Square/Rectangle = External Entity (Source/Sink)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Context Diagram (Level 0 DFD) me poore system ko SIRF EK single Process Bubble se dikhaya jata hai aur usme koi Data Store nahi hota! Aur DFD me do External Entities ya External Entity aur Data Store ke beech direct arrow lagana 100% ILLEGAL hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Design: Coupling &amp; Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) &amp; Spectrum Rankings</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH)]</strong> Golden Design Principle: HIGH Cohesion (Intra-module single responsibility) + LOW Coupling (Inter-module independence)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Best Coupling = DATA Coupling; Worst Coupling = CONTENT Coupling! Best Cohesion = FUNCTIONAL Cohesion; Worst Cohesion = COINCIDENTAL Cohesion! Global variables share karna = Common Coupling.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) &amp; McCabe Cyclomatic Complexity</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP)]</strong> McCabe&#x27;s Cyclomatic Complexity V(G): (1) E − N + 2P</li><li>🔹 <strong>[Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP)]</strong> (2) P_predicates + 1</li><li>🔹 <strong>[Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP)]</strong> (3) Number of Enclosed Regions + 1</li><li>🔹 <strong>[Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP)]</strong> Robust BVA (k variables) = 6k + 1 test cases (Standard BVA = 4k + 1)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Top-Down Integration me <strong>'STUBS'</strong> (dummy child) lagte hain, jabki Bottom-Up Integration me <strong>'DRIVERS'</strong> (dummy parent caller) lagte hain! Aur n-variable Boundary Value Analysis (BVA) me Standard = `4n + 1` test cases aur Robust = `6n + 1` test cases bante hain!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Maintenance &amp; Metrics — Software Maintenance Categories (Lientz-Swanson) &amp; COCOMO / Function Point Estimation</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Software Maintenance Categories (Lientz-Swanson)]</strong> Basic COCOMO: Effort E = a · (KLOC)^b [Person-Months]; Development Time D = c · (E)^d [Months]</li><li>🔹 <strong>[Software Maintenance Categories (Lientz-Swanson)]</strong> Organic (a=2.4, b=1.05)</li><li>🔹 <strong>[Software Maintenance Categories (Lientz-Swanson)]</strong> Semi-Detached (a=3.0, b=1.12)</li><li>🔹 <strong>[Software Maintenance Categories (Lientz-Swanson)]</strong> Embedded (a=3.6, b=1.20)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Software Maintenance me sabse ZYADA kharcha (~55%) <strong>'Perfective Maintenance'</strong> (naye features add karne) par hota hai, na ki Corrective (bug fixing ~20%) par! OS/Hardware upgrade ke liye change karna = <strong>'Adaptive Maintenance'</strong>.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Quality &amp; CMM Levels — Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels &amp; Reliability Metrics</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels]</strong> MTBF (Mean Time Between Failures) = MTTF (Mean Time To Failure) + MTTR (Mean Time To Repair)</li><li>🔹 <strong>[Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels]</strong> System Availability A = MTTF / (MTTF + MTTR) = MTTF / MTBF</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: SEI CMM ke 5 levels ka exact kram yaad rakhein: 1. Initial -&gt; 2. Repeatable -&gt; 3. Defined -&gt; 4. Managed -&gt; 5. Optimizing (<strong>'I-R-D-M-O'</strong>)! Organization-wide standard process Level 3 (Defined) par aata hai.</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

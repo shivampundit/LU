@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Technologies &amp; .NET — Chapter-Wise Question Booklet (41 Qs) | DSSSB TGT CS</title>
+<style>
+
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+
+.toolbar {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 15px; margin-bottom: 16px; display: flex; flex-wrap: wrap;
+  gap: 9px; align-items: center; position: sticky; top: 50px; z-index: 90;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+.sel-box {
+  padding: 7px 11px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.85rem; font-weight: 600; background: #fff;
+}
+.q-card {
+  background: #fff; border: 1px solid #cbd5e1; border-radius: 10px;
+  padding: 15px 17px; margin-bottom: 12px;
+}
+.q-head {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  font-size: 0.77rem; font-weight: 700; color: #475569; margin-bottom: 6px;
+}
+.q-text { font-weight: 700; font-size: 0.96rem; color: #0f172a; margin-bottom: 10px; }
+.opts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 7px; }
+.opt-btn {
+  text-align: left; padding: 8px 11px; border-radius: 7px; border: 1.5px solid #cbd5e1;
+  background: #f8fafc; font-size: 0.88rem; color: #1e293b; cursor: pointer; transition: 0.1s;
+}
+.opt-btn:hover { border-color: #2563eb; background: #eff6ff; }
+.opt-btn.correct { background: #dcfce7 !important; border-color: #16a34a !important; color: #14532d !important; font-weight: 700; }
+.opt-btn.wrong { background: #fee2e2 !important; border-color: #dc2626 !important; color: #7f1d1d !important; }
+.exp-strip {
+  margin-top: 9px; padding: 8px 12px; border-radius: 6px;
+  background: #eff6ff; border-left: 4px solid #2563eb; font-size: 0.86rem; color: #1e3a8a;
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📝 DSSSB TGT CS Question Booklet • Web Technologies &amp; .NET</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon</a>
+    <a href="../Revision_Notes/15_B10_Web_HTML_JS_XML_DOTNET_Revision_Notes.html">📘 Revision Notes</a>
+    <a href="15_B10_Web_HTML_JS_XML_DOTNET_Question_Booklet.html" class="active">📝 Question Booklet (41 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 6–8 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">41 100% Hand-Crafted Easy-to-Medium MCQs</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter Alignment</span>
+    </div>
+    <h1>📝 Web Technologies &amp; .NET (Internet/HTTP, HTML5, CSS3, JavaScript/DOM, Async/XML/REST, Web Security &amp; .NET/ASP.NET) — Chapter-Wise Question Booklet</h1>
+    <p>41 pure, simple, exam-expected DSSSB questions matched strictly to each chapter. Read in <strong>📖 Revision Mode</strong> or switch to <strong>✍️ Quiz Mode</strong> for timed +1.00 / -0.25 self-testing.</p>
+  </div>
+
+  <div class="toolbar">
+    <select id="chFilter" class="sel-box" onchange="renderList()">
+      <option value="ALL">All 7 Chapters (41 Questions)</option><option value="Chapter 1:">Chapter 1: Internet &amp; HTTP Basics — World Wide Web Archi (2 Qs)</option><option value="Chapter 2:">Chapter 2: HTML5 &amp; Semantic Web — HTML5 Semantic Structu (12 Qs)</option><option value="Chapter 3:">Chapter 3: CSS3 &amp; Responsive Design — CSS3 Box Model, Sp (8 Qs)</option><option value="Chapter 4:">Chapter 4: JavaScript &amp; DOM — JavaScript ES6+ Scopes (`v (7 Qs)</option><option value="Chapter 5:">Chapter 5: Async JS &amp; Web Services — Asynchronous JS (Ev (4 Qs)</option><option value="Chapter 6:">Chapter 6: Web Security &amp; Storage — Web Application Secu (2 Qs)</option><option value="Chapter 7:">Chapter 7: .NET &amp; MVC Architecture — .NET Framework Arch (6 Qs)</option>
+    </select>
+    <input type="text" id="qSearch" class="search-input" style="max-width:240px;" placeholder="🔍 Filter questions..." oninput="renderList()">
+    <button class="btn btn-green" id="modeBtn" onclick="toggleMode()">📖 Mode: Revision (Answers Visible)</button>
+    <button class="btn btn-outline" onclick="shuffleOpts()">🔀 Shuffle Options</button>
+    <span id="statLabel" style="margin-left:auto;font-weight:800;font-size:0.85rem;color:#1e3a8a;">Total: 41 Qs</span>
+  </div>
+
+  <div id="qContainer"></div>
+</div>
+<script>
+const QUESTIONS = [{"id": 1, "chapter": "Chapter 1: Internet & HTTP Basics — World Wide Web Architecture, URI/URL Anatomy, HTTP Methods (GET/POST/PUT/DELETE) & Status Codes", "q": "What does 'URL' stand for, and what are its main parts in `https://www.example.com:443/notes/index.html`?", "options": ["Uniform Resource Locator", "Universal Routing Language", "Unified Resource Linker", "User Reference List"], "answer": 0, "explanation": "Uniform Resource Locator; Protocol (`https`), Domain Host (`www.example.com`), Port (`443`), and Resource Path (`/notes/index.html`). A URL uniquely locates a web resource on the Internet.", "tag": "DSSSB Expected / PYQ"}, {"id": 2, "chapter": "Chapter 1: Internet & HTTP Basics — World Wide Web Architecture, URI/URL Anatomy, HTTP Methods (GET/POST/PUT/DELETE) & Status Codes", "q": "Who invented the World Wide Web (WWW), HTML, and HTTP in 1989 at CERN?", "options": ["Vint Cerf", "Sir Tim Berners-Lee", "Dennis Ritchie", "Brendan Eich (JavaScript)"], "answer": 1, "explanation": "Tim Berners-Lee invented WWW/HTML/HTTP (1989); Brendan Eich created JavaScript (1995).", "tag": "DSSSB Expected / PYQ"}, {"id": 3, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "What does 'HTML' stand for, and what does the `<!DOCTYPE html>` declaration at the very top of a document tell the web browser?", "options": ["High-Tech Programming Language; it imports a CSS file", "Hyperlink Text Management Logic", "HyperText Markup Language; `<!DOCTYPE html>` instructs the browser to render the page in standard HTML5 mode", "It is an optional comment ignored by browsers"], "answer": 2, "explanation": "HyperText Markup Language; `<!DOCTYPE html>` instructs the browser to render the page in standard HTML5 mode (preventing legacy Quirks Mode) — `<!DOCTYPE html>` is the standard HTML5 doctype (not an HTML tag itself).", "tag": "DSSSB Expected / PYQ"}, {"id": 4, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "In HTML, which tag creates an Ordered (Numbered) List, an Unordered (Bulleted) List, and a Description (Definition) List (`<dl>, <dt>, <dd>`)?", "options": ["`<nl>` creates a numbered list", "`<list>` creates a bulleted list", "`<tr>` creates a list item", "`<ol>` = Ordered List, `<ul>` = Unordered List"], "answer": 3, "explanation": "`<ol>` = Ordered List, `<ul>` = Unordered List; `<dl>` = Description List. `<ol>` = Ordered List, `<ul>` = Unordered List (both use `<li>` for items); `<dl>` = Description List (`<dt>` term, `<dd>` description) — In `<ol type='A' start='3'>`, numbering starts at the 3rd letter `'C'`.", "tag": "DSSSB Expected / PYQ"}, {"id": 5, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "In an HTML `<table>`, which attribute merges two or more columns horizontally across a row, and which attribute merges two or more rows vertically down a column?", "options": ["`colspan` merges columns horizontally", "`rowspan` merges columns horizontally", "`cellpadding` merges cells", "`border-collapse` merges rows"], "answer": 0, "explanation": "`colspan` merges columns horizontally; `rowspan` merges rows vertically. `<td colspan='3'>` spans across 3 columns; `<td rowspan='2'>` spans down 2 rows.", "tag": "DSSSB Expected / PYQ"}, {"id": 6, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "In an HTML `<form>`, what is the difference between `method='GET'` and `method='POST'`?", "options": ["`GET` hides data in the HTTP body and `POST` shows passwords in the URL", "`GET` appends form data as visible key-value pairs in the URL query string", "`GET` can upload 10 GB video files", "`POST` requests can be bookmarked with form data in the URL"], "answer": 1, "explanation": "`GET` appends form data as visible key-value pairs in the URL query string; `POST` sends form data inside the HTTP request body. `GET` appends form data as visible key-value pairs in the URL query string (`?user=abc`, length-limited, bookmarkable, never use for passwords); `POST` sends form data inside the HTTP request body (not visible in URL, supports large file uploads `enctype='multipart/form-data'`) — Sensitive credentials (passwords) and state-changing/file-upload forms must ALWAYS use `POST`.", "tag": "DSSSB Expected / PYQ"}, {"id": 7, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "In HTML5, which new semantic elements were introduced to replace generic `<div id='header'>` layout boxes, and which tags embed native vector/bitmap graphics and media without Flash plugins?", "options": ["`<font>`, `<center>`, `<frameset>`, and `<blink>` were newly added in HTML5", "`<canvas>` is vector and `<svg>` is pixel bitmap", "Semantic: `<header>, <nav>, <main>, <article>, <section>, <aside>, <footer>`", "HTML5 requires Flash Player for `<video>`"], "answer": 2, "explanation": "Semantic: `<header>, <nav>, <main>, <article>, <section>, <aside>, <footer>`; Graphics/Media: `<canvas>`, `<svg>` (XML vector), `<audio>`, `<video>`. Semantic: `<header>, <nav>, <main>, <article>, <section>, <aside>, <footer>`; Graphics/Media: `<canvas>` (JS pixel bitmap), `<svg>` (XML vector), `<audio>`, `<video>` — Note: `<font>`, `<center>`, `<big>`, `<strike>`, `<frame>`, and `<frameset>` are **deprecated/obsolete** in HTML5!", "tag": "DSSSB Expected / PYQ"}, {"id": 8, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "In an HTML `<a>` (Anchor hyperlink) tag `<a href='url' target='_blank'>`, what does `target='_blank'` do?", "options": ["Opens the link in the same tab", "Deletes the current tab", "Downloads the link as a ZIP file", "Opens the linked document in a new browser tab or window"], "answer": 3, "explanation": "Opens the linked document in a new browser tab or window (whereas `_self` is the default current tab) — `_self` = current tab/frame (default); `_blank` = new tab/window; `_parent` = parent frame; `_top` = full body of window.", "tag": "DSSSB Expected / PYQ"}, {"id": 9, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "What makes an XML document 'Well-Formed' vs 'Valid'?", "options": ["A 'Well-Formed' XML document obeys basic XML syntax rules", "An XML document is case-insensitive like HTML", "A Valid XML document does not need to be Well-Formed", "XML has a fixed set of 20 predefined tags"], "answer": 0, "explanation": "A 'Well-Formed' XML document obeys basic XML syntax rules; a 'Valid' XML document is Well-Formed AND conforms to a formal grammar defined in a DTD or XML Schema (XSD). A 'Well-Formed' XML document obeys basic XML syntax rules (single root element, every tag properly closed, proper nesting, case-sensitive tags, quoted attributes); a 'Valid' XML document is Well-Formed AND conforms to a formal grammar defined in a DTD or XML Schema (XSD) — Unlike HTML, XML tags are user-defined and strictly **case-sensitive** (`<Student>` and `<student>` are different tags).", "tag": "DSSSB Expected / PYQ"}, {"id": 10, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "Which HTML tag is used to insert an image on a webpage, and what is the purpose of its `alt` attribute?", "options": ["`<image href='pic.jpg'>`", "`<img src='pic.jpg' alt='description'>`", "`<pic src='pic.jpg'>`", "`alt` changes the image color"], "answer": 1, "explanation": "`<img src='pic.jpg' alt='description'>`; `alt` displays fallback text if the image fails to load and is read aloud by screen readers for accessibility. `<img>` is a self-closing (void/empty) HTML tag that requires `src` and `alt` attributes.", "tag": "DSSSB Expected / PYQ"}, {"id": 11, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "Which HTML heading tag displays the LARGEST / highest-level heading and which displays the SMALLEST heading?", "options": ["`<h6>` is the largest and `<h1>` is the smallest", "`<head>` is the largest heading", "`<h1>` is the largest and `<h6>` is the smallest", "`<h0>` is the largest"], "answer": 2, "explanation": "`<h1>` is the largest (most important) and `<h6>` is the smallest — HTML provides six heading levels from `<h1>` down to `<h6>`.", "tag": "DSSSB Expected / PYQ"}, {"id": 12, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "In HTML forms, which `<input type='...'>` control allows the user to select ONLY ONE option from a group (having the same `name` attribute), vs MULTIPLE options?", "options": ["`checkbox` allows only one option", "`radio` allows selecting all options", "`text` creates a checkbox", "`type='radio'` allows selecting only ONE option"], "answer": 3, "explanation": "`type='radio'` allows selecting only ONE option; `type='checkbox'` allows selecting MULTIPLE options. Grouping radio buttons requires giving all of them the exact same `name='gender'` attribute.", "tag": "DSSSB Expected / PYQ"}, {"id": 13, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "Which HTML tag creates a line break without starting a new paragraph, and which tag draws a horizontal thematic divider line?", "options": ["`<br>` creates a line break", "`<lb>` and `<line>`", "`<break>` and `<hline>`", "`<p>` and `<div>`"], "answer": 0, "explanation": "`<br>` creates a line break; `<hr>` creates a horizontal line. Both `<br>` and `<hr>` are empty (void) tags with no closing tag.", "tag": "DSSSB Expected / PYQ"}, {"id": 14, "chapter": "Chapter 2: HTML5 & Semantic Web — HTML5 Semantic Structure, Forms, Multimedia (`<canvas>` vs `<svg>`) & Web Storage APIs", "q": "Which HTML5 attribute on an external `<script src='app.js'>` tag instructs the browser to download the script in parallel while parsing the HTML document and execute it ONLY AFTER HTML parsing is complete (right before `DOMContentLoaded`), preserving script order?", "options": ["async (executes immediately upon download, interrupting HTML parsing and not guaranteeing order)", "defer", "preload", "lazy"], "answer": 1, "explanation": "`<script defer>` downloads asynchronously in the background and executes in order after the HTML DOM is fully parsed; `<script async>` executes as soon as downloaded, pausing HTML parsing.", "tag": "DSSSB PYQ"}, {"id": 15, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "What are the three ways to apply CSS (Cascading Style Sheets) to an HTML page, and what is their priority order from HIGHEST to LOWEST (excluding `!important`)?", "options": ["External CSS has higher priority than Inline CSS", "Browser Default has the highest priority", "1. Inline CSS > 2. Internal/Embedded CSS / External CSS > 3. Browser Default Styles (Lowest)", "Internal CSS uses `<script>` tags"], "answer": 2, "explanation": "1. Inline CSS (`style='...'` attribute — Highest Priority) > 2. Internal/Embedded CSS (`<style>` in `<head>`) / External CSS (`<link rel='stylesheet' href='...'>`, whichever appears later) > 3. Browser Default Styles (Lowest) — Specificity hierarchy: `!important` > Inline style `(1,0,0,0)` > ID selector `#id (0,1,0,0)` > Class/Pseudo-class `.cls, :hover (0,0,1,0)` > Element/Tag `p, div (0,0,0,1)`.", "tag": "DSSSB Expected / PYQ"}, {"id": 16, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "In the CSS Box Model, from the innermost text content outward, what is the exact order of the four concentric layers?", "options": ["1. Content -> 2. Margin -> 3. Border -> 4. Padding", "1. Border -> 2. Content -> 3. Padding -> 4. Margin", "Padding is outside the Border", "1. Content -> 2. Padding -> 3. Border -> 4. Margin"], "answer": 3, "explanation": "1. Content -> 2. Padding (transparent space inside border) -> 3. Border -> 4. Margin (transparent space outside border separating neighboring elements) — If an element has `width: 200px; padding: 10px; border: 5px solid; margin: 20px;` under default `box-sizing: content-box`, its rendered border-box width is `200 + 2(10) + 2(5) = 230px`.", "tag": "DSSSB Expected / PYQ"}, {"id": 17, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "In CSS Positioning (`static, relative, absolute, fixed, sticky`), what is the difference between `position: absolute` and `position: fixed`?", "options": ["`position: absolute` positions the element relative to its nearest positioned (non-static) ancestor and scrolls with the page", "`position: static` allows `top` and `left` offsets", "`position: fixed` scrolls off the screen", "`position: relative` removes the element from normal document flow"], "answer": 0, "explanation": "`position: absolute` positions the element relative to its nearest positioned (non-static) ancestor and scrolls with the page; `position: fixed` positions it relative to the browser viewport window so it stays fixed on screen even when scrolling. `static` is the default (`top/left/z-index` have no effect); `relative` offsets from its own normal position while keeping its space.", "tag": "DSSSB Expected / PYQ"}, {"id": 18, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "In CSS, how do you select an element with `id='header'` vs elements with `class='card'`?", "options": ["`.header` selects by ID and `#card` selects by Class", "`#header` selects by ID (hash); `.card` selects by Class (dot)", "`@header` selects by ID", "`*header` selects by ID"], "answer": 1, "explanation": "ID selector uses `#` (must be unique per page); Class selector uses `.` (reusable on many elements); `*` is the Universal selector.", "tag": "DSSSB Expected / PYQ"}, {"id": 19, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "In CSS, what is the difference between `display: none` and `visibility: hidden`?", "options": ["Both preserve empty space", "Both remove the element from layout", "`display: none` completely removes the element from the page layout", "`visibility: hidden` deletes the HTML tag from the DOM"], "answer": 2, "explanation": "`display: none` completely removes the element from the page layout; `visibility: hidden` hides the element visually while STILL preserving its empty space in the layout. `display: none` completely removes the element from the page layout (occupies 0 space); `visibility: hidden` hides the element visually while STILL preserving its empty space in the layout — Remember: `display: none` collapses the space; `visibility: hidden` leaves an invisible blank box.", "tag": "DSSSB Expected / PYQ"}, {"id": 20, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "In CSS Flexbox (`display: flex`), which property aligns flex items along the Main Axis (horizontally by default) and which aligns them along the Cross Axis (vertically)?", "options": ["`align-items` aligns along the Main Axis", "`text-align` controls Flexbox axes", "`float` controls Flexbox", "`justify-content` aligns along the Main Axis"], "answer": 3, "explanation": "`justify-content` aligns along the Main Axis; `align-items` aligns along the Cross Axis. Flexbox centering trick: `display: flex; justify-content: center; align-items: center;`.", "tag": "DSSSB Expected / PYQ"}, {"id": 21, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "Which CSS feature allows a webpage to adapt its layout automatically for Mobile, Tablet, and Desktop screen widths (Responsive Web Design)?", "options": ["CSS Media Queries (`@media { ... }`)", "CSS Animations", "CSS Tables", "HTML Framesets"], "answer": 0, "explanation": "CSS Media Queries (`@media (max-width: 768px) { ... }`) — Media Queries combined with `<meta name='viewport' content='width=device-width, initial-scale=1.0'>` enable Responsive Design.", "tag": "DSSSB Expected / PYQ"}, {"id": 22, "chapter": "Chapter 3: CSS3 & Responsive Design — CSS3 Box Model, Specificity Tuple `(a,b,c,d)`, Positioning & Flexbox vs CSS Grid", "q": "Compute the CSS Specificity weight `(Inline, ID, Class/Attribute/Pseudo-class, Element/Pseudo-element)` of the selector `ul#nav li.active a:hover`:", "options": ["(0, 1, 1, 3)", "(0, 1, 2, 3)", "(1, 1, 2, 2)", "(0, 2, 2, 1)"], "answer": 1, "explanation": "Count components: 0 inline styles, 1 ID (`#nav`), 2 classes/pseudo-classes (`.active` and `:hover`), and 3 element tags (`ul`, `li`, `a`) => `(0, 1, 2, 3)`.", "tag": "DSSSB PYQ"}, {"id": 23, "chapter": "Chapter 4: JavaScript & DOM — JavaScript ES6+ Scopes (`var`/`let`/`const`), Closures, Event Bubbling/Capturing & Type Coercion", "q": "In JavaScript, what is the difference between `var`, `let`, and `const` variable declarations (ES6)?", "options": ["`let` is function-scoped and `var` is block-scoped", "`const` variables can be reassigned new values freely", "`var` is function-scoped and hoisted as `undefined`", "All three have identical scope"], "answer": 2, "explanation": "`var` is function-scoped and hoisted as `undefined`; `let` and `const` are block-scoped (`{ ... }`), stay in the Temporal Dead Zone until declaration, and `const` cannot be reassigned. `var` is function-scoped and hoisted as `undefined` (allows redeclaration); `let` and `const` are block-scoped (`{ ... }`), stay in the Temporal Dead Zone until declaration, and `const` cannot be reassigned — `let` and `const` prevent accidental global/function variable leakage out of `for` loops and `if` blocks.", "tag": "DSSSB Expected / PYQ"}, {"id": 24, "chapter": "Chapter 4: JavaScript & DOM — JavaScript ES6+ Scopes (`var`/`let`/`const`), Closures, Event Bubbling/Capturing & Type Coercion", "q": "In JavaScript, what is the output of `typeof null`, `0 == '0'`, `0 === '0'`, and `'5' + 3` vs `'5' - 3`?", "options": ["`0 === '0'` is `true`", "`'5' + 3` is `8`", "`typeof null` is `'null'`", "`typeof null` is `'object'`"], "answer": 3, "explanation": "`typeof null` is `'object'`; `0 == '0'` is `true`; `0 === '0'` is `false`; `'5' + 3` is `'53'` while `'5' - 3` is `2`. `typeof null` is `'object'` (historic JS quirk); `0 == '0'` is `true` (type coercion); `0 === '0'` is `false` (strict type+value check); `'5' + 3` is `'53'` (string concatenation) while `'5' - 3` is `2` (numeric subtraction) — `+` with a string operand performs string concatenation (`'5' + 3 = '53'`), whereas `-`, `*`, `/` coerce strings to numbers (`'5' - 3 = 2`).", "tag": "DSSSB Expected / PYQ"}, {"id": 25, "chapter": "Chapter 4: JavaScript & DOM — JavaScript ES6+ Scopes (`var`/`let`/`const`), Closures, Event Bubbling/Capturing & Type Coercion", "q": "In JavaScript DOM manipulation, which methods select (1) a single element by its unique ID, and (2) the first element matching ANY CSS selector (like `.card > p`)?", "options": ["(1) `document.getElementById('id')` and (2) `document.querySelector`", "`document.getElement('id')`", "`window.selectCSS()`", "`document.findNode()`"], "answer": 0, "explanation": "(1) `document.getElementById('id')` and (2) `document.querySelector('.card > p')` (or `querySelectorAll` for all matches) — And to attach an event handler without overwriting existing listeners, `element.addEventListener('click', handler)` is used.", "tag": "DSSSB Expected / PYQ"}, {"id": 26, "chapter": "Chapter 4: JavaScript & DOM — JavaScript ES6+ Scopes (`var`/`let`/`const`), Closures, Event Bubbling/Capturing & Type Coercion", "q": "In JavaScript, which built-in function parses a JSON text string into a JavaScript Object, and which converts a JS Object back into a JSON string?", "options": ["`JSON.decode()` and `JSON.encode()`", "`JSON.parse(str)` converts JSON string -> JS Object", "`JSON.toObj()` and `JSON.toStr()`", "`eval()` only"], "answer": 1, "explanation": "`JSON.parse(str)` converts JSON string -> JS Object; `JSON.stringify(obj)` converts JS Object -> JSON string. Example: `const obj = JSON.parse('{\"id\":1}');`.", "tag": "DSSSB Expected / PYQ"}, {"id": 27, "chapter": "Chapter 4: JavaScript & DOM — JavaScript ES6+ Scopes (`var`/`let`/`const`), Closures, Event Bubbling/Capturing & Type Coercion", "q": "In JavaScript, what are the 3 dialog box functions provided by the `window` object?", "options": ["`print()`, `scan()`, `input()`", "`show()`, `ask()`, `warn()`", "`alert()`, `confirm()`, and `prompt()`", "`msg()`, `box()`, `popup()`"], "answer": 2, "explanation": "`alert()` (shows OK message), `confirm()` (returns `true` for OK / `false` for Cancel), and `prompt()` (takes text input string from user) — Note that `prompt()` always returns the user's input as a `String` (or `null` if cancelled).", "tag": "DSSSB Expected / PYQ"}, {"id": 28, "chapter": "Chapter 4: JavaScript & DOM — JavaScript ES6+ Scopes (`var`/`let`/`const`), Closures, Event Bubbling/Capturing & Type Coercion", "q": "In JavaScript, which array methods add/remove an element at the END of an array vs at the BEGINNING of an array?", "options": ["End: `shift()` and `unshift()`", "Beginning: `push()` and `pop()`", "`append()` and `remove()`", "End: `push()` (add) and `pop()` (remove)"], "answer": 3, "explanation": "End: `push()` (add) and `pop()` (remove); Beginning: `unshift()` (add) and `shift()` (remove). `push/pop` operate at the end (like a Stack); `shift/unshift` operate at index 0.", "tag": "DSSSB Expected / PYQ"}, {"id": 29, "chapter": "Chapter 4: JavaScript & DOM — JavaScript ES6+ Scopes (`var`/`let`/`const`), Closures, Event Bubbling/Capturing & Type Coercion", "q": "In JavaScript Event Propagation across the DOM tree, what are the three sequential phases of an event dispatch, and what does `event.stopPropagation()` do?", "options": ["1. Capturing Phase -> 2. Target Phase -> 3. Bubbling Phase; `stopPropagation()` halts further propagation across parent/child listeners without cancelling default browser action", "1. Bubbling -> 2. Capturing -> 3. Target; `stopPropagation()` prevents form submission", "Events only travel downward unless `preventDefault()` is called", "Capturing is the default mode for `addEventListener(type, fn)` when the 3rd argument is omitted"], "answer": 0, "explanation": "1. Capturing Phase (Window down to Target) -> 2. Target Phase -> 3. Bubbling Phase (Target up to Window); `stopPropagation()` halts further propagation across parent/child listeners without cancelling default browser action — By default, `addEventListener(type, handler, false)` registers listeners in the Bubbling phase (`useCapture = false`). `event.stopPropagation()` stops further DOM propagation, while `event.preventDefault()` cancels the browser's default action.", "tag": "DSSSB PYQ"}, {"id": 30, "chapter": "Chapter 5: Async JS & Web Services — Asynchronous JS (Event Loop, Microtasks vs Macrotasks, Promises, Async/Await), AJAX, JSON & XML", "q": "What does 'AJAX' stand for, and which core browser object (or modern API) enables asynchronous background data exchange with a server without reloading the entire web page?", "options": ["Automatic Java And XHTML", "Asynchronous JavaScript and XML", "AJAX requires a full browser page refresh on every request", "AJAX only works in Internet Explorer"], "answer": 1, "explanation": "Asynchronous JavaScript and XML; uses the `XMLHttpRequest` (`XHR`) object or the modern Promise-based `fetch()` API (typically exchanging lightweight JSON data) — Today, **JSON (`JavaScript Object Notation` — `JSON.parse()` and `JSON.stringify()`)** has largely replaced verbose XML in AJAX/REST APIs.", "tag": "DSSSB Expected / PYQ"}, {"id": 31, "chapter": "Chapter 5: Async JS & Web Services — Asynchronous JS (Event Loop, Microtasks vs Macrotasks, Promises, Async/Await), AJAX, JSON & XML", "q": "In XML, which W3C language is used to transform an XML document into HTML or another XML format, and which language is used to navigate/query nodes in an XML tree?", "options": ["CSS transforms XML into SQL", "DTD styles XML colors", "XSLT transforms XML", "AJAX transforms XML"], "answer": 2, "explanation": "XSLT transforms XML; XPath queries/navigates nodes in an XML tree. XSLT (Extensible Stylesheet Language Transformations) transforms XML; XPath queries/navigates nodes in an XML tree — XSLT uses XPath expressions to select XML nodes and output formatted HTML/text.", "tag": "DSSSB Expected / PYQ"}, {"id": 32, "chapter": "Chapter 5: Async JS & Web Services — Asynchronous JS (Event Loop, Microtasks vs Macrotasks, Promises, Async/Await), AJAX, JSON & XML", "q": "What is the key architectural difference between 'SOAP' and 'REST' web services?", "options": ["REST only supports XML and SOAP only supports JSON", "SOAP does not use XML", "REST cannot run over HTTP", "SOAP is a strict XML-only protocol with WSDL contracts"], "answer": 3, "explanation": "SOAP is a strict XML-only protocol with WSDL contracts; REST is a lightweight architectural style using standard HTTP verbs and typically exchanging JSON data. SOAP is a strict XML-only protocol with WSDL contracts; REST is a lightweight architectural style using standard HTTP verbs (`GET, POST, PUT, DELETE`) and typically exchanging JSON data — RESTful APIs are stateless and map CRUD operations directly to HTTP methods (`POST=Create, GET=Read, PUT=Update, DELETE=Delete`).", "tag": "DSSSB Expected / PYQ"}, {"id": 33, "chapter": "Chapter 5: Async JS & Web Services — Asynchronous JS (Event Loop, Microtasks vs Macrotasks, Promises, Async/Await), AJAX, JSON & XML", "q": "What is a key technical advantage of W3C XML Schema (XSD) over a legacy Document Type Definition (DTD)?", "options": ["XSD is written in XML syntax itself, supports strong built-in and custom data types, and fully supports XML Namespaces", "DTD is written in XML syntax and supports 44 built-in numeric and date data types", "XSD files cannot be validated by DOM or SAX parsers", "DTD supports object-oriented type inheritance whereas XSD treats everything as `#PCDATA` strings"], "answer": 0, "explanation": "XSD is written in XML syntax itself, supports strong built-in and custom data types (integer, date, regex patterns), and fully supports XML Namespaces — DTD uses non-XML syntax, lacks namespaces, and treats element text mainly as untyped `#PCDATA`, whereas XSD (`xs:schema`) is written in XML, supports namespaces, and enforces strict data types and cardinality (`minOccurs`, `maxOccurs`).", "tag": "DSSSB PYQ"}, {"id": 34, "chapter": "Chapter 6: Web Security & Storage — Web Application Security (OWASP Top Risks — SQLi, XSS, CSRF, CORS) & Authentication (JWT/OAuth)", "q": "Which web security vulnerability allows an attacker to inject malicious `<script>` JavaScript code into a webpage that executes in other users' browsers (to steal session cookies)?", "options": ["SQL Injection", "XSS (Cross-Site Scripting)", "ARP Spoofing", "Buffer Underflow"], "answer": 1, "explanation": "XSS is prevented by HTML-escaping/sanitizing user output and setting `HttpOnly` on session cookies.", "tag": "DSSSB Expected / PYQ"}, {"id": 35, "chapter": "Chapter 6: Web Security & Storage — Web Application Security (OWASP Top Risks — SQLi, XSS, CSRF, CORS) & Authentication (JWT/OAuth)", "q": "What is a 'Web Cookie' stored in the browser?", "options": ["A computer virus", "A server-side SQL database", "A small piece of text data sent by a web server and stored on the client browser to maintain user session state, login tokens, and preferences across stateless HTTP requests", "A CSS stylesheet"], "answer": 2, "explanation": "A small piece of text data (up to ~4 KB) sent by a web server and stored on the client browser to maintain user session state, login tokens, and preferences across stateless HTTP requests — Since HTTP is stateless, Cookies (with `Session ID`) let the server recognize returning authenticated users.", "tag": "DSSSB Expected / PYQ"}, {"id": 36, "chapter": "Chapter 7: .NET & MVC Architecture — .NET Framework Architecture (CLR, CTS, CLS, MSIL/CIL), ADO.NET & ASP.NET MVC", "q": "In the Microsoft .NET Framework and ASP.NET, what are the roles of `CLS`, `CTS`, `MSIL (CIL)`, and the `CLR`?", "options": ["CLR converts native machine code into HTML", "ASP.NET runs only inside the client's web browser", "ViewState in ASP.NET is stored on the SQL Server by default", "CTS standardizes data types across C#/VB.NET"], "answer": 3, "explanation": "CTS standardizes data types across C#/VB.NET; CLS defines cross-language interoperability rules; compilers output portable MSIL bytecode; CLR executes MSIL via JIT Compilation, Garbage Collection, and Security. CTS (Common Type System) standardizes data types across C#/VB.NET; CLS (Common Language Specification) defines cross-language interoperability rules; compilers output portable MSIL bytecode; CLR (Common Language Runtime) executes MSIL via JIT Compilation, Garbage Collection, and Security — In ASP.NET Web Forms, **ViewState** preserves page/control values across HTTP postbacks using a hidden base64 field (`__VIEWSTATE`) on the client page, while **Session State** stores per-user data on the server.", "tag": "DSSSB Expected / PYQ"}, {"id": 37, "chapter": "Chapter 7: .NET & MVC Architecture — .NET Framework Architecture (CLR, CTS, CLS, MSIL/CIL), ADO.NET & ASP.NET MVC", "q": "In ASP.NET, what file extension is used for an ASP.NET Web Form page, and what is the global configuration file of an ASP.NET web application?", "options": ["`.aspx` for Web Form pages", "`.jsp` and `config.ini`", "`.php` and `.htaccess`", "`.html` and `settings.txt`"], "answer": 0, "explanation": "`.aspx` for Web Form pages; `Web.config` (XML file) for application configuration. ASP.NET uses `.aspx` (Web Forms) or `.cshtml` (Razor MVC) and `Web.config` for connection strings and security settings.", "tag": "DSSSB Expected / PYQ"}, {"id": 38, "chapter": "Chapter 7: .NET & MVC Architecture — .NET Framework Architecture (CLR, CTS, CLS, MSIL/CIL), ADO.NET & ASP.NET MVC", "q": "In the ASP.NET MVC architectural pattern, what are the roles of Model, View, and Controller?", "options": ["View stores SQL tables", "Model = Business data and database logic", "Controller draws CSS colors", "Model handles URL routing"], "answer": 1, "explanation": "Model = Business data and database logic; View = User Interface (HTML/Razor) displayed to user; Controller = Handles incoming HTTP requests, coordinates Model, and selects the View. MVC cleanly separates Data (Model), UI (View), and Request Logic (Controller).", "tag": "DSSSB Expected / PYQ"}, {"id": 39, "chapter": "Chapter 7: .NET & MVC Architecture — .NET Framework Architecture (CLR, CTS, CLS, MSIL/CIL), ADO.NET & ASP.NET MVC", "q": "In .NET, what is the difference between a 'Value Type' (`int, float, struct, enum`) and a 'Reference Type' (`class, string, array, object`)?", "options": ["Value Types are stored on the Heap and Reference Types on the Stack", "`int` is a Reference Type", "Value Types store their actual data directly on the Stack", "`string` is a Value Type"], "answer": 2, "explanation": "Value Types store their actual data directly on the Stack; Reference Types store the object on the Managed Heap (garbage-collected) and hold a reference pointer on the Stack. Value Types store their actual data directly on the Stack (copied by value); Reference Types store the object on the Managed Heap (garbage-collected) and hold a reference pointer on the Stack — Converting a Value Type to an `object` (Reference Type) is called **Boxing**; extracting it back is **Unboxing**.", "tag": "DSSSB Expected / PYQ"}, {"id": 40, "chapter": "Chapter 7: .NET & MVC Architecture — .NET Framework Architecture (CLR, CTS, CLS, MSIL/CIL), ADO.NET & ASP.NET MVC", "q": "In the Microsoft .NET Architecture, what is the role of the Common Language Runtime (CLR), Microsoft Intermediate Language (MSIL / CIL), and the Just-In-Time (JIT) Compiler?", "options": ["C# is directly interpreted line-by-line by the browser without compilation", "CTS (Common Type System) is the database engine of SQL Server", "JIT compiles native machine code back into C# source code", "Source code (C#, VB.NET) is compiled by language compilers into portable MSIL bytecode and metadata inside an Assembly"], "answer": 3, "explanation": "Source code (C#, VB.NET) is compiled by language compilers into portable MSIL bytecode and metadata inside an Assembly; at runtime, the CLR's JIT compiler translates MSIL into native CPU machine code along with Garbage Collection and Code Access Security. In .NET: Source Code -> Language Compiler -> MSIL/CIL Assembly (`.exe`/`.dll`) -> CLR JIT Compiler -> Native Machine Code. CTS unifies data types across .NET languages, and CLS defines the subset of rules for cross-language interoperability.", "tag": "DSSSB PYQ"}, {"id": 41, "chapter": "Chapter 7: .NET & MVC Architecture — .NET Framework Architecture (CLR, CTS, CLS, MSIL/CIL), ADO.NET & ASP.NET MVC", "q": "In ADO.NET data access architecture, what is the fundamental difference between a `SqlDataReader` and a `DataSet` (populated via `SqlDataAdapter`)?", "options": ["`SqlDataReader` provides a fast, connected, forward-only, read-only stream of rows, whereas `DataSet` is an in-memory, disconnected relational cache holding multiple `DataTable` objects and relationships that works even after the DB connection is closed", "`DataSet` requires an active open TCP connection at all times and is forward-only", "`SqlDataReader` stores multiple tables in memory and supports backward scrolling and XML serialization", "Both are disconnected XML objects"], "answer": 0, "explanation": "`SqlDataReader` provides a fast, connected, forward-only, read-only stream of rows ('Firehose cursor'), whereas `DataSet` is an in-memory, disconnected relational cache holding multiple `DataTable` objects and relationships that works even after the DB connection is closed — `DataReader` is connected, read-only, and forward-only (minimal memory footprint); `DataSet` is disconnected, read-write, scrollable in-memory cache populated via `DataAdapter.Fill()`.", "tag": "DSSSB PYQ"}];
+let revMode = true;
+let userPicks = {};
+
+function toggleMode() {
+  revMode = !revMode;
+  const b = document.getElementById('modeBtn');
+  b.textContent = revMode ? '📖 Mode: Revision (Answers Visible)' : '✍️ Mode: Quiz Practice (Click Option)';
+  b.className = revMode ? 'btn btn-green' : 'btn btn-blue';
+  renderList();
+}
+
+function shuffleOpts() {
+  QUESTIONS.forEach(q => {
+    const cVal = q.options[q.answer];
+    for (let i = q.options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+    }
+    q.answer = q.options.indexOf(cVal);
+  });
+  userPicks = {};
+  renderList();
+}
+
+function pickAns(qid, oi) {
+  if (revMode || userPicks[qid] !== undefined) return;
+  userPicks[qid] = oi;
+  renderList();
+}
+
+function renderList() {
+  const ch = document.getElementById('chFilter').value;
+  const s = (document.getElementById('qSearch').value || '').toLowerCase().trim();
+  const letters = ['A', 'B', 'C', 'D'];
+  let htmlOut = '';
+  let shown = 0, cCnt = 0, wCnt = 0;
+
+  QUESTIONS.forEach(q => {
+    if (ch !== 'ALL' && !q.chapter.startsWith(ch)) return;
+    const hay = (q.q + ' ' + q.options.join(' ') + ' ' + q.explanation).toLowerCase();
+    if (s && !hay.includes(s)) return;
+    shown++;
+
+    const picked = userPicks[q.id];
+    if (picked !== undefined) {
+      if (picked === q.answer) cCnt++; else wCnt++;
+    }
+    const show = revMode || (picked !== undefined);
+
+    let oHtml = '';
+    q.options.forEach((ot, oi) => {
+      let cls = 'opt-btn';
+      let tag = '';
+      if (show) {
+        if (oi === q.answer) { cls += ' correct'; tag = ' ✅'; }
+        else if (picked === oi) { cls += ' wrong'; tag = ' ❌'; }
+      }
+      oHtml += `<button class="${cls}" onclick="pickAns(${q.id}, ${oi})"><strong>(${letters[oi]})</strong> ${ot}${tag}</button>`;
+    });
+
+    const expHtml = show ? `<div class="exp-strip"><strong>Answer (${letters[q.answer]}):</strong> ${q.explanation}</div>` : '';
+
+    htmlOut += `<div class="q-card">
+      <div class="q-head">
+        <span>Q#${q.id} • ${q.chapter}</span>
+        <span style="color:#15803d;">${q.tag}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="opts-grid">${oHtml}</div>
+      ${expHtml}
+    </div>`;
+  });
+
+  if (revMode) {
+    document.getElementById('statLabel').textContent = `Showing ${shown} Questions`;
+  } else {
+    const net = (cCnt * 1.0 - wCnt * 0.25).toFixed(2);
+    document.getElementById('statLabel').textContent = `Score: ${net} | ✅ ${cCnt} | ❌ ${wCnt} | Shown: ${shown}`;
+  }
+  document.getElementById('qContainer').innerHTML = htmlOut || '<div class="ch-card">No matching questions.</div>';
+}
+renderList();
+</script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Networks — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Computer Networks</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="06_B01_Computer_Networks_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/06_B01_Computer_Networks_Question_Booklet.html">📝 Question Booklet (106 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 14–16 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Computer Networks (Topologies, Media, Data Link/MAC, OSI Layers, IPv4/IPv6 &amp; Routing, TCP/UDP, Ports &amp; Security)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/06_B01_Computer_Networks_Question_Booklet.html">📝 Open 106-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Topologies &amp; Architecture: P</a><a class="pill" href="#ch2">Ch 2: Media &amp; Physical Layer — Gui</a><a class="pill" href="#ch3">Ch 3: Data Link, MAC &amp; CSMA/CD — S</a><a class="pill" href="#ch4">Ch 4: OSI Reference Model &amp; Layers</a><a class="pill" href="#ch5">Ch 5: IPv4/IPv6, Subnetting &amp; Rout</a><a class="pill" href="#ch6">Ch 6: TCP, UDP &amp; Congestion Contro</a><a class="pill" href="#ch7">Ch 7: Application Layer &amp; Protocol</a><a class="pill" href="#ch8">Ch 8: Network Security &amp; Cryptogra</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Computer Networks — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Computer Networks — OSI 7 Layers, TCP/UDP Ports, IPv4 Classes &amp; IEEE 802 Standards</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Layer / Protocol / Standard</th><th>PDU / Port / Range</th><th>Hardware Device &amp; Core Technical Function</th></tr></thead>
+  <tbody>
+    <tr><td><strong>7. Application Layer</strong></td><td>Data / Message</td><td>HTTP (<strong>80</strong>), HTTPS (<strong>443</strong>), FTP Data (<strong>20</strong>) / Control (<strong>21</strong>), SSH (<strong>22</strong>), Telnet (<strong>23</strong>), SMTP (<strong>25</strong>), DNS (<strong>53</strong> UDP/TCP), DHCP (<strong>67/68</strong> UDP), TFTP (<strong>69</strong> UDP), POP3 (<strong>110</strong>), IMAP (<strong>143</strong>), SNMP (<strong>161/162</strong> UDP), RDP (<strong>3389</strong>)</td></tr>
+    <tr><td><strong>6. Presentation &amp; 5. Session</strong></td><td>Data</td><td><strong>Presentation:</strong> Encryption (TLS/SSL), Compression, ASCII/EBCDIC/JPEG/JSON translation | <strong>Session:</strong> Dialog control (Half/Full duplex), Token management, Synchronization checkpoints (NetBIOS, RPC)</td></tr>
+    <tr><td><strong>4. Transport Layer</strong></td><td>Segment (TCP) / Datagram (UDP)</td><td>Process-to-process delivery via 16-bit Port numbers; <strong>TCP</strong> (Connection-oriented, 20–60B header, 3-way handshake, Slow Start/AIMD congestion control) vs <strong>UDP</strong> (Connectionless, 8B header)</td></tr>
+    <tr><td><strong>3. Network Layer</strong></td><td>Packet / Datagram</td><td><strong>Router / L3 Switch</strong> (breaks Broadcast Domains); Logical IP addressing, Subnetting, Fragmentation, ARP (IP-&gt;MAC), ICMP (Ping/Traceroute), Routing: <strong>RIP</strong> (Bellman-Ford, max 15 hops, UDP 520), <strong>OSPF</strong> (Dijkstra Link-State, IP 89), <strong>BGP</strong> (Path-Vector, TCP 179)</td></tr>
+    <tr><td><strong>2. Data Link &amp; 1. Physical</strong></td><td>Frame (L2) / Bits (L1)</td><td><strong>L2 Switch / Bridge</strong> (breaks Collision Domains, keeps 1 Broadcast Domain): 48-bit MAC address, Framing (Bit/Byte stuffing), CRC, CSMA/CD (802.3 Ethernet, min frame <strong>64 Bytes = 512 bits</strong>), CSMA/CA (802.11 Wi-Fi) | <strong>L1 Hub / Repeater:</strong> 1 Collision &amp; 1 Broadcast Domain</td></tr>
+    <tr><td><strong>IPv4 Classful &amp; Private Ranges</strong></td><td>32-bit IPv4 vs 128-bit IPv6 (40B fixed header)</td><td><strong>Class A:</strong> <code>0..127</code> (<code>/8</code>, Private <code>10.0.0.0/8</code>, Loopback <code>127.0.0.0/8</code>) | <strong>Class B:</strong> <code>128..191</code> (<code>/16</code>, Private <code>172.16.0.0–172.31.255.255</code>, APIPA <code>169.254.0.0/16</code>) | <strong>Class C:</strong> <code>192..223</code> (<code>/24</code>, Private <code>192.168.0.0/16</code>) | <strong>Class D:</strong> <code>224..239</code> (Multicast) | <strong>Class E:</strong> <code>240..255</code> (Reserved)</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Topologies &amp; Architecture: Physical vs Logical Topologies — Mesh, Star, Bus, Ring</h2>
+    <span class="badge">19 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="physical vs logical topologies — mesh, star, bus, ring &amp; hybrid metrics full mesh links l = n(n − 1) / 2 (duplex) • i/o ports per node = (n − 1) • total i/o ports = n(n − 1) in a full mesh topology of n nodes, every node has a dedicated point-to-point link to every other node, yielding maximum fault tolerance and privacy at the cost of o(n²) cabling. star topology uses n links connected to a central hub (layer 1 broadcast) or switch (layer 2 unicast mac learning); failure of the central device brings down the entire network (single point of failure). bus topology uses 1 backbone cable with n drop lines, n taps, and 2 50-ohm terminators (to prevent signal reflection/standing waves). ring topology uses n links with unidirectional token passing (ieee 802.5 / fddi dual ring). hinglish tip: n nodes ke full mesh me simplex links = n(n−1) hote hain aur half/full-duplex links = n(n−1)/2 hote hain! star, ring aur tree me links = n (ya n−1 for tree) hote hain.">
+  <div class="sub-h">📌 1.1 Physical vs Logical Topologies — Mesh, Star, Bus, Ring &amp; Hybrid Metrics</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Full Mesh Links L = n(n − 1) / 2 (Duplex)</li><li>🔹 I/O Ports per node = (n − 1)</li><li>🔹 Total I/O Ports = n(n − 1)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In a Full Mesh topology of n nodes, every node has a dedicated point-to-point link to every other node, yielding maximum fault tolerance and privacy at the cost of O(n²) cabling.</li><li>Star topology uses n links connected to a central Hub (Layer 1 broadcast) or Switch (Layer 2 unicast MAC learning)</li><li>failure of the central device brings down the entire network (Single Point of Failure).</li><li>Bus topology uses 1 backbone cable with n drop lines, n taps, and 2 50-ohm terminators (to prevent signal reflection/standing waves).</li><li>Ring topology uses n links with unidirectional token passing (<mark class="hl">IEEE 802.5</mark> / FDDI dual ring).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Numerical: For a network of n = 12 computers in a Full Mesh topology, required duplex cables = 12 × 11 / 2 = 66 cables; I/O ports per computer = 12 − 1 = 11 ports; total I/O ports across the network = 12 × 11 = 132 ports.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: n nodes ke Full Mesh me Simplex links = n(n−1) hote hain aur Half/Full-Duplex links = n(n−1)/2 hote hain! Star, Ring aur Tree me links = n (ya n−1 for Tree) hote hain.</div>
+</div><div class="concept-box" data-search="transmission modes (simplex, half-duplex, full-duplex) &amp; switching paradigms packet total delay t_total = t_trans (l/r) + t_prop (d/v) + t_queue + t_proc • bandwidth-delay product = bw × rtt simplex is unidirectional (keyboard/monitor, tv broadcast); half-duplex alternates direction sharing one channel (walkie-talkie, csma/cd hub); full-duplex transmits simultaneously in both directions (telephone, switched gigabit ethernet). circuit switching (pstn) operates at the physical layer with 3 phases (setup, data transfer, teardown), reserving dedicated bandwidth with zero queuing delay during transfer. packet switching operates in two modes: datagram (connectionless, network layer ip, packets may arrive out of order) and virtual circuit (connection-oriented, mpls/frame relay/atm, fixed path with vci labels). exam trap: circuit switching physical layer par kaam karta hai, datagram packet switching network layer par, aur virtual circuit switching data link / network layer par!">
+  <div class="sub-h">📌 1.2 Transmission Modes (Simplex, Half-Duplex, Full-Duplex) &amp; Switching Paradigms</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Packet Total Delay T_total = T_trans (L/R) + T_prop (d/v) + T_queue + T_proc</li><li>🔹 Bandwidth-Delay Product = BW × RTT</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Simplex is unidirectional (Keyboard/Monitor, TV broadcast)</li><li>Half-Duplex alternates direction sharing one channel (Walkie-Talkie, CSMA/CD Hub)</li><li>Full-Duplex transmits simultaneously in both directions (Telephone, Switched Gigabit Ethernet).</li><li>Circuit Switching (PSTN) operates at the Physical Layer with 3 phases (Setup, Data Transfer, Teardown), reserving dedicated bandwidth with zero queuing delay during transfer.</li><li>Packet Switching operates in two modes: Datagram (connectionless, Network layer IP, packets may arrive out of order) and Virtual Circuit (connection-oriented, MPLS/Frame Relay/ATM, fixed path with VCI labels).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Delay Math: A 10,000-bit packet is sent over a <mark class="hl">10 Mbps</mark> link of length 2,000 km (propagation speed v = 2 × 10^8 m/s). Transmission Delay T_t = 10,000 / 10^7 = <mark class="hl">1 ms</mark>; Propagation Delay T_p = (2 × 10^6) / (2 × 10^8) = <mark class="hl">10 ms</mark>. Total one-way delay = <mark class="hl">11 ms</mark>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Circuit Switching Physical Layer par kaam karta hai, Datagram Packet Switching Network Layer par, aur Virtual Circuit Switching Data Link / Network Layer par!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="how many point-to-point duplex cable links are required for a full mesh topology of n = 10 computers? full mesh duplex links = n(n − 1) / 2 = 10 × 9 / 2 = 45 links.">
+  <div class="in-note-stem">Q1.1: How many point-to-point duplex cable links are required for a Full Mesh topology of n = 10 computers?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 45 links ✅</div><div class="in-opt"><strong>(B)</strong> 90 links</div><div class="in-opt"><strong>(C)</strong> 10 links</div><div class="in-opt"><strong>(D)</strong> 19 links</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Full Mesh duplex links = n(n − 1) / 2 = 10 × 9 / 2 = 45 links.</div>
+</div><div class="in-note-q" data-search="in a full mesh network of 8 nodes, how many i/o ports are required on each single node? each node connects to (n − 1) other nodes, so 8 − 1 = 7 i/o ports per node.">
+  <div class="in-note-stem">Q1.2: In a Full Mesh network of 8 nodes, how many I/O ports are required on each single node?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 8 ports</div><div class="in-opt ans"><strong>(B)</strong> 7 ports ✅</div><div class="in-opt"><strong>(C)</strong> 28 ports</div><div class="in-opt"><strong>(D)</strong> 56 ports</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Each node connects to (n − 1) other nodes, so 8 − 1 = 7 I/O ports per node.</div>
+</div><div class="in-note-q" data-search="in which topology does a break in the single main backbone cable bring down the entire network? bus topology uses a single shared coaxial backbone cable with two terminators.">
+  <div class="in-note-stem">Q1.3: In which topology does a break in the single main backbone cable bring down the entire network?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Star Topology</div><div class="in-opt"><strong>(B)</strong> Mesh Topology</div><div class="in-opt ans"><strong>(C)</strong> Bus Topology ✅</div><div class="in-opt"><strong>(D)</strong> Tree Topology</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Bus topology uses a single shared coaxial backbone cable with two terminators.</div>
+</div><div class="in-note-q" data-search="walkie-talkie communication is a classic example of which transmission mode? half-duplex allows both directions, but only one party can transmit at a time.">
+  <div class="in-note-stem">Q1.4: Walkie-Talkie communication is a classic example of which transmission mode?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Simplex Mode</div><div class="in-opt"><strong>(B)</strong> Full-Duplex Mode</div><div class="in-opt"><strong>(C)</strong> Multiplex Mode</div><div class="in-opt ans"><strong>(D)</strong> Half-Duplex Mode ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Half-Duplex allows both directions, but only one party can transmit at a time.</div>
+</div><div class="in-note-q" data-search="television broadcasting and keyboard-to-cpu input operate in which transmission mode? simplex transmission is strictly unidirectional (one-way only).">
+  <div class="in-note-stem">Q1.5: Television broadcasting and Keyboard-to-CPU input operate in which transmission mode?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Simplex Mode ✅</div><div class="in-opt"><strong>(B)</strong> Half-Duplex Mode</div><div class="in-opt"><strong>(C)</strong> Full-Duplex Mode</div><div class="in-opt"><strong>(D)</strong> Auto-Duplex Mode</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Simplex transmission is strictly unidirectional (one-way only).</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Media &amp; Physical Layer — Guided Media (Twisted Pair Categories, Coaxial, Optical Fiber) &amp; Line Coding</h2>
+    <span class="badge">8 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="guided media (twisted pair categories, coaxial, optical fiber) &amp; line coding manchester &amp; differential manchester baud rate = 2 × bit rate (50% efficiency) • 4b/5b block coding efficiency = 80% • 8b/10b = 80% utp cable categories: cat 5e (100 mhz, 1 gbps up to 100m), cat 6 (250 mhz, 10 gbps up to 55m), cat 6a (500 mhz, 10 gbps up to 100m). optical fiber uses total internal reflection (core refractive index n1 &gt; cladding n2; numerical aperture na = √(n1² − n2²)). single-mode fiber (smf, 8–10 μm core, laser source) eliminates modal dispersion for long-haul wans; multi-mode fiber (mmf, 50/62.5 μm core, led source) is used for lan backbones. manchester encoding (ieee 802.3 ethernet) embeds a mid-bit clock transition in every bit period, requiring d_baud = 2 × r_bit. hinglish tip: classic ethernet (10base-t) manchester encoding use karta hai jisme 1 bit bhejne ke liye 2 signal changes (baud = 2 × bit rate) lagte hain!">
+  <div class="sub-h">📌 2.1 Guided Media (Twisted Pair Categories, Coaxial, Optical Fiber) &amp; Line Coding</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Manchester &amp; Differential Manchester Baud Rate = 2 × Bit Rate (50% Efficiency)</li><li>🔹 4B/5B Block Coding Efficiency = 80%</li><li>🔹 8B/10B = 80%</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>UTP Cable Categories: Cat 5e (<mark class="hl">100 MHz</mark>, 1 Gbps up to 100m), Cat 6 (<mark class="hl">250 MHz</mark>, 10 Gbps up to 55m), Cat 6a (<mark class="hl">500 MHz</mark>, 10 Gbps up to 100m).</li><li>Optical Fiber uses Total Internal Reflection (Core refractive index n1 &gt; Cladding n2</li><li>Numerical Aperture NA = √(n1² − n2²)).</li><li>Single-Mode Fiber (SMF, 8–10 μm core, Laser source) eliminates modal dispersion for long-haul WANs</li><li>Multi-Mode Fiber (MMF, 50/62.5 μm core, LED source) is used for LAN backbones.</li><li>Manchester encoding (<mark class="hl">IEEE 802.3</mark> Ethernet) embeds a mid-bit clock transition in every bit period, requiring D_baud = 2 × R_bit.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Nyquist vs Shannon Channel Capacity: (1) Noiseless Channel (Nyquist): C = 2 · B · log2(L) bps; (2) Noisy Channel (Shannon): C = B · log2(1 + SNR) bps, where SNR(dB) = 10 · log10(SNR_linear). For B = 3 kHz and SNR = 30 dB (SNR_linear = 1000), C ≈ 3000 × log2(1001) ≈ <mark class="hl">30 kbps</mark>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Classic Ethernet (10Base-T) Manchester Encoding use karta hai jisme <mark class="hl">1 bit</mark> bhejne ke liye 2 signal changes (Baud = 2 × Bit Rate) lagte hain!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which network topology uses a single central hub or switch to connect all computers? star topology connects every host to a central hub or switch.">
+  <div class="in-note-stem">Q2.1: Which network topology uses a single central Hub or Switch to connect all computers?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Bus Topology</div><div class="in-opt"><strong>(B)</strong> Ring Topology</div><div class="in-opt"><strong>(C)</strong> Mesh Topology</div><div class="in-opt ans"><strong>(D)</strong> Star Topology ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Star topology connects every host to a central Hub or Switch.</div>
+</div><div class="in-note-q" data-search="at which layer of the osi model do a repeater and an active hub operate? repeaters and hubs regenerate raw bits at the physical layer (layer 1).">
+  <div class="in-note-stem">Q2.2: At which layer of the OSI model do a Repeater and an active Hub operate?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Physical Layer (Layer 1) ✅</div><div class="in-opt"><strong>(B)</strong> Data Link Layer (Layer 2)</div><div class="in-opt"><strong>(C)</strong> Network Layer (Layer 3)</div><div class="in-opt"><strong>(D)</strong> Transport Layer (Layer 4)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Repeaters and Hubs regenerate raw bits at the Physical Layer (Layer 1).</div>
+</div><div class="in-note-q" data-search="a layer-2 ethernet switch with 16 ports connected to 16 hosts creates how many collision domains and broadcast domains? every switch port is a separate collision domain (16), while a router is required to break a broadcast domain (1).">
+  <div class="in-note-stem">Q2.3: A Layer-2 Ethernet Switch with 16 ports connected to 16 hosts creates how many Collision Domains and Broadcast Domains?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1 Collision Domain and 16 Broadcast Domains</div><div class="in-opt ans"><strong>(B)</strong> 16 Collision Domains and 1 Broadcast Domain ✅</div><div class="in-opt"><strong>(C)</strong> 1 Collision Domain and 1 Broadcast Domain</div><div class="in-opt"><strong>(D)</strong> 16 Collision Domains and 16 Broadcast Domains</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Every Switch port is a separate Collision Domain (16), while a Router is required to break a Broadcast Domain (1).</div>
+</div><div class="in-note-q" data-search="a 12-port physical hub connected to 12 computers has how many collision domains and broadcast domains? a hub broadcasts every bit out of all ports, keeping everything in a single collision and broadcast domain.">
+  <div class="in-note-stem">Q2.4: A 12-port Physical Hub connected to 12 computers has how many Collision Domains and Broadcast Domains?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 12 Collision Domains and 1 Broadcast Domain</div><div class="in-opt"><strong>(B)</strong> 12 Collision Domains and 12 Broadcast Domains</div><div class="in-opt ans"><strong>(C)</strong> 1 Collision Domain and 1 Broadcast Domain ✅</div><div class="in-opt"><strong>(D)</strong> 1 Collision Domain and 12 Broadcast Domains</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> A Hub broadcasts every bit out of all ports, keeping everything in a single Collision and Broadcast domain.</div>
+</div><div class="in-note-q" data-search="which guided transmission medium uses total internal reflection of light and is immune to electromagnetic interference (emi)? optical fiber transmits light pulses through a glass core (n1 &gt; n2) and is completely immune to emi/crosstalk.">
+  <div class="in-note-stem">Q2.5: Which guided transmission medium uses Total Internal Reflection of light and is immune to electromagnetic interference (EMI)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> UTP Twisted Pair Cable</div><div class="in-opt"><strong>(B)</strong> STP Cable</div><div class="in-opt"><strong>(C)</strong> Coaxial Cable</div><div class="in-opt ans"><strong>(D)</strong> Optical Fiber Cable ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Optical fiber transmits light pulses through a glass core (n1 &gt; n2) and is completely immune to EMI/crosstalk.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: Data Link, MAC &amp; CSMA/CD — Sliding Window Flow Control (Stop-and-Wait, Go-Back-N, Selective Repeat) &amp; CSMA/CD</h2>
+    <span class="badge">15 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="sliding window flow control (stop-and-wait, go-back-n, selective repeat) &amp; csma/cd efficiency η = w / (1 + 2a) where a = t_p / t_t • k-bit sequence numbers (n = 2^k): gbn window w_s = 2^k − 1, w_r = 1 • sr window w_s = w_r = 2^(k−1) in stop-and-wait arq (w_s = 1, 1-bit sequence number 0/1), link utilization is η = 1 / (1 + 2a). in go-back-n (gbn), sender window is 2^k − 1 (not 2^k, to prevent cumulative ack wrap-around ambiguity when all acks are lost) and receiver window is 1 (discards out-of-order frames). in selective repeat (sr), both sender and receiver windows equal 2^(k−1). for ieee 802.3 csma/cd, a station must still be transmitting when a collision signal returns from the farthest end: t_trans &gt;= 2 × t_prop =&gt; minimum frame size l_min = 2 × t_prop × bandwidth (64 bytes = 512 bits for 10 mbps ethernet). exam trap: csma/cd me agar bandwidth 10 guna badha di jaye (10 mbps se 100 mbps), to usi l_min (64 bytes) ko maintain rakhne ke liye maximum cable length 10 guna ghatani padti hai (2500m se 250m)!">
+  <div class="sub-h">📌 3.1 Sliding Window Flow Control (Stop-and-Wait, Go-Back-N, Selective Repeat) &amp; CSMA/CD</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Efficiency η = W / (1 + 2a) where a = T_p / T_t</li><li>🔹 k-bit Sequence Numbers (N = 2^k): GBN Window W_s = 2^k − 1, W_r = 1</li><li>🔹 SR Window W_s = W_r = 2^(k−1)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In Stop-and-Wait ARQ (W_s = 1, 1-bit sequence number 0/1), link utilization is η = 1 / (1 + 2a).</li><li>In Go-Back-N (GBN), sender window is 2^k − 1 (not 2^k, to prevent cumulative ACK wrap-around ambiguity when all ACKs are lost) and receiver window is 1 (discards out-of-order frames).</li><li>In Selective Repeat (SR), both sender and receiver windows equal 2^(k−1).</li><li>For <mark class="hl">IEEE 802.3</mark> CSMA/CD, a station must still be transmitting when a collision signal returns from the farthest end: T_trans &gt;= 2 × T_prop =&gt; Minimum Frame Size L_min = 2 × T_prop × Bandwidth (<mark class="hl">64 Bytes</mark> = <mark class="hl">512 bits</mark> for <mark class="hl">10 Mbps</mark> Ethernet).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Binary Exponential Backoff (BEB): After the n-th collision (for n &lt;= 10), a node picks a random wait slot K uniformly from {0, 1, ..., 2^n − 1}, multiplied by slot time (51.2 μs). At n = 10, max window caps at 1023; at n = 16, transmission aborts with error.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: CSMA/CD me agar Bandwidth 10 guna badha di jaye (<mark class="hl">10 Mbps</mark> se <mark class="hl">100 Mbps</mark>), to usi L_min (<mark class="hl">64 Bytes</mark>) ko maintain rakhne ke liye maximum cable length 10 guna GHATANI padti hai (2500m se 250m)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the bit length and hexadecimal format of a physical mac (media access control) hardware address? 48 bits (6 bytes, 12 hex digits) — a mac address is 48 bits = 6 bytes (first 24 bits = oui vendor id, last 24 bits = nic serial).">
+  <div class="in-note-stem">Q3.1: What is the bit length and hexadecimal format of a physical MAC (Media Access Control) hardware address?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 32 bits (4 Bytes)</div><div class="in-opt"><strong>(B)</strong> 64 bits (8 Bytes)</div><div class="in-opt"><strong>(C)</strong> 128 bits (16 Bytes)</div><div class="in-opt ans"><strong>(D)</strong> 48 bits ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> <mark class="hl">48 bits</mark> (<mark class="hl">6 Bytes</mark>, 12 Hex digits) — A MAC address is <mark class="hl">48 bits</mark> = <mark class="hl">6 Bytes</mark> (first <mark class="hl">24 bits</mark> = OUI vendor ID, last <mark class="hl">24 bits</mark> = NIC serial).</div>
+</div><div class="in-note-q" data-search="which mac address represents a layer-2 broadcast frame destined for all nodes on the local lan? ff:ff:ff:ff:ff:ff (all 48 bits set to 1) — ff:ff:ff:ff:ff:ff (all 1s in 48-bit mac) is the layer-2 ethernet broadcast address.">
+  <div class="in-note-stem">Q3.2: Which MAC address represents a Layer-2 Broadcast frame destined for all nodes on the local LAN?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> FF:FF:FF:FF:FF:FF ✅</div><div class="in-opt"><strong>(B)</strong> 00:00:00:00:00:00</div><div class="in-opt"><strong>(C)</strong> 255.255.255.255</div><div class="in-opt"><strong>(D)</strong> 127.0.0.1</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> FF:FF:FF:FF:FF:FF (All <mark class="hl">48 bits</mark> set to 1) — FF:FF:FF:FF:FF:FF (all 1s in 48-bit MAC) is the Layer-2 Ethernet broadcast address.</div>
+</div><div class="in-note-q" data-search="in hdlc bit-oriented framing (flag byte `01111110`), what does the sender do under &#x27;bit stuffing&#x27; to prevent flag imitation? in bit stuffing, after five consecutive 1s (`11111`) in payload data, the sender stuffs a `0` (`111110`).">
+  <div class="in-note-stem">Q3.3: In HDLC bit-oriented framing (flag byte `01111110`), what does the sender do under &#x27;Bit Stuffing&#x27; to prevent flag imitation?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Inserts a &#x27;1&#x27; bit after every six &#x27;0&#x27; bits</div><div class="in-opt ans"><strong>(B)</strong> Inserts a &#x27;0&#x27; bit after every five consecutive &#x27;1&#x27; bits in the data ✅</div><div class="in-opt"><strong>(C)</strong> Inserts an ESC byte before every flag</div><div class="in-opt"><strong>(D)</strong> Drops the sixth &#x27;1&#x27; bit</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> In Bit Stuffing, after five consecutive 1s (`11111`) in payload data, the sender stuffs a `0` (`111110`).</div>
+</div><div class="in-note-q" data-search="to detect up to &#x27;d&#x27; bit errors in a codeword, what must be the minimum hamming distance (d_min)? detecting d errors requires d_min = d + 1; correcting t errors requires d_min = 2t + 1.">
+  <div class="in-note-stem">Q3.4: To detect up to &#x27;d&#x27; bit errors in a codeword, what must be the minimum Hamming Distance (d_min)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 2d + 1</div><div class="in-opt"><strong>(B)</strong> d</div><div class="in-opt ans"><strong>(C)</strong> d + 1 ✅</div><div class="in-opt"><strong>(D)</strong> 2d</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Detecting d errors requires d_min = d + 1; Correcting t errors requires d_min = 2t + 1.</div>
+</div><div class="in-note-q" data-search="to correct up to &#x27;t = 2&#x27; single-bit errors, what is the minimum hamming distance required between valid codewords? error correction requires d_min = 2t + 1 = 2(2) + 1 = 5.">
+  <div class="in-note-stem">Q3.5: To CORRECT up to &#x27;t = 2&#x27; single-bit errors, what is the minimum Hamming Distance required between valid codewords?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 3</div><div class="in-opt"><strong>(B)</strong> 2</div><div class="in-opt"><strong>(C)</strong> 4</div><div class="in-opt ans"><strong>(D)</strong> 5 (since 2t + 1 = 5) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Error correction requires d_min = 2t + 1 = 2(2) + 1 = 5.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: OSI Reference Model &amp; Layers — ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices &amp; Functions</h2>
+    <span class="badge">4 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="iso-osi 7-layer reference model vs tcp/ip suite — pdus, devices &amp; functions 7 layers &amp; pdus: l7-l5 (data/message) • l4 transport (segment/datagram) • l3 network (packet) • l2 data link (frame) • l1 physical (bits) layer-wise hardware devices &amp; collision/broadcast domains: (1) layer 1 (repeater, active hub): regenerates electrical signal; 1 collision domain, 1 broadcast domain; (2) layer 2 (bridge, l2 switch): filters frames via 48-bit mac table; every port is a separate collision domain, but all ports share 1 broadcast domain (unless vlans are configured); (3) layer 3 (router, l3 switch): routes packets via logical ip table; every router interface separates both collision domains and broadcast domains! session layer (l5) handles dialog control and synchronization checkpoints; presentation layer (l6) handles encryption/decryption, compression, and ascii/ebcdic/jpeg syntax translation. hinglish tip: switch (l2) collision domain todta hai par broadcast domain nahi todta; router (l3) collision domain aur broadcast domain dono todta hai! suppose a 24-port l2 switch connects 24 pcs -&gt; 24 collision domains, 1 broadcast domain.">
+  <div class="sub-h">📌 4.1 ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices &amp; Functions</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 7 Layers &amp; PDUs: L7-L5 (Data/Message)</li><li>🔹 L4 Transport (Segment/Datagram)</li><li>🔹 L3 Network (Packet)</li><li>🔹 L2 Data Link (Frame)</li><li>🔹 L1 Physical (Bits)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Layer-wise Hardware Devices &amp; Collision/Broadcast Domains: (1) Layer 1 (Repeater, Active Hub): Regenerates electrical signal</li><li>1 Collision Domain, 1 Broadcast Domain</li><li>(2) Layer 2 (Bridge, L2 Switch): Filters frames via 48-bit MAC table</li><li>Every port is a SEPARATE Collision Domain, but all ports share 1 Broadcast Domain (unless VLANs are configured)</li><li>(3) Layer 3 (Router, L3 Switch): Routes packets via logical IP table</li><li>Every router interface separates BOTH Collision Domains AND Broadcast Domains!</li><li>Session Layer (L5) handles dialog control and synchronization checkpoints</li><li>Presentation Layer (L6) handles encryption/decryption, compression, and ASCII/EBCDIC/JPEG syntax translation.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Encapsulation Order (Top-Down at Sender): Application Data -&gt; L4 adds TCP/UDP Header (Port numbers) -&gt; L3 adds IP Header (Logical IP) -&gt; L2 adds LLC/MAC Header + FCS Trailer (ONLY layer that adds both Header and Trailer!) -&gt; L1 transmits raw bit stream.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Switch (L2) Collision Domain todta hai par Broadcast Domain nahi todta; Router (L3) Collision Domain aur Broadcast Domain DONO todta hai! Suppose a 24-port L2 switch connects 24 PCs -&gt; 24 Collision Domains, 1 Broadcast Domain.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the protocol data unit (pdu) at the data link layer (layer 2) and network layer (layer 3)? l1 = bits, l2 = frame, l3 = packet (datagram), l4 = segment (tcp) / datagram (udp), l5–l7 = data.">
+  <div class="in-note-stem">Q4.1: What is the Protocol Data Unit (PDU) at the Data Link Layer (Layer 2) and Network Layer (Layer 3)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Segment (Layer 2) and Bit (Layer 3)</div><div class="in-opt"><strong>(B)</strong> Packet (Layer 2) and Frame (Layer 3)</div><div class="in-opt ans"><strong>(C)</strong> Frame (Layer 2) and Packet (Layer 3) ✅</div><div class="in-opt"><strong>(D)</strong> Bit (Layer 2) and Message (Layer 3)</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> L1 = Bits, L2 = Frame, L3 = Packet (Datagram), L4 = Segment (TCP) / Datagram (UDP), L5–L7 = Data.</div>
+</div><div class="in-note-q" data-search="which osi layer is responsible for end-to-end (process-to-process) delivery and port addressing? transport layer handles process-to-process delivery using 16-bit port numbers; network layer handles host-to-host delivery.">
+  <div class="in-note-stem">Q4.2: Which OSI layer is responsible for end-to-end (process-to-process) delivery and port addressing?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Network Layer (Layer 3)</div><div class="in-opt"><strong>(B)</strong> Session Layer (Layer 5)</div><div class="in-opt"><strong>(C)</strong> Data Link Layer (Layer 2)</div><div class="in-opt ans"><strong>(D)</strong> Transport Layer (Layer 4) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Transport Layer handles process-to-process delivery using 16-bit Port Numbers; Network Layer handles host-to-host delivery.</div>
+</div><div class="in-note-q" data-search="encryption, decryption, data compression, and ascii-to-ebcdic translation belong to which osi layer? presentation layer (layer 6) handles syntax, translation, encryption/ssl, and compression.">
+  <div class="in-note-stem">Q4.3: Encryption, Decryption, Data Compression, and ASCII-to-EBCDIC translation belong to which OSI layer?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Presentation Layer (Layer 6) ✅</div><div class="in-opt"><strong>(B)</strong> Session Layer (Layer 5)</div><div class="in-opt"><strong>(C)</strong> Application Layer (Layer 7)</div><div class="in-opt"><strong>(D)</strong> Transport Layer (Layer 4)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Presentation Layer (Layer 6) handles syntax, translation, encryption/SSL, and compression.</div>
+</div><div class="in-note-q" data-search="which networking device connects two networks that use completely different protocol architectures (operating across all 7 osi layers)? a gateway translates between disparate protocol suites across all 7 layers of the osi model.">
+  <div class="in-note-stem">Q4.4: Which networking device connects two networks that use completely different protocol architectures (operating across all 7 OSI layers)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Repeater</div><div class="in-opt ans"><strong>(B)</strong> Protocol Gateway ✅</div><div class="in-opt"><strong>(C)</strong> Bridge</div><div class="in-opt"><strong>(D)</strong> Hub</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A Gateway translates between disparate protocol suites across all 7 layers of the OSI model.</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: IPv4/IPv6, Subnetting &amp; Routing — IPv4 Classful/CIDR Subnetting, Private IPs, IPv6 &amp; Routing Algorithms</h2>
+    <span class="badge">27 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="ipv4 classful/cidr subnetting, private ips, ipv6 &amp; routing algorithms usable hosts per /n cidr block = 2^(32 − n) − 2 • ipv4 header = 20–60 bytes (ihl × 4) • ipv6 header = fixed 40 bytes (128-bit addresses) ipv4 classes (by leading bits &amp; 1st octet): class a (0..., 1–126, /8; 127.x.x.x reserved for loopback), class b (10..., 128–191, /16), class c (110..., 192–223, /24), class d (1110..., 224–239, multicast), class e (1111..., 240–255, experimental). rfc 1918 private ip ranges: 10.0.0.0/8, 172.16.0.0/12 (172.16.0.0 – 172.31.255.255), 192.168.0.0/16. routing protocols: rip (distance vector, bellman-ford, max hop = 15, infinity = 16, udp port 520, suffers from count-to-infinity solved by split horizon / poison reverse); ospf (link state, dijkstra spf algorithm, ip protocol 89); bgp (path vector, inter-as exterior routing, tcp port 179). exam trap: arp (address resolution protocol) ip -&gt; mac resolve karta hai (arp request = broadcast ff:ff:ff:ff:ff:ff; arp reply = unicast!). jab packet routers se guzarta hai, to har hop par l2 mac addresses change hote hain, par source/destination ipv4 addresses constant rehte hain (jab tak nat na ho)!">
+  <div class="sub-h">📌 5.1 IPv4 Classful/CIDR Subnetting, Private IPs, IPv6 &amp; Routing Algorithms</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Usable Hosts per /n CIDR block = 2^(32 − n) − 2</li><li>🔹 IPv4 Header = 20–<mark class="hl">60 Bytes</mark> (IHL × 4)</li><li>🔹 IPv6 Header = Fixed <mark class="hl">40 Bytes</mark> (128-bit addresses)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>IPv4 Classes (by leading bits &amp; 1st octet): Class A (0..., 1–126, /8</li><li>127.x.x.x reserved for Loopback), Class B (10..., 128–191, /16), Class C (110..., 192–223, /24), Class D (1110..., 224–239, Multicast), Class E (1111..., 240–255, Experimental).</li><li><mark class="hl">RFC 1918</mark> Private IP Ranges: 10.0.0.0/8, 172.16.0.0/12 (172.16.0.0 – 172.31.255.255), 192.168.0.0/16.</li><li>Routing Protocols: RIP (Distance Vector, Bellman-Ford, max hop = 15, infinity = 16, UDP port 520, suffers from Count-to-Infinity solved by Split Horizon / Poison Reverse)</li><li>OSPF (Link State, Dijkstra SPF algorithm, IP protocol 89)</li><li>BGP (Path Vector, Inter-AS exterior routing, TCP port 179).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Subnetting Math: Given network 192.168.10.0/26. Prefix /26 means 26 network bits (borrowed <mark class="hl">2 bits</mark> from last octet -&gt; 2² = 4 subnets) and 32 − 26 = 6 host bits -&gt; 2^6 − 2 = 62 usable hosts per subnet. Subnet mask = 255.255.255.192; Block size = 256 − 192 = 64 (Subnets: .0, .64, .128, .192).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: ARP (Address Resolution Protocol) IP -&gt; MAC resolve karta hai (ARP Request = Broadcast FF:FF:FF:FF:FF:FF; ARP Reply = Unicast!). Jab packet routers se guzarta hai, to har hop par L2 MAC addresses change hote hain, par Source/Destination IPv4 addresses constant rehte hain (jab tak NAT na ho)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the bit length of an ipv4 address and an ipv6 address respectively? ipv4 addresses are 32 bits (4 bytes, dotted decimal); ipv6 addresses are 128 bits (16 bytes, 8 groups of 4 hex digits).">
+  <div class="in-note-stem">Q5.1: What is the bit length of an IPv4 address and an IPv6 address respectively?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 32 bits and 64 bits</div><div class="in-opt"><strong>(B)</strong> 48 bits and 128 bits</div><div class="in-opt ans"><strong>(C)</strong> 32 bits (IPv4) and 128 bits (IPv6) ✅</div><div class="in-opt"><strong>(D)</strong> 16 bits and 64 bits</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> IPv4 addresses are <mark class="hl">32 bits</mark> (<mark class="hl">4 Bytes</mark>, dotted decimal); IPv6 addresses are <mark class="hl">128 bits</mark> (<mark class="hl">16 Bytes</mark>, 8 groups of 4 hex digits).</div>
+</div><div class="in-note-q" data-search="which ipv4 address class has a first octet range of 192 to 223 and a default subnet mask of 255.255.255.0 (/24)? class a = 0–127 (/8); class b = 128–191 (/16); class c = 192–223 (/24); class d = 224–239 (multicast); class e = 240–255 (reserved).">
+  <div class="in-note-stem">Q5.2: Which IPv4 address class has a first octet range of 192 to 223 and a default subnet mask of 255.255.255.0 (/24)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Class A (1–126, /8)</div><div class="in-opt"><strong>(B)</strong> Class B (128–191, /16)</div><div class="in-opt"><strong>(C)</strong> Class D (224–239, Multicast)</div><div class="in-opt ans"><strong>(D)</strong> Class C ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Class A = 0–127 (/8); Class B = 128–191 (/16); Class C = 192–223 (/24); Class D = 224–239 (Multicast); Class E = 240–255 (Reserved).</div>
+</div><div class="in-note-q" data-search="what is the standard ipv4 loopback address used to test the local host&#x27;s tcp/ip stack (&#x27;localhost&#x27;)? the entire 127.0.0.0/8 block (most commonly 127.0.0.1, or ::1 in ipv6) is reserved for loopback testing.">
+  <div class="in-note-stem">Q5.3: What is the standard IPv4 Loopback address used to test the local host&#x27;s TCP/IP stack (&#x27;localhost&#x27;)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 127.0.0.1 ✅</div><div class="in-opt"><strong>(B)</strong> 192.168.1.1</div><div class="in-opt"><strong>(C)</strong> 0.0.0.0</div><div class="in-opt"><strong>(D)</strong> 255.255.255.255</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The entire 127.0.0.0/8 block (most commonly 127.0.0.1, or ::1 in IPv6) is reserved for Loopback testing.</div>
+</div><div class="in-note-q" data-search="how many usable host ip addresses are available in a `/26` ipv4 subnet (subnet mask 255.255.255.192)? host bits h = 32 − 26 = 6 bits. usable hosts = 2^6 − 2 = 64 − 2 = 62 (subtracting network id and broadcast address).">
+  <div class="in-note-stem">Q5.4: How many usable host IP addresses are available in a `/26` IPv4 subnet (subnet mask 255.255.255.192)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 64 usable hosts</div><div class="in-opt ans"><strong>(B)</strong> 62 usable hosts ✅</div><div class="in-opt"><strong>(C)</strong> 30 usable hosts</div><div class="in-opt"><strong>(D)</strong> 126 usable hosts</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Host bits h = 32 − 26 = <mark class="hl">6 bits</mark>. Usable hosts = 2^6 − 2 = 64 − 2 = 62 (subtracting Network ID and Broadcast address).</div>
+</div><div class="in-note-q" data-search="which of the following ipv4 addresses belongs to a rfc 1918 private ip address range? 172.20.10.5 (in 172.16.0.0 – 172.31.255.255) — private ipv4 ranges are: 10.0.0.0/8, 172.16.0.0/12 (172.16–172.31), and 192.168.0.0/16.">
+  <div class="in-note-stem">Q5.5: Which of the following IPv4 addresses belongs to a RFC 1918 Private IP Address range?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 172.32.1.1</div><div class="in-opt"><strong>(B)</strong> 11.0.0.1</div><div class="in-opt ans"><strong>(C)</strong> 172.20.10.5 ✅</div><div class="in-opt"><strong>(D)</strong> 192.169.1.1</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> 172.20.10.5 (in 172.16.0.0 – 172.31.255.255) — Private IPv4 ranges are: 10.0.0.0/8, 172.16.0.0/12 (172.16–172.31), and 192.168.0.0/16.</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: TCP, UDP &amp; Congestion Control — TCP 3-Way Handshake, UDP Header, Congestion Control (AIMD) &amp; Socket States</h2>
+    <span class="badge">16 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="tcp 3-way handshake, udp header, congestion control (aimd) &amp; socket states tcp header = 20–60 bytes (6 core flags: urg, ack, psh, rst, syn, fin) • udp header = fixed 8 bytes (source port, dest port, length, checksum) tcp connection establishment (3-way handshake): (1) client sends syn (seq = x), (2) server replies syn+ack (seq = y, ack = x+1), (3) client sends ack (seq = x+1, ack = y+1). tcp congestion control has 2 main phases controlled by congestion window (cwnd) and slow-start threshold (ssthresh): (1) slow start: cwnd starts at 1 mss and doubles every rtt (exponential growth: 1, 2, 4, 8...) until cwnd &gt;= ssthresh; (2) congestion avoidance: cwnd increases linearly (+1 mss per rtt — additive increase). on 3 duplicate acks (fast retransmit / fast recovery): ssthresh = cwnd/2 and cwnd = ssthresh (+3 mss). on rto timeout: ssthresh = cwnd/2 and cwnd resets to 1 mss! hinglish tip: timeout hone par tcp cwnd seedha 1 mss par gir jata hai (slow start restart), jabki 3 duplicate acks aane par cwnd half (cwnd/2) hokar linear growth jari rakhta hai (fast recovery)!">
+  <div class="sub-h">📌 6.1 TCP 3-Way Handshake, UDP Header, Congestion Control (AIMD) &amp; Socket States</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 TCP Header = 20–<mark class="hl">60 Bytes</mark> (6 Core Flags: URG, ACK, PSH, RST, SYN, FIN)</li><li>🔹 UDP Header = Fixed <mark class="hl">8 Bytes</mark> (Source Port, Dest Port, Length, Checksum)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>TCP Connection Establishment (3-Way Handshake): (1) Client sends SYN (seq = x), (2) Server replies SYN+ACK (seq = y, ack = x+1), (3) Client sends ACK (seq = x+1, ack = y+1).</li><li>TCP Congestion Control has 2 main phases controlled by Congestion Window (cwnd) and Slow-Start Threshold (ssthresh): (1) Slow Start: cwnd starts at 1 MSS and doubles every RTT (exponential growth: 1, 2, 4, 8...) until cwnd &gt;= ssthresh</li><li>(2) Congestion Avoidance: cwnd increases linearly (+1 MSS per RTT — Additive Increase).</li><li>On 3 Duplicate ACKs (Fast Retransmit / Fast Recovery): ssthresh = cwnd/2 and cwnd = ssthresh (+3 MSS).</li><li>On RTO Timeout: ssthresh = cwnd/2 and cwnd resets to 1 MSS!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Effective Receiver Window: Sender&#x27;s actual transmission window is strictly W_actual = min(rwnd, cwnd), where rwnd is the Receiver Advertised Window (Flow Control) and cwnd is the Congestion Window (Network Congestion Control).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Timeout hone par TCP cwnd seedha 1 MSS par gir jata hai (Slow Start restart), jabki 3 Duplicate ACKs aane par cwnd half (cwnd/2) hokar linear growth jari rakhta hai (Fast Recovery)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which inter-domain (egp) routing protocol connects different autonomous systems (as) across the global internet using path-vector routing over tcp port 179? bgp (border gateway protocol) — bgp is the path-vector protocol of the internet backbone running over tcp port 179.">
+  <div class="in-note-stem">Q6.1: Which inter-domain (EGP) routing protocol connects different Autonomous Systems (AS) across the global Internet using Path-Vector routing over TCP Port 179?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> OSPF</div><div class="in-opt ans"><strong>(B)</strong> BGP ✅</div><div class="in-opt"><strong>(C)</strong> RIP</div><div class="in-opt"><strong>(D)</strong> ICMP</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> BGP (Border Gateway Protocol) — BGP is the Path-Vector protocol of the Internet backbone running over TCP <mark class="hl">Port 179</mark>.</div>
+</div><div class="in-note-q" data-search="what is the header size of a udp datagram and a tcp segment respectively? udp has a tiny 8-byte header (source port, dest port, length, checksum, 2 bytes each); tcp has a 20–60 byte header.">
+  <div class="in-note-stem">Q6.2: What is the header size of a UDP datagram and a TCP segment respectively?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> UDP = 20 Bytes; TCP = 8 Bytes</div><div class="in-opt"><strong>(B)</strong> UDP = 16 Bytes; TCP = 40 Bytes</div><div class="in-opt ans"><strong>(C)</strong> UDP = 8 Bytes (fixed); TCP = 20 to 60 Bytes ✅</div><div class="in-opt"><strong>(D)</strong> Both are 20 Bytes</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> UDP has a tiny 8-byte header (Source Port, Dest Port, Length, Checksum, 2 bytes each); TCP has a 20–60 byte header.</div>
+</div><div class="in-note-q" data-search="what are the three segments exchanged during the tcp 3-way handshake to establish a connection? client sends syn(seq=x) -&gt; server replies syn+ack(seq=y, ack=x+1) -&gt; client sends ack(ack=y+1).">
+  <div class="in-note-stem">Q6.3: What are the three segments exchanged during the TCP 3-Way Handshake to establish a connection?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1. ACK -&gt; 2. SYN -&gt; 3. FIN</div><div class="in-opt"><strong>(B)</strong> 1. REQUEST -&gt; 2. OFFER -&gt; 3. ACK</div><div class="in-opt"><strong>(C)</strong> 1. SYN -&gt; 2. FIN -&gt; 3. RST</div><div class="in-opt ans"><strong>(D)</strong> 1. SYN -&gt; 2. SYN + ACK -&gt; 3. ACK ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Client sends SYN(seq=x) -&gt; Server replies SYN+ACK(seq=y, ack=x+1) -&gt; Client sends ACK(ack=y+1).</div>
+</div><div class="in-note-q" data-search="which tcp header flag is used to immediately abort a connection upon an unrecoverable error or refused port? fin performs a graceful 4-way connection close, whereas rst aborts the connection immediately.">
+  <div class="in-note-stem">Q6.4: Which TCP header flag is used to immediately abort a connection upon an unrecoverable error or refused port?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> RST (Reset) ✅</div><div class="in-opt"><strong>(B)</strong> FIN (Finish — graceful close)</div><div class="in-opt"><strong>(C)</strong> URG (Urgent)</div><div class="in-opt"><strong>(D)</strong> PSH (Push)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> FIN performs a graceful 4-way connection close, whereas RST aborts the connection immediately.</div>
+</div><div class="in-note-q" data-search="in tcp congestion control, how does the congestion window (`cwnd`) grow during the &#x27;slow start&#x27; phase vs the &#x27;congestion avoidance&#x27; phase? slow start = exponential growth (doubles every rtt); congestion avoidance = linear / additive increase (+1 mss per rtt) — slow start doubles `cwnd` every rtt (`1 -&gt; 2 -&gt; 4 -&gt; 8 mss`) until reaching `ssthresh`, after which congestion avoidance adds `+1 mss` per rtt.">
+  <div class="in-note-stem">Q6.5: In TCP Congestion Control, how does the Congestion Window (`cwnd`) grow during the &#x27;Slow Start&#x27; phase vs the &#x27;Congestion Avoidance&#x27; phase?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Slow Start = Linear; Congestion Avoidance = Exponential</div><div class="in-opt ans"><strong>(B)</strong> Slow Start = Exponential growth; Congestion Avoidance = Linear / Additive Increase ✅</div><div class="in-opt"><strong>(C)</strong> Both grow exponentially</div><div class="in-opt"><strong>(D)</strong> Both grow linearly</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Slow Start = Exponential growth (doubles every RTT); Congestion Avoidance = Linear / Additive Increase (+1 MSS per RTT) — Slow Start doubles `cwnd` every RTT (`1 -&gt; 2 -&gt; 4 -&gt; 8 MSS`) until reaching `ssthresh`, after which Congestion Avoidance adds `+1 MSS` per RTT.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Application Layer &amp; Protocols — Application Layer Protocols, Well-Known Port Numbers &amp; DNS Hierarchy</h2>
+    <span class="badge">8 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="application layer protocols, well-known port numbers &amp; dns hierarchy ports: ftp (20 data, 21 control) • ssh (22) • telnet (23) • smtp (25) • dns (53 udp/tcp) • dhcp (67/68 udp) • http (80) • pop3 (110) • imap (143) • snmp (161/162) • https (443) ftp uses two parallel tcp connections: port 21 (persistent control connection for commands) and port 20 (non-persistent data connection). email architecture: smtp (port 25, push protocol used from mail client -&gt; sender mta -&gt; receiver mta; uses mime to encode non-ascii binary attachments into 7-bit nvt ascii); pop3 (port 110, stateless pull protocol) vs imap4 (port 143, stateful server-side folder manipulation). dhcp (udp 67 server, 68 client) assigns dynamic ip leases using the 4-step dora broadcast exchange (discover -&gt; offer -&gt; request -&gt; acknowledge). dns (port 53) uses udp for standard queries (&lt;512 bytes) and tcp for zone transfers (axfr). exam trap: smtp ek push protocol hai (email bhejne ke liye), jabki pop3 aur imap pull protocols hain (mailbox se email retrieve karne ke liye)! aur dhcp ke charo steps (d-o-r-a) yaad rakhein.">
+  <div class="sub-h">📌 7.1 Application Layer Protocols, Well-Known Port Numbers &amp; DNS Hierarchy</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Ports: FTP (20 Data, 21 Control)</li><li>🔹 SSH (22)</li><li>🔹 Telnet (23)</li><li>🔹 SMTP (25)</li><li>🔹 DNS (53 UDP/TCP)</li><li>🔹 DHCP (67/68 UDP)</li><li>🔹 HTTP (80)</li><li>🔹 POP3 (110)</li><li>🔹 IMAP (143)</li><li>🔹 SNMP (161/162)</li><li>🔹 HTTPS (443)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>FTP uses two parallel TCP connections: <mark class="hl">Port 21</mark> (persistent Control connection for commands) and <mark class="hl">Port 20</mark> (non-persistent Data connection).</li><li>Email Architecture: SMTP (<mark class="hl">Port 25</mark>, push protocol used from Mail Client -&gt; Sender MTA -&gt; Receiver MTA</li><li>uses MIME to encode non-ASCII binary attachments into 7-bit NVT ASCII)</li><li>POP3 (<mark class="hl">Port 110</mark>, stateless pull protocol) vs IMAP4 (<mark class="hl">Port 143</mark>, stateful server-side folder manipulation).</li><li>DHCP (UDP 67 Server, 68 Client) assigns dynamic IP leases using the 4-step DORA broadcast exchange (Discover -&gt; Offer -&gt; Request -&gt; Acknowledge).</li><li>DNS (<mark class="hl">Port 53</mark>) uses UDP for standard queries (&lt;512 bytes) and TCP for Zone Transfers (AXFR).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> HTTP 1.0 vs 1.1 vs 2.0/3.0: HTTP 1.0 uses non-persistent TCP (2 RTTs per object: 1 RTT for TCP handshake + 1 RTT for HTTP request/response); HTTP 1.1 defaults to Persistent TCP with pipelining; HTTP/3 runs over QUIC (UDP-based transport).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: SMTP ek PUSH protocol hai (email bhejne ke liye), jabki POP3 aur IMAP PULL protocols hain (mailbox se email retrieve karne ke liye)! Aur DHCP ke charo steps (D-O-R-A) yaad rakhein.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which command-line tool queries dns servers to find the ip address corresponding to a domain name? `nslookup` (name server lookup) and `dig` query dns records.">
+  <div class="in-note-stem">Q7.1: Which command-line tool queries DNS servers to find the IP address corresponding to a domain name?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `netstat`</div><div class="in-opt ans"><strong>(B)</strong> `nslookup` (or `dig`) ✅</div><div class="in-opt"><strong>(C)</strong> `arp -a`</div><div class="in-opt"><strong>(D)</strong> `route`</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> `nslookup` (Name Server Lookup) and `dig` query DNS records.</div>
+</div><div class="in-note-q" data-search="match the application layer protocol with its default well-known port number: ftp, ssh, telnet, smtp, dns, http, https: memorize: 20=ftp data, 21=ftp control, 22=ssh, 23=telnet, 25=smtp, 53=dns, 67/68=dhcp, 80=http, 110=pop3, 143=imap, 161=snmp, 443=https.">
+  <div class="in-note-stem">Q7.2: Match the Application Layer protocol with its default Well-Known Port Number: FTP, SSH, Telnet, SMTP, DNS, HTTP, HTTPS:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> FTP=25, SSH=80, HTTP=21, HTTPS=110</div><div class="in-opt"><strong>(B)</strong> Telnet=22, SSH=23, SMTP=110</div><div class="in-opt ans"><strong>(C)</strong> FTP=20/21, SSH=22, Telnet=23, SMTP=25, DNS=53, HTTP=80, HTTPS=443 ✅</div><div class="in-opt"><strong>(D)</strong> DNS=67, DHCP=53, HTTP=443</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Memorize: 20=FTP Data, 21=FTP Control, 22=SSH, 23=Telnet, 25=SMTP, 53=DNS, 67/68=DHCP, 80=HTTP, 110=POP3, 143=IMAP, 161=SNMP, 443=HTTPS.</div>
+</div><div class="in-note-q" data-search="in ftp (file transfer protocol), why is ftp called an &#x27;out-of-band&#x27; control protocol? ftp separates its control channel (tcp port 21) from its data transfer channel (tcp port 20 in active mode).">
+  <div class="in-note-stem">Q7.3: In FTP (File Transfer Protocol), why is FTP called an &#x27;Out-of-Band&#x27; control protocol?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Because it uses UDP for everything</div><div class="in-opt"><strong>(B)</strong> Because it works without an IP address</div><div class="in-opt"><strong>(C)</strong> Because it uses Port 80</div><div class="in-opt ans"><strong>(D)</strong> Because it uses two separate TCP connections: Port 21 for Control commands (persistent) and Port 20 for Data transfer (non-persistent) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> FTP separates its control channel (TCP <mark class="hl">Port 21</mark>) from its data transfer channel (TCP <mark class="hl">Port 20</mark> in Active mode).</div>
+</div><div class="in-note-q" data-search="which email protocol is a &#x27;push&#x27; protocol used to send emails from a client to a mail server (and between mail servers), and which protocols are &#x27;pull&#x27; protocols used to retrieve emails? smtp pushes outgoing mail; pop3 (downloads &amp; deletes by default) and imap (syncs folders on server across multiple devices) pull incoming mail.">
+  <div class="in-note-stem">Q7.4: Which email protocol is a &#x27;Push&#x27; protocol used to SEND emails from a client to a mail server (and between mail servers), and which protocols are &#x27;Pull&#x27; protocols used to RETRIEVE emails?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Push (Sending) = SMTP (Port 25); Pull (Retrieving) = POP3 (Port 110) and IMAP (Port 143) ✅</div><div class="in-opt"><strong>(B)</strong> Push = POP3; Pull = SMTP</div><div class="in-opt"><strong>(C)</strong> Both SMTP and POP3 are Pull protocols</div><div class="in-opt"><strong>(D)</strong> IMAP is used only to send outgoing mail</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> SMTP pushes outgoing mail; POP3 (downloads &amp; deletes by default) and IMAP (syncs folders on server across multiple devices) pull incoming mail.</div>
+</div><div class="in-note-q" data-search="what is the purpose of &#x27;mime&#x27; (multipurpose internet mail extensions) in email systems? it encodes non-ascii binary attachments (images, audio, pdfs, non-english text) into 7-bit ascii (base64) so they can travel over smtp — native smtp supports only 7-bit nvt ascii text; mime headers (`content-type`, `content-transfer-encoding: base64`) allow multimedia attachments.">
+  <div class="in-note-stem">Q7.5: What is the purpose of &#x27;MIME&#x27; (Multipurpose Internet Mail Extensions) in email systems?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> It encrypts the hard drive of the mail server</div><div class="in-opt ans"><strong>(B)</strong> It encodes non-ASCII binary attachments into 7-bit ASCII (Base64) so they can travel over SMTP ✅</div><div class="in-opt"><strong>(C)</strong> It blocks spam emails automatically</div><div class="in-opt"><strong>(D)</strong> It replaces TCP with UDP</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> It encodes non-ASCII binary attachments (images, audio, PDFs, non-English text) into 7-bit ASCII (Base64) so they can travel over SMTP — Native SMTP supports only 7-bit NVT ASCII text; MIME headers (`Content-Type`, `Content-Transfer-Encoding: base64`) allow multimedia attachments.</div>
+</div>
+</section><section class="ch-card" id="ch8">
+  <div class="ch-heading">
+    <h2>📖 Chapter 8: Network Security &amp; Cryptography — Symmetric vs Asymmetric Cryptography, RSA Math, Hash/MAC &amp; Firewalls</h2>
+    <span class="badge">9 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="symmetric vs asymmetric cryptography, rsa math, hash/mac &amp; firewalls symmetric keys for n users = n(n − 1) / 2 • asymmetric (public-private) keys for n users = 2n • rsa: n = p·q, φ(n) = (p−1)(q−1), e·d ≡ 1 (mod φ(n)) cia triad + security services: confidentiality -&gt; encryption (aes-128/192/256, des 56-bit key / 64-bit block, rsa); integrity -&gt; cryptographic hash / message digest (sha-256, md5 128-bit); authentication &amp; non-repudiation -&gt; digital signature (sender signs hash with sender&#x27;s private key; anyone verifies with sender&#x27;s public key!). note the contrast: for confidentiality/encryption, sender encrypts with receiver&#x27;s public key, and receiver decrypts with receiver&#x27;s private key! firewalls: packet-filtering firewall (layer 3/4 — inspects ip/port/flags), stateful inspection firewall (tracks active tcp connection table), application proxy / waf (layer 7 — inspects http/sql payloads). hinglish tip: confidentiality (secret message) = encrypt with receiver&#x27;s public key; digital signature (authentication + non-repudiation) = sign with sender&#x27;s private key!">
+  <div class="sub-h">📌 8.1 Symmetric vs Asymmetric Cryptography, RSA Math, Hash/MAC &amp; Firewalls</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Symmetric Keys for n users = n(n − 1) / 2</li><li>🔹 Asymmetric (Public-Private) Keys for n users = 2n</li><li>🔹 RSA: n = p·q, φ(n) = (p−1)(q−1), e·d ≡ 1 (mod φ(n))</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>CIA Triad + Security Services: Confidentiality -&gt; Encryption (AES-128/192/256, DES 56-bit key / 64-bit block, RSA)</li><li>Integrity -&gt; Cryptographic Hash / Message Digest (SHA-256, MD5 128-bit)</li><li>Authentication &amp; Non-Repudiation -&gt; Digital Signature (Sender signs hash with Sender&#x27;s PRIVATE key</li><li>anyone verifies with Sender&#x27;s PUBLIC key!).</li><li>Note the contrast: For Confidentiality/Encryption, Sender encrypts with Receiver&#x27;s PUBLIC key, and Receiver decrypts with Receiver&#x27;s PRIVATE key!</li><li>Firewalls: Packet-Filtering Firewall (Layer 3/4 — inspects IP/Port/Flags), Stateful Inspection Firewall (tracks active TCP connection table), Application Proxy / WAF (Layer 7 — inspects HTTP/SQL payloads).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked RSA Numerical: Choose primes p = 3, q = 11 -&gt; Modulus n = 3 × 11 = 33; Euler totient φ(n) = (3−1)(11−1) = 20. Choose public exponent e = 3 (coprime to 20). Private key d satisfies 3d ≡ 1 (mod 20) =&gt; d = 7 (since 3×7 = 21 = 20 + 1). To encrypt plaintext M = 4: Ciphertext C = 4³ mod 33 = 64 mod 33 = 31.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Confidentiality (Secret message) = Encrypt with Receiver&#x27;s PUBLIC Key; Digital Signature (Authentication + Non-Repudiation) = Sign with Sender&#x27;s PRIVATE Key!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 8 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in http status codes, what do the codes `200`, `301`, `403`, `404`, and `500` indicate respectively? http categories: 1xx = informational, 2xx = success (200 ok), 3xx = redirection (301/302), 4xx = client error (401 unauthorized, 403 forbidden, 404 not found), 5xx = server error (500, 502, 503).">
+  <div class="in-note-stem">Q8.1: In HTTP status codes, what do the codes `200`, `301`, `403`, `404`, and `500` indicate respectively?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 200 = Error, 404 = OK, 500 = Redirect</div><div class="in-opt ans"><strong>(B)</strong> 200 = OK, 301 = Moved Permanently, 403 = Forbidden, 404 = Not Found, 500 = Internal Server Error ✅</div><div class="in-opt"><strong>(C)</strong> 301 = Not Found, 404 = Server Crash</div><div class="in-opt"><strong>(D)</strong> 403 = OK, 200 = Forbidden</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> HTTP categories: 1xx = Informational, 2xx = Success (200 OK), 3xx = Redirection (301/302), 4xx = Client Error (401 Unauthorized, 403 Forbidden, 404 Not Found), 5xx = Server Error (500, 502, 503).</div>
+</div><div class="in-note-q" data-search="classify the following encryption algorithms into symmetric-key (secret key) vs asymmetric-key (public key): aes, des, rsa, diffie-hellman, ecc: symmetric: des, 3des, aes, blowfish, rc4; asymmetric: rsa, diffie-hellman, ecc, elgamal. symmetric: des, 3des, aes, blowfish, rc4; asymmetric: rsa, diffie-hellman, ecc (elliptic curve), elgamal — symmetric ciphers use the same shared secret key for encryption and decryption (fast, used for bulk data); asymmetric ciphers use a public-private key pair.">
+  <div class="in-note-stem">Q8.2: Classify the following encryption algorithms into Symmetric-Key (Secret Key) vs Asymmetric-Key (Public Key): AES, DES, RSA, Diffie-Hellman, ECC:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> AES is Asymmetric and RSA is Symmetric</div><div class="in-opt"><strong>(B)</strong> DES uses two separate keys (Public and Private)</div><div class="in-opt ans"><strong>(C)</strong> Symmetric: DES, 3DES, AES, Blowfish, RC4 ✅</div><div class="in-opt"><strong>(D)</strong> RSA is a symmetric block cipher</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Symmetric: DES, 3DES, AES, Blowfish, RC4; Asymmetric: RSA, Diffie-Hellman, ECC, ElGamal. Symmetric: DES, 3DES, AES, Blowfish, RC4; Asymmetric: RSA, Diffie-Hellman, ECC (Elliptic Curve), ElGamal — Symmetric ciphers use the SAME shared secret key for encryption and decryption (fast, used for bulk data); Asymmetric ciphers use a Public-Private key pair.</div>
+</div><div class="in-note-q" data-search="what is the block size and supported key lengths of the aes (advanced encryption standard — rijndael) symmetric cipher? block size = 128 bits; key lengths = 128, 192, or 256 bits (10, 12, or 14 rounds) — legacy des has a 64-bit block and 56-bit effective key (16 feistel rounds); aes has a 128-bit block and 128/192/256-bit keys.">
+  <div class="in-note-stem">Q8.3: What is the block size and supported key lengths of the AES (Advanced Encryption Standard — Rijndael) symmetric cipher?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Block size = 64 bits; Key = 56 bits (DES)</div><div class="in-opt"><strong>(B)</strong> Block size = 256 bits; Key = 512 bits</div><div class="in-opt"><strong>(C)</strong> Block size = 64 bits; Key = 128 bits</div><div class="in-opt ans"><strong>(D)</strong> Block size = 128 bits; Key lengths = 128, 192, or 256 bits ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Block size = <mark class="hl">128 bits</mark>; Key lengths = 128, 192, or <mark class="hl">256 bits</mark> (10, 12, or 14 rounds) — Legacy DES has a 64-bit block and 56-bit effective key (16 Feistel rounds); AES has a 128-bit block and 128/192/256-bit keys.</div>
+</div><div class="in-note-q" data-search="in an organization of n = 20 users, how many total keys are required for pairwise secure communication using (1) symmetric cryptography vs (2) asymmetric (public-key) cryptography? symmetric key distribution scales quadratically `n(n-1)/2 = 20×19/2 = 190` keys; asymmetric scales linearly `2n = 40` keys (1 public + 1 private per user).">
+  <div class="in-note-stem">Q8.4: In an organization of n = 20 users, how many total keys are required for pairwise secure communication using (1) Symmetric Cryptography vs (2) Asymmetric (Public-Key) Cryptography?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Symmetric = n(n − 1)/2 = 190 keys; Asymmetric = 2n = 40 keys ✅</div><div class="in-opt"><strong>(B)</strong> Symmetric = 40 keys; Asymmetric = 190 keys</div><div class="in-opt"><strong>(C)</strong> Both require 20 keys</div><div class="in-opt"><strong>(D)</strong> Symmetric = 400 keys; Asymmetric = 20 keys</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Symmetric key distribution scales quadratically `n(n-1)/2 = 20×19/2 = 190` keys; Asymmetric scales linearly `2n = 40` keys (1 public + 1 private per user).</div>
+</div><div class="in-note-q" data-search="what is the output bit length of the cryptographic hash functions md5, sha-1, and sha-256 respectively? hash functions are one-way (irreversible) functions that map arbitrary-length data to a fixed-size digest to verify data integrity.">
+  <div class="in-note-stem">Q8.5: What is the output bit length of the cryptographic hash functions MD5, SHA-1, and SHA-256 respectively?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> MD5 = 64 bits; SHA-1 = 128 bits; SHA-256 = 512 bits</div><div class="in-opt ans"><strong>(B)</strong> MD5 = 128 bits; SHA-1 = 160 bits; SHA-256 = 256 bits ✅</div><div class="in-opt"><strong>(C)</strong> All three produce 128-bit hashes</div><div class="in-opt"><strong>(D)</strong> MD5 = 256 bits; SHA-1 = 512 bits</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Hash functions are one-way (irreversible) functions that map arbitrary-length data to a fixed-size digest to verify Data Integrity.</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Computer Networks)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Topologies &amp; Architecture: Physical vs Logical Topologies — Mesh, Star, Bus, Ring</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Physical vs Logical Topologies — Mesh, Star, Bus, Ring]</strong> Full Mesh Links L = n(n − 1) / 2 (Duplex)</li><li>🔹 <strong>[Physical vs Logical Topologies — Mesh, Star, Bus, Ring]</strong> I/O Ports per node = (n − 1)</li><li>🔹 <strong>[Physical vs Logical Topologies — Mesh, Star, Bus, Ring]</strong> Total I/O Ports = n(n − 1)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: n nodes ke Full Mesh me Simplex links = n(n−1) hote hain aur Half/Full-Duplex links = n(n−1)/2 hote hain! Star, Ring aur Tree me links = n (ya n−1 for Tree) hote hain.</li><li>🔹 <strong>[Transmission Modes (Simplex, Half-Duplex, Full-Duplex)]</strong> Packet Total Delay T_total = T_trans (L/R) + T_prop (d/v) + T_queue + T_proc</li><li>🔹 <strong>[Transmission Modes (Simplex, Half-Duplex, Full-Duplex)]</strong> Bandwidth-Delay Product = BW × RTT</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Circuit Switching Physical Layer par kaam karta hai, Datagram Packet Switching Network Layer par, aur Virtual Circuit Switching Data Link / Network Layer par!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Media &amp; Physical Layer — Guided Media (Twisted Pair Categories, Coaxial, Optical Fiber) &amp; Line Coding</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Guided Media (Twisted Pair Categories, Coaxial, Optical Fiber)]</strong> Manchester &amp; Differential Manchester Baud Rate = 2 × Bit Rate (50% Efficiency)</li><li>🔹 <strong>[Guided Media (Twisted Pair Categories, Coaxial, Optical Fiber)]</strong> 4B/5B Block Coding Efficiency = 80%</li><li>🔹 <strong>[Guided Media (Twisted Pair Categories, Coaxial, Optical Fiber)]</strong> 8B/10B = 80%</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Classic Ethernet (10Base-T) Manchester Encoding use karta hai jisme <mark class="hl">1 bit</mark> bhejne ke liye 2 signal changes (Baud = 2 × Bit Rate) lagte hain!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — Data Link, MAC &amp; CSMA/CD — Sliding Window Flow Control (Stop-and-Wait, Go-Back-N, Selective Repeat) &amp; CSMA/CD</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Sliding Window Flow Control (Stop-and-Wait, Go-Back-N, Selective Repeat)]</strong> Efficiency η = W / (1 + 2a) where a = T_p / T_t</li><li>🔹 <strong>[Sliding Window Flow Control (Stop-and-Wait, Go-Back-N, Selective Repeat)]</strong> k-bit Sequence Numbers (N = 2^k): GBN Window W_s = 2^k − 1, W_r = 1</li><li>🔹 <strong>[Sliding Window Flow Control (Stop-and-Wait, Go-Back-N, Selective Repeat)]</strong> SR Window W_s = W_r = 2^(k−1)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: CSMA/CD me agar Bandwidth 10 guna badha di jaye (<mark class="hl">10 Mbps</mark> se <mark class="hl">100 Mbps</mark>), to usi L_min (<mark class="hl">64 Bytes</mark>) ko maintain rakhne ke liye maximum cable length 10 guna GHATANI padti hai (2500m se 250m)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — OSI Reference Model &amp; Layers — ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices &amp; Functions</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices]</strong> 7 Layers &amp; PDUs: L7-L5 (Data/Message)</li><li>🔹 <strong>[ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices]</strong> L4 Transport (Segment/Datagram)</li><li>🔹 <strong>[ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices]</strong> L3 Network (Packet)</li><li>🔹 <strong>[ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices]</strong> L2 Data Link (Frame)</li><li>🔹 <strong>[ISO-OSI 7-Layer Reference Model vs TCP/IP Suite — PDUs, Devices]</strong> L1 Physical (Bits)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Switch (L2) Collision Domain todta hai par Broadcast Domain nahi todta; Router (L3) Collision Domain aur Broadcast Domain DONO todta hai! Suppose a 24-port L2 switch connects 24 PCs -&gt; 24 Collision Domains, 1 Broadcast Domain.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — IPv4/IPv6, Subnetting &amp; Routing — IPv4 Classful/CIDR Subnetting, Private IPs, IPv6 &amp; Routing Algorithms</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[IPv4 Classful/CIDR Subnetting, Private IPs, IPv6]</strong> Usable Hosts per /n CIDR block = 2^(32 − n) − 2</li><li>🔹 <strong>[IPv4 Classful/CIDR Subnetting, Private IPs, IPv6]</strong> IPv4 Header = 20–<mark class="hl">60 Bytes</mark> (IHL × 4)</li><li>🔹 <strong>[IPv4 Classful/CIDR Subnetting, Private IPs, IPv6]</strong> IPv6 Header = Fixed <mark class="hl">40 Bytes</mark> (128-bit addresses)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: ARP (Address Resolution Protocol) IP -&gt; MAC resolve karta hai (ARP Request = Broadcast FF:FF:FF:FF:FF:FF; ARP Reply = Unicast!). Jab packet routers se guzarta hai, to har hop par L2 MAC addresses change hote hain, par Source/Destination IPv4 addresses constant rehte hain (jab tak NAT na ho)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — TCP, UDP &amp; Congestion Control — TCP 3-Way Handshake, UDP Header, Congestion Control (AIMD) &amp; Socket States</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[TCP 3-Way Handshake, UDP Header, Congestion Control (AIMD)]</strong> TCP Header = 20–<mark class="hl">60 Bytes</mark> (6 Core Flags: URG, ACK, PSH, RST, SYN, FIN)</li><li>🔹 <strong>[TCP 3-Way Handshake, UDP Header, Congestion Control (AIMD)]</strong> UDP Header = Fixed <mark class="hl">8 Bytes</mark> (Source Port, Dest Port, Length, Checksum)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Timeout hone par TCP cwnd seedha 1 MSS par gir jata hai (Slow Start restart), jabki 3 Duplicate ACKs aane par cwnd half (cwnd/2) hokar linear growth jari rakhta hai (Fast Recovery)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Application Layer &amp; Protocols — Application Layer Protocols, Well-Known Port Numbers &amp; DNS Hierarchy</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> Ports: FTP (20 Data, 21 Control)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> SSH (22)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> Telnet (23)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> SMTP (25)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> DNS (53 UDP/TCP)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> DHCP (67/68 UDP)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> HTTP (80)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> POP3 (110)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> IMAP (143)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> SNMP (161/162)</li><li>🔹 <strong>[Application Layer Protocols, Well-Known Port Numbers]</strong> HTTPS (443)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: SMTP ek PUSH protocol hai (email bhejne ke liye), jabki POP3 aur IMAP PULL protocols hain (mailbox se email retrieve karne ke liye)! Aur DHCP ke charo steps (D-O-R-A) yaad rakhein.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 8 One-Liners — Network Security &amp; Cryptography — Symmetric vs Asymmetric Cryptography, RSA Math, Hash/MAC &amp; Firewalls</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Symmetric vs Asymmetric Cryptography, RSA Math, Hash/MAC]</strong> Symmetric Keys for n users = n(n − 1) / 2</li><li>🔹 <strong>[Symmetric vs Asymmetric Cryptography, RSA Math, Hash/MAC]</strong> Asymmetric (Public-Private) Keys for n users = 2n</li><li>🔹 <strong>[Symmetric vs Asymmetric Cryptography, RSA Math, Hash/MAC]</strong> RSA: n = p·q, φ(n) = (p−1)(q−1), e·d ≡ 1 (mod φ(n))</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Confidentiality (Secret message) = Encrypt with Receiver&#x27;s PUBLIC Key; Digital Signature (Authentication + Non-Repudiation) = Sign with Sender&#x27;s PRIVATE Key!</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

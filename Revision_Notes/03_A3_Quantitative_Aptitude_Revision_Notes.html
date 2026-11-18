@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arithmetical &amp; Numerical Ability — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Arithmetical &amp; Numerical Ability</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="03_A3_Quantitative_Aptitude_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/03_A3_Quantitative_Aptitude_Question_Booklet.html">📝 Question Booklet (105 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section A • 20 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Arithmetical &amp; Numerical Ability (Mensuration, Profit/Loss, Ratio/Percent, Number System, Speed/Trains, SI/CI &amp; Time/Work)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/03_A3_Quantitative_Aptitude_Question_Booklet.html">📝 Open 105-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Solid Mensuration 2D/3D: 3D </a><a class="pill" href="#ch2">Ch 2: Profit, Loss &amp; Discount: Pro</a><a class="pill" href="#ch3">Ch 3: Ratio, Proportion &amp; Percenta</a><a class="pill" href="#ch4">Ch 4: Number System &amp; Algebra — Di</a><a class="pill" href="#ch5">Ch 5: Time, Speed &amp; Distance — Har</a><a class="pill" href="#ch6">Ch 6: Simple &amp; Compound Interest —</a><a class="pill" href="#ch7">Ch 7: Time &amp; Work &amp; Pipes — Time &amp;</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Arithmetical &amp; Numerical Ability — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Quantitative Aptitude — Arithmetic, Number System &amp; 2D/3D Mensuration</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Topic / Shape</th><th>Core Exam Formula / Shortcut</th><th>Rapid Application &amp; Special Cases</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Number System &amp; Divisibility</strong></td><td><code>HCF × LCM = N1 × N2</code>; Factors of <code>p^a q^b r^c</code> = <code>(a+1)(b+1)(c+1)</code></td><td><strong>Divisibility by 11:</strong> <code>|(Sum of odd-place digits) − (Sum of even-place digits)| = 0 or 11k</code>; Euler's Totient <code>a^φ(n) ≡ 1 (mod n)</code>; Wilson's Theorem: <code>(p−1)! ≡ −1 (mod p)</code></td></tr>
+    <tr><td><strong>Percentage, Profit/Loss &amp; Discount</strong></td><td>Net effect: <code>x + y + xy/100</code>; <code>MP / CP = (100 + %Profit) / (100 − %Discount)</code></td><td>Two items sold at same SP (one at <code>+x%</code> profit, one at <code>−x%</code> loss) ALWAYS results in net <strong>Loss = <code>x²/100 %</code></strong>; Equivalent single discount of <code>d1%, d2%</code> = <code>d1 + d2 − (d1·d2)/100</code></td></tr>
+    <tr><td><strong>SI vs CI Difference</strong></td><td>2-Year CI − SI: <code>D2 = P(R/100)²</code> | 3-Year CI − SI: <code>D3 = P(R/100)²(3 + R/100)</code></td><td>Ratio <code>D3 / D2 = (300 + R) / 100</code>; Rule of 72 (doubling under CI): <code>Years ≈ 72 / R</code>; Under SI, if sum becomes <code>n</code> times in <code>T</code> yrs, it becomes <code>m</code> times in <code>[(m−1)/(n−1)] × T</code> yrs</td></tr>
+    <tr><td><strong>Time, Speed, Trains &amp; Boats</strong></td><td>Round-trip avg speed: <code>2xy/(x+y)</code>; Boat speed <code>u = (D+U)/2</code>, Stream <code>v = (D−U)/2</code></td><td><code>km/hr × (5/18) = m/s</code>; Relative speed opposite = <code>S1 + S2</code>, same direction = <code>|S1 − S2|</code>; After crossing each other, taking <code>t1, t2</code> to reach destinations: <code>S1 / S2 = √(t2 / t1)</code></td></tr>
+    <tr><td><strong>2D &amp; 3D Mensuration</strong></td><td>Equilateral Δ Area = <code>(√3/4)a²</code>, Height = <code>(√3/2)a</code>, Inradius <code>r = a/(2√3)</code>, Circumradius <code>R = a/√3</code> (<code>R : r = 2 : 1</code>)</td><td><strong>Cylinder:</strong> Vol = <code>πr²h</code>, CSA = <code>2πrh</code> | <strong>Cone:</strong> Vol = <code>(1/3)πr²h</code>, CSA = <code>πrl</code> (<code>l = √(r²+h²)</code>) | <strong>Sphere:</strong> Vol = <code>(4/3)πr³</code>, TSA = <code>4πr²</code> | <strong>Hemisphere:</strong> Vol = <code>(2/3)πr³</code>, CSA = <code>2πr²</code>, TSA = <code>3πr²</code></td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Solid Mensuration 2D/3D: 3D Solid Mensuration — Cylinder, Cone, Sphere, Hemisphere</h2>
+    <span class="badge">13 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="3d solid mensuration — cylinder, cone, sphere, hemisphere &amp; frustum cylinder vol = πr²h, csa = 2πrh • cone vol = (1/3)πr²h, l = √(r²+h²), csa = πrl • sphere vol = (4/3)πr³, sa = 4πr² • hemisphere vol = (2/3)πr³, csa = 2πr², tsa = 3πr² when a 3d metallic solid (e.g., sphere) is melted and recast into n smaller solids (e.g., cones or cylinders) or drawn into a long cylindrical wire, total volume remains strictly invariant: v_initial = n × v_final. for a frustum of a cone (radii r and r, height h, slant height l = √(h² + (r−r)²)): volume = (1/3)πh(r² + r² + rr) and csa = π(r + r)l. hinglish tip: solid hemisphere ka total surface area (tsa) 2πr² nahi balki 3πr² hota hai (2πr² curved + πr² flat circular base)! aur cylinder, hemisphere, cone agar same base radius r aur height h = r ke hon, to unke volumes ka ratio 3 : 2 : 1 hota hai!">
+  <div class="sub-h">📌 1.1 3D Solid Mensuration — Cylinder, Cone, Sphere, Hemisphere &amp; Frustum</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Cylinder Vol = πr²h, CSA = 2πrh</li><li>🔹 Cone Vol = (1/3)πr²h, l = √(r²+h²), CSA = πrl</li><li>🔹 Sphere Vol = (4/3)πr³, SA = 4πr²</li><li>🔹 Hemisphere Vol = (2/3)πr³, CSA = 2πr², TSA = 3πr²</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>When a 3D metallic solid (e.g., Sphere) is melted and recast into N smaller solids (e.g., Cones or Cylinders) or drawn into a long cylindrical wire, Total Volume remains strictly invariant: V_initial = N × V_final.</li><li>For a Frustum of a Cone (radii R and r, height h, slant height l = √(h² + (R−r)²)): Volume = (1/3)πh(R² + r² + Rr) and CSA = π(R + r)l.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: A solid metallic sphere of radius 6 cm is melted and drawn into a cylindrical wire of radius 0.2 cm. Find length L of wire: (4/3)π(6)³ = π(0.2)² × L =&gt; 288 = 0.04 × L =&gt; L = 7200 cm = 72 meters.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Solid Hemisphere ka Total Surface Area (TSA) 2πr² nahi balki 3πr² hota hai (2πr² curved + πr² flat circular base)! Aur Cylinder, Hemisphere, Cone agar same base radius r aur height h = r ke hon, to unke Volumes ka ratio 3 : 2 : 1 hota hai!</div>
+</div><div class="concept-box" data-search="2d mensuration, equilateral triangle, rhombus, trapezium &amp; inscribed circles equilateral δ: area = (√3/4)a², h = (√3/2)a, inradius r = a/(2√3), circumradius r = a/√3 (r : r = 2 : 1, area r:r = 4 : 1) • rhombus area = (1/2)d1·d2 with a² = (d1/2)² + (d2/2)² in any rhombus, diagonals bisect each other at right angles (90°), forming four congruent right-angled triangles with hypotenuse equal to side &#x27;a&#x27; and legs d1/2 and d2/2. for a room of dimensions l × b × h: area of 4 walls = 2(l + b)h and length of longest rod (space diagonal) = √(l² + b² + h²). exam trap: equilateral triangle me circumradius (r) aur inradius (r) ka ratio hamesha 2 : 1 hota hai, isliye circumcircle aur incircle ke area ka ratio πr² : πr² = 4 : 1 hota hai!">
+  <div class="sub-h">📌 1.2 2D Mensuration, Equilateral Triangle, Rhombus, Trapezium &amp; Inscribed Circles</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Equilateral Δ: Area = (√3/4)a², h = (√3/2)a, Inradius r = a/(2√3), Circumradius R = a/√3 (R : r = 2 : 1, Area R:r = 4 : 1)</li><li>🔹 Rhombus Area = (1/2)d1·d2 with a² = (d1/2)² + (d2/2)²</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In any Rhombus, diagonals bisect each other at right angles (90°), forming four congruent right-angled triangles with hypotenuse equal to side &#x27;a&#x27; and legs d1/2 and d2/2.</li><li>For a Room of dimensions L × B × H: Area of 4 Walls = 2(L + B)H and Length of Longest Rod (Space Diagonal) = √(L² + B² + H²).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: The diagonals of a rhombus are 16 cm and 30 cm. Find its area and perimeter. Area = (1/2) × 16 × 30 = 240 cm². Half-diagonals are 8 cm and 15 cm -&gt; Side a = √(8² + 15²) = 17 cm -&gt; Perimeter = 4 × 17 = 68 cm.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Equilateral Triangle me Circumradius (R) aur Inradius (r) ka ratio hamesha 2 : 1 hota hai, isliye Circumcircle aur Incircle ke Area ka ratio πR² : πr² = 4 : 1 hota hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="the length of a rectangle is increased by 20% and its breadth is increased by 10%. what is the net percentage increase in its area? net change = x + y + xy/100 = 20 + 10 + (20×10)/100 = 32%.">
+  <div class="in-note-stem">Q1.1: The length of a rectangle is increased by 20% and its breadth is increased by 10%. What is the net percentage increase in its area?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 32% ✅</div><div class="in-opt"><strong>(B)</strong> 30%</div><div class="in-opt"><strong>(C)</strong> 28%</div><div class="in-opt"><strong>(D)</strong> 35%</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Net change = x + y + xy/100 = 20 + 10 + (20×10)/100 = 32%.</div>
+</div><div class="in-note-q" data-search="what is the area of an equilateral triangle whose side is 8 cm? area of equilateral triangle = (√3 / 4) × a² = (√3 / 4) × 64 = 16√3 cm².">
+  <div class="in-note-stem">Q1.2: What is the area of an equilateral triangle whose side is 8 cm?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 8√3 cm²</div><div class="in-opt ans"><strong>(B)</strong> 16√3 cm² ✅</div><div class="in-opt"><strong>(C)</strong> 32√3 cm²</div><div class="in-opt"><strong>(D)</strong> 64√3 cm²</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Area of equilateral triangle = (√3 / 4) × a² = (√3 / 4) × 64 = 16√3 cm².</div>
+</div><div class="in-note-q" data-search="if the radius of a circle is increased by 10%, by what percentage does its area increase? area change = 10 + 10 + (10×10)/100 = 21%.">
+  <div class="in-note-stem">Q1.3: If the radius of a circle is increased by 10%, by what percentage does its area increase?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 10%</div><div class="in-opt"><strong>(B)</strong> 20%</div><div class="in-opt ans"><strong>(C)</strong> 21% ✅</div><div class="in-opt"><strong>(D)</strong> 22%</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Area change = 10 + 10 + (10×10)/100 = 21%.</div>
+</div><div class="in-note-q" data-search="the perimeter of a rhombus is 40 cm and one of its diagonals is 12 cm. what is the area of the rhombus? side = 40/4 = 10 cm; half-diagonal = 6 cm =&gt; other half-diagonal = √(10²−6²) = 8 cm (d2 = 16 cm). area = (1/2) × 12 × 16 = 96 cm².">
+  <div class="in-note-stem">Q1.4: The perimeter of a rhombus is 40 cm and one of its diagonals is 12 cm. What is the area of the rhombus?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 48 cm²</div><div class="in-opt"><strong>(B)</strong> 120 cm²</div><div class="in-opt"><strong>(C)</strong> 80 cm²</div><div class="in-opt ans"><strong>(D)</strong> 96 cm² ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Side = 40/4 = 10 cm; half-diagonal = 6 cm =&gt; other half-diagonal = √(10²−6²) = 8 cm (d2 = 16 cm). Area = (1/2) × 12 × 16 = 96 cm².</div>
+</div><div class="in-note-q" data-search="what is the length of the longest rod that can be placed inside a rectangular room of dimensions 12 m × 9 m × 8 m? space diagonal of cuboid = √(l² + b² + h²) = √(144 + 81 + 64) = √289 = 17 m.">
+  <div class="in-note-stem">Q1.5: What is the length of the longest rod that can be placed inside a rectangular room of dimensions 12 m × 9 m × 8 m?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 17 meters ✅</div><div class="in-opt"><strong>(B)</strong> 15 meters</div><div class="in-opt"><strong>(C)</strong> 19 meters</div><div class="in-opt"><strong>(D)</strong> 16 meters</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Space diagonal of cuboid = √(l² + b² + h²) = √(144 + 81 + 64) = √289 = 17 m.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Profit, Loss &amp; Discount: Profit, Loss, Marked Price, Successive Discounts</h2>
+    <span class="badge">13 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="profit, loss, marked price, successive discounts &amp; mp/cp ratio mp / cp = (100 + profit%) / (100 − discount%) • equivalent single discount for d1%, d2% = d1 + d2 − (d1·d2)/100 the golden bridge equation linking cost price (cp) and marked price (mp) when a trader allows a discount of d% on mp and still earns a profit of p% on cp is directly derived from sp = mp(100−d)/100 = cp(100+p)/100, giving mp : cp = (100 + p) : (100 − d). if two articles are sold at the same selling price (sp_1 = sp_2), one at x% profit and the other at x% loss, there is always a net loss of (x² / 100)%. hinglish tip: mp aur cp ka direct ratio formula: mp / cp = (100 + profit%) / (100 − discount%) — is ek formula se dsssb ke 80% discount सवाल 5 second me hal hote hain!">
+  <div class="sub-h">📌 2.1 Profit, Loss, Marked Price, Successive Discounts &amp; MP/CP Ratio</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 MP / CP = (100 + Profit%) / (100 − Discount%)</li><li>🔹 Equivalent Single Discount for d1%, d2% = d1 + d2 − (d1·d2)/100</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>The golden bridge equation linking Cost Price (CP) and Marked Price (MP) when a trader allows a discount of D% on MP and still earns a profit of P% on CP is directly derived from SP = MP(100−D)/100 = CP(100+P)/100, giving MP : CP = (100 + P) : (100 − D).</li><li>If two articles are sold at the SAME Selling Price (SP_1 = SP_2), one at x% profit and the other at x% loss, there is ALWAYS a net loss of (x² / 100)%.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: A shopkeeper gives a 15% discount on Marked Price and still earns a 19% profit. What is MP : CP? MP / CP = (100 + 19) / (100 − 15) = 119 / 85 = 7 / 5 (MP is 40% above CP).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: MP aur CP ka direct ratio formula: MP / CP = (100 + Profit%) / (100 − Discount%) — is ek formula se DSSSB ke 80% discount सवाल 5 second me hal hote hain!</div>
+</div><div class="concept-box" data-search="dishonest dealer false weight &amp; buy-x-get-y free schemes dishonest dealer gain% = [(true weight − false weight) / false weight] × 100 • &#x27;buy x get y free&#x27; discount% = [y / (x + y)] × 100 in dishonest shopkeeper problems, always treat the actual weight given to the customer (false weight, e.g., 800 g instead of 1000 g) as the cost outflow (cp base = 800) and the weight charged to the customer as the revenue inflow (sp base = 1000). exam trap: &#x27;buy 5 get 3 free&#x27; me discount% = (3/5)×100 = 60% mat kar dena! dukan se kul (5 + 3 = 8) items gaye hain, isliye discount% = (3 / 8) × 100 = 37.5% hoga!">
+  <div class="sub-h">📌 2.2 Dishonest Dealer False Weight &amp; Buy-X-Get-Y Free Schemes</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Dishonest Dealer Gain% = [(True Weight − False Weight) / False Weight] × 100</li><li>🔹 <strong>'Buy X Get Y Free'</strong> Discount% = [Y / (X + Y)] × 100</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In dishonest shopkeeper problems, always treat the actual weight given to the customer (False Weight, e.g., 800 g instead of 1000 g) as the Cost Outflow (CP base = 800) and the weight charged to the customer as the Revenue Inflow (SP base = 1000).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: A dishonest grocer professes to sell sugar at 10% profit, but uses a weight of 800 g instead of 1 kg. Effective CP = 800; Charged SP = 1000 × 1.10 = 1100. Net Profit% = [(1100 − 800) / 800] × 100 = 37.5%.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: <strong>'Buy 5 Get 3 Free'</strong> me Discount% = (3/5)×100 = 60% MAT kar dena! Dukan se kul (5 + 3 = 8) items gaye hain, isliye Discount% = (3 / 8) × 100 = 37.5% hoga!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="an article is bought for ₹800 and sold for ₹960. what is the profit percentage? profit = 960 − 800 = ₹160. profit % = (160 / 800) × 100 = 20%.">
+  <div class="in-note-stem">Q2.1: An article is bought for ₹800 and sold for ₹960. What is the profit percentage?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 16.67%</div><div class="in-opt ans"><strong>(B)</strong> 20% ✅</div><div class="in-opt"><strong>(C)</strong> 25%</div><div class="in-opt"><strong>(D)</strong> 18%</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Profit = 960 − 800 = ₹160. Profit % = (160 / 800) × 100 = 20%.</div>
+</div><div class="in-note-q" data-search="if the cost price of 15 tables is equal to the selling price of 12 tables, what is the profit percentage? cp / sp = 12 / 15 = 4 / 5 =&gt; profit % = [(5 − 4) / 4] × 100 = 25%.">
+  <div class="in-note-stem">Q2.2: If the cost price of 15 tables is equal to the selling price of 12 tables, what is the profit percentage?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 20%</div><div class="in-opt"><strong>(B)</strong> 30%</div><div class="in-opt ans"><strong>(C)</strong> 25% ✅</div><div class="in-opt"><strong>(D)</strong> 15%</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> CP / SP = 12 / 15 = 4 / 5 =&gt; Profit % = [(5 − 4) / 4] × 100 = 25%.</div>
+</div><div class="in-note-q" data-search="what is the single equivalent discount for two successive discounts of 20% and 10%? equivalent discount = d1 + d2 − (d1×d2)/100 = 20 + 10 − 2 = 28%.">
+  <div class="in-note-stem">Q2.3: What is the single equivalent discount for two successive discounts of 20% and 10%?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 30%</div><div class="in-opt"><strong>(B)</strong> 25%</div><div class="in-opt"><strong>(C)</strong> 27%</div><div class="in-opt ans"><strong>(D)</strong> 28% ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Equivalent discount = d1 + d2 − (d1×d2)/100 = 20 + 10 − 2 = 28%.</div>
+</div><div class="in-note-q" data-search="a shopkeeper marks his goods 40% above the cost price and allows a discount of 20%. what is his net profit percentage? let cp = 100 =&gt; mp = 140 =&gt; sp = 140 × 0.80 = 112 =&gt; profit = 12%.">
+  <div class="in-note-stem">Q2.4: A shopkeeper marks his goods 40% above the cost price and allows a discount of 20%. What is his net profit percentage?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 12% ✅</div><div class="in-opt"><strong>(B)</strong> 20%</div><div class="in-opt"><strong>(C)</strong> 15%</div><div class="in-opt"><strong>(D)</strong> 10%</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Let CP = 100 =&gt; MP = 140 =&gt; SP = 140 × 0.80 = 112 =&gt; Profit = 12%.</div>
+</div><div class="in-note-q" data-search="a dishonest dealer professes to sell goods at cost price, but uses a false weight of 800 grams instead of 1 kg (1000 grams). what is his profit percentage? profit % = [error / true weight used] × 100 = (200 / 800) × 100 = 25%.">
+  <div class="in-note-stem">Q2.5: A dishonest dealer professes to sell goods at cost price, but uses a false weight of 800 grams instead of 1 kg (1000 grams). What is his profit percentage?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 20%</div><div class="in-opt ans"><strong>(B)</strong> 25% ✅</div><div class="in-opt"><strong>(C)</strong> 15%</div><div class="in-opt"><strong>(D)</strong> 30%</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Profit % = [Error / True Weight Used] × 100 = (200 / 800) × 100 = 25%.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: Ratio, Proportion &amp; Percentage — Percentage Successive Change, Price-Consumption Product Constancy &amp; Alligation</h2>
+    <span class="badge">19 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="percentage successive change, price-consumption product constancy &amp; alligation successive net % change = a + b + (a·b)/100 • if price rises by r/d fraction, consumption must fall by r/(d+r) for constant expenditure • alligation ratio = (dearer − mean) : (mean − cheaper) whenever expenditure = price × consumption (or area = length × breadth) is kept constant, price and consumption are inversely proportional: if price increases by 25% (+1/4), consumption must decrease by 1/(4+1) = 1/5 = 20%. for vessel replacement of milk (initial volume v, replacing x litres n times with water), pure milk remaining = v × (1 − x/v)ⁿ. hinglish tip: fraction table yaad rakhein: +1/4 (+25%) ko balance karne ke liye −1/5 (−20%) chahiye; +1/5 (+20%) ko balance karne ke liye −1/6 (−16.67%) chahiye!">
+  <div class="sub-h">📌 3.1 Percentage Successive Change, Price-Consumption Product Constancy &amp; Alligation</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Successive Net % Change = A + B + (A·B)/100</li><li>🔹 If Price rises by R/D fraction, Consumption must fall by R/(D+R) for constant expenditure</li><li>🔹 Alligation Ratio = (Dearer − Mean) : (Mean − Cheaper)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Whenever Expenditure = Price × Consumption (or Area = Length × Breadth) is kept constant, Price and Consumption are inversely proportional: if Price increases by 25% (+1/4), Consumption must decrease by 1/(4+1) = 1/5 = 20%.</li><li>For vessel replacement of milk (initial volume V, replacing x litres n times with water), Pure Milk Remaining = V × (1 − x/V)ⁿ.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: From a 60-litre cask of pure milk, 12 litres (1/5th) is drawn out and replaced with water, and this process is repeated a second time. Pure milk left = 60 × (1 − 12/60)² = 60 × (4/5)² = 60 × 16/25 = 38.4 litres.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Fraction Table yaad rakhein: +1/4 (+25%) ko balance karne ke liye −1/5 (−20%) chahiye; +1/5 (+20%) ko balance karne ke liye −1/6 (−16.67%) chahiye!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="if a&#x27;s salary is 25% more than b&#x27;s salary, then by what percentage is b&#x27;s salary less than a&#x27;s salary? [25 / (100 + 25)] × 100 = (25 / 125) × 100 = 20%.">
+  <div class="in-note-stem">Q3.1: If A&#x27;s salary is 25% more than B&#x27;s salary, then by what percentage is B&#x27;s salary less than A&#x27;s salary?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 25%</div><div class="in-opt"><strong>(B)</strong> 16.67%</div><div class="in-opt ans"><strong>(C)</strong> 20% ✅</div><div class="in-opt"><strong>(D)</strong> 15%</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> [25 / (100 + 25)] × 100 = (25 / 125) × 100 = 20%.</div>
+</div><div class="in-note-q" data-search="if the price of sugar increases by 20%, by what percentage must a family reduce its consumption so that expenditure remains unchanged? [20 / (100 + 20)] × 100 = (1/6) × 100 = 16.67%.">
+  <div class="in-note-stem">Q3.2: If the price of sugar increases by 20%, by what percentage must a family reduce its consumption so that expenditure remains unchanged?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 20%</div><div class="in-opt"><strong>(B)</strong> 25%</div><div class="in-opt"><strong>(C)</strong> 15%</div><div class="in-opt ans"><strong>(D)</strong> 16.67% (16 2/3 %) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> [20 / (100 + 20)] × 100 = (1/6) × 100 = 16.67%.</div>
+</div><div class="in-note-q" data-search="in an election between two candidates, the winner gets 58% of the valid votes and wins by a majority of 3,200 votes. what is the total number of valid votes? winner (58%) − loser (42%) = 16% of total = 3,200 =&gt; 1% = 200 =&gt; 100% = 20,000 votes.">
+  <div class="in-note-stem">Q3.3: In an election between two candidates, the winner gets 58% of the valid votes and wins by a majority of 3,200 votes. What is the total number of valid votes?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 20,000 votes ✅</div><div class="in-opt"><strong>(B)</strong> 16,000 votes</div><div class="in-opt"><strong>(C)</strong> 24,000 votes</div><div class="in-opt"><strong>(D)</strong> 18,000 votes</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Winner (58%) − Loser (42%) = 16% of total = 3,200 =&gt; 1% = 200 =&gt; 100% = 20,000 votes.</div>
+</div><div class="in-note-q" data-search="if a : b = 2 : 3 and b : c = 4 : 5, what is the combined ratio a : b : c? a : b : c = (2×4) : (3×4) : (3×5) = 8 : 12 : 15.">
+  <div class="in-note-stem">Q3.4: If A : B = 2 : 3 and B : C = 4 : 5, what is the combined ratio A : B : C?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 2 : 4 : 5</div><div class="in-opt ans"><strong>(B)</strong> 8 : 12 : 15 ✅</div><div class="in-opt"><strong>(C)</strong> 6 : 12 : 15</div><div class="in-opt"><strong>(D)</strong> 8 : 10 : 15</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A : B : C = (2×4) : (3×4) : (3×5) = 8 : 12 : 15.</div>
+</div><div class="in-note-q" data-search="a sum of ₹1,800 is divided among a, b, and c in the ratio 3 : 4 : 5. what is b&#x27;s share? total parts = 3 + 4 + 5 = 12 parts. 1 part = 1800/12 = ₹150. b&#x27;s share = 4 × 150 = ₹600.">
+  <div class="in-note-stem">Q3.5: A sum of ₹1,800 is divided among A, B, and C in the ratio 3 : 4 : 5. What is B&#x27;s share?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> ₹450</div><div class="in-opt"><strong>(B)</strong> ₹750</div><div class="in-opt ans"><strong>(C)</strong> ₹600 ✅</div><div class="in-opt"><strong>(D)</strong> ₹540</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Total parts = 3 + 4 + 5 = 12 parts. 1 part = <mark class="hl">1800</mark>/12 = ₹150. B&#x27;s share = 4 × 150 = ₹600.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Number System &amp; Algebra — Divisibility Rules (8, 9, 11, 72, 88, 99), Remainder Theorem &amp; Unit Digits</h2>
+    <span class="badge">22 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="divisibility rules (8, 9, 11, 72, 88, 99), remainder theorem &amp; unit digits divisibility by 72 = div by 8 (last 3 digits) and div by 9 (digit sum) • divisibility by 88 = div by 8 and 11 • number of factors of n = p^a·q^b·r^c is (a+1)(b+1)(c+1) for an 8-or-10 digit number 5432x78y divisible by 72: step 1: apply divisibility by 8 on the last three digits &#x27;78y&#x27; to find y (784 is divisible by 8 -&gt; y = 4). step 2: apply divisibility by 9 (sum of all digits divisible by 9) to find x! also remember: lcm × hcf = product of two numbers (n1 × n2); for fractions, hcf = hcf(numerators)/lcm(denominators) and lcm = lcm(numerators)/hcf(denominators). exam trap: divisibility by 88 ya 72 me hamesha pehle 8 ka rule (last 3 digits) lagakar &#x27;y&#x27; nikalein, aur uske baad 9 ya 11 ka rule lagakar &#x27;x&#x27; nikalein!">
+  <div class="sub-h">📌 4.1 Divisibility Rules (8, 9, 11, 72, 88, 99), Remainder Theorem &amp; Unit Digits</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Divisibility by 72 = Div by 8 (last 3 digits) AND Div by 9 (digit sum)</li><li>🔹 Divisibility by 88 = Div by 8 AND 11</li><li>🔹 Number of Factors of N = p^a·q^b·r^c is (a+1)(b+1)(c+1)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>For an 8-or-10 digit number 5432x78y divisible by 72: Step 1: Apply Divisibility by 8 on the last three digits <strong>'78y'</strong> to find y (784 is divisible by 8 -&gt; y = 4).</li><li>Step 2: Apply Divisibility by 9 (sum of all digits divisible by 9) to find x!</li><li>Also remember: LCM × HCF = Product of Two Numbers (N1 × N2)</li><li>for fractions, HCF = HCF(Numerators)/LCM(Denominators) and LCM = LCM(Numerators)/HCF(Denominators).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: Find the remainder when 2^68 is divided by 65. Since 2^6 = 64 ≡ −1 (mod 65), write 2^68 = (2^6)^11 × 2^2 ≡ (−1)^11 × 4 = −4 ≡ 65 − 4 = 61.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Divisibility by 88 ya 72 me hamesha PEHLE 8 ka rule (last 3 digits) lagakar &#x27;y&#x27; nikalein, aur uske baad 9 ya 11 ka rule lagakar &#x27;x&#x27; nikalein!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="if the 6-digit number 479xyz is exactly divisible by 7, 11, and 13, what is the value of (x + y + z)? since 7 × 11 × 13 = 1001 and abc × 1001 = abcabc, 479xyz = 479479 =&gt; x=4, y=7, z=9 =&gt; 4+7+9 = 20.">
+  <div class="in-note-stem">Q4.1: If the 6-digit number 479xyz is exactly divisible by 7, 11, and 13, what is the value of (x + y + z)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 15</div><div class="in-opt ans"><strong>(B)</strong> 20 ✅</div><div class="in-opt"><strong>(C)</strong> 18</div><div class="in-opt"><strong>(D)</strong> 21</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Since 7 × 11 × 13 = 1001 and abc × 1001 = abcabc, 479xyz = 479479 =&gt; x=4, y=7, z=9 =&gt; 4+7+9 = 20.</div>
+</div><div class="in-note-q" data-search="what is the unit digit in the product (247)^39 × (583)^22? 39 mod 4 = 3 -&gt; 7³ ends in 3; 22 mod 4 = 2 -&gt; 3² ends in 9; 3 × 9 = 27 -&gt; unit digit is 7.">
+  <div class="in-note-stem">Q4.2: What is the unit digit in the product (247)^39 × (583)^22?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 3</div><div class="in-opt"><strong>(B)</strong> 9</div><div class="in-opt ans"><strong>(C)</strong> 7 ✅</div><div class="in-opt"><strong>(D)</strong> 1</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> 39 mod 4 = 3 -&gt; 7³ ends in 3; 22 mod 4 = 2 -&gt; 3² ends in 9; 3 × 9 = 27 -&gt; unit digit is 7.</div>
+</div><div class="in-note-q" data-search="the hcf and lcm of two numbers are 12 and 144 respectively. if one of the numbers is 36, what is the other number? first × second = hcf × lcm =&gt; second = (12 × 144) / 36 = 48.">
+  <div class="in-note-stem">Q4.3: The HCF and LCM of two numbers are 12 and 144 respectively. If one of the numbers is 36, what is the other number?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 36</div><div class="in-opt"><strong>(B)</strong> 60</div><div class="in-opt"><strong>(C)</strong> 72</div><div class="in-opt ans"><strong>(D)</strong> 48 ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> First × Second = HCF × LCM =&gt; Second = (12 × 144) / 36 = 48.</div>
+</div><div class="in-note-q" data-search="find the smallest digit &#x27;x&#x27; such that the 5-digit number 53x48 is completely divisible by 9: sum of digits = 5 + 3 + x + 4 + 8 = 20 + x. next multiple of 9 is 27 =&gt; x = 7.">
+  <div class="in-note-stem">Q4.4: Find the smallest digit &#x27;x&#x27; such that the 5-digit number 53x48 is completely divisible by 9:</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 7 ✅</div><div class="in-opt"><strong>(B)</strong> 5</div><div class="in-opt"><strong>(C)</strong> 6</div><div class="in-opt"><strong>(D)</strong> 8</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Sum of digits = 5 + 3 + x + 4 + 8 = 20 + x. Next multiple of 9 is 27 =&gt; x = 7.</div>
+</div><div class="in-note-q" data-search="how many total positive factors (divisors) does the number 360 have? 360 = 2³ × 3² × 5¹ =&gt; total factors = (3+1)(2+1)(1+1) = 4 × 3 × 2 = 24.">
+  <div class="in-note-stem">Q4.5: How many total positive factors (divisors) does the number 360 have?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 18 factors</div><div class="in-opt ans"><strong>(B)</strong> 24 factors ✅</div><div class="in-opt"><strong>(C)</strong> 20 factors</div><div class="in-opt"><strong>(D)</strong> 16 factors</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> 360 = 2³ × 3² × 5¹ =&gt; Total factors = (3+1)(2+1)(1+1) = 4 × 3 × 2 = 24.</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Time, Speed &amp; Distance — Harmonic Average Speed, Relative Speed of Trains &amp; Boat-Stream Equations</h2>
+    <span class="badge">14 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="harmonic average speed, relative speed of trains &amp; boat-stream equations equal-distance average speed = 2xy / (x + y) • km/hr to m/s: ×(5/18) • m/s to km/hr: ×(18/5) • boat speed u = (d + u)/2, stream speed v = (d − u)/2 when two trains of lengths l1 and l2 move at speeds s1 and s2: time to cross each other = (l1 + l2) / s_rel, where s_rel = (s1 + s2) in opposite directions and |s1 − s2| in the same direction. if two trains start simultaneously and reach their destinations in t1 and t2 hours after meeting each other en route, then s1 / s2 = √(t2 / t1). hinglish tip: crossing ke baad manzil par pahunchne ka time t1 aur t2 diya ho, to speed ratio s1 : s2 = √t2 : √t1 hota hai (aur meeting time t = √(t1 × t2))!">
+  <div class="sub-h">📌 5.1 Harmonic Average Speed, Relative Speed of Trains &amp; Boat-Stream Equations</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Equal-Distance Average Speed = 2xy / (x + y)</li><li>🔹 km/hr to m/s: ×(5/18)</li><li>🔹 m/s to km/hr: ×(18/5)</li><li>🔹 Boat Speed u = (D + U)/2, Stream Speed v = (D − U)/2</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>When two trains of lengths L1 and L2 move at speeds S1 and S2: Time to cross each other = (L1 + L2) / S_rel, where S_rel = (S1 + S2) in opposite directions and |S1 − S2| in the same direction.</li><li>If two trains start simultaneously and reach their destinations in t1 and t2 hours AFTER meeting each other en route, then S1 / S2 = √(t2 / t1).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: A 180 m long train running at 72 km/hr crosses a platform in 25 seconds. Speed = 72 × (5/18) = 20 m/s. Total distance covered = 20 × 25 = 500 m. Platform length = 500 − 180 = 320 m.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Crossing ke baad manzil par pahunchne ka time t1 aur t2 diya ho, to Speed Ratio S1 : S2 = √t2 : √t1 hota hai (aur Meeting Time T = √(t1 × t2))!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="convert a speed of 72 km/hr into meters per second (m/s): 72 × (5 / 18) = 4 × 5 = 20 m/s.">
+  <div class="in-note-stem">Q5.1: Convert a speed of 72 km/hr into meters per second (m/s):</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 15 m/s</div><div class="in-opt"><strong>(B)</strong> 25 m/s</div><div class="in-opt"><strong>(C)</strong> 18 m/s</div><div class="in-opt ans"><strong>(D)</strong> 20 m/s ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> 72 × (5 / 18) = 4 × 5 = 20 m/s.</div>
+</div><div class="in-note-q" data-search="a car travels from a to b at 40 km/hr and returns from b to a at 60 km/hr. what is its average speed for the entire round trip? average speed = (2 × x × y) / (x + y) = (2 × 40 × 60) / 100 = 48 km/hr.">
+  <div class="in-note-stem">Q5.2: A car travels from A to B at 40 km/hr and returns from B to A at 60 km/hr. What is its average speed for the entire round trip?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 48 km/hr ✅</div><div class="in-opt"><strong>(B)</strong> 50 km/hr</div><div class="in-opt"><strong>(C)</strong> 45 km/hr</div><div class="in-opt"><strong>(D)</strong> 52 km/hr</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Average speed = (2 × x × y) / (x + y) = (2 × 40 × 60) / 100 = 48 km/hr.</div>
+</div><div class="in-note-q" data-search="a train 150 meters long is running at a speed of 54 km/hr. how much time will it take to cross a telegraph pole? speed = 54 × (5/18) = 15 m/s. time = 150 m / 15 m/s = 10 seconds.">
+  <div class="in-note-stem">Q5.3: A train 150 meters long is running at a speed of 54 km/hr. How much time will it take to cross a telegraph pole?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 12 seconds</div><div class="in-opt ans"><strong>(B)</strong> 10 seconds ✅</div><div class="in-opt"><strong>(C)</strong> 8 seconds</div><div class="in-opt"><strong>(D)</strong> 15 seconds</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Speed = 54 × (5/18) = 15 m/s. Time = 150 m / 15 m/s = 10 seconds.</div>
+</div><div class="in-note-q" data-search="a 200 m long train running at 72 km/hr crosses a railway bridge in 25 seconds. what is the length of the bridge? speed = 20 m/s. total distance = 20 × 25 = 500 m =&gt; bridge length = 500 − 200 = 300 m.">
+  <div class="in-note-stem">Q5.4: A 200 m long train running at 72 km/hr crosses a railway bridge in 25 seconds. What is the length of the bridge?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 250 meters</div><div class="in-opt"><strong>(B)</strong> 350 meters</div><div class="in-opt ans"><strong>(C)</strong> 300 meters ✅</div><div class="in-opt"><strong>(D)</strong> 200 meters</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Speed = 20 m/s. Total distance = 20 × 25 = 500 m =&gt; Bridge length = 500 − 200 = 300 m.</div>
+</div><div class="in-note-q" data-search="two trains of lengths 140 m and 160 m are running in opposite directions at 60 km/hr and 48 km/hr. in how many seconds will they completely cross each other? relative speed = (60 + 48) = 108 km/hr = 30 m/s. time = (140 + 160) / 30 = 10 seconds.">
+  <div class="in-note-stem">Q5.5: Two trains of lengths 140 m and 160 m are running in OPPOSITE directions at 60 km/hr and 48 km/hr. In how many seconds will they completely cross each other?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 12 seconds</div><div class="in-opt"><strong>(B)</strong> 15 seconds</div><div class="in-opt"><strong>(C)</strong> 8 seconds</div><div class="in-opt ans"><strong>(D)</strong> 10 seconds ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Relative speed = (60 + 48) = 108 km/hr = 30 m/s. Time = (140 + 160) / 30 = 10 seconds.</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Simple &amp; Compound Interest — Compound Interest vs Simple Interest (2-Year &amp; 3-Year Difference Shortcuts)</h2>
+    <span class="badge">13 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="compound interest vs simple interest (2-year &amp; 3-year difference shortcuts) 2-yr (ci − si) = p(r/100)² • 3-yr (ci − si) = p(r/100)² × (3 + r/100) • ratio (ci_2yr / si_2yr) = (200 + r) / 200 in simple interest, interest is constant every year, whereas in compound interest, interest earns interest on previous years&#x27; interest. effective 2-year ci rate at r% p.a. is (2r + r²/100)% (e.g., at 10%, si=20%, ci=21%; at 8%, si=16%, ci=16.64%). for 3 years at 10%, si=30% and ci=33.1% (difference = 3.1% of p). exam trap: agar ci par koi dhanrashi t saal me k guna (k times) hoti hai, to k^n guna hone me t × n saal lagenge (jaise 4 saal me 2 guna -&gt; 8 guna = 2³ hone me 4 × 3 = 12 saal lagenge)!">
+  <div class="sub-h">📌 6.1 Compound Interest vs Simple Interest (2-Year &amp; 3-Year Difference Shortcuts)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 2-Yr (CI − SI) = P(R/100)²</li><li>🔹 3-Yr (CI − SI) = P(R/100)² × (3 + R/100)</li><li>🔹 Ratio (CI_2yr / SI_2yr) = (200 + R) / 200</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In Simple Interest, interest is constant every year, whereas in Compound Interest, interest earns interest on previous years&#x27; interest.</li><li>Effective 2-year CI rate at R% p.a.</li><li>is (2R + R²/100)% (e.g., at 10%, SI=20%, CI=21%</li><li>at 8%, SI=16%, CI=16.64%).</li><li>For 3 years at 10%, SI=30% and CI=33.1% (Difference = 3.1% of P).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: The difference between CI and SI on a sum for 3 years at 10% p.a. is ₹930. Since 3-year difference at 10% is 3.1% of P: 0.031 × P = 930 =&gt; Principal P = ₹30,000.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Agar CI par koi dhanrashi t saal me k guna (k times) hoti hai, to k^n guna hone me t × n saal lagenge (jaise 4 saal me 2 guna -&gt; 8 guna = 2³ hone me 4 × 3 = 12 saal lagenge)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="find the simple interest on ₹5,000 at 8% per annum for 3 years: si = (p × r × t) / 100 = (5000 × 8 × 3) / 100 = ₹1,200.">
+  <div class="in-note-stem">Q6.1: Find the Simple Interest on ₹5,000 at 8% per annum for 3 years:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> ₹1,000</div><div class="in-opt ans"><strong>(B)</strong> ₹1,200 ✅</div><div class="in-opt"><strong>(C)</strong> ₹1,400</div><div class="in-opt"><strong>(D)</strong> ₹1,500</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> SI = (P × R × T) / 100 = (5000 × 8 × 3) / 100 = ₹1,200.</div>
+</div><div class="in-note-q" data-search="at what rate of simple interest per annum will a sum of money double itself in 8 years? for doubling under si (si = p): r = 100 / t = 100 / 8 = 12.5%.">
+  <div class="in-note-stem">Q6.2: At what rate of Simple Interest per annum will a sum of money double itself in 8 years?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 10%</div><div class="in-opt"><strong>(B)</strong> 15%</div><div class="in-opt ans"><strong>(C)</strong> 12.5% ✅</div><div class="in-opt"><strong>(D)</strong> 8%</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> For doubling under SI (SI = P): R = 100 / T = 100 / 8 = 12.5%.</div>
+</div><div class="in-note-q" data-search="a sum of money becomes 3 times itself in 10 years at simple interest. in how many years will it become 7 times itself at the same rate? t2 = [(m − 1) / (n − 1)] × t1 = [(7 − 1) / (3 − 1)] × 10 = (6 / 2) × 10 = 30 years.">
+  <div class="in-note-stem">Q6.3: A sum of money becomes 3 times itself in 10 years at Simple Interest. In how many years will it become 7 times itself at the same rate?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 25 years</div><div class="in-opt"><strong>(B)</strong> 20 years</div><div class="in-opt"><strong>(C)</strong> 35 years</div><div class="in-opt ans"><strong>(D)</strong> 30 years ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> T2 = [(m − 1) / (n − 1)] × T1 = [(7 − 1) / (3 − 1)] × 10 = (6 / 2) × 10 = 30 years.</div>
+</div><div class="in-note-q" data-search="find the compound interest on ₹10,000 at 10% per annum for 2 years, compounded annually: effective 2-year ci rate at 10% = 10 + 10 + (10×10)/100 = 21%. ci = 21% of 10,000 = ₹2,100.">
+  <div class="in-note-stem">Q6.4: Find the Compound Interest on ₹10,000 at 10% per annum for 2 years, compounded annually:</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> ₹2,100 ✅</div><div class="in-opt"><strong>(B)</strong> ₹2,000</div><div class="in-opt"><strong>(C)</strong> ₹2,200</div><div class="in-opt"><strong>(D)</strong> ₹1,210</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Effective 2-year CI rate at 10% = 10 + 10 + (10×10)/100 = 21%. CI = 21% of 10,000 = ₹2,100.</div>
+</div><div class="in-note-q" data-search="what is the difference between compound interest and simple interest on ₹8,000 at 5% per annum for 2 years? 2-year (ci − si) = p × (r / 100)² = 8000 × (1 / 20)² = 8000 / 400 = ₹20.">
+  <div class="in-note-stem">Q6.5: What is the difference between Compound Interest and Simple Interest on ₹8,000 at 5% per annum for 2 years?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> ₹25</div><div class="in-opt ans"><strong>(B)</strong> ₹20 ✅</div><div class="in-opt"><strong>(C)</strong> ₹40</div><div class="in-opt"><strong>(D)</strong> ₹16</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> 2-Year (CI − SI) = P × (R / 100)² = 8000 × (1 / 20)² = 8000 / 400 = ₹20.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Time &amp; Work &amp; Pipes — Time &amp; Work LCM Efficiency Method, Leaving Workers &amp; M1·D1·H1 / W1</h2>
+    <span class="badge">11 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="time &amp; work lcm efficiency method, leaving workers &amp; m1·d1·h1 / w1 total work w = lcm(d1, d2, d3) • daily efficiency e_i = w / d_i • chain rule: (m1 × d1 × h1) / w1 = (m2 × d2 × h2) / w2 shortcut rules for leaving workers: (1) if worker a leaves &#x27;x&#x27; days after starting, subtract a&#x27;s x-day work from total work; (2) if worker b leaves &#x27;y&#x27; days before the completion of work, add b&#x27;s y-day work to total work and divide by the combined efficiency of all workers! hinglish tip: &#x27;kaam khatam hone se y din pehle chhod kar gaya&#x27; -&gt; us vyakti se y din zabardasti aur kaam karwa lo (total work me uska y-day kaam add kar do) aur sabकी combined efficiency se bhaag de do!">
+  <div class="sub-h">📌 7.1 Time &amp; Work LCM Efficiency Method, Leaving Workers &amp; M1·D1·H1 / W1</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Total Work W = LCM(d1, d2, d3)</li><li>🔹 Daily Efficiency E_i = W / d_i</li><li>🔹 Chain Rule: (M1 × D1 × H1) / W1 = (M2 × D2 × H2) / W2</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Shortcut Rules for Leaving Workers: (1) If worker A leaves &#x27;x<strong>' days AFTER starting, subtract A'</strong>s x-day work from Total Work</li><li>(2) If worker B leaves &#x27;y&#x27; days BEFORE the completion of work, ADD B&#x27;s y-day work to Total Work and divide by the combined efficiency of all workers!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Example: A and B can do a work in 12 and 15 days respectively (LCM = 60 units; A = 5 u/day, B = 4 u/day). They start together, but A leaves 3 days before completion. Adjusted Total Work = 60 + 3(5) = 75 units. Total days = 75 / (5 + 4) = 75/9 = 8⅓ days.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: &#x27;Kaam khatam hone se y din PEHLE chhod kar gaya&#x27; -&gt; us vyakti se y din zabardasti aur kaam karwa lo (Total Work me uska y-day kaam ADD kar do) aur sabकी combined efficiency se bhaag de do!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="a can complete a work in 12 days and b can complete the same work in 15 days. working together, in how many days will they finish the work? lcm(12, 15) = 60 units. a = 5 u/day, b = 4 u/day. together = 60 / (5 + 4) = 60 / 9 = 20/3 = 6 2/3 days.">
+  <div class="in-note-stem">Q7.1: A can complete a work in 12 days and B can complete the same work in 15 days. Working together, in how many days will they finish the work?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 7 days</div><div class="in-opt"><strong>(B)</strong> 6 days</div><div class="in-opt ans"><strong>(C)</strong> 6 and 2/3 days (20/3 days) ✅</div><div class="in-opt"><strong>(D)</strong> 7.5 days</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> LCM(12, 15) = 60 units. A = 5 u/day, B = 4 u/day. Together = 60 / (5 + 4) = 60 / 9 = 20/3 = 6 2/3 days.</div>
+</div><div class="in-note-q" data-search="a and b together can do a work in 8 days, while a alone can do it in 12 days. in how many days can b alone finish the work? b alone = (12 × 8) / (12 − 8) = 96 / 4 = 24 days.">
+  <div class="in-note-stem">Q7.2: A and B together can do a work in 8 days, while A alone can do it in 12 days. In how many days can B alone finish the work?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 16 days</div><div class="in-opt"><strong>(B)</strong> 20 days</div><div class="in-opt"><strong>(C)</strong> 18 days</div><div class="in-opt ans"><strong>(D)</strong> 24 days ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> B alone = (12 × 8) / (12 − 8) = 96 / 4 = 24 days.</div>
+</div><div class="in-note-q" data-search="15 men working 8 hours a day can build a wall in 10 days. how many days will 12 men working 10 hours a day take to build the same wall? m1 d1 h1 = m2 d2 h2 =&gt; 15 × 10 × 8 = 12 × d2 × 10 =&gt; d2 = 1200 / 120 = 10 days.">
+  <div class="in-note-stem">Q7.3: 15 men working 8 hours a day can build a wall in 10 days. How many days will 12 men working 10 hours a day take to build the same wall?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 10 days ✅</div><div class="in-opt"><strong>(B)</strong> 12 days</div><div class="in-opt"><strong>(C)</strong> 8 days</div><div class="in-opt"><strong>(D)</strong> 15 days</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> M1 D1 H1 = M2 D2 H2 =&gt; 15 × 10 × 8 = 12 × D2 × 10 =&gt; D2 = 1200 / 120 = 10 days.</div>
+</div><div class="in-note-q" data-search="a is twice as efficient as b, and together they finish a work in 14 days. in how many days can a alone finish the work? efficiency a:b = 2:1 (sum = 3). total work = 3 × 14 = 42 units. a alone = 42 / 2 = 21 days.">
+  <div class="in-note-stem">Q7.4: A is twice as efficient as B, and together they finish a work in 14 days. In how many days can A alone finish the work?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 28 days</div><div class="in-opt ans"><strong>(B)</strong> 21 days ✅</div><div class="in-opt"><strong>(C)</strong> 42 days</div><div class="in-opt"><strong>(D)</strong> 18 days</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Efficiency A:B = 2:1 (sum = 3). Total work = 3 × 14 = 42 units. A alone = 42 / 2 = 21 days.</div>
+</div><div class="in-note-q" data-search="pipe a can fill a tank in 10 hours and pipe b can empty the full tank in 15 hours. if both pipes are opened together, in how many hours will the tank be filled? net filling rate = (1/10) − (1/15) = (3 − 2)/30 = 1/30 =&gt; 30 hours.">
+  <div class="in-note-stem">Q7.5: Pipe A can fill a tank in 10 hours and Pipe B can empty the full tank in 15 hours. If both pipes are opened together, in how many hours will the tank be filled?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 25 hours</div><div class="in-opt"><strong>(B)</strong> 20 hours</div><div class="in-opt ans"><strong>(C)</strong> 30 hours ✅</div><div class="in-opt"><strong>(D)</strong> 12 hours</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Net filling rate = (1/10) − (1/15) = (3 − 2)/30 = 1/30 =&gt; 30 hours.</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Arithmetical &amp; Numerical Ability)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Solid Mensuration 2D/3D: 3D Solid Mensuration — Cylinder, Cone, Sphere, Hemisphere</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[3D Solid Mensuration — Cylinder, Cone, Sphere, Hemisphere]</strong> Cylinder Vol = πr²h, CSA = 2πrh</li><li>🔹 <strong>[3D Solid Mensuration — Cylinder, Cone, Sphere, Hemisphere]</strong> Cone Vol = (1/3)πr²h, l = √(r²+h²), CSA = πrl</li><li>🔹 <strong>[3D Solid Mensuration — Cylinder, Cone, Sphere, Hemisphere]</strong> Sphere Vol = (4/3)πr³, SA = 4πr²</li><li>🔹 <strong>[3D Solid Mensuration — Cylinder, Cone, Sphere, Hemisphere]</strong> Hemisphere Vol = (2/3)πr³, CSA = 2πr², TSA = 3πr²</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Solid Hemisphere ka Total Surface Area (TSA) 2πr² nahi balki 3πr² hota hai (2πr² curved + πr² flat circular base)! Aur Cylinder, Hemisphere, Cone agar same base radius r aur height h = r ke hon, to unke Volumes ka ratio 3 : 2 : 1 hota hai!</li><li>🔹 <strong>[2D Mensuration, Equilateral Triangle, Rhombus, Trapezium]</strong> Equilateral Δ: Area = (√3/4)a², h = (√3/2)a, Inradius r = a/(2√3), Circumradius R = a/√3 (R : r = 2 : 1, Area R:r = 4 : 1)</li><li>🔹 <strong>[2D Mensuration, Equilateral Triangle, Rhombus, Trapezium]</strong> Rhombus Area = (1/2)d1·d2 with a² = (d1/2)² + (d2/2)²</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Equilateral Triangle me Circumradius (R) aur Inradius (r) ka ratio hamesha 2 : 1 hota hai, isliye Circumcircle aur Incircle ke Area ka ratio πR² : πr² = 4 : 1 hota hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Profit, Loss &amp; Discount: Profit, Loss, Marked Price, Successive Discounts</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Profit, Loss, Marked Price, Successive Discounts]</strong> MP / CP = (100 + Profit%) / (100 − Discount%)</li><li>🔹 <strong>[Profit, Loss, Marked Price, Successive Discounts]</strong> Equivalent Single Discount for d1%, d2% = d1 + d2 − (d1·d2)/100</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: MP aur CP ka direct ratio formula: MP / CP = (100 + Profit%) / (100 − Discount%) — is ek formula se DSSSB ke 80% discount सवाल 5 second me hal hote hain!</li><li>🔹 <strong>[Dishonest Dealer False Weight]</strong> Dishonest Dealer Gain% = [(True Weight − False Weight) / False Weight] × 100</li><li>🔹 <strong>[Dishonest Dealer False Weight]</strong> <strong>'Buy X Get Y Free'</strong> Discount% = [Y / (X + Y)] × 100</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: <strong>'Buy 5 Get 3 Free'</strong> me Discount% = (3/5)×100 = 60% MAT kar dena! Dukan se kul (5 + 3 = 8) items gaye hain, isliye Discount% = (3 / 8) × 100 = 37.5% hoga!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — Ratio, Proportion &amp; Percentage — Percentage Successive Change, Price-Consumption Product Constancy &amp; Alligation</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Percentage Successive Change, Price-Consumption Product Constancy]</strong> Successive Net % Change = A + B + (A·B)/100</li><li>🔹 <strong>[Percentage Successive Change, Price-Consumption Product Constancy]</strong> If Price rises by R/D fraction, Consumption must fall by R/(D+R) for constant expenditure</li><li>🔹 <strong>[Percentage Successive Change, Price-Consumption Product Constancy]</strong> Alligation Ratio = (Dearer − Mean) : (Mean − Cheaper)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Fraction Table yaad rakhein: +1/4 (+25%) ko balance karne ke liye −1/5 (−20%) chahiye; +1/5 (+20%) ko balance karne ke liye −1/6 (−16.67%) chahiye!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Number System &amp; Algebra — Divisibility Rules (8, 9, 11, 72, 88, 99), Remainder Theorem &amp; Unit Digits</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Divisibility Rules (8, 9, 11, 72, 88, 99), Remainder Theorem]</strong> Divisibility by 72 = Div by 8 (last 3 digits) AND Div by 9 (digit sum)</li><li>🔹 <strong>[Divisibility Rules (8, 9, 11, 72, 88, 99), Remainder Theorem]</strong> Divisibility by 88 = Div by 8 AND 11</li><li>🔹 <strong>[Divisibility Rules (8, 9, 11, 72, 88, 99), Remainder Theorem]</strong> Number of Factors of N = p^a·q^b·r^c is (a+1)(b+1)(c+1)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Divisibility by 88 ya 72 me hamesha PEHLE 8 ka rule (last 3 digits) lagakar &#x27;y&#x27; nikalein, aur uske baad 9 ya 11 ka rule lagakar &#x27;x&#x27; nikalein!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Time, Speed &amp; Distance — Harmonic Average Speed, Relative Speed of Trains &amp; Boat-Stream Equations</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Harmonic Average Speed, Relative Speed of Trains]</strong> Equal-Distance Average Speed = 2xy / (x + y)</li><li>🔹 <strong>[Harmonic Average Speed, Relative Speed of Trains]</strong> km/hr to m/s: ×(5/18)</li><li>🔹 <strong>[Harmonic Average Speed, Relative Speed of Trains]</strong> m/s to km/hr: ×(18/5)</li><li>🔹 <strong>[Harmonic Average Speed, Relative Speed of Trains]</strong> Boat Speed u = (D + U)/2, Stream Speed v = (D − U)/2</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Crossing ke baad manzil par pahunchne ka time t1 aur t2 diya ho, to Speed Ratio S1 : S2 = √t2 : √t1 hota hai (aur Meeting Time T = √(t1 × t2))!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Simple &amp; Compound Interest — Compound Interest vs Simple Interest (2-Year &amp; 3-Year Difference Shortcuts)</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Compound Interest vs Simple Interest (2-Year]</strong> 2-Yr (CI − SI) = P(R/100)²</li><li>🔹 <strong>[Compound Interest vs Simple Interest (2-Year]</strong> 3-Yr (CI − SI) = P(R/100)² × (3 + R/100)</li><li>🔹 <strong>[Compound Interest vs Simple Interest (2-Year]</strong> Ratio (CI_2yr / SI_2yr) = (200 + R) / 200</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Agar CI par koi dhanrashi t saal me k guna (k times) hoti hai, to k^n guna hone me t × n saal lagenge (jaise 4 saal me 2 guna -&gt; 8 guna = 2³ hone me 4 × 3 = 12 saal lagenge)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Time &amp; Work &amp; Pipes — Time &amp; Work LCM Efficiency Method, Leaving Workers &amp; M1·D1·H1 / W1</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Time]</strong> Total Work W = LCM(d1, d2, d3)</li><li>🔹 <strong>[Time]</strong> Daily Efficiency E_i = W / d_i</li><li>🔹 <strong>[Time]</strong> Chain Rule: (M1 × D1 × H1) / W1 = (M2 × D2 × H2) / W2</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: &#x27;Kaam khatam hone se y din PEHLE chhod kar gaya&#x27; -&gt; us vyakti se y din zabardasti aur kaam karwa lo (Total Work me uska y-day kaam ADD kar do) aur sabकी combined efficiency se bhaag de do!</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

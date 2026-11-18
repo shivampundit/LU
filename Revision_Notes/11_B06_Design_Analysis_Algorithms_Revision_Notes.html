@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design &amp; Analysis of Algorithms — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Design &amp; Analysis of Algorithms</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="11_B06_Design_Analysis_Algorithms_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/11_B06_Design_Analysis_Algorithms_Question_Booklet.html">📝 Question Booklet (53 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 6–8 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Design &amp; Analysis of Algorithms (Asymptotic Notation, Divide &amp; Conquer, Sorting/Searching, Greedy, DP, Graphs &amp; NP)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/11_B06_Design_Analysis_Algorithms_Question_Booklet.html">📝 Open 53-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Asymptotic Analysis — Asympt</a><a class="pill" href="#ch2">Ch 2: Divide and Conquer — Divide </a><a class="pill" href="#ch3">Ch 3: Searching &amp; Sorting — Sortin</a><a class="pill" href="#ch4">Ch 4: Greedy Algorithms — Greedy P</a><a class="pill" href="#ch5">Ch 5: Dynamic Programming — Dynami</a><a class="pill" href="#ch6">Ch 6: Graph Algorithms &amp; MST — Gra</a><a class="pill" href="#ch7">Ch 7: NP-Completeness — Complexity</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Design &amp; Analysis of Algorithms — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Design &amp; Analysis of Algorithms (DAA) — Sorting, Master Theorem &amp; Graph Complexities</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Algorithm</th><th>Paradigm</th><th>Best Case</th><th>Average Case</th><th>Worst Case</th><th>Aux Space &amp; Stability</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Insertion Sort</strong></td><td>Incremental</td><td><mark class="hl">Θ(n)</mark> (Sorted)</td><td><code>Θ(n²)</code></td><td><code>Θ(n²)</code> (Reverse)</td><td><code>O(1)</code> In-place, <strong>Stable</strong>, Adaptive (<code>Θ(n + I)</code> for <code>I</code> inversions)</td></tr>
+    <tr><td><strong>Merge Sort</strong></td><td>Divide &amp; Conquer</td><td><code>Θ(n log n)</code></td><td><code>Θ(n log n)</code></td><td><mark class="hl">Θ(n log n)</mark></td><td><code>O(n)</code> Aux space (<code>O(1)</code> on Linked Lists), <strong>Stable</strong></td></tr>
+    <tr><td><strong>Quick Sort</strong></td><td>Divide &amp; Conquer</td><td><code>Θ(n log n)</code></td><td><code>Θ(n log n)</code></td><td><mark class="hl">Θ(n²)</mark> (Sorted pivot)</td><td><code>O(log n)</code> stack space, <strong>Unstable</strong>, fastest in practice (cache-friendly)</td></tr>
+    <tr><td><strong>Heap Sort</strong></td><td>Priority Queue / Heap</td><td><code>Θ(n log n)</code> (<code>Θ(n)</code> if all equal)</td><td><code>Θ(n log n)</code></td><td><mark class="hl">Θ(n log n)</mark></td><td><code>O(1)</code> In-place, <strong>Unstable</strong>; Building a heap bottom-up takes <strong><mark class="hl">Θ(n)</mark></strong> time!</td></tr>
+    <tr><td><strong>Dijkstra's Shortest Path</strong></td><td>Greedy</td><td>—</td><td><code>O((V + E) log V)</code> (Binary Heap)</td><td><code>O(V²)</code> (Array)</td><td>Fails on <strong>Negative Edge Weights</strong></td></tr>
+    <tr><td><strong>Bellman-Ford / Floyd-Warshall</strong></td><td>Dynamic Programming</td><td>—</td><td>Bellman-Ford: <code>Θ(V · E)</code></td><td>Floyd-Warshall: <code>Θ(V³)</code></td><td>Handles negative weights &amp; detects <strong>Negative-Weight Cycles</strong> (<code>V − 1</code> relaxations)</td></tr>
+    <tr><td><strong>Kruskal's &amp; Prim's MST</strong></td><td>Greedy</td><td>—</td><td>Kruskal: <code>O(E log E)</code> (DSU)</td><td>Prim: <code>O((V + E) log V)</code></td><td>If all edge weights are <strong>distinct</strong>, the Minimum Spanning Tree (MST) is <strong>strictly unique</strong>!</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Asymptotic Analysis — Asymptotic Notations (Big-O, Ω, Θ, o, ω), Growth Hierarchy &amp; Loop Time Complexity</h2>
+    <span class="badge">7 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="asymptotic notations (big-o, ω, θ, o, ω), growth hierarchy &amp; loop time complexity big-o (upper): 0 &lt;= f(n) &lt;= c·g(n) • big-ω (lower): f(n) &gt;= c·g(n) • big-θ (tight): c1·g(n) &lt;= f(n) &lt;= c2·g(n) • hierarchy: o(1) &lt; o(log log n) &lt; o(log n) &lt; o(√n) &lt; o(n) &lt; o(n log n) &lt; o(n²) &lt; o(2^n) &lt; o(n!) &lt; o(n^n) asymptotic notations characterize algorithm scalability as input size n -&gt; ∞. properties: transitivity holds for all 5 notations (o, ω, θ, o, ω); symmetry holds only for θ (f(n) = θ(g(n)) &lt;=&gt; g(n) = θ(f(n))); transpose symmetry holds between o and ω (f(n) = o(g(n)) &lt;=&gt; g(n) = ω(f(n))). important identity: log(n!) = θ(n log n) (stirling&#x27;s approximation), and σ_{i=1..n} (n/i) = n · h_n = θ(n log n). hinglish tip: `for(i=1; i&lt;=n; i=i*2)` loop o(log2 n) baar chalta hai; `for(i=2; i&lt;=n; i=i*i)` loop o(log log n) baar chalta hai; aur nested harmonic loop `for(i=1..n) for(j=1; j&lt;=n; j+=i)` o(n log n) time leta hai!">
+  <div class="sub-h">📌 1.1 Asymptotic Notations (Big-O, Ω, Θ, o, ω), Growth Hierarchy &amp; Loop Time Complexity</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Big-O (Upper): 0 &lt;= f(n) &lt;= c·g(n)</li><li>🔹 Big-Ω (Lower): f(n) &gt;= c·g(n)</li><li>🔹 Big-Θ (Tight): c1·g(n) &lt;= f(n) &lt;= c2·g(n)</li><li>🔹 Hierarchy: O(1) &lt; O(log log n) &lt; O(log n) &lt; O(√n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(2^n) &lt; O(n!) &lt; O(n^n)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Asymptotic notations characterize algorithm scalability as input size n -&gt; ∞.</li><li>Properties: Transitivity holds for all 5 notations (O, Ω, Θ, o, ω)</li><li>Symmetry holds ONLY for Θ (f(n) = Θ(g(n)) &lt;=&gt; g(n) = Θ(f(n)))</li><li>Transpose Symmetry holds between O and Ω (f(n) = O(g(n)) &lt;=&gt; g(n) = Ω(f(n))).</li><li>Important identity: log(n!) = Θ(n log n) (Stirling&#x27;s approximation), and Σ_{i=1..n} (n/i) = n · H_n = Θ(n log n).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Complexity Comparison: Compare f(n) = 2^n and g(n) = n^100, or f(n) = (log n)^100 and g(n) = n^0.001. Any positive polynomial n^ε asymptotically dominates any polylogarithmic function (log n)^k, and any exponential 2^n dominates n^k!</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: `for(i=1; i&lt;=n; i=i*2)` loop O(log2 n) baar chalta hai; `for(i=2; i&lt;=n; i=i*i)` loop O(log log n) baar chalta hai; aur nested harmonic loop `for(i=1..n) for(j=1; j&lt;=n; j+=i)` O(n log n) time leta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which asymptotic notation represents the &#x27;upper bound&#x27; (worst-case growth rate), &#x27;lower bound&#x27;, and &#x27;tight bound&#x27; of an algorithm? big-o is analogous to `≤`, big-omega (ω) is analogous to `≥`, and theta (θ) is analogous to `==`.">
+  <div class="in-note-stem">Q1.1: Which Asymptotic Notation represents the &#x27;Upper Bound&#x27; (worst-case growth rate), &#x27;Lower Bound&#x27;, and &#x27;Tight Bound&#x27; of an algorithm?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Big-O (O) = Upper Bound; Big-Omega (Ω) = Lower Bound; Theta (Θ) = Tight Bound ✅</div><div class="in-opt"><strong>(B)</strong> Big-O = Lower Bound; Omega = Upper Bound</div><div class="in-opt"><strong>(C)</strong> Theta = Strict Upper Bound</div><div class="in-opt"><strong>(D)</strong> All three mean Average Case</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Big-O is analogous to `≤`, Big-Omega (Ω) is analogous to `≥`, and Theta (Θ) is analogous to `==`.</div>
+</div><div class="in-note-q" data-search="arrange the following time complexities in strictly increasing order of asymptotic growth rate: `o(n), o(1), o(log n), o(n²), o(n log n), o(2^n)`: constant `o(1)` &lt; logarithmic `o(log n)` &lt; linear `o(n)` &lt; linearithmic `o(n log n)` &lt; quadratic `o(n²)` &lt; exponential `o(2^n)` &lt; factorial `o(n!)`.">
+  <div class="in-note-stem">Q1.2: Arrange the following time complexities in strictly increasing order of asymptotic growth rate: `O(n), O(1), O(log n), O(n²), O(n log n), O(2^n)`:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> O(1) &lt; O(n) &lt; O(log n) &lt; O(n log n) &lt; O(n²) &lt; O(2^n)</div><div class="in-opt ans"><strong>(B)</strong> O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(2^n) ✅</div><div class="in-opt"><strong>(C)</strong> O(log n) &lt; O(1) &lt; O(n) &lt; O(2^n) &lt; O(n²)</div><div class="in-opt"><strong>(D)</strong> O(n²) &lt; O(n log n) &lt; O(2^n)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Constant `O(1)` &lt; Logarithmic `O(log n)` &lt; Linear `O(n)` &lt; Linearithmic `O(n log n)` &lt; Quadratic `O(n²)` &lt; Exponential `O(2^n)` &lt; Factorial `O(n!)`.</div>
+</div><div class="in-note-q" data-search="what is the time complexity of the nested loop: `for(i=1; i&lt;=n; i = i*2)`? since `i` doubles (`1, 2, 4, 8, ..., 2^k ≤ n`) at each iteration, the loop executes `⌊log₂ n⌋ + 1 = o(log n)` times.">
+  <div class="in-note-stem">Q1.3: What is the time complexity of the nested loop: `for(i=1; i&lt;=n; i = i*2)`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> O(n)</div><div class="in-opt"><strong>(B)</strong> O(n²)</div><div class="in-opt ans"><strong>(C)</strong> O(log₂ n) ✅</div><div class="in-opt"><strong>(D)</strong> O(√n)</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Since `i` doubles (`1, 2, 4, 8, ..., 2^k ≤ n`) at each iteration, the loop executes `⌊log₂ n⌋ + 1 = O(log n)` times.</div>
+</div><div class="in-note-q" data-search="if an algorithm takes `t(n) = 5n³ + 20n² + 100` operations, what is its tight asymptotic time complexity? θ(n³) (drop lower-order terms and constant coefficients) — as `n -&gt; ∞`, the highest-degree term `n³` dominates.">
+  <div class="in-note-stem">Q1.4: If an algorithm takes `T(n) = 5n³ + 20n² + 100` operations, what is its tight asymptotic time complexity?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Θ(5n³)</div><div class="in-opt"><strong>(B)</strong> Θ(n²)</div><div class="in-opt"><strong>(C)</strong> Θ(100)</div><div class="in-opt ans"><strong>(D)</strong> Θ(n³) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Θ(n³) (drop lower-order terms and constant coefficients) — As `n -&gt; ∞`, the highest-degree term `n³` dominates.</div>
+</div><div class="in-note-q" data-search="what is the time complexity of the harmonic-step nested loop: `for(i=1; i&lt;=n; i++) for(j=1; j&lt;=n; j += i)`? the inner loop runs `n/i` times for `i = 1..n`. summing `n(1 + 1/2 + 1/3 + ... + 1/n) = n · h_n = θ(n log n)`.">
+  <div class="in-note-stem">Q1.5: What is the time complexity of the harmonic-step nested loop: `for(i=1; i&lt;=n; i++) for(j=1; j&lt;=n; j += i)`?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Θ(n log n) ✅</div><div class="in-opt"><strong>(B)</strong> Θ(n²)</div><div class="in-opt"><strong>(C)</strong> Θ(n)</div><div class="in-opt"><strong>(D)</strong> Θ(log n)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The inner loop runs `n/i` times for `i = 1..n`. Summing `n(1 + 1/2 + 1/3 + ... + 1/n) = n · H_n = Θ(n log n)`.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Divide and Conquer — Divide &amp; Conquer Recurrences, Master Theorem &amp; Binary Search / Merge / Quick / Strassen</h2>
+    <span class="badge">9 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="divide &amp; conquer recurrences, master theorem &amp; binary search / merge / quick / strassen master theorem for t(n) = a·t(n/b) + θ(n^k · log^p n) (a&gt;=1, b&gt;1): compare c_crit = log_b(a) vs k: (1) c_crit &gt; k -&gt; θ(n^(log_b a)); (2) c_crit == k: if p &gt; −1 -&gt; θ(n^k · log^(p+1) n), if p == −1 -&gt; θ(n^k · log log n), if p &lt; −1 -&gt; θ(n^k); (3) c_crit &lt; k -&gt; θ(n^k · log^p n) standard divide-and-conquer recurrences: (1) binary search: t(n) = t(n/2) + o(1) =&gt; θ(log n); (2) merge sort: t(n) = 2t(n/2) + θ(n) =&gt; θ(n log n) in best, average, and worst cases; (3) quick sort best/avg: t(n) = 2t(n/2) + θ(n) =&gt; θ(n log n), worst case (already sorted array with first/last pivot): t(n) = t(n−1) + θ(n) =&gt; θ(n²); (4) karatsuba fast multiplication: t(n) = 3t(n/2) + o(n) =&gt; θ(n^log2(3)) = θ(n^1.585); (5) strassen&#x27;s matrix multiplication (7 multiplications instead of 8): t(n) = 7t(n/2) + θ(n²) =&gt; θ(n^log2(7)) = θ(n^2.81); (6) binary tree traversal / min-max tournament: t(n) = 2t(n/2) + o(1) =&gt; θ(n) (with ⌈3n/2⌉ − 2 comparisons for simultaneous min &amp; max!). exam trap: simultaneous min &amp; max using divide-and-conquer takes exactly `3n/2 − 2` comparisons (versus `2n − 2` in naive linear scan)! aur strassen&#x27;s matrix multiplication 8 ke bajay 7 recursive multiplications use karta hai.">
+  <div class="sub-h">📌 2.1 Divide &amp; Conquer Recurrences, Master Theorem &amp; Binary Search / Merge / Quick / Strassen</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Master Theorem for T(n) = a·T(n/b) + Θ(n^k · log^p n) (a&gt;=1, b&gt;1): Compare c_crit = log_b(a) vs k: (1) c_crit &gt; k -&gt; Θ(n^(log_b a)); (2) c_crit == k: if p &gt; −1 -&gt; Θ(n^k · log^(p+1) n), if p == −1 -&gt; Θ(n^k · log log n), if p &lt; −1 -&gt; Θ(n^k); (3) c_crit &lt; k -&gt; Θ(n^k · log^p n)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Standard Divide-and-Conquer Recurrences: (1) Binary Search: T(n) = T(n/2) + O(1) =&gt; Θ(log n)</li><li>(2) Merge Sort: T(n) = 2T(n/2) + Θ(n) =&gt; Θ(n log n) in Best, Average, and Worst cases</li><li>(3) Quick Sort Best/Avg: T(n) = 2T(n/2) + Θ(n) =&gt; Θ(n log n), Worst Case (already sorted array with first/last pivot): T(n) = T(n−1) + Θ(n) =&gt; Θ(n²)</li><li>(4) Karatsuba Fast Multiplication: T(n) = 3T(n/2) + O(n) =&gt; Θ(n^log2(3)) = Θ(n^1.585)</li><li>(5) Strassen&#x27;s Matrix Multiplication (7 multiplications instead of 8): T(n) = 7T(n/2) + Θ(n²) =&gt; Θ(n^log2(7)) = Θ(n^2.81)</li><li>(6) Binary Tree Traversal / Min-Max tournament: T(n) = 2T(n/2) + O(1) =&gt; Θ(n) (with ⌈3n/2⌉ − 2 comparisons for simultaneous Min &amp; Max!).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Master Theorem: Solve T(n) = 4T(n/2) + n² log n. Here a = 4, b = 2 =&gt; log_b(a) = log2(4) = 2. Since k = 2 and p = 1 (Case 2 with p &gt; −1), T(n) = Θ(n² · log^(1+1) n) = Θ(n² log² n).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Simultaneous Min &amp; Max Using Divide-and-Conquer takes exactly `3n/2 − 2` comparisons (versus `2n − 2` in naive linear scan)! Aur Strassen&#x27;s Matrix Multiplication 8 ke bajay 7 recursive multiplications use karta hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="using the master theorem, what is the time complexity of the recurrence `t(n) = 2t(n/2) + θ(n)` (merge sort recurrence)? here `a = 2, b = 2 =&gt; n^(log_b a) = n¹ = n = f(n)` (master theorem case 2) =&gt; `t(n) = θ(n log n)`.">
+  <div class="in-note-stem">Q2.1: Using the Master Theorem, what is the time complexity of the recurrence `T(n) = 2T(n/2) + Θ(n)` (Merge Sort recurrence)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Θ(n)</div><div class="in-opt"><strong>(B)</strong> Θ(n²)</div><div class="in-opt"><strong>(C)</strong> Θ(log n)</div><div class="in-opt ans"><strong>(D)</strong> Θ(n log n) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Here `a = 2, b = 2 =&gt; n^(log_b a) = n¹ = n = f(n)` (Master Theorem Case 2) =&gt; `T(n) = Θ(n log n)`.</div>
+</div><div class="in-note-q" data-search="using the master theorem, what is the time complexity of the binary search recurrence `t(n) = t(n/2) + θ(1)`? here `a = 1, b = 2 =&gt; n^(log₂ 1) = n⁰ = 1 = f(n)` (case 2) =&gt; `t(n) = θ(log n)`.">
+  <div class="in-note-stem">Q2.2: Using the Master Theorem, what is the time complexity of the Binary Search recurrence `T(n) = T(n/2) + Θ(1)`?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Θ(log n) ✅</div><div class="in-opt"><strong>(B)</strong> Θ(n)</div><div class="in-opt"><strong>(C)</strong> Θ(n log n)</div><div class="in-opt"><strong>(D)</strong> Θ(1)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Here `a = 1, b = 2 =&gt; n^(log₂ 1) = n⁰ = 1 = f(n)` (Case 2) =&gt; `T(n) = Θ(log n)`.</div>
+</div><div class="in-note-q" data-search="under what input condition does quick sort experience its worst-case time complexity `o(n²)` when choosing the first or last element as the pivot? when the input array is already sorted (in ascending or descending order) or all elements are identical — an unbalanced partition of `(0)` and `(n − 1)` elements yields `t(n) = t(n − 1) + o(n) = o(n²)`. randomized pivot or median-of-three prevents this.">
+  <div class="in-note-stem">Q2.3: Under what input condition does Quick Sort experience its Worst-Case time complexity `O(n²)` when choosing the first or last element as the pivot?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> When the pivot always lands at the exact median</div><div class="in-opt ans"><strong>(B)</strong> When the input array is already sorted or all elements are identical ✅</div><div class="in-opt"><strong>(C)</strong> When the array has an even number of elements</div><div class="in-opt"><strong>(D)</strong> Quick Sort never takes O(n²)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> When the input array is already sorted (in ascending or descending order) or all elements are identical — An unbalanced partition of `(0)` and `(n − 1)` elements yields `T(n) = T(n − 1) + O(n) = O(n²)`. Randomized pivot or Median-of-Three prevents this.</div>
+</div><div class="in-note-q" data-search="what is the auxiliary space complexity of standard merge sort on an array of `n` elements vs heap sort? merge sort requires an `o(n)` temporary array for merging, whereas heap sort sorts in-place (`o(1)` extra space).">
+  <div class="in-note-stem">Q2.4: What is the auxiliary space complexity of standard Merge Sort on an array of `n` elements vs Heap Sort?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Merge Sort = O(1); Heap Sort = O(n)</div><div class="in-opt"><strong>(B)</strong> Both take O(n²) space</div><div class="in-opt ans"><strong>(C)</strong> Merge Sort = O(n) auxiliary space; Heap Sort = O(1) in-place auxiliary space ✅</div><div class="in-opt"><strong>(D)</strong> Both are O(1) in-place on arrays</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Merge Sort requires an `O(n)` temporary array for merging, whereas Heap Sort sorts in-place (`O(1)` extra space).</div>
+</div><div class="in-note-q" data-search="using the master theorem, what is the solution to the recurrence `t(n) = 4t(n/2) + θ(n)`? here `a = 4, b = 2 =&gt; n^(log₂ 4) = n² &gt; f(n) = n` (case 1) =&gt; `t(n) = θ(n²)`.">
+  <div class="in-note-stem">Q2.5: Using the Master Theorem, what is the solution to the recurrence `T(n) = 4T(n/2) + Θ(n)`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Θ(n log n)</div><div class="in-opt"><strong>(B)</strong> Θ(n)</div><div class="in-opt"><strong>(C)</strong> Θ(n³)</div><div class="in-opt ans"><strong>(D)</strong> Θ(n²) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Here `a = 4, b = 2 =&gt; n^(log₂ 4) = n² &gt; f(n) = n` (Case 1) =&gt; `T(n) = Θ(n²)`.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: Searching &amp; Sorting — Sorting &amp; Searching Master Comparison — Stability, In-Place, Swaps &amp; Decision Tree Lower Bound</h2>
+    <span class="badge">14 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="sorting &amp; searching master comparison — stability, in-place, swaps &amp; decision tree lower bound comparison-based sorting lower bound = ω(log2(n!)) = ω(n log n) • build-max-heap (bottom-up) = o(n) (not o(n log n)!) • counting sort = o(n + k) • radix sort = o(d(n + k)) comprehensive sorting matrix: (1) bubble sort: best o(n) (with flag on sorted input, 0 swaps, n−1 comparisons), avg/worst o(n²), stable, in-place o(1); (2) insertion sort: best o(n) (sorted input), avg/worst o(n²), stable, in-place o(1), fastest for tiny or nearly-sorted arrays (o(n + d) for d inversions); (3) selection sort: best/avg/worst all θ(n²) comparisons, but minimum number of swaps in worst case = o(n) (at most n−1 swaps!), unstable, in-place; (4) merge sort: best/avg/worst θ(n log n), stable, not in-place (requires o(n) auxiliary array for arrays, o(1) extra for linked lists); (5) quick sort: best/avg o(n log n), worst o(n²), unstable, in-place (o(log n) recursion stack); (6) heap sort: best/avg/worst o(n log n), unstable, in-place o(1). hinglish tip: stable sorting algorithms = bubble, insertion, merge, counting, radix (&#x27;b-i-m-c-r&#x27;); unstable = selection, quick, heap, shell! aur sabse kam swaps (o(n) max n−1 swaps) selection sort karta hai!">
+  <div class="sub-h">📌 3.1 Sorting &amp; Searching Master Comparison — Stability, In-Place, Swaps &amp; Decision Tree Lower Bound</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Comparison-Based Sorting Lower Bound = Ω(log2(n!)) = Ω(n log n)</li><li>🔹 Build-Max-Heap (Bottom-Up) = O(n) (NOT O(n log n)!)</li><li>🔹 Counting Sort = O(n + k)</li><li>🔹 Radix Sort = O(d(n + k))</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Comprehensive Sorting Matrix: (1) Bubble Sort: Best O(n) (with flag on sorted input, 0 swaps, n−1 comparisons), Avg/Worst O(n²), Stable, In-place O(1)</li><li>(2) Insertion Sort: Best O(n) (sorted input), Avg/Worst O(n²), Stable, In-place O(1), fastest for tiny or nearly-sorted arrays (O(n + d) for d inversions)</li><li>(3) Selection Sort: Best/Avg/Worst ALL Θ(n²) comparisons, but MINIMUM number of swaps in worst case = O(n) (at most n−1 swaps!), Unstable, In-place</li><li>(4) Merge Sort: Best/Avg/Worst Θ(n log n), Stable, NOT In-place (requires O(n) auxiliary array for arrays, O(1) extra for linked lists)</li><li>(5) Quick Sort: Best/Avg O(n log n), Worst O(n²), Unstable, In-place (O(log n) recursion stack)</li><li>(6) Heap Sort: Best/Avg/Worst O(n log n), Unstable, In-place O(1).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Inversion &amp; Heap Check: In a descending array of n elements, total inversions = n(n−1)/2. Bottom-up `Build-Heap` on n elements runs in linear O(n) time, whereas inserting n elements one-by-one into an initially empty heap takes O(n log n) time.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Stable Sorting Algorithms = Bubble, Insertion, Merge, Counting, Radix (<strong>'B-I-M-C-R'</strong>); Unstable = Selection, Quick, Heap, Shell! Aur sabse KAM swaps (O(n) max n−1 swaps) Selection Sort karta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what is the worst-case and best-case time complexity of binary search on a sorted array of `n` elements? worst case = o(log n); best case = o(1) (when target is at the middle element) — binary search halves the search space at each step (`o(log n)` worst case) and takes `o(1)` if the middle element matches first.">
+  <div class="in-note-stem">Q3.1: What is the Worst-Case and Best-Case time complexity of Binary Search on a sorted array of `n` elements?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Worst Case = O(log n); Best Case = O(1) ✅</div><div class="in-opt"><strong>(B)</strong> Worst Case = O(n); Best Case = O(log n)</div><div class="in-opt"><strong>(C)</strong> Both are O(n)</div><div class="in-opt"><strong>(D)</strong> Worst Case = O(n log n)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Worst Case = O(log n); Best Case = O(1) (when target is at the middle element) — Binary Search halves the search space at each step (`O(log n)` worst case) and takes `O(1)` if the middle element matches first.</div>
+</div><div class="in-note-q" data-search="which comparison-based sorting algorithm has the best performance `o(n)` on an array that is already sorted (or nearly sorted)? insertion sort makes only `n − 1` comparisons and `0` swaps on an already sorted array (`o(n)` best case).">
+  <div class="in-note-stem">Q3.2: Which comparison-based sorting algorithm has the BEST performance `O(n)` on an array that is ALREADY sorted (or nearly sorted)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Quick Sort (degrades to O(n²) on sorted array with first/last pivot!)</div><div class="in-opt ans"><strong>(B)</strong> Insertion Sort (and optimized Bubble Sort with a swap flag) ✅</div><div class="in-opt"><strong>(C)</strong> Selection Sort (always takes Θ(n²) comparisons!)</div><div class="in-opt"><strong>(D)</strong> Merge Sort (always takes Θ(n log n))</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Insertion Sort makes only `n − 1` comparisons and `0` swaps on an already sorted array (`O(n)` best case).</div>
+</div><div class="in-note-q" data-search="which sorting algorithm always performs the exact same number of comparisons `n(n − 1)/2 = θ(n²)` in best, average, and worst cases, but performs the minimum number of data swaps `o(n)`? selection sort always scans the remaining subarray (`θ(n²)` comparisons) but swaps at most `n − 1` times (`o(n)` swaps).">
+  <div class="in-note-stem">Q3.3: Which sorting algorithm ALWAYS performs the exact same number of comparisons `n(n − 1)/2 = Θ(n²)` in Best, Average, and Worst cases, but performs the MINIMUM number of data swaps `O(n)`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Insertion Sort</div><div class="in-opt"><strong>(B)</strong> Bubble Sort</div><div class="in-opt ans"><strong>(C)</strong> Selection Sort ✅</div><div class="in-opt"><strong>(D)</strong> Quick Sort</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Selection Sort always scans the remaining subarray (`Θ(n²)` comparisons) but swaps at most `n − 1` times (`O(n)` swaps).</div>
+</div><div class="in-note-q" data-search="which of the following sorting algorithms are stable (preserve the relative order of records with equal keys) by default? bubble sort, insertion sort, merge sort, counting sort, and radix sort (whereas quick sort, heap sort, and selection sort are unstable) — stable sorts: bubble, insertion, merge, counting, radix. unstable sorts: quick, heap, selection, shell.">
+  <div class="in-note-stem">Q3.4: Which of the following sorting algorithms are STABLE (preserve the relative order of records with equal keys) by default?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Quick Sort and Heap Sort are Stable</div><div class="in-opt"><strong>(B)</strong> Merge Sort is Unstable</div><div class="in-opt"><strong>(C)</strong> Selection Sort is Stable</div><div class="in-opt ans"><strong>(D)</strong> Bubble Sort, Insertion Sort, Merge Sort, Counting Sort, and Radix Sort ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Bubble Sort, Insertion Sort, Merge Sort, Counting Sort, and Radix Sort (whereas Quick Sort, Heap Sort, and Selection Sort are UNSTABLE) — Stable sorts: Bubble, Insertion, Merge, Counting, Radix. Unstable sorts: Quick, Heap, Selection, Shell.</div>
+</div><div class="in-note-q" data-search="what is the theoretical lower bound on the number of comparisons required by any comparison-based sorting algorithm in the worst case? because a comparison decision tree must have at least `n!` leaves for `n` items, its height is at least `log₂(n!) = θ(n log n)`.">
+  <div class="in-note-stem">Q3.5: What is the theoretical Lower Bound on the number of comparisons required by ANY comparison-based sorting algorithm in the worst case?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Ω(n log n) (specifically ⌈log₂(n!)⌉ ≈ n log₂ n) ✅</div><div class="in-opt"><strong>(B)</strong> Ω(n)</div><div class="in-opt"><strong>(C)</strong> Ω(n²)</div><div class="in-opt"><strong>(D)</strong> Ω(log n)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Because a comparison decision tree must have at least `n!` leaves for `n` items, its height is at least `log₂(n!) = Θ(n log n)`.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Greedy Algorithms — Greedy Paradigm — Fractional Knapsack, Huffman Coding, Job Sequencing &amp; Activity Selection</h2>
+    <span class="badge">8 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="greedy paradigm — fractional knapsack, huffman coding, job sequencing &amp; activity selection fractional knapsack = sort by value/weight ratio (p_i / w_i) in o(n log n) • huffman tree (n characters) = (n − 1) internal merges in o(n log n) • activity selection = sort by earliest finish time! a greedy algorithm makes locally optimal choices at each step relying on the greedy-choice property and optimal substructure. key greedy algorithms: (1) fractional knapsack: takes items in descending order of profit-to-weight ratio `p_i / w_i` (yields exact global optimum, unlike 0/1 knapsack where greedy fails!); (2) activity selection / interval scheduling: sort activities in ascending order of finish time `f_i` (not start time or shortest duration!); (3) huffman prefix coding: variable-length lossless compression using a min-heap priority queue (repeatedly merges the 2 lowest-frequency nodes; satisfies the prefix rule where no codeword is a prefix of another codeword). exam trap: activity selection problem me optimal greedy choice &#x27;earliest finish time&#x27; (sabse pehle khatam hone wali activity) hoti hai — &#x27;earliest start time&#x27; ya &#x27;shortest duration&#x27; galat answer deta hai!">
+  <div class="sub-h">📌 4.1 Greedy Paradigm — Fractional Knapsack, Huffman Coding, Job Sequencing &amp; Activity Selection</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Fractional Knapsack = Sort by Value/Weight ratio (p_i / w_i) in O(n log n)</li><li>🔹 Huffman Tree (n characters) = (n − 1) internal merges in O(n log n)</li><li>🔹 Activity Selection = Sort by EARLIEST Finish Time!</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>A Greedy algorithm makes locally optimal choices at each step relying on the Greedy-Choice Property and Optimal Substructure.</li><li>Key Greedy Algorithms: (1) Fractional Knapsack: Takes items in descending order of profit-to-weight ratio `p_i / w_i` (yields exact global optimum, unlike 0/1 Knapsack where Greedy fails!)</li><li>(2) Activity Selection / Interval Scheduling: Sort activities in ascending order of FINISH TIME `f_i` (NOT start time or shortest duration!)</li><li>(3) Huffman Prefix Coding: Variable-length lossless compression using a Min-Heap priority queue (repeatedly merges the 2 lowest-frequency nodes</li><li>satisfies the Prefix Rule where no codeword is a prefix of another codeword).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Huffman Coding Math: Six characters have frequencies A:5, B:9, C:12, D:13, E:16, F:45 (Total = 100). Merge 5+9=14; Merge 12+13=25; Merge 14+16=30; Merge 25+30=55; Merge 45+55=100. Code lengths: F=<mark class="hl">1 bit</mark> (&#x27;0&#x27;), C,D,E=<mark class="hl">3 bits</mark>, A,B=<mark class="hl">4 bits</mark>. Average bits/char = (45×1 + (12+13+16)×3 + (5+9)×4)/100 = 2.<mark class="hl">24 bits</mark>/char.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Activity Selection problem me optimal Greedy choice <strong>'Earliest Finish Time'</strong> (sabse pehle khatam hone wali activity) hoti hai — <strong>'Earliest Start Time'</strong> ya <strong>'Shortest Duration'</strong> galat answer deta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which algorithmic paradigm is used by (1) merge sort &amp; quick sort, (2) kruskal&#x27;s, prim&#x27;s, dijkstra&#x27;s &amp; huffman coding, and (3) floyd-warshall, bellman-ford &amp; 0/1 knapsack? note: **fractional knapsack** is solved optimally by the **greedy method** (sorting by value/weight ratio in `o(n log n)`), whereas **0/1 knapsack** requires **dynamic programming** (`o(n · w)`).">
+  <div class="in-note-stem">Q4.1: Which algorithmic paradigm is used by (1) Merge Sort &amp; Quick Sort, (2) Kruskal&#x27;s, Prim&#x27;s, Dijkstra&#x27;s &amp; Huffman Coding, and (3) Floyd-Warshall, Bellman-Ford &amp; 0/1 Knapsack?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> (1) Greedy, (2) Dynamic Programming, (3) Backtracking</div><div class="in-opt"><strong>(B)</strong> All three use Divide and Conquer</div><div class="in-opt ans"><strong>(C)</strong> (1) Divide and Conquer, (2) Greedy Method, and (3) Dynamic Programming ✅</div><div class="in-opt"><strong>(D)</strong> 0/1 Knapsack is solved by Greedy Method</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Note: **Fractional Knapsack** is solved optimally by the **Greedy Method** (sorting by Value/Weight ratio in `O(n log n)`), whereas **0/1 Knapsack** requires **Dynamic Programming** (`O(n · W)`).</div>
+</div><div class="in-note-q" data-search="why does dijkstra&#x27;s single-source shortest path algorithm fail when a graph contains negative-weight edges, and which algorithm handles negative weights? dijkstra&#x27;s greedy assumption fails when a negative edge can reduce an already finalized vertex&#x27;s distance; bellman-ford (`o(v · e)`) handles negative edge weights and detects negative cycles. bellman-ford relaxes all `e` edges `(v − 1)` times (`o(v·e)`). a `v`-th relaxation check detects any reachable negative-weight cycle.">
+  <div class="in-note-stem">Q4.2: Why does Dijkstra&#x27;s Single-Source Shortest Path algorithm fail when a graph contains negative-weight edges, and which algorithm handles negative weights?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Dijkstra works on all negative-weight cycles</div><div class="in-opt"><strong>(B)</strong> Bellman-Ford runs in O(log V) time</div><div class="in-opt"><strong>(C)</strong> Prim&#x27;s algorithm finds shortest paths with negative weights</div><div class="in-opt ans"><strong>(D)</strong> Dijkstra&#x27;s greedy assumption fails when a negative edge can reduce an already finalized vertex&#x27;s distance ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Dijkstra&#x27;s greedy assumption fails when a negative edge can reduce an already finalized vertex&#x27;s distance; Bellman-Ford (`O(V · E)`) handles negative edge weights and detects negative cycles. Bellman-Ford relaxes all `E` edges `(V − 1)` times (`O(V·E)`). A `V`-th relaxation check detects any reachable negative-weight cycle.</div>
+</div><div class="in-note-q" data-search="in the greedy fractional knapsack problem, in what order are items selected to maximize total profit? in decreasing order of their profit-to-weight ratio (`p_i / w_i`) — sorting items by `value / weight` ratio takes `o(n log n)` time and gives the exact global optimum for fractional knapsack.">
+  <div class="in-note-stem">Q4.3: In the Greedy Fractional Knapsack problem, in what order are items selected to maximize total profit?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> In decreasing order of their Profit-to-Weight ratio ✅</div><div class="in-opt"><strong>(B)</strong> In decreasing order of weight `w_i`</div><div class="in-opt"><strong>(C)</strong> In increasing order of profit `p_i`</div><div class="in-opt"><strong>(D)</strong> Random order</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> In decreasing order of their Profit-to-Weight ratio (`p_i / w_i`) — Sorting items by `Value / Weight` ratio takes `O(n log n)` time and gives the exact global optimum for Fractional Knapsack.</div>
+</div><div class="in-note-q" data-search="in huffman coding, if a character set has 5 symbols with frequencies `{5, 9, 12, 13, 16}`, which two frequencies are merged first in the greedy step? the two smallest frequencies: 5 and 9 (forming a combined internal node of weight 14) — huffman&#x27;s greedy algorithm uses a min-priority queue (min-heap) to repeatedly extract and merge the two lowest-frequency nodes in `o(n log n)` time.">
+  <div class="in-note-stem">Q4.4: In Huffman Coding, if a character set has 5 symbols with frequencies `{5, 9, 12, 13, 16}`, which two frequencies are merged FIRST in the greedy step?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> The two largest frequencies: 13 and 16</div><div class="in-opt ans"><strong>(B)</strong> The two smallest frequencies: 5 and 9 ✅</div><div class="in-opt"><strong>(C)</strong> 5 and 16</div><div class="in-opt"><strong>(D)</strong> 9 and 12</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> The two smallest frequencies: 5 and 9 (forming a combined internal node of weight 14) — Huffman&#x27;s greedy algorithm uses a Min-Priority Queue (Min-Heap) to repeatedly extract and merge the two lowest-frequency nodes in `O(n log n)` time.</div>
+</div><div class="in-note-q" data-search="in the greedy &#x27;activity selection problem&#x27; (scheduling the maximum number of non-overlapping intervals in a single lecture hall), in what order must the activities be sorted? in ascending order of their finish times (`f₁ ≤ f₂ ≤ ... ≤ f_n`) — always picking the compatible activity that **finishes earliest** leaves the maximum remaining time for future activities (`o(n log n)`).">
+  <div class="in-note-stem">Q4.5: In the Greedy &#x27;Activity Selection Problem&#x27; (scheduling the maximum number of non-overlapping intervals in a single lecture hall), in what order must the activities be sorted?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> In ascending order of their Start times</div><div class="in-opt"><strong>(B)</strong> In ascending order of their Duration (`f_i − s_i`)</div><div class="in-opt ans"><strong>(C)</strong> In ascending order of their FINISH times ✅</div><div class="in-opt"><strong>(D)</strong> In descending order of Start times</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> In ascending order of their FINISH times (`f₁ ≤ f₂ ≤ ... ≤ f_n`) — Always picking the compatible activity that **finishes earliest** leaves the maximum remaining time for future activities (`O(n log n)`).</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Dynamic Programming — Dynamic Programming — 0/1 Knapsack, LCS, Matrix Chain Multiplication, Floyd-Warshall &amp; Bellman-Ford</h2>
+    <span class="badge">6 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="dynamic programming — 0/1 knapsack, lcs, matrix chain multiplication, floyd-warshall &amp; bellman-ford 0/1 knapsack = o(n·w) (pseudo-polynomial) • longest common subsequence (lcs) = o(m·n) • matrix chain multiplication = o(n³) (catalan c_(n-1) ways) • floyd-warshall all-pairs shortest path = θ(v³) dynamic programming solves problems exhibiting optimal substructure and overlapping subproblems by storing intermediate subproblem results via top-down memoization (lookup table) or bottom-up tabulation. core recurrences: (1) 0/1 knapsack: `dp[i][w] = max(dp[i-1][w], val[i] + dp[i-1][w - wt[i]])`; (2) lcs of strings x[1..m] and y[1..n]: if `x[i] == y[j]` then `1 + l[i-1, j-1]`, else `max(l[i-1, j], l[i, j-1])`; (3) matrix chain multiplication of a_i (p_(i-1) × p_i): `m[i,j] = min_{i&lt;=k&lt;j} (m[i,k] + m[k+1,j] + p_(i-1)·p_k·p_j)`. scalar multiplications to multiply a (p × q) matrix with a (q × r) matrix is `p × q × r`. hinglish tip: divide &amp; conquer me subproblems &#x27;independent (disjoint)&#x27; hote hain, jabki dynamic programming me subproblems &#x27;overlapping&#x27; hote hain! aur floyd-warshall o(v³) dynamic programming algorithm hai.">
+  <div class="sub-h">📌 5.1 Dynamic Programming — 0/1 Knapsack, LCS, Matrix Chain Multiplication, Floyd-Warshall &amp; Bellman-Ford</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 0/1 Knapsack = O(n·W) (Pseudo-polynomial)</li><li>🔹 Longest Common Subsequence (LCS) = O(m·n)</li><li>🔹 Matrix Chain Multiplication = O(n³) (Catalan C_(n-1) ways)</li><li>🔹 Floyd-Warshall All-Pairs Shortest Path = Θ(V³)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Dynamic Programming solves problems exhibiting Optimal Substructure AND Overlapping Subproblems by storing intermediate subproblem results via Top-Down Memoization (lookup table) or Bottom-Up Tabulation.</li><li>Core Recurrences: (1) 0/1 Knapsack: `dp[i][w] = max(dp[i-1][w], val[i] + dp[i-1][w - wt[i]])`</li><li>(2) LCS of strings X[1..m] and Y[1..n]: if `X[i] == Y[j]` then `1 + L[i-1, j-1]`, else `max(L[i-1, j], L[i, j-1])`</li><li>(3) Matrix Chain Multiplication of A_i (p_(i-1) × p_i): `m[i,j] = min_{i&lt;=k&lt;j} (m[i,k] + m[k+1,j] + p_(i-1)·p_k·p_j)`.</li><li>Scalar multiplications to multiply a (p × q) matrix with a (q × r) matrix is `p × q × r`.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Matrix Chain Math: Multiply 3 matrices A1(10×100), A2(100×5), A3(5×50). Parenthesization 1: `((A1·A2)·A3)` costs `10×100×5 + 10×5×50 = 5,000 + 2,500 = 7,500` multiplications. Parenthesization 2: `(A1·(A2·A3))` costs `100×5×50 + 10×100×50 = 25,000 + 50,000 = 75,000` multiplications! Optimal cost = 7,500.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Divide &amp; Conquer me subproblems <strong>'Independent (Disjoint)'</strong> hote hain, jabki Dynamic Programming me subproblems <strong>'Overlapping'</strong> hote hain! Aur Floyd-Warshall O(V³) Dynamic Programming algorithm hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what are the two core hallmarks of a problem that can be solved by dynamic programming (dp)? 1. optimal substructure and 2. overlapping subproblems (solved via memoization or tabulation) — divide &amp; conquer solves disjoint (independent) subproblems, whereas dynamic programming caches answers to **overlapping subproblems** in a table.">
+  <div class="in-note-stem">Q5.1: What are the two core hallmarks of a problem that can be solved by Dynamic Programming (DP)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1. Random Guessing and 2. No Subproblems</div><div class="in-opt"><strong>(B)</strong> 1. Divide and Conquer without overlap</div><div class="in-opt ans"><strong>(C)</strong> 1. Optimal Substructure and 2. Overlapping Subproblems ✅</div><div class="in-opt"><strong>(D)</strong> 1. Exponential Memory only</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> 1. Optimal Substructure and 2. Overlapping Subproblems (solved via Memoization or Tabulation) — Divide &amp; Conquer solves disjoint (independent) subproblems, whereas Dynamic Programming caches answers to **Overlapping Subproblems** in a table.</div>
+</div><div class="in-note-q" data-search="what is the time complexity of the dynamic programming solution for the 0/1 knapsack problem with `n` items and knapsack capacity `w`? θ(n × w) (pseudo-polynomial time) — the 2d dp table `dp[0..n][0..w]` has `(n + 1)(w + 1)` cells, each filled in `o(1)` time via `max(dp[i-1][w], val[i] + dp[i-1][w - wt[i]])`.">
+  <div class="in-note-stem">Q5.2: What is the time complexity of the Dynamic Programming solution for the 0/1 Knapsack problem with `n` items and knapsack capacity `W`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Θ(n log n)</div><div class="in-opt"><strong>(B)</strong> Θ(n²)</div><div class="in-opt"><strong>(C)</strong> Θ(W²)</div><div class="in-opt ans"><strong>(D)</strong> Θ(n × W) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Θ(n × W) (Pseudo-polynomial time) — The 2D DP table `dp[0..n][0..W]` has `(n + 1)(W + 1)` cells, each filled in `O(1)` time via `max(dp[i-1][w], val[i] + dp[i-1][w - wt[i]])`.</div>
+</div><div class="in-note-q" data-search="in the longest common subsequence (lcs) problem for two strings `x = &#x27;abcbdab&#x27;` (length `m`) and `y = &#x27;bdcaba&#x27;` (length `n`), what is the dp time complexity? the 2d lcs table `l[0..m][0..n]` takes `θ(m × n)` time (and can be optimized to `o(min(m, n))` space).">
+  <div class="in-note-stem">Q5.3: In the Longest Common Subsequence (LCS) problem for two strings `X = &#x27;ABCBDAB&#x27;` (length `m`) and `Y = &#x27;BDCABA&#x27;` (length `n`), what is the DP time complexity?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Θ(m × n) ✅</div><div class="in-opt"><strong>(B)</strong> Θ(m + n)</div><div class="in-opt"><strong>(C)</strong> Θ(2^m)</div><div class="in-opt"><strong>(D)</strong> Θ(m log n)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The 2D LCS table `L[0..m][0..n]` takes `Θ(m × n)` time (and can be optimized to `O(min(m, n))` space).</div>
+</div><div class="in-note-q" data-search="which dynamic programming algorithm computes all-pairs shortest paths (apsp) between every pair of vertices in a weighted graph in `θ(v³)` time? floyd-warshall algorithm (`d[i][j] = min(d[i][j], d[i][k] + d[k][j])`) — floyd-warshall uses 3 nested loops (`k, i, j` from `1` to `v`) in `θ(v³)` time and `θ(v²)` space (warshall&#x27;s algorithm computes transitive closure in `θ(v³)`).">
+  <div class="in-note-stem">Q5.4: Which Dynamic Programming algorithm computes All-Pairs Shortest Paths (APSP) between every pair of vertices in a weighted graph in `Θ(V³)` time?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Dijkstra&#x27;s Algorithm</div><div class="in-opt ans"><strong>(B)</strong> Floyd-Warshall Algorithm (`D[i][j] = min`) ✅</div><div class="in-opt"><strong>(C)</strong> Prim&#x27;s Algorithm</div><div class="in-opt"><strong>(D)</strong> Kruskal&#x27;s Algorithm</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Floyd-Warshall Algorithm (`D[i][j] = min(D[i][j], D[i][k] + D[k][j])`) — Floyd-Warshall uses 3 nested loops (`k, i, j` from `1` to `V`) in `Θ(V³)` time and `Θ(V²)` space (Warshall&#x27;s algorithm computes Transitive Closure in `Θ(V³)`).</div>
+</div><div class="in-note-q" data-search="in dynamic programming, storing already computed subproblem results in a lookup table to avoid re-computation is called: memoization caches recursive subproblem outputs so each overlapping subproblem is solved only once.">
+  <div class="in-note-stem">Q5.5: In Dynamic Programming, storing already computed subproblem results in a lookup table to avoid re-computation is called:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Backtracking</div><div class="in-opt"><strong>(B)</strong> Hashing</div><div class="in-opt ans"><strong>(C)</strong> Memoization (Top-Down) or Tabulation (Bottom-Up) ✅</div><div class="in-opt"><strong>(D)</strong> Recursion only</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Memoization caches recursive subproblem outputs so each overlapping subproblem is solved only once.</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Graph Algorithms &amp; MST — Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST &amp; Dijkstra vs Bellman-Ford</h2>
+    <span class="badge">7 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="graph algorithms — bfs, dfs, topological sort, kruskal/prim mst &amp; dijkstra vs bellman-ford bfs / dfs (adjacency list) = θ(v + e), (adjacency matrix) = θ(v²) • kruskal mst = o(e log e) or o(e log v) • prim mst (binary heap) = o((v + e) log v) • dijkstra = o((v + e) log v) • bellman-ford = o(v · e) bfs uses a fifo queue (finds shortest path in unweighted graphs and level-order traversal); dfs uses a lifo stack / recursion (detects cycles via back edges, finds articulation points, connected components, and topological sort of a dag). minimum spanning tree (mst — connects all v vertices with exactly v − 1 edges and minimum total weight): kruskal&#x27;s algorithm sorts all edges and adds the lightest edge that doesn&#x27;t form a cycle using disjoint-set union-find (best for sparse graphs); prim&#x27;s algorithm grows a single connected tree from a start vertex (best for dense graphs). shortest path: dijkstra&#x27;s greedy algorithm fails on negative edge weights (particularly negative cycles); bellman-ford relaxes all e edges (v − 1) times (handles negative weights and detects negative-weight cycles on the v-th iteration). exam trap: agar graph ke saare edge weights distinct (alag-alag) hon, to us graph ka minimum spanning tree (mst) hamesha 100% unique hota hai! aur dijkstra negative weight edges par fail ho sakta hai, jabki bellman-ford o(v·e) me sahi kaam karta hai.">
+  <div class="sub-h">📌 6.1 Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST &amp; Dijkstra vs Bellman-Ford</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 BFS / DFS (Adjacency List) = Θ(V + E), (Adjacency Matrix) = Θ(V²)</li><li>🔹 Kruskal MST = O(E log E) or O(E log V)</li><li>🔹 Prim MST (Binary Heap) = O((V + E) log V)</li><li>🔹 Dijkstra = O((V + E) log V)</li><li>🔹 Bellman-Ford = O(V · E)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>BFS uses a FIFO Queue (finds shortest path in unweighted graphs and level-order traversal)</li><li>DFS uses a LIFO Stack / Recursion (detects cycles via Back Edges, finds Articulation Points, Connected Components, and Topological Sort of a DAG).</li><li>Minimum Spanning Tree (MST — connects all V vertices with exactly V − 1 edges and minimum total weight): Kruskal&#x27;s Algorithm sorts all edges and adds the lightest edge that doesn&#x27;t form a cycle using Disjoint-Set Union-Find (best for sparse graphs)</li><li>Prim&#x27;s Algorithm grows a single connected tree from a start vertex (best for dense graphs).</li><li>Shortest Path: Dijkstra&#x27;s Greedy algorithm fails on negative edge weights (particularly negative cycles)</li><li>Bellman-Ford relaxes all E edges (V − 1) times (handles negative weights and detects negative-weight cycles on the V-th iteration).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Spanning Tree Count (Cayley&#x27;s Formula): A complete undirected graph K_n on n labeled vertices has exactly n^(n−2) distinct spanning trees (e.g., for K_3 -&gt; 3^1 = 3; for K_4 -&gt; 4^2 = 16; for K_5 -&gt; 5^3 = 125 spanning trees).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Agar graph ke saare edge weights DISTINCT (alag-alag) hon, to us graph ka Minimum Spanning Tree (MST) hamesha 100% UNIQUE hota hai! Aur Dijkstra negative weight edges par fail ho sakta hai, jabki Bellman-Ford O(V·E) me sahi kaam karta hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what data structure is used by breadth-first search (bfs) vs depth-first search (dfs) on a graph `g(v, e)`, and what is their time complexity using adjacency lists? bfs uses a fifo queue; dfs uses a lifo stack; both run in o(v + e) time with adjacency lists (and o(v²) with adjacency matrix). bfs uses a fifo queue; dfs uses a lifo stack (or recursion); both run in o(v + e) time with adjacency lists (and o(v²) with adjacency matrix) — bfs explores level-by-level using a queue (finding shortest paths in unweighted graphs); dfs explores deep using a stack/recursion.">
+  <div class="in-note-stem">Q6.1: What data structure is used by Breadth-First Search (BFS) vs Depth-First Search (DFS) on a graph `G(V, E)`, and what is their time complexity using Adjacency Lists?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> BFS uses a FIFO Queue ✅</div><div class="in-opt"><strong>(B)</strong> BFS uses a Stack and DFS uses a Queue</div><div class="in-opt"><strong>(C)</strong> Both take O(V³) time</div><div class="in-opt"><strong>(D)</strong> BFS cannot find shortest paths in unweighted graphs</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> BFS uses a FIFO Queue; DFS uses a LIFO Stack; both run in O(V + E) time with Adjacency Lists (and O(V²) with Adjacency Matrix). BFS uses a FIFO Queue; DFS uses a LIFO Stack (or Recursion); both run in O(V + E) time with Adjacency Lists (and O(V²) with Adjacency Matrix) — BFS explores level-by-level using a Queue (finding shortest paths in unweighted graphs); DFS explores deep using a Stack/Recursion.</div>
+</div><div class="in-note-q" data-search="in a directed acyclic graph (dag), what is a &#x27;topological sort&#x27;, and can a graph with a directed cycle have a topological sort? a linear ordering of vertices such that for every directed edge `u -&gt; v`, vertex `u` comes before `v`; a graph with a cycle cannot have a topological sort. topological sort (via kahn&#x27;s in-degree bfs queue algorithm or dfs finishing times) runs in `o(v + e)` linear time and exists iff the directed graph is a **dag**.">
+  <div class="in-note-stem">Q6.2: In a Directed Acyclic Graph (DAG), what is a &#x27;Topological Sort&#x27;, and can a graph with a directed cycle have a Topological Sort?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Every cyclic graph has a Topological Sort</div><div class="in-opt ans"><strong>(B)</strong> A linear ordering of vertices such that for every directed edge `u -&gt; v`, vertex `u` comes before `v` ✅</div><div class="in-opt"><strong>(C)</strong> Topological Sort works only on undirected trees</div><div class="in-opt"><strong>(D)</strong> It requires O(2^V) time</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A linear ordering of vertices such that for every directed edge `u -&gt; v`, vertex `u` comes before `v`; a graph with a cycle CANNOT have a Topological Sort. Topological Sort (via Kahn&#x27;s In-degree BFS Queue algorithm or DFS finishing times) runs in `O(V + E)` linear time and exists iff the directed graph is a **DAG**.</div>
+</div><div class="in-note-q" data-search="in dfs traversal of a directed graph, the presence of which type of edge indicates that the graph contains a directed cycle? a back edge (an edge pointing from a vertex to one of its active ancestors in the recursion stack) — a directed graph has a cycle if and only if a dfs traversal encounters a **back edge**.">
+  <div class="in-note-stem">Q6.3: In DFS traversal of a Directed Graph, the presence of which type of edge indicates that the graph contains a Directed Cycle?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A Tree Edge</div><div class="in-opt"><strong>(B)</strong> A Forward Edge</div><div class="in-opt ans"><strong>(C)</strong> A Back Edge ✅</div><div class="in-opt"><strong>(D)</strong> A Cross Edge</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> A Back Edge (an edge pointing from a vertex to one of its active ancestors in the recursion stack) — A directed graph has a cycle if and only if a DFS traversal encounters a **Back Edge**.</div>
+</div><div class="in-note-q" data-search="which algorithmic technique systematically searches a state-space tree depth-first and prunes branches as soon as a partial candidate violates constraints (used in the n-queens problem, sudoku, and graph coloring)? backtracking (dfs with bounding function) solves constraint-satisfaction problems; branch-and-bound (bfs / least-cost search) solves optimization problems like tsp.">
+  <div class="in-note-stem">Q6.4: Which algorithmic technique systematically searches a state-space tree depth-first and prunes branches as soon as a partial candidate violates constraints (used in the N-Queens Problem, Sudoku, and Graph Coloring)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Greedy Method</div><div class="in-opt"><strong>(B)</strong> Divide and Conquer</div><div class="in-opt"><strong>(C)</strong> Binary Search</div><div class="in-opt ans"><strong>(D)</strong> Backtracking ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Backtracking (DFS with bounding function) solves constraint-satisfaction problems; Branch-and-Bound (BFS / Least-Cost search) solves optimization problems like TSP.</div>
+</div><div class="in-note-q" data-search="in string pattern matching, which algorithm uses a rolling hash function to match a pattern of length `m` in a text of length `n` in `o(n + m)` average time, and which algorithm uses a prefix table (`lps` array) to achieve `θ(n + m)` worst-case time without backing up the text pointer? rabin-karp uses a rolling hash; kmp (knuth-morris-pratt) uses the lps array. rabin-karp uses a rolling hash; kmp (knuth-morris-pratt) uses the lps (longest proper prefix which is also suffix) array — naive string matching takes `o(n · m)` worst-case time; kmp never decrements the text index and guarantees `θ(n + m)` worst-case time.">
+  <div class="in-note-stem">Q6.5: In string pattern matching, which algorithm uses a rolling hash function to match a pattern of length `m` in a text of length `n` in `O(n + m)` average time, and which algorithm uses a Prefix Table (`LPS` array) to achieve `Θ(n + m)` worst-case time without backing up the text pointer?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Rabin-Karp uses a Rolling Hash ✅</div><div class="in-opt"><strong>(B)</strong> Naive Brute Force uses a Rolling Hash</div><div class="in-opt"><strong>(C)</strong> Dijkstra is a string matching algorithm</div><div class="in-opt"><strong>(D)</strong> KMP takes O(n × m) worst-case time</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Rabin-Karp uses a Rolling Hash; KMP (Knuth-Morris-Pratt) uses the LPS array. Rabin-Karp uses a Rolling Hash; KMP (Knuth-Morris-Pratt) uses the LPS (Longest Proper Prefix which is also Suffix) array — Naive string matching takes `O(n · m)` worst-case time; KMP never decrements the text index and guarantees `Θ(n + m)` worst-case time.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: NP-Completeness — Complexity Classes — P, NP, NP-Hard, NP-Complete, Polynomial Reductions &amp; Cook-Levin Theorem</h2>
+    <span class="badge">2 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="complexity classes — p, np, np-hard, np-complete, polynomial reductions &amp; cook-levin theorem polynomial-time reduction a &lt;=_p b: if a is np-hard and a &lt;=_p b, then b is np-hard! • np-complete = np ∩ np-hard • cook-levin theorem (1971): 3-sat / sat is the first np-complete problem class p: decision problems solvable in polynomial time o(n^k) by a deterministic turing machine (e.g., sorting, shortest path, mst, 2-sat, eulerian circuit, linear programming). class np (nondeterministic polynomial time): decision problems solvable in polynomial time by a nondeterministic turing machine, equivalently problems whose candidate solution (certificate) can be verified in deterministic polynomial time! note: p ⊆ np is proven true. a problem x is np-hard if every problem in np reduces to x in polynomial time (y &lt;=_p x); x does not have to be in np itself (e.g., the halting problem is np-hard and undecidable, so not in np!). x is np-complete if (1) x ∈ np, and (2) x is np-hard. classic np-complete problems: 3-sat, clique, vertex cover, independent set, hamiltonian cycle, travelling salesman decision problem (tsp), graph k-coloring (k&gt;=3), subset sum, 0/1 knapsack. hinglish tip: &#x27;np&#x27; ka full form &#x27;non-polynomial&#x27; nahi balki &#x27;nondeterministic polynomial time&#x27; hota hai! aur eulerian circuit (visit every edge once) o(v+e) class p me hai, jabki hamiltonian cycle (visit every vertex once) np-complete hai!">
+  <div class="sub-h">📌 7.1 Complexity Classes — P, NP, NP-Hard, NP-Complete, Polynomial Reductions &amp; Cook-Levin Theorem</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Polynomial-Time Reduction A &lt;=_p B: If A is NP-Hard and A &lt;=_p B, then B is NP-Hard!</li><li>🔹 NP-Complete = NP ∩ NP-Hard</li><li>🔹 Cook-Levin Theorem (<mark class="hl">1971</mark>): 3-SAT / SAT is the FIRST NP-Complete problem</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Class P: Decision problems solvable in polynomial time O(n^k) by a Deterministic Turing Machine (e.g., Sorting, Shortest Path, MST, 2-SAT, Eulerian Circuit, Linear Programming).</li><li>Class NP (Nondeterministic Polynomial time): Decision problems solvable in polynomial time by a Nondeterministic Turing Machine, equivalently problems whose candidate solution (certificate) can be VERIFIED in deterministic polynomial time!</li><li>Note: P ⊆ NP is proven true.</li><li>A problem X is NP-Hard if every problem in NP reduces to X in polynomial time (Y &lt;=_p X)</li><li>X does not have to be in NP itself (e.g., the Halting Problem is NP-Hard and Undecidable, so not in NP!).</li><li>X is NP-Complete if (1) X ∈ NP, AND (2) X is NP-Hard.</li><li>Classic NP-Complete Problems: 3-SAT, Clique, Vertex Cover, Independent Set, Hamiltonian Cycle, Travelling Salesman Decision Problem (TSP), Graph k-Coloring (k&gt;=3), Subset Sum, 0/1 Knapsack.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Reduction Direction Trap: To prove a new problem B is NP-Hard using a known NP-Complete problem A (like 3-SAT), you must reduce A TO B (`3-SAT &lt;=_p B`), NEVER B to 3-SAT!</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: <strong>'NP'</strong> ka full form <strong>'Non-Polynomial'</strong> NAHI balki <strong>'Nondeterministic Polynomial Time'</strong> hota hai! Aur Eulerian Circuit (visit every edge once) O(V+E) Class P me hai, jabki Hamiltonian Cycle (visit every vertex once) NP-Complete hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in computational complexity theory, what is the relation among `p`, `np`, `np-hard`, and `np-complete` problems? p ⊆ np; a problem is np-complete if it is both in np (verifiable in polynomial time) and np-hard (every problem in np reduces to it in polynomial time) — classic np-complete problems: 3-sat (cook-levin theorem), traveling salesperson decision (tsp), 0/1 knapsack, hamiltonian cycle, vertex cover, graph coloring. the halting problem is undecidable (np-hard, not in np).">
+  <div class="in-note-stem">Q7.1: In Computational Complexity Theory, what is the relation among `P`, `NP`, `NP-Hard`, and `NP-Complete` problems?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> NP-Complete problems cannot be verified in polynomial time</div><div class="in-opt"><strong>(B)</strong> Sorting and Binary Search are NP-Complete</div><div class="in-opt"><strong>(C)</strong> Halting Problem is in P</div><div class="in-opt ans"><strong>(D)</strong> P ⊆ NP; a problem is NP-Complete if it is BOTH in NP AND NP-Hard ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> P ⊆ NP; a problem is NP-Complete if it is BOTH in NP (verifiable in polynomial time) AND NP-Hard (every problem in NP reduces to it in polynomial time) — Classic NP-Complete problems: 3-SAT (Cook-Levin Theorem), Traveling Salesperson Decision (TSP), 0/1 Knapsack, Hamiltonian Cycle, Vertex Cover, Graph Coloring. The Halting Problem is Undecidable (NP-Hard, not in NP).</div>
+</div><div class="in-note-q" data-search="if problem a reduces to problem b in polynomial time (`a ≤_p b`) and problem b can be solved in polynomial time (`b ∈ p`), then: problem a is also in p (solvable in polynomial time) — polynomial-time reducibility transfers polynomial solvability backward from b to a.">
+  <div class="in-note-stem">Q7.2: If Problem A reduces to Problem B in polynomial time (`A ≤_p B`) and Problem B can be solved in polynomial time (`B ∈ P`), then:</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Problem A is also in P ✅</div><div class="in-opt"><strong>(B)</strong> Problem A is NP-Complete</div><div class="in-opt"><strong>(C)</strong> Problem A is Undecidable</div><div class="in-opt"><strong>(D)</strong> Problem B is exponential</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Problem A is also in P (solvable in polynomial time) — Polynomial-time reducibility transfers polynomial solvability backward from B to A.</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Design &amp; Analysis of Algorithms)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Asymptotic Analysis — Asymptotic Notations (Big-O, Ω, Θ, o, ω), Growth Hierarchy &amp; Loop Time Complexity</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Asymptotic Notations (Big-O, Ω, Θ, o, ω), Growth Hierarchy]</strong> Big-O (Upper): 0 &lt;= f(n) &lt;= c·g(n)</li><li>🔹 <strong>[Asymptotic Notations (Big-O, Ω, Θ, o, ω), Growth Hierarchy]</strong> Big-Ω (Lower): f(n) &gt;= c·g(n)</li><li>🔹 <strong>[Asymptotic Notations (Big-O, Ω, Θ, o, ω), Growth Hierarchy]</strong> Big-Θ (Tight): c1·g(n) &lt;= f(n) &lt;= c2·g(n)</li><li>🔹 <strong>[Asymptotic Notations (Big-O, Ω, Θ, o, ω), Growth Hierarchy]</strong> Hierarchy: O(1) &lt; O(log log n) &lt; O(log n) &lt; O(√n) &lt; O(n) &lt; O(n log n) &lt; O(n²) &lt; O(2^n) &lt; O(n!) &lt; O(n^n)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: `for(i=1; i&lt;=n; i=i*2)` loop O(log2 n) baar chalta hai; `for(i=2; i&lt;=n; i=i*i)` loop O(log log n) baar chalta hai; aur nested harmonic loop `for(i=1..n) for(j=1; j&lt;=n; j+=i)` O(n log n) time leta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Divide and Conquer — Divide &amp; Conquer Recurrences, Master Theorem &amp; Binary Search / Merge / Quick / Strassen</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Divide]</strong> Master Theorem for T(n) = a·T(n/b) + Θ(n^k · log^p n) (a&gt;=1, b&gt;1): Compare c_crit = log_b(a) vs k: (1) c_crit &gt; k -&gt; Θ(n^(log_b a)); (2) c_crit == k: if p &gt; −1 -&gt; Θ(n^k · log^(p+1) n), if p == −1 -&gt; Θ(n^k · log log n), if p &lt; −1 -&gt; Θ(n^k); (3) c_crit &lt; k -&gt; Θ(n^k · log^p n)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Simultaneous Min &amp; Max Using Divide-and-Conquer takes exactly `3n/2 − 2` comparisons (versus `2n − 2` in naive linear scan)! Aur Strassen&#x27;s Matrix Multiplication 8 ke bajay 7 recursive multiplications use karta hai.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — Searching &amp; Sorting — Sorting &amp; Searching Master Comparison — Stability, In-Place, Swaps &amp; Decision Tree Lower Bound</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Sorting]</strong> Comparison-Based Sorting Lower Bound = Ω(log2(n!)) = Ω(n log n)</li><li>🔹 <strong>[Sorting]</strong> Build-Max-Heap (Bottom-Up) = O(n) (NOT O(n log n)!)</li><li>🔹 <strong>[Sorting]</strong> Counting Sort = O(n + k)</li><li>🔹 <strong>[Sorting]</strong> Radix Sort = O(d(n + k))</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Stable Sorting Algorithms = Bubble, Insertion, Merge, Counting, Radix (<strong>'B-I-M-C-R'</strong>); Unstable = Selection, Quick, Heap, Shell! Aur sabse KAM swaps (O(n) max n−1 swaps) Selection Sort karta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Greedy Algorithms — Greedy Paradigm — Fractional Knapsack, Huffman Coding, Job Sequencing &amp; Activity Selection</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Greedy Paradigm — Fractional Knapsack, Huffman Coding, Job Sequencing]</strong> Fractional Knapsack = Sort by Value/Weight ratio (p_i / w_i) in O(n log n)</li><li>🔹 <strong>[Greedy Paradigm — Fractional Knapsack, Huffman Coding, Job Sequencing]</strong> Huffman Tree (n characters) = (n − 1) internal merges in O(n log n)</li><li>🔹 <strong>[Greedy Paradigm — Fractional Knapsack, Huffman Coding, Job Sequencing]</strong> Activity Selection = Sort by EARLIEST Finish Time!</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Activity Selection problem me optimal Greedy choice <strong>'Earliest Finish Time'</strong> (sabse pehle khatam hone wali activity) hoti hai — <strong>'Earliest Start Time'</strong> ya <strong>'Shortest Duration'</strong> galat answer deta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Dynamic Programming — Dynamic Programming — 0/1 Knapsack, LCS, Matrix Chain Multiplication, Floyd-Warshall &amp; Bellman-Ford</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Dynamic Programming — 0/1 Knapsack, LCS, Matrix Chain Multiplication, Floyd-Warshall]</strong> 0/1 Knapsack = O(n·W) (Pseudo-polynomial)</li><li>🔹 <strong>[Dynamic Programming — 0/1 Knapsack, LCS, Matrix Chain Multiplication, Floyd-Warshall]</strong> Longest Common Subsequence (LCS) = O(m·n)</li><li>🔹 <strong>[Dynamic Programming — 0/1 Knapsack, LCS, Matrix Chain Multiplication, Floyd-Warshall]</strong> Matrix Chain Multiplication = O(n³) (Catalan C_(n-1) ways)</li><li>🔹 <strong>[Dynamic Programming — 0/1 Knapsack, LCS, Matrix Chain Multiplication, Floyd-Warshall]</strong> Floyd-Warshall All-Pairs Shortest Path = Θ(V³)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Divide &amp; Conquer me subproblems <strong>'Independent (Disjoint)'</strong> hote hain, jabki Dynamic Programming me subproblems <strong>'Overlapping'</strong> hote hain! Aur Floyd-Warshall O(V³) Dynamic Programming algorithm hai.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Graph Algorithms &amp; MST — Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST &amp; Dijkstra vs Bellman-Ford</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST]</strong> BFS / DFS (Adjacency List) = Θ(V + E), (Adjacency Matrix) = Θ(V²)</li><li>🔹 <strong>[Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST]</strong> Kruskal MST = O(E log E) or O(E log V)</li><li>🔹 <strong>[Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST]</strong> Prim MST (Binary Heap) = O((V + E) log V)</li><li>🔹 <strong>[Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST]</strong> Dijkstra = O((V + E) log V)</li><li>🔹 <strong>[Graph Algorithms — BFS, DFS, Topological Sort, Kruskal/Prim MST]</strong> Bellman-Ford = O(V · E)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Agar graph ke saare edge weights DISTINCT (alag-alag) hon, to us graph ka Minimum Spanning Tree (MST) hamesha 100% UNIQUE hota hai! Aur Dijkstra negative weight edges par fail ho sakta hai, jabki Bellman-Ford O(V·E) me sahi kaam karta hai.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — NP-Completeness — Complexity Classes — P, NP, NP-Hard, NP-Complete, Polynomial Reductions &amp; Cook-Levin Theorem</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Complexity Classes — P, NP, NP-Hard, NP-Complete, Polynomial Reductions]</strong> Polynomial-Time Reduction A &lt;=_p B: If A is NP-Hard and A &lt;=_p B, then B is NP-Hard!</li><li>🔹 <strong>[Complexity Classes — P, NP, NP-Hard, NP-Complete, Polynomial Reductions]</strong> NP-Complete = NP ∩ NP-Hard</li><li>🔹 <strong>[Complexity Classes — P, NP, NP-Hard, NP-Complete, Polynomial Reductions]</strong> Cook-Levin Theorem (<mark class="hl">1971</mark>): 3-SAT / SAT is the FIRST NP-Complete problem</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: <strong>'NP'</strong> ka full form <strong>'Non-Polynomial'</strong> NAHI balki <strong>'Nondeterministic Polynomial Time'</strong> hota hai! Aur Eulerian Circuit (visit every edge once) O(V+E) Class P me hai, jabki Hamiltonian Cycle (visit every vertex once) NP-Complete hai!</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

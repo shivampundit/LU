@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Fundamentals &amp; Architecture — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Computer Fundamentals &amp; Architecture</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="08_B03_Computer_Architecture_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/08_B03_Computer_Architecture_Question_Booklet.html">📝 Question Booklet (85 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 10–12 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Computer Fundamentals &amp; Architecture (Generations, Cache Memory, CPU Registers, Addressing Modes, IEEE-754, Pipelining &amp; I/O)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/08_B03_Computer_Architecture_Question_Booklet.html">📝 Open 85-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Generations &amp; History — Five</a><a class="pill" href="#ch2">Ch 2: Memory Hierarchy &amp; Cache — M</a><a class="pill" href="#ch3">Ch 3: CPU &amp; Instruction Cycle — CP</a><a class="pill" href="#ch4">Ch 4: Addressing Modes — Addressin</a><a class="pill" href="#ch5">Ch 5: Data Rep &amp; IEEE 754 — IEEE 7</a><a class="pill" href="#ch6">Ch 6: Pipelining &amp; Hazards — Instr</a><a class="pill" href="#ch7">Ch 7: I/O &amp; DMA Organization — I/O</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Computer Fundamentals &amp; Architecture — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Computer Architecture (COA) — Addressing Modes, Cache Mapping &amp; Hazards</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>COA Mechanism</th><th>Formula / Address Partition</th><th>Core Technical Characteristics &amp; Exam Applications</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Cache Mapping (M-bit Physical Address)</strong></td><td>Block Offset = <code>b = log2(Block_Size)</code> bits<br>Cache Lines = <code>L = Cache_Size / Block_Size</code></td><td><strong>1. Direct Mapped:</strong> <code>Tag = M − l − b</code>, <code>Line Index = l = log2(L)</code>, <code>Offset = b</code> (Fast lookup, high conflict misses)<br><strong>2. k-Way Set Associative:</strong> Sets <code>S = L / k</code>, <code>Set Index = s = log2(S)</code>, <code>Tag = M − s − b</code><br><strong>3. Fully Associative:</strong> <code>Tag = M − b</code>, <code>Offset = b</code> (0 index bits, 0 conflict misses, expensive CAM)</td></tr>
+    <tr><td><strong>Pipelining &amp; Hazards</strong></td><td><code>T_pipe = (k + n − 1) × τ</code> where <code>τ = max(t_i) + t_latch</code></td><td><strong>RAW (Read-After-Write):</strong> True dependency -&gt; solved by <strong>Operand Forwarding / Bypassing</strong> (Load-Use still needs 1 stall)<br><strong>WAR (Anti) &amp; WAW (Output):</strong> Name dependencies -&gt; solved by <strong>Register Renaming</strong> (Tomasulo's Algorithm)</td></tr>
+    <tr><td><strong>CPU Addressing Modes</strong></td><td>Effective Address (EA) Calculation</td><td><strong>Immediate:</strong> Operand in instruction (0 mem refs, fastest for constants) | <strong>Register Indirect:</strong> <code>EA = [R]</code> (Pointers) | <strong>PC-Relative:</strong> <code>EA = PC + Offset</code> (Relocatable code / Short branches) | <strong>Base-Indexed:</strong> <code>EA = R_base + R_index</code> (Arrays) | <strong>Implied:</strong> Stack top / Accumulator</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Generations &amp; History — Five Generations of Computers, Von Neumann vs Harvard Architecture &amp; Bus Lines</h2>
+    <span class="badge">22 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="five generations of computers, von neumann vs harvard architecture &amp; bus lines address bus (k bits, unidirectional) -&gt; max addressable memory = 2^k words • data bus (w bits, bidirectional) -&gt; word size • control bus -&gt; read/write/irq timing computer generations hardware &amp; software: 1st gen (1940–56: vacuum tubes / thermionic valves, magnetic drums, machine/assembly language — eniac, edvac, univac-i); 2nd gen (1956–63: discrete transistors, magnetic core memory, fortran/cobol, batch os — ibm 1401/7094); 3rd gen (1964–71: ssi/msi integrated circuits by kilby &amp; noyce, multiprogramming/time-sharing — ibm system/360, pdp-8); 4th gen (1971–present: lsi/vlsi microprocessors, intel 4004 by ted hoff, semiconductor ram, gui/lan — ibm pc, cray-1); 5th gen (ulsi, ai, parallel processing, quantum/superconductors). von neumann architecture (ias computer) shares a single memory and bus for both instructions and data (causing the von neumann bottleneck), whereas harvard architecture (dsps, microcontrollers) uses physically separate memories and buses for instructions and data. hinglish tip: address bus hamesha unidirectional (cpu -&gt; memory/io) hoti hai, jabki data bus bidirectional hoti hai! agar memory 64k × 16 bit ki hai, to 64k = 2^16 =&gt; 16 address lines aur 16 data lines hongi!">
+  <div class="sub-h">📌 1.1 Five Generations of Computers, Von Neumann vs Harvard Architecture &amp; Bus Lines</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Address Bus (k bits, Unidirectional) -&gt; Max Addressable Memory = 2^k words</li><li>🔹 Data Bus (w bits, Bidirectional) -&gt; Word Size</li><li>🔹 Control Bus -&gt; Read/Write/IRQ Timing</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Computer Generations Hardware &amp; Software: 1st Gen (<mark class="hl">1940</mark>–56: Vacuum Tubes / Thermionic Valves, Magnetic Drums, Machine/Assembly language — ENIAC, EDVAC, UNIVAC-I)</li><li>2nd Gen (<mark class="hl">1956</mark>–63: Discrete Transistors, Magnetic Core Memory, FORTRAN/COBOL, Batch OS — IBM 1401/7094)</li><li>3rd Gen (<mark class="hl">1964</mark>–71: SSI/MSI Integrated Circuits by Kilby &amp; Noyce, Multiprogramming/Time-sharing — IBM System/360, PDP-8)</li><li>4th Gen (<mark class="hl">1971</mark>–Present: LSI/VLSI Microprocessors, Intel 4004 by Ted Hoff, Semiconductor RAM, GUI/LAN — IBM PC, Cray-1)</li><li>5th Gen (ULSI, AI, Parallel Processing, Quantum/Superconductors).</li><li>Von Neumann Architecture (IAS computer) shares a single memory and bus for both instructions and data (causing the Von Neumann bottleneck), whereas Harvard Architecture (DSPs, microcontrollers) uses physically separate memories and buses for instructions and data.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Memory Addressing: A microprocessor has a 24-bit address bus and a 32-bit data bus. Maximum byte-addressable physical memory = 2^<mark class="hl">24 Bytes</mark> = <mark class="hl">16 MB</mark>, and it transfers <mark class="hl">32 bits</mark> (<mark class="hl">4 Bytes</mark>) per bus cycle.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Address Bus hamesha Unidirectional (CPU -&gt; Memory/IO) hoti hai, jabki Data Bus Bidirectional hoti hai! Agar memory 64K × <mark class="hl">16 bit</mark> ki hai, to 64K = 2^16 =&gt; 16 Address lines aur 16 Data lines hongi!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which electronic component was used as the primary switching device in first, second, third, and fourth generation computers? 1st gen (1940–56): vacuum tubes (eniac); 2nd (1956–63): transistors; 3rd (1964–71): integrated circuits (jack kilby); 4th (1971+): vlsi microprocessors (intel 4004); 5th: ulsi &amp; ai.">
+  <div class="in-note-stem">Q1.1: Which electronic component was used as the primary switching device in First, Second, Third, and Fourth Generation computers?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 1st: Vacuum Tubes, 2nd: Transistors, 3rd: ICs, 4th: VLSI Microprocessors ✅</div><div class="in-opt"><strong>(B)</strong> 1st: Transistors, 2nd: Vacuum Tubes, 3rd: VLSI</div><div class="in-opt"><strong>(C)</strong> 1st: ICs, 2nd: Transistors, 3rd: Vacuum Tubes</div><div class="in-opt"><strong>(D)</strong> 1st: Microprocessors, 2nd: ICs, 3rd: Transistors</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> 1st Gen (<mark class="hl">1940</mark>–56): Vacuum Tubes (ENIAC); 2nd (<mark class="hl">1956</mark>–63): Transistors; 3rd (<mark class="hl">1964</mark>–71): Integrated Circuits (Jack Kilby); 4th (<mark class="hl">1971</mark>+): VLSI Microprocessors (Intel 4004); 5th: ULSI &amp; AI.</div>
+</div><div class="in-note-q" data-search="who proposed the &#x27;stored-program concept&#x27; where both program instructions and data share the same read-write memory? john von neumann (1945 ias architecture) — von neumann architecture uses a single shared memory and bus for both instructions and data (harvard architecture uses separate instruction and data memories).">
+  <div class="in-note-stem">Q1.2: Who proposed the &#x27;Stored-Program Concept&#x27; where both program instructions and data share the same read-write memory?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Alan Turing</div><div class="in-opt ans"><strong>(B)</strong> John von Neumann ✅</div><div class="in-opt"><strong>(C)</strong> Charles Babbage</div><div class="in-opt"><strong>(D)</strong> Blaise Pascal</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> John von Neumann (<mark class="hl">1945</mark> IAS Architecture) — Von Neumann architecture uses a single shared memory and bus for both instructions and data (Harvard architecture uses separate instruction and data memories).</div>
+</div><div class="in-note-q" data-search="what is the &#x27;von neumann bottleneck&#x27; in computer architecture? because instructions and data contend for the same single system bus, cpu speed is bottlenecked by memory bus bandwidth.">
+  <div class="in-note-stem">Q1.3: What is the &#x27;Von Neumann Bottleneck&#x27; in computer architecture?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> The small size of the keyboard buffer</div><div class="in-opt"><strong>(B)</strong> Overheating of the power supply</div><div class="in-opt ans"><strong>(C)</strong> The limited data transfer rate over the single shared bus between the CPU and Main Memory ✅</div><div class="in-opt"><strong>(D)</strong> Slow rotation of the cooling fan</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Because instructions and data contend for the same single system bus, CPU speed is bottlenecked by memory bus bandwidth.</div>
+</div><div class="in-note-q" data-search="what is the key difference between a hardwired control unit and a microprogrammed control unit? hardwired uses fast fixed logic gates; microprogrammed stores control words in control rom. hardwired uses fast fixed logic gates (used in risc); microprogrammed stores control words in control rom (flexible, used in cisc) — hardwired control is faster (combinational hardware), whereas microprogrammed control (wilkes) fetches microinstructions from control memory.">
+  <div class="in-note-stem">Q1.4: What is the key difference between a Hardwired Control Unit and a Microprogrammed Control Unit?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Hardwired is slower than Microprogrammed</div><div class="in-opt"><strong>(B)</strong> Microprogrammed is used only in RISC CPUs</div><div class="in-opt"><strong>(C)</strong> Hardwired uses magnetic tape</div><div class="in-opt ans"><strong>(D)</strong> Hardwired uses fast fixed logic gates ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Hardwired uses fast fixed logic gates; Microprogrammed stores control words in Control ROM. Hardwired uses fast fixed logic gates (used in RISC); Microprogrammed stores control words in Control ROM (flexible, used in CISC) — Hardwired Control is faster (combinational hardware), whereas Microprogrammed Control (Wilkes) fetches microinstructions from Control Memory.</div>
+</div><div class="in-note-q" data-search="in a microprogrammed control unit, which format uses long unencoded microinstructions (1 bit per control line) for maximum parallelism and zero decoder delay? horizontal = wide unencoded word, no decoder needed; vertical = narrow encoded word, requires decoders.">
+  <div class="in-note-stem">Q1.5: In a Microprogrammed Control Unit, which format uses long unencoded microinstructions (1 bit per control line) for maximum parallelism and zero decoder delay?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Horizontal Microprogramming ✅</div><div class="in-opt"><strong>(B)</strong> Vertical Microprogramming (short encoded fields using decoders)</div><div class="in-opt"><strong>(C)</strong> Diagonal Microprogramming</div><div class="in-opt"><strong>(D)</strong> Serial Microprogramming</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Horizontal = wide unencoded word, no decoder needed; Vertical = narrow encoded word, requires decoders.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Memory Hierarchy &amp; Cache — Memory Hierarchy, Locality of Reference, EMAT &amp; Cache Mapping (Direct, Associative, Set-Associative)</h2>
+    <span class="badge">22 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="memory hierarchy, locality of reference, emat &amp; cache mapping (direct, associative, set-associative) emat = h · t_cache + (1 − h) · t_main (simultaneous) or h · t_cache + (1 − h)(t_cache + t_main) (hierarchical) • physical address (n bits) = [tag | index | block offset] speed order (fastest to slowest): cpu registers -&gt; l1/l2/l3 sram cache (6-transistor flip-flop cell, needs no refreshing) -&gt; main memory dram (1-transistor + 1-capacitor cell, needs periodic refresh every ~64 ms) -&gt; ssd (nand flash) -&gt; magnetic disk -&gt; magnetic tape. cache mapping of m = 2^n byte main memory with block size b = 2^b bytes and c = 2^c cache lines: (1) direct mapping: line = (block number) mod c -&gt; offset = b bits, index = c bits, tag = (n − c − b) bits; (2) fully associative: any block anywhere -&gt; offset = b bits, index = 0, tag = (n − b) bits; (3) k-way set-associative (s = c / k = 2^s sets): set = (block number) mod s -&gt; offset = b bits, set index = s bits, tag = (n − s − b) bits. exam trap: direct mapping se k-way set-associative me जाने पर set count k guna kam hota hai, isliye set index me log2(k) bits kam lagte hain aur tag field me log2(k) bits zyada lagte hain!">
+  <div class="sub-h">📌 2.1 Memory Hierarchy, Locality of Reference, EMAT &amp; Cache Mapping (Direct, Associative, Set-Associative)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 EMAT = h · t_cache + (1 − h) · t_main (Simultaneous) OR h · t_cache + (1 − h)(t_cache + t_main) (Hierarchical)</li><li>🔹 Physical Address (n bits) = [Tag | Index | Block Offset]</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Speed Order (Fastest to Slowest): CPU Registers -&gt; L1/L2/L3 SRAM Cache (6-transistor flip-flop cell, needs no refreshing) -&gt; Main Memory DRAM (1-transistor + 1-capacitor cell, needs periodic refresh every ~<mark class="hl">64 ms</mark>) -&gt; SSD (NAND Flash) -&gt; Magnetic Disk -&gt; Magnetic Tape.</li><li>Cache Mapping of M = 2^n Byte main memory with block size B = 2^b Bytes and C = 2^c cache lines: (1) Direct Mapping: Line = (Block Number) mod C -&gt; Offset = b bits, Index = c bits, Tag = (n − c − b) bits</li><li>(2) Fully Associative: Any block anywhere -&gt; Offset = b bits, Index = 0, Tag = (n − b) bits</li><li>(3) k-Way Set-Associative (S = C / k = 2^s sets): Set = (Block Number) mod S -&gt; Offset = b bits, Set Index = s bits, Tag = (n − s − b) bits.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Cache Mapping Math: Main Memory = <mark class="hl">4 GB</mark> (2^32 B -&gt; 32-bit address), Cache Size = <mark class="hl">64 KB</mark> (2^16 B), Block Size = 64 B (2^6 B -&gt; 6-bit Offset). Number of Cache Lines = 2^16 / 2^6 = 2^10 (1024 lines). In 4-Way Set-Associative Mapping, Number of Sets = 1024 / 4 = 256 = 2^8 -&gt; Set Index = <mark class="hl">8 bits</mark>, Block Offset = <mark class="hl">6 bits</mark>, and Tag = 32 − 8 − 6 = <mark class="hl">18 bits</mark>! Total Tag Directory Memory = 1024 lines × <mark class="hl">18 bits</mark> = 18 Kb.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Direct Mapping se k-way Set-Associative me जाने पर Set count k guna kam hota hai, isliye Set Index me log2(k) bits KAM lagte hain aur Tag field me log2(k) bits ZYADA lagte hain!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="when does a &#x27;structural hazard&#x27; occur in a pipelined cpu, and how does harvard architecture (separate i-cache and d-cache) prevent it? when two instructions in different stages need the same hardware unit in the same clock cycle (e.g., if fetching an instruction while mem reads data from a single unified memory) — having separate level-1 instruction cache (i-cache) and data cache (d-cache) allows if and mem to access memory simultaneously without a structural hazard.">
+  <div class="in-note-stem">Q2.1: When does a &#x27;Structural Hazard&#x27; occur in a pipelined CPU, and how does Harvard architecture (separate I-Cache and D-Cache) prevent it?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> When an instruction divides by zero</div><div class="in-opt"><strong>(B)</strong> When two instructions read the same register</div><div class="in-opt ans"><strong>(C)</strong> When two instructions in different stages need the SAME hardware unit in the same clock cycle ✅</div><div class="in-opt"><strong>(D)</strong> When a branch is not taken</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> When two instructions in different stages need the SAME hardware unit in the same clock cycle (e.g., IF fetching an instruction while MEM reads data from a single unified memory) — Having separate Level-1 Instruction Cache (I-Cache) and Data Cache (D-Cache) allows IF and MEM to access memory simultaneously without a Structural Hazard.</div>
+</div><div class="in-note-q" data-search="arrange the following computer memories in order from fastest (smallest capacity, highest cost/bit) to slowest (largest capacity, lowest cost/bit): memory hierarchy trades off speed vs capacity based on locality of reference.">
+  <div class="in-note-stem">Q2.2: Arrange the following computer memories in order from FASTEST (smallest capacity, highest cost/bit) to SLOWEST (largest capacity, lowest cost/bit):</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Main Memory -&gt; Cache -&gt; CPU Registers -&gt; Hard Disk</div><div class="in-opt"><strong>(B)</strong> Hard Disk -&gt; Main Memory -&gt; Cache -&gt; Registers</div><div class="in-opt"><strong>(C)</strong> Cache -&gt; Registers -&gt; Hard Disk -&gt; Main Memory</div><div class="in-opt ans"><strong>(D)</strong> CPU Registers -&gt; L1/L2/L3 Cache (SRAM) -&gt; Main Memory (DRAM) -&gt; SSD / Magnetic Hard Disk -&gt; Magnetic Tape ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Memory hierarchy trades off speed vs capacity based on Locality of Reference.</div>
+</div><div class="in-note-q" data-search="what are the two fundamental principles of &#x27;locality of reference&#x27; that make cache memory achieve &gt;90% hit ratios? temporal locality (recently accessed item will be accessed again soon, e.g., loops) and spatial locality (nearby memory addresses will be accessed soon, e.g., arrays) — temporal locality justifies keeping recently accessed blocks in cache; spatial locality justifies fetching an entire multi-word cache block (line) at once.">
+  <div class="in-note-stem">Q2.3: What are the two fundamental principles of &#x27;Locality of Reference&#x27; that make Cache Memory achieve &gt;90% hit ratios?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Temporal Locality and Spatial Locality ✅</div><div class="in-opt"><strong>(B)</strong> Static Locality and Dynamic Locality</div><div class="in-opt"><strong>(C)</strong> Random Locality and Sequential Locality</div><div class="in-opt"><strong>(D)</strong> Horizontal and Vertical Locality</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Temporal Locality (recently accessed item will be accessed again soon, e.g., loops) and Spatial Locality (nearby memory addresses will be accessed soon, e.g., arrays) — Temporal locality justifies keeping recently accessed blocks in cache; Spatial locality justifies fetching an entire multi-word Cache Block (Line) at once.</div>
+</div><div class="in-note-q" data-search="if a cache has a hit ratio `h = 0.90` (90%), cache access time `t_c = 2 ns`, and main memory access time (miss penalty) `t_m = 50 ns`, what is the hierarchical average memory access time (`amat = t_c + (1 − h) × t_m`)? 7.0 ns (2 + 0.10 × 50) — `amat = hit_time + miss_rate × miss_penalty = 2 + (0.10 × 50) = 7.0 ns` (in simultaneous lookup: `0.9×2 + 0.1×50 = 6.8 ns`).">
+  <div class="in-note-stem">Q2.4: If a Cache has a Hit Ratio `h = 0.90` (90%), Cache access time `t_c = 2 ns`, and Main Memory access time (miss penalty) `t_m = 50 ns`, what is the hierarchical Average Memory Access Time (`AMAT = t_c + (1 − h) × t_m`)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 5.0 ns</div><div class="in-opt ans"><strong>(B)</strong> 7.0 ns ✅</div><div class="in-opt"><strong>(C)</strong> 6.8 ns</div><div class="in-opt"><strong>(D)</strong> 52.0 ns</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> 7.<mark class="hl">0 ns</mark> (2 + 0.10 × 50) — `AMAT = Hit_Time + Miss_Rate × Miss_Penalty = 2 + (0.10 × 50) = 7.<mark class="hl">0 ns</mark>` (in simultaneous lookup: `0.9×2 + 0.1×50 = 6.<mark class="hl">8 ns</mark>`).</div>
+</div><div class="in-note-q" data-search="in direct-mapped cache, if main memory block number is `b` and the cache has `l` lines (`0` to `l − 1`), to which exact cache line can block `b` map? direct mapping (`line = block_number mod total_cache_lines`) is simplest and fastest to search (1 tag comparator), but has the highest conflict misses.">
+  <div class="in-note-stem">Q2.5: In Direct-Mapped Cache, if Main Memory block number is `B` and the Cache has `L` lines (`0` to `L − 1`), to which exact cache line can block `B` map?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Any line in the entire cache</div><div class="in-opt"><strong>(B)</strong> Any of k lines in a set</div><div class="in-opt ans"><strong>(C)</strong> Cache Line = B mod L (only 1 fixed line) ✅</div><div class="in-opt"><strong>(D)</strong> Line 0 only</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Direct mapping (`Line = Block_Number mod Total_Cache_Lines`) is simplest and fastest to search (1 tag comparator), but has the highest Conflict Misses.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: CPU &amp; Instruction Cycle — CPU Registers (PC, IR, MAR, MBR, PSW), Instruction Cycle &amp; Hardwired vs Microprogrammed Control</h2>
+    <span class="badge">7 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="cpu registers (pc, ir, mar, mbr, psw), instruction cycle &amp; hardwired vs microprogrammed control fetch micro-operations: t1: mar &lt;- (pc) • t2: mbr &lt;- m[mar], pc &lt;- pc + 1 • t3: ir &lt;- (mbr) • control word = microinstruction in control memory (rom) special-purpose cpu registers: program counter (pc — holds memory address of the next instruction to be fetched), instruction register (ir — holds the currently executing instruction opcode/operands), memory address register (mar — drives the address bus), memory buffer/data register (mbr/mdr — interfaces with the data bus), accumulator (ac — primary alu operand/result register), program status word (psw / flag register — holds z, c, s, v, p condition flags). control unit design: hardwired control (combinational logic gates/pla, ultra-fast, fixed instruction set, used in risc) vs microprogrammed control (wilkes, stores microinstructions in control rom with control address register car; flexible, easy to modify, used in cisc). hinglish tip: pc (program counter) hamesha agle (next) execute hone wale instruction ka address rakhta hai, jabki ir (instruction register) currently execute ho rahe instruction ka code rakhta hai!">
+  <div class="sub-h">📌 3.1 CPU Registers (PC, IR, MAR, MBR, PSW), Instruction Cycle &amp; Hardwired vs Microprogrammed Control</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Fetch Micro-Operations: T1: MAR &lt;- (PC)</li><li>🔹 T2: MBR &lt;- M[MAR], PC &lt;- PC + 1</li><li>🔹 T3: IR &lt;- (MBR)</li><li>🔹 Control Word = Microinstruction in Control Memory (ROM)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Special-Purpose CPU Registers: Program Counter (PC — holds memory address of the NEXT instruction to be fetched), Instruction Register (IR — holds the currently executing instruction opcode/operands), Memory Address Register (MAR — drives the address bus), Memory Buffer/Data Register (MBR/MDR — interfaces with the data bus), Accumulator (AC — primary ALU operand/result register), Program Status Word (PSW / Flag Register — holds Z, C, S, V, P condition flags).</li><li>Control Unit Design: Hardwired Control (combinational logic gates/PLA, ultra-fast, fixed instruction set, used in RISC) vs Microprogrammed Control (Wilkes, stores microinstructions in Control ROM with Control Address Register CAR</li><li>flexible, easy to modify, used in CISC).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Horizontal vs Vertical Microprogramming: Horizontal uses unencoded control bits (<mark class="hl">1 bit</mark> per control line -&gt; long microinstruction word, maximum parallelism, zero decoder delay); Vertical uses encoded k-bit fields decoded via k-to-2^k decoders (short microinstruction word, slower due to decoder delay).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: PC (Program Counter) hamesha AGLE (NEXT) execute hone wale instruction ka address rakhta hai, jabki IR (Instruction Register) CURRENTLY execute ho rahe instruction ka code rakhta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which cpu register holds the memory address of the next instruction to be fetched from main memory? the program counter (pc) always points to the address of the next instruction to be executed.">
+  <div class="in-note-stem">Q3.1: Which CPU register holds the memory address of the NEXT instruction to be fetched from main memory?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Program Counter (PC) ✅</div><div class="in-opt"><strong>(B)</strong> Instruction Register (IR)</div><div class="in-opt"><strong>(C)</strong> Memory Address Register (MAR)</div><div class="in-opt"><strong>(D)</strong> Accumulator (AC)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The Program Counter (PC) always points to the address of the next instruction to be executed.</div>
+</div><div class="in-note-q" data-search="which cpu register holds the binary opcode of the instruction currently being decoded and executed? once fetched from memory via mbr, the instruction is loaded into the instruction register (ir) for decoding.">
+  <div class="in-note-stem">Q3.2: Which CPU register holds the binary opcode of the instruction currently being decoded and executed?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Program Counter (PC)</div><div class="in-opt ans"><strong>(B)</strong> Instruction Register (IR) ✅</div><div class="in-opt"><strong>(C)</strong> Memory Buffer Register (MBR)</div><div class="in-opt"><strong>(D)</strong> Stack Pointer (SP)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Once fetched from memory via MBR, the instruction is loaded into the Instruction Register (IR) for decoding.</div>
+</div><div class="in-note-q" data-search="during the instruction fetch cycle, what is the correct micro-operation sequence? first pc is copied to mar, memory word is read into mbr while pc increments, and mbr is transferred to ir.">
+  <div class="in-note-stem">Q3.3: During the instruction Fetch Cycle, what is the correct micro-operation sequence?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> IR &lt;- PC; MAR &lt;- MBR</div><div class="in-opt"><strong>(B)</strong> PC &lt;- MAR; MBR &lt;- IR</div><div class="in-opt ans"><strong>(C)</strong> MAR &lt;- PC; MBR &lt;- M[MAR] &amp; PC &lt;- PC + 1; IR &lt;- MBR ✅</div><div class="in-opt"><strong>(D)</strong> AC &lt;- PC; IR &lt;- MAR</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> First PC is copied to MAR, memory word is read into MBR while PC increments, and MBR is transferred to IR.</div>
+</div><div class="in-note-q" data-search="which register in the cpu points to the current top of the runtime system stack in memory? the stack pointer (sp) tracks the top address of the stack during push, pop, and subroutine call/ret.">
+  <div class="in-note-stem">Q3.4: Which register in the CPU points to the current top of the runtime system stack in memory?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Program Counter (PC)</div><div class="in-opt"><strong>(B)</strong> Base Register</div><div class="in-opt"><strong>(C)</strong> Index Register</div><div class="in-opt ans"><strong>(D)</strong> Stack Pointer (SP) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> The Stack Pointer (SP) tracks the top address of the stack during PUSH, POP, and subroutine CALL/RET.</div>
+</div><div class="in-note-q" data-search="in the cpu status register (psw / flag register), which flag is set to 1 when an arithmetic operation produces a result of all zeros? z = 1 when the alu output is 0; s = 1 when msb is 1 (negative); cy = 1 on unsigned carry-out; v = 1 on signed 2&#x27;s complement overflow.">
+  <div class="in-note-stem">Q3.5: In the CPU Status Register (PSW / Flag Register), which flag is set to 1 when an arithmetic operation produces a result of all zeros?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Zero Flag (Z = 1) ✅</div><div class="in-opt"><strong>(B)</strong> Carry Flag (CY)</div><div class="in-opt"><strong>(C)</strong> Sign Flag (S)</div><div class="in-opt"><strong>(D)</strong> Overflow Flag (V)</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Z = 1 when the ALU output is 0; S = 1 when MSB is 1 (negative); CY = 1 on unsigned carry-out; V = 1 on signed 2&#x27;s complement overflow.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Addressing Modes — Addressing Modes &amp; Zero-, One-, Two-, Three-Address Instruction Formats</h2>
+    <span class="badge">17 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="addressing modes &amp; zero-, one-, two-, three-address instruction formats effective address (ea): immediate (no ea, operand in instruction) • direct (ea = a) • indirect (ea = m[a]) • register indirect (ea = [r]) • pc-relative (ea = pc + offset) instruction formats by cpu organization: zero-address (stack-organized cpu: push a, push b, add — uses tos implicitly), one-address (accumulator-based cpu: load a, add b, store c), two-address (general register: mov r1, r2; add r1, r2), three-address (risc register-to-register: add r1, r2, r3). key addressing modes &amp; use cases: immediate (loading constants `mov r1, #50` — 0 memory references during execution), register direct (fastest operand access), indexed (array element traversal `ea = base + index`), base-register (program relocation in multiprogramming), pc-relative (position-independent branch instructions), auto-increment/decrement (stack push/pop and loop pointers). exam trap: position-independent code aur branch instructions ke liye &#x27;pc-relative addressing&#x27; use hota hai, array traversal ke liye &#x27;indexed addressing&#x27;, aur program relocation ke liye &#x27;base-register addressing&#x27;!">
+  <div class="sub-h">📌 4.1 Addressing Modes &amp; Zero-, One-, Two-, Three-Address Instruction Formats</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Effective Address (EA): Immediate (No EA, operand in instruction)</li><li>🔹 Direct (EA = A)</li><li>🔹 Indirect (EA = M[A])</li><li>🔹 Register Indirect (EA = [R])</li><li>🔹 PC-Relative (EA = PC + Offset)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Instruction Formats by CPU Organization: Zero-Address (Stack-organized CPU: PUSH A, PUSH B, ADD — uses TOS implicitly), One-Address (Accumulator-based CPU: LOAD A, ADD B, STORE C), Two-Address (General Register: MOV R1, R2</li><li>ADD R1, R2), Three-Address (RISC Register-to-Register: ADD R1, R2, R3).</li><li>Key Addressing Modes &amp; Use Cases: Immediate (loading constants `MOV R1, #50` — 0 memory references during execution), Register Direct (fastest operand access), Indexed (array element traversal `EA = Base + Index`), Base-Register (program relocation in multiprogramming), PC-Relative (position-independent branch instructions), Auto-Increment/Decrement (stack push/pop and loop pointers).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Expanding Opcode Technique: If a 16-bit instruction has 4-bit register fields (3 registers = <mark class="hl">12 bits</mark>), and supports fourteen 3-address instructions, how many 2-address instructions can it support? Unused 4-bit opcodes = 16 − 14 = 2. Each unused 3-address opcode expands into 2^4 = 16 combinations for the freed 4-bit field =&gt; 2 × 16 = 32 two-address instructions!</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Position-independent code aur Branch instructions ke liye <strong>'PC-Relative Addressing'</strong> use hota hai, Array traversal ke liye <strong>'Indexed Addressing'</strong>, aur Program Relocation ke liye <strong>'Base-Register Addressing'</strong>!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in which addressing mode is the constant operand value specified directly inside the instruction itself (e.g., `mov a, #25h`), requiring zero memory references after fetch? immediate mode embeds the constant directly in the instruction word (fastest for loading constants).">
+  <div class="in-note-stem">Q4.1: In which Addressing Mode is the constant operand value specified directly inside the instruction itself (e.g., `MOV A, #25H`), requiring ZERO memory references after fetch?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Direct Addressing Mode</div><div class="in-opt"><strong>(B)</strong> Indirect Addressing Mode</div><div class="in-opt"><strong>(C)</strong> Indexed Addressing Mode</div><div class="in-opt ans"><strong>(D)</strong> Immediate Addressing Mode ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Immediate mode embeds the constant directly in the instruction word (fastest for loading constants).</div>
+</div><div class="in-note-q" data-search="in which addressing mode does the instruction contain the memory address of a pointer, requiring two memory accesses to fetch the actual operand (`ea = m[address]`)? direct mode takes 1 memory read (`operand = m[a]`); indirect mode takes 2 memory reads (`ea = m[a]`, `operand = m[ea]`).">
+  <div class="in-note-stem">Q4.2: In which Addressing Mode does the instruction contain the memory address of a pointer, requiring TWO memory accesses to fetch the actual operand (`EA = M[Address]`)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Memory Indirect Addressing Mode ✅</div><div class="in-opt"><strong>(B)</strong> Direct Addressing Mode (1 memory access)</div><div class="in-opt"><strong>(C)</strong> Register Addressing Mode (0 memory accesses)</div><div class="in-opt"><strong>(D)</strong> Immediate Addressing Mode</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Direct mode takes 1 memory read (`Operand = M[A]`); Indirect mode takes 2 memory reads (`EA = M[A]`, `Operand = M[EA]`).</div>
+</div><div class="in-note-q" data-search="which addressing mode is best suited for stepping through the elements of a 1d array inside a loop (`ea = base_address + index_register`)? indexed (and auto-increment) mode steps sequentially through array elements by incrementing the index register.">
+  <div class="in-note-stem">Q4.3: Which Addressing Mode is best suited for stepping through the elements of a 1D array inside a loop (`EA = Base_Address + Index_Register`)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Implied Addressing Mode</div><div class="in-opt ans"><strong>(B)</strong> Indexed Addressing Mode ✅</div><div class="in-opt"><strong>(C)</strong> Immediate Addressing Mode</div><div class="in-opt"><strong>(D)</strong> Direct Addressing Mode</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Indexed (and Auto-Increment) mode steps sequentially through array elements by incrementing the index register.</div>
+</div><div class="in-note-q" data-search="instructions like `cma` (complement accumulator), `clc` (clear carry), or `push / pop` that do not explicitly mention an operand address use which mode? implied (or implicit / stack) addressing mode — in implied mode, the operand location (such as accumulator or top of stack) is fixed by the opcode definition itself.">
+  <div class="in-note-stem">Q4.4: Instructions like `CMA` (Complement Accumulator), `CLC` (Clear Carry), or `PUSH / POP` that do not explicitly mention an operand address use which mode?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Direct Addressing Mode</div><div class="in-opt"><strong>(B)</strong> Relative Addressing Mode</div><div class="in-opt ans"><strong>(C)</strong> Implied Addressing Mode ✅</div><div class="in-opt"><strong>(D)</strong> Indexed Addressing Mode</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Implied (or Implicit / Stack) Addressing Mode — In Implied mode, the operand location (such as Accumulator or Top of Stack) is fixed by the opcode definition itself.</div>
+</div><div class="in-note-q" data-search="what is the key characteristic of risc (reduced instruction set computer) compared to cisc (complex instruction set computer)? in risc (arm, mips, risc-v), only `load` and `store` access memory; all alu operations work purely on cpu registers.">
+  <div class="in-note-stem">Q4.5: What is the key characteristic of RISC (Reduced Instruction Set Computer) compared to CISC (Complex Instruction Set Computer)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> RISC allows arithmetic directly on memory operands in variable-length instructions</div><div class="in-opt"><strong>(B)</strong> RISC uses microprogrammed control and very few registers</div><div class="in-opt"><strong>(C)</strong> CISC uses only Load/Store instructions</div><div class="in-opt ans"><strong>(D)</strong> RISC uses fixed-length instructions, single-cycle pipelined execution, many general-purpose registers, and a Load/Store architecture ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> In RISC (ARM, MIPS, RISC-V), only `LOAD` and `STORE` access memory; all ALU operations work purely on CPU registers.</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Data Rep &amp; IEEE 754 — IEEE 754 Floating-Point Standard (Single 32-bit &amp; Double 64-bit) &amp; Endianness</h2>
+    <span class="badge">0 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="ieee 754 floating-point standard (single 32-bit &amp; double 64-bit) &amp; endianness single precision (32-bit): 1 sign + 8 biased exponent (bias +127) + 23 fractional mantissa • value = (−1)^s × (1.m)_2 × 2^(e − 127) • double (64-bit): 1 + 11 (bias +1023) + 52 in normalized ieee 754 numbers, a hidden leading &#x27;1.&#x27; is assumed before the 23-bit fraction m (giving 24 bits of effective precision). special ieee 754 patterns: (1) e=0, m=0 -&gt; exact zero (±0); (2) e=0, m≠0 -&gt; denormalized number (−1)^s × (0.m) × 2^(−126); (3) e=255 (all 1s), m=0 -&gt; ±infinity (±∞); (4) e=255, m≠0 -&gt; nan (not a number, e.g., 0/0 or √−1). endianness: big-endian (network byte order, stores msb at lowest memory address) vs little-endian (intel x86, stores lsb at lowest memory address). hinglish tip: ieee 754 single precision (32-bit) me bias = 127 hota hai (1 + 8 + 23 bits), aur double precision (64-bit) me bias = 1023 hota hai (1 + 11 + 52 bits)! normalized form me &#x27;1.&#x27; implicit (hidden bit) hota hai.">
+  <div class="sub-h">📌 5.1 IEEE 754 Floating-Point Standard (Single 32-bit &amp; Double 64-bit) &amp; Endianness</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Single Precision (32-bit): 1 Sign + 8 Biased Exponent (Bias +127) + 23 Fractional Mantissa</li><li>🔹 Value = (−1)^S × (1.M)_2 × 2^(E − 127)</li><li>🔹 Double (64-bit): 1 + 11 (Bias +1023) + 52</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In normalized <mark class="hl">IEEE 754</mark> numbers, a hidden leading <strong>'1.'</strong> is assumed before the 23-bit fraction M (giving <mark class="hl">24 bits</mark> of effective precision).</li><li>Special <mark class="hl">IEEE 754</mark> patterns: (1) E=0, M=0 -&gt; Exact Zero (±0)</li><li>(2) E=0, M≠0 -&gt; Denormalized number (−1)^S × (0.M) × 2^(−126)</li><li>(3) E=255 (all 1s), M=0 -&gt; ±Infinity (±∞)</li><li>(4) E=255, M≠0 -&gt; NaN (Not a Number, e.g., 0/0 or √−1).</li><li>Endianness: Big-Endian (network byte order, stores MSB at lowest memory address) vs Little-Endian (Intel x86, stores LSB at lowest memory address).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked <mark class="hl">IEEE 754</mark> Conversion: Represent −13.25 in 32-bit <mark class="hl">IEEE 754</mark>. Sign S = 1 (negative). 13.25 in binary = 1101.01_2 = 1.10101 × 2^3. Biased Exponent E = 3 + 127 = 130 = (10000010)_2. Mantissa M = 10101000000000000000000. Hex = 1 10000010 1010100... = 0xC1540000.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: <mark class="hl">IEEE 754</mark> Single Precision (32-bit) me Bias = 127 hota hai (1 + 8 + <mark class="hl">23 bits</mark>), aur Double Precision (64-bit) me Bias = 1023 hota hai (1 + 11 + <mark class="hl">52 bits</mark>)! Normalized form me <strong>'1.'</strong> implicit (hidden bit) hota hai.</div>
+</div>
+  
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Pipelining &amp; Hazards — Instruction Pipelining, Speedup, CPI, Hazards (Structural, Data, Control) &amp; Amdahl&#x27;s Law</h2>
+    <span class="badge">10 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="instruction pipelining, speedup, cpi, hazards (structural, data, control) &amp; amdahl&#x27;s law pipeline execution time for n tasks in k stages = (k + n − 1) × τ • ideal asymptotic speedup s_max = k • effective cpi = 1 + stall cycles per instruction • amdahl&#x27;s law: s = 1 / ((1 − f) + f / s) classic 5-stage risc pipeline: if (instruction fetch) -&gt; id (instruction decode &amp; register read) -&gt; ex (alu execute / effective address) -&gt; mem (data memory access) -&gt; wb (register write-back). three pipeline hazards: (1) structural hazard (hardware resource conflict, e.g., unified memory accessed by if and mem simultaneously — solved by harvard split i-cache/d-cache); (2) data hazard (raw — read after write true dependency; war — write after read anti-dependency; waw — write after write output dependency — raw solved by operand forwarding / bypassing, war &amp; waw solved by register renaming); (3) control / branch hazard (pipeline stall on conditional branches — solved by branch prediction, delayed branch slot). exam trap: sirf raw (read after write) hi &#x27;true data dependency&#x27; hai; war (anti-dependency) aur waw (output dependency) &#x27;name dependencies&#x27; hain jinhe register renaming se 100% khatam kiya ja sakta hai!">
+  <div class="sub-h">📌 6.1 Instruction Pipelining, Speedup, CPI, Hazards (Structural, Data, Control) &amp; Amdahl&#x27;s Law</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Pipeline Execution Time for n tasks in k stages = (k + n − 1) × τ</li><li>🔹 Ideal Asymptotic Speedup S_max = k</li><li>🔹 Effective CPI = 1 + Stall Cycles per Instruction</li><li>🔹 Amdahl&#x27;s Law: S = 1 / ((1 − f) + f / s)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Classic 5-Stage RISC Pipeline: IF (Instruction Fetch) -&gt; ID (Instruction Decode &amp; Register Read) -&gt; EX (ALU Execute / Effective Address) -&gt; MEM (Data Memory Access) -&gt; WB (Register Write-Back).</li><li>Three Pipeline Hazards: (1) Structural Hazard (hardware resource conflict, e.g., unified memory accessed by IF and MEM simultaneously — solved by Harvard split I-Cache/D-Cache)</li><li>(2) Data Hazard (RAW — Read After Write true dependency</li><li>WAR — Write After Read anti-dependency</li><li>WAW — Write After Write output dependency — RAW solved by Operand Forwarding / Bypassing, WAR &amp; WAW solved by Register Renaming)</li><li>(3) Control / Branch Hazard (pipeline stall on conditional branches — solved by Branch Prediction, Delayed Branch slot).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Pipeline Numerical: A 5-stage pipeline has stage delays 15, 20, 25, 20, <mark class="hl">10 ns</mark> and latch delay <mark class="hl">5 ns</mark>. Pipeline clock cycle τ = max(stage) + latch = 25 + 5 = <mark class="hl">30 ns</mark>. Non-pipelined time = 15+20+25+20+10 = <mark class="hl">90 ns</mark>. For n = 100 instructions, Pipelined time = (5 + 100 − 1) × 30 = 104 × 30 = <mark class="hl">3120 ns</mark>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Sirf RAW (Read After Write) hi <strong>'True Data Dependency'</strong> hai; WAR (Anti-dependency) aur WAW (Output dependency) <strong>'Name Dependencies'</strong> hain jinhe Register Renaming se 100% khatam kiya ja sakta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in a k-stage pipeline with clock cycle time τ, how many clock cycles are required to execute &#x27;n&#x27; instructions (assuming no stalls)? the first instruction takes `k` cycles to fill the pipeline, and the remaining `(n − 1)` instructions finish at 1 per cycle =&gt; `k + n − 1` cycles.">
+  <div class="in-note-stem">Q6.1: In a k-stage pipeline with clock cycle time τ, how many clock cycles are required to execute &#x27;n&#x27; instructions (assuming no stalls)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> k + (n − 1) clock cycles ✅</div><div class="in-opt"><strong>(B)</strong> k × n clock cycles</div><div class="in-opt"><strong>(C)</strong> n / k clock cycles</div><div class="in-opt"><strong>(D)</strong> k + n clock cycles</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The first instruction takes `k` cycles to fill the pipeline, and the remaining `(n − 1)` instructions finish at 1 per cycle =&gt; `k + n − 1` cycles.</div>
+</div><div class="in-note-q" data-search="as the number of instructions `n -&gt; ∞`, what is the theoretical maximum (ideal) speedup of a balanced `k-stage` pipeline over an equivalent non-pipelined processor? ideal speedup `s_max = k` when all `k` stages have equal delay and zero hazards/stalls occur.">
+  <div class="in-note-stem">Q6.2: As the number of instructions `n -&gt; ∞`, what is the theoretical maximum (ideal) Speedup of a balanced `k-stage` pipeline over an equivalent non-pipelined processor?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 2k</div><div class="in-opt ans"><strong>(B)</strong> k (equal to the number of pipeline stages) ✅</div><div class="in-opt"><strong>(C)</strong> k²</div><div class="in-opt"><strong>(D)</strong> log₂(k)</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Ideal speedup `S_max = k` when all `k` stages have equal delay and zero hazards/stalls occur.</div>
+</div><div class="in-note-q" data-search="what are the three types of pipeline hazards that cause pipeline stalls (bubbles)? 1. structural hazards (resource conflict), 2. data hazards (raw/war/waw), and 3. control (branch) hazards — structural = hardware resource busy; data = operand dependency; control = conditional branch changes pc.">
+  <div class="in-note-stem">Q6.3: What are the three types of Pipeline Hazards that cause pipeline stalls (bubbles)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1. Voltage, 2. Current, and 3. Resistance Hazards</div><div class="in-opt"><strong>(B)</strong> 1. Compiler, 2. Linker, and 3. Loader Hazards</div><div class="in-opt ans"><strong>(C)</strong> 1. Structural Hazards, 2. Data Hazards (RAW/WAR/WAW), and 3. Control (Branch) Hazards ✅</div><div class="in-opt"><strong>(D)</strong> 1. Syntax, 2. Runtime, and 3. Logical Hazards</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> 1. Structural Hazards (resource conflict), 2. Data Hazards (RAW/WAR/WAW), and 3. Control (Branch) Hazards — Structural = hardware resource busy; Data = operand dependency; Control = conditional branch changes PC.</div>
+</div><div class="in-note-q" data-search="in instruction sequence `i1: add r1, r2, r3` (`r1 &lt;- r2 + r3`) followed by `i2: sub r4, r1, r5` (`r4 &lt;- r1 − r5`), which data hazard occurs on `r1`? `i2` tries to read `r1` before `i1` has written its result back to `r1` in the wb stage (`raw` hazard).">
+  <div class="in-note-stem">Q6.4: In instruction sequence `I1: ADD R1, R2, R3` (`R1 &lt;- R2 + R3`) followed by `I2: SUB R4, R1, R5` (`R4 &lt;- R1 − R5`), which Data Hazard occurs on `R1`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> WAR (Write-After-Read — Anti-Dependency)</div><div class="in-opt"><strong>(B)</strong> WAW (Write-After-Write — Output Dependency)</div><div class="in-opt"><strong>(C)</strong> Control Hazard</div><div class="in-opt ans"><strong>(D)</strong> RAW (Read-After-Write — True Data Dependency) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> `I2` tries to read `R1` before `I1` has written its result back to `R1` in the WB stage (`RAW` hazard).</div>
+</div><div class="in-note-q" data-search="which hardware technique resolves a simple alu-to-alu `raw` data hazard without inserting pipeline stall cycles? operand forwarding feeds the alu output latch (ex/mem) directly back into the alu input for the next instruction.">
+  <div class="in-note-stem">Q6.5: Which hardware technique resolves a simple ALU-to-ALU `RAW` data hazard without inserting pipeline stall cycles?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Operand Forwarding (or Bypassing) ✅</div><div class="in-opt"><strong>(B)</strong> Flushing the entire pipeline</div><div class="in-opt"><strong>(C)</strong> Slowing down the clock</div><div class="in-opt"><strong>(D)</strong> Rebooting the CPU</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Operand Forwarding feeds the ALU output latch (EX/MEM) directly back into the ALU input for the next instruction.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: I/O &amp; DMA Organization — I/O Organization — Programmed I/O, Interrupt-Driven I/O (Vectored/Daisy Chain) &amp; DMA</h2>
+    <span class="badge">7 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="i/o organization — programmed i/o, interrupt-driven i/o (vectored/daisy chain) &amp; dma dma transfer modes: burst / block mode (cpu halted for entire block) • cycle stealing mode (dma steals 1 bus cycle per word) • transparent / interleaved mode (dma uses bus only when cpu is idle) in programmed i/o (polling), the cpu continuously busy-waits checking the device status flag (wasting 100% cpu cycles). in interrupt-driven i/o, the device asserts the intr line when ready; the cpu completes its current instruction, saves pc &amp; psw on stack, sends inta, and jumps to the interrupt service routine (isr) via an interrupt vector table (vectored interrupt) or daisy-chaining (serial hardware priority). for high-speed bulk transfers (disk/network), direct memory access (dma controller, e.g., intel 8237/8257) takes bus mastership via hold and hlda control signals to transfer data directly between i/o and main memory without routing through cpu registers. hinglish tip: dma controller cpu se bus control mangne ke liye &#x27;hold&#x27; signal bhejta hai, aur cpu bus release karke &#x27;hlda&#x27; (hold acknowledge) signal wapas deta hai! interrupt hamesha current instruction poora hone ke baad hi check hota hai.">
+  <div class="sub-h">📌 7.1 I/O Organization — Programmed I/O, Interrupt-Driven I/O (Vectored/Daisy Chain) &amp; DMA</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 DMA Transfer Modes: Burst / Block Mode (CPU halted for entire block)</li><li>🔹 Cycle Stealing Mode (DMA steals 1 bus cycle per word)</li><li>🔹 Transparent / Interleaved Mode (DMA uses bus only when CPU is idle)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In Programmed I/O (Polling), the CPU continuously busy-waits checking the device status flag (wasting 100% CPU cycles).</li><li>In Interrupt-Driven I/O, the device asserts the INTR line when ready</li><li>the CPU completes its current instruction, saves PC &amp; PSW on stack, sends INTA, and jumps to the Interrupt Service Routine (ISR) via an Interrupt Vector Table (Vectored Interrupt) or Daisy-Chaining (serial hardware priority).</li><li>For high-speed bulk transfers (Disk/Network), Direct Memory Access (DMA Controller, e.g., Intel 8237/8257) takes bus mastership via HOLD and HLDA control signals to transfer data directly between I/O and Main Memory without routing through CPU registers.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Non-Maskable vs Maskable Interrupts: NMI (e.g., TRAP in 8085, power failure, memory parity error) has the highest priority and cannot be disabled by software `CLI/DI` instructions; Maskable interrupts (INTR) can be enabled/disabled via the Interrupt Enable flag.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: DMA Controller CPU se bus control mangne ke liye <strong>'HOLD'</strong> signal bhejta hai, aur CPU bus release karke <strong>'HLDA'</strong> (Hold Acknowledge) signal wapas deta hai! Interrupt hamesha CURRENT instruction poora hone ke baad hi check hota hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="among the three i/o data transfer techniques — (1) programmed i/o (polling), (2) interrupt-driven i/o, and (3) direct memory access (dma) — which one wastes the most cpu cycles waiting in a busy loop, and which is best for high-speed bulk disk/network block transfers? programmed i/o wastes the most cpu cycles; dma is best for high-speed bulk block transfers. in programmed i/o, the cpu continuously polls the device status bit; in dma, a dedicated dma controller transfers blocks directly between i/o and ram without involving the cpu for each byte.">
+  <div class="in-note-stem">Q7.1: Among the three I/O data transfer techniques — (1) Programmed I/O (Polling), (2) Interrupt-Driven I/O, and (3) Direct Memory Access (DMA) — which one wastes the MOST CPU cycles waiting in a busy loop, and which is best for high-speed bulk disk/network block transfers?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> DMA wastes the most CPU cycles</div><div class="in-opt"><strong>(B)</strong> Programmed I/O is best for 10 Gbps disk transfers</div><div class="in-opt ans"><strong>(C)</strong> Programmed I/O wastes the most CPU cycles ✅</div><div class="in-opt"><strong>(D)</strong> Interrupt-Driven I/O transfers blocks without the CPU</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Programmed I/O wastes the most CPU cycles; DMA is best for high-speed bulk block transfers. In Programmed I/O, the CPU continuously polls the device status bit; in DMA, a dedicated DMA Controller transfers blocks directly between I/O and RAM without involving the CPU for each byte.</div>
+</div><div class="in-note-q" data-search="what is &#x27;cycle stealing&#x27; mode in dma data transfer compared to &#x27;burst mode&#x27;? in cycle stealing, the dma controller steals one single memory bus cycle at a time to transfer one word and immediately returns bus control to the cpu; in burst mode, dma holds the bus for the entire multi-word block transfer. cycle stealing interleaves dma transfers with cpu operations, whereas burst mode maximizes i/o throughput by holding the bus until the whole block is transferred.">
+  <div class="in-note-stem">Q7.2: What is &#x27;Cycle Stealing&#x27; mode in DMA data transfer compared to &#x27;Burst Mode&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Cycle Stealing locks out the CPU for 10 seconds</div><div class="in-opt"><strong>(B)</strong> Burst Mode transfers only 1 bit per hour</div><div class="in-opt"><strong>(C)</strong> Both modes are identical</div><div class="in-opt ans"><strong>(D)</strong> In Cycle Stealing, the DMA controller steals one single memory bus cycle at a time to transfer one word and immediately returns bus control to the CPU ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> In Cycle Stealing, the DMA controller steals one single memory bus cycle at a time to transfer one word and immediately returns bus control to the CPU; in Burst Mode, DMA holds the bus for the entire multi-word block transfer. Cycle Stealing interleaves DMA transfers with CPU operations, whereas Burst Mode maximizes I/O throughput by holding the bus until the whole block is transferred.</div>
+</div><div class="in-note-q" data-search="what is the difference between a &#x27;maskable interrupt&#x27; (`intr`) and a &#x27;non-maskable interrupt&#x27; (`nmi`, e.g., trap in 8085)? maskable interrupts can be temporarily disabled/ignored by the cpu (via interrupt enable flag `cli/di`), whereas non-maskable interrupts (`nmi`) have highest priority and cannot be disabled by software (used for power failure/hardware parity errors) — nmi (like `trap` in 8085) handles critical emergencies (power fail, memory parity crash) and can never be masked.">
+  <div class="in-note-stem">Q7.3: What is the difference between a &#x27;Maskable Interrupt&#x27; (`INTR`) and a &#x27;Non-Maskable Interrupt&#x27; (`NMI`, e.g., TRAP in 8085)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Maskable interrupts can be temporarily disabled/ignored by the CPU, whereas Non-Maskable Interrupts (`NMI`) have highest priority and CANNOT be disabled by software ✅</div><div class="in-opt"><strong>(B)</strong> Non-Maskable Interrupts can be disabled by the programmer</div><div class="in-opt"><strong>(C)</strong> Maskable Interrupts have higher priority than NMI</div><div class="in-opt"><strong>(D)</strong> NMI is used for normal mouse movement</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Maskable interrupts can be temporarily disabled/ignored by the CPU (via Interrupt Enable flag `CLI/DI`), whereas Non-Maskable Interrupts (`NMI`) have highest priority and CANNOT be disabled by software (used for power failure/hardware parity errors) — NMI (like `TRAP` in 8085) handles critical emergencies (power fail, memory parity crash) and can never be masked.</div>
+</div><div class="in-note-q" data-search="what is &#x27;vectored interrupt&#x27; vs &#x27;non-vectored (polled) interrupt&#x27;? in a vectored interrupt, the interrupting device itself supplies a unique interrupt vector directly to the cpu; in a non-vectored interrupt, the cpu jumps to a single fixed address and polls devices to find who interrupted. in a vectored interrupt, the interrupting device itself supplies a unique interrupt vector (starting address of its isr) directly to the cpu; in a non-vectored interrupt, the cpu jumps to a single fixed address and polls devices to find who interrupted — vectored interrupts eliminate software polling latency by jumping directly to the device&#x27;s interrupt service routine (isr) via the interrupt vector table (ivt).">
+  <div class="in-note-stem">Q7.4: What is &#x27;Vectored Interrupt&#x27; vs &#x27;Non-Vectored (Polled) Interrupt&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Non-Vectored Interrupt is faster than Vectored Interrupt</div><div class="in-opt ans"><strong>(B)</strong> In a Vectored Interrupt, the interrupting device itself supplies a unique Interrupt Vector directly to the CPU ✅</div><div class="in-opt"><strong>(C)</strong> Vectored Interrupt requires polling all devices in software</div><div class="in-opt"><strong>(D)</strong> Vectored Interrupt does not use an ISR</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> In a Vectored Interrupt, the interrupting device itself supplies a unique Interrupt Vector directly to the CPU; in a Non-Vectored Interrupt, the CPU jumps to a single fixed address and polls devices to find who interrupted. In a Vectored Interrupt, the interrupting device itself supplies a unique Interrupt Vector (starting address of its ISR) directly to the CPU; in a Non-Vectored Interrupt, the CPU jumps to a single fixed address and polls devices to find who interrupted — Vectored interrupts eliminate software polling latency by jumping directly to the device&#x27;s Interrupt Service Routine (ISR) via the Interrupt Vector Table (IVT).</div>
+</div><div class="in-note-q" data-search="during a direct memory access (dma) block transfer, when the dma controller steals single memory bus cycles from the cpu to transfer one word at a time while the cpu continues internal register operations, this mode is called: in burst mode, the dma controller holds the system bus for the entire block transfer; in cycle stealing mode, it takes single bus cycles periodically, slowing the cpu slightly without blocking it completely.">
+  <div class="in-note-stem">Q7.5: During a Direct Memory Access (DMA) block transfer, when the DMA controller steals single memory bus cycles from the CPU to transfer one word at a time while the CPU continues internal register operations, this mode is called:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Burst (Block Transfer) Mode</div><div class="in-opt"><strong>(B)</strong> Programmed Polling I/O</div><div class="in-opt ans"><strong>(C)</strong> Cycle Stealing Mode ✅</div><div class="in-opt"><strong>(D)</strong> Vectored Interrupt Mode</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> In Burst mode, the DMA controller holds the system bus for the entire block transfer; in Cycle Stealing mode, it takes single bus cycles periodically, slowing the CPU slightly without blocking it completely.</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Computer Fundamentals &amp; Architecture)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Generations &amp; History — Five Generations of Computers, Von Neumann vs Harvard Architecture &amp; Bus Lines</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Five Generations of Computers, Von Neumann vs Harvard Architecture]</strong> Address Bus (k bits, Unidirectional) -&gt; Max Addressable Memory = 2^k words</li><li>🔹 <strong>[Five Generations of Computers, Von Neumann vs Harvard Architecture]</strong> Data Bus (w bits, Bidirectional) -&gt; Word Size</li><li>🔹 <strong>[Five Generations of Computers, Von Neumann vs Harvard Architecture]</strong> Control Bus -&gt; Read/Write/IRQ Timing</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Address Bus hamesha Unidirectional (CPU -&gt; Memory/IO) hoti hai, jabki Data Bus Bidirectional hoti hai! Agar memory 64K × <mark class="hl">16 bit</mark> ki hai, to 64K = 2^16 =&gt; 16 Address lines aur 16 Data lines hongi!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Memory Hierarchy &amp; Cache — Memory Hierarchy, Locality of Reference, EMAT &amp; Cache Mapping (Direct, Associative, Set-Associative)</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Memory Hierarchy, Locality of Reference, EMAT]</strong> EMAT = h · t_cache + (1 − h) · t_main (Simultaneous) OR h · t_cache + (1 − h)(t_cache + t_main) (Hierarchical)</li><li>🔹 <strong>[Memory Hierarchy, Locality of Reference, EMAT]</strong> Physical Address (n bits) = [Tag | Index | Block Offset]</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Direct Mapping se k-way Set-Associative me जाने पर Set count k guna kam hota hai, isliye Set Index me log2(k) bits KAM lagte hain aur Tag field me log2(k) bits ZYADA lagte hain!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — CPU &amp; Instruction Cycle — CPU Registers (PC, IR, MAR, MBR, PSW), Instruction Cycle &amp; Hardwired vs Microprogrammed Control</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[CPU Registers (PC, IR, MAR, MBR, PSW), Instruction Cycle]</strong> Fetch Micro-Operations: T1: MAR &lt;- (PC)</li><li>🔹 <strong>[CPU Registers (PC, IR, MAR, MBR, PSW), Instruction Cycle]</strong> T2: MBR &lt;- M[MAR], PC &lt;- PC + 1</li><li>🔹 <strong>[CPU Registers (PC, IR, MAR, MBR, PSW), Instruction Cycle]</strong> T3: IR &lt;- (MBR)</li><li>🔹 <strong>[CPU Registers (PC, IR, MAR, MBR, PSW), Instruction Cycle]</strong> Control Word = Microinstruction in Control Memory (ROM)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: PC (Program Counter) hamesha AGLE (NEXT) execute hone wale instruction ka address rakhta hai, jabki IR (Instruction Register) CURRENTLY execute ho rahe instruction ka code rakhta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Addressing Modes — Addressing Modes &amp; Zero-, One-, Two-, Three-Address Instruction Formats</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Addressing Modes]</strong> Effective Address (EA): Immediate (No EA, operand in instruction)</li><li>🔹 <strong>[Addressing Modes]</strong> Direct (EA = A)</li><li>🔹 <strong>[Addressing Modes]</strong> Indirect (EA = M[A])</li><li>🔹 <strong>[Addressing Modes]</strong> Register Indirect (EA = [R])</li><li>🔹 <strong>[Addressing Modes]</strong> PC-Relative (EA = PC + Offset)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Position-independent code aur Branch instructions ke liye <strong>'PC-Relative Addressing'</strong> use hota hai, Array traversal ke liye <strong>'Indexed Addressing'</strong>, aur Program Relocation ke liye <strong>'Base-Register Addressing'</strong>!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Data Rep &amp; IEEE 754 — IEEE 754 Floating-Point Standard (Single 32-bit &amp; Double 64-bit) &amp; Endianness</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[IEEE 754 Floating-Point Standard (Single 32-bit]</strong> Single Precision (32-bit): 1 Sign + 8 Biased Exponent (Bias +127) + 23 Fractional Mantissa</li><li>🔹 <strong>[IEEE 754 Floating-Point Standard (Single 32-bit]</strong> Value = (−1)^S × (1.M)_2 × 2^(E − 127)</li><li>🔹 <strong>[IEEE 754 Floating-Point Standard (Single 32-bit]</strong> Double (64-bit): 1 + 11 (Bias +1023) + 52</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: <mark class="hl">IEEE 754</mark> Single Precision (32-bit) me Bias = 127 hota hai (1 + 8 + <mark class="hl">23 bits</mark>), aur Double Precision (64-bit) me Bias = 1023 hota hai (1 + 11 + <mark class="hl">52 bits</mark>)! Normalized form me <strong>'1.'</strong> implicit (hidden bit) hota hai.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Pipelining &amp; Hazards — Instruction Pipelining, Speedup, CPI, Hazards (Structural, Data, Control) &amp; Amdahl&#x27;s Law</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Instruction Pipelining, Speedup, CPI, Hazards (Structural, Data, Control)]</strong> Pipeline Execution Time for n tasks in k stages = (k + n − 1) × τ</li><li>🔹 <strong>[Instruction Pipelining, Speedup, CPI, Hazards (Structural, Data, Control)]</strong> Ideal Asymptotic Speedup S_max = k</li><li>🔹 <strong>[Instruction Pipelining, Speedup, CPI, Hazards (Structural, Data, Control)]</strong> Effective CPI = 1 + Stall Cycles per Instruction</li><li>🔹 <strong>[Instruction Pipelining, Speedup, CPI, Hazards (Structural, Data, Control)]</strong> Amdahl&#x27;s Law: S = 1 / ((1 − f) + f / s)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Sirf RAW (Read After Write) hi <strong>'True Data Dependency'</strong> hai; WAR (Anti-dependency) aur WAW (Output dependency) <strong>'Name Dependencies'</strong> hain jinhe Register Renaming se 100% khatam kiya ja sakta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — I/O &amp; DMA Organization — I/O Organization — Programmed I/O, Interrupt-Driven I/O (Vectored/Daisy Chain) &amp; DMA</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[I/O Organization — Programmed I/O, Interrupt-Driven I/O (Vectored/Daisy Chain)]</strong> DMA Transfer Modes: Burst / Block Mode (CPU halted for entire block)</li><li>🔹 <strong>[I/O Organization — Programmed I/O, Interrupt-Driven I/O (Vectored/Daisy Chain)]</strong> Cycle Stealing Mode (DMA steals 1 bus cycle per word)</li><li>🔹 <strong>[I/O Organization — Programmed I/O, Interrupt-Driven I/O (Vectored/Daisy Chain)]</strong> Transparent / Interleaved Mode (DMA uses bus only when CPU is idle)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: DMA Controller CPU se bus control mangne ke liye <strong>'HOLD'</strong> signal bhejta hai, aur CPU bus release karke <strong>'HLDA'</strong> (Hold Acknowledge) signal wapas deta hai! Interrupt hamesha CURRENT instruction poora hone ke baad hi check hota hai.</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

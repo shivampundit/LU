@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basis of Physics, Electrostatics, Current Electricity, Semiconductors, BJT/MOSFET, Optical Fiber, Modulation &amp; Wireless — Chapter-Wise Question Booklet (43 Qs) | DSSSB TGT CS</title>
+<style>
+
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+
+.toolbar {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 15px; margin-bottom: 16px; display: flex; flex-wrap: wrap;
+  gap: 9px; align-items: center; position: sticky; top: 50px; z-index: 90;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+.sel-box {
+  padding: 7px 11px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.85rem; font-weight: 600; background: #fff;
+}
+.q-card {
+  background: #fff; border: 1px solid #cbd5e1; border-radius: 10px;
+  padding: 15px 17px; margin-bottom: 12px;
+}
+.q-head {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  font-size: 0.77rem; font-weight: 700; color: #475569; margin-bottom: 6px;
+}
+.q-text { font-weight: 700; font-size: 0.96rem; color: #0f172a; margin-bottom: 10px; }
+.opts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 7px; }
+.opt-btn {
+  text-align: left; padding: 8px 11px; border-radius: 7px; border: 1.5px solid #cbd5e1;
+  background: #f8fafc; font-size: 0.88rem; color: #1e293b; cursor: pointer; transition: 0.1s;
+}
+.opt-btn:hover { border-color: #2563eb; background: #eff6ff; }
+.opt-btn.correct { background: #dcfce7 !important; border-color: #16a34a !important; color: #14532d !important; font-weight: 700; }
+.opt-btn.wrong { background: #fee2e2 !important; border-color: #dc2626 !important; color: #7f1d1d !important; }
+.exp-strip {
+  margin-top: 9px; padding: 8px 12px; border-radius: 6px;
+  background: #eff6ff; border-left: 4px solid #2563eb; font-size: 0.86rem; color: #1e3a8a;
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📝 DSSSB TGT CS Question Booklet • Basis of Physics, Electrostatics, Current Electricity, Semiconductors, BJT/MOSFET, Optical Fiber, Modulation &amp; Wireless</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon</a>
+    <a href="../Revision_Notes/20_B15_Physics_Semiconductors_Optics_Comm_Revision_Notes.html">📘 Revision Notes</a>
+    <a href="20_B15_Physics_Semiconductors_Optics_Comm_Question_Booklet.html" class="active">📝 Question Booklet (43 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 4–6 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">43 100% Hand-Crafted Easy-to-Medium MCQs</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter Alignment</span>
+    </div>
+    <h1>📝 Basis of Physics, Electrostatics, Current Electricity, Semiconductors, BJT/MOSFET, Optical Fiber, Modulation &amp; Wireless — Chapter-Wise Question Booklet</h1>
+    <p>43 pure, simple, exam-expected DSSSB questions matched strictly to each chapter. Read in <strong>📖 Revision Mode</strong> or switch to <strong>✍️ Quiz Mode</strong> for timed +1.00 / -0.25 self-testing.</p>
+  </div>
+
+  <div class="toolbar">
+    <select id="chFilter" class="sel-box" onchange="renderList()">
+      <option value="ALL">All 7 Chapters (43 Questions)</option><option value="Chapter 1:">Chapter 1: Electrostatics &amp; Capacitance — Electrostatics (2 Qs)</option><option value="Chapter 2:">Chapter 2: Current Electricity &amp; Circuits — Current Elec (17 Qs)</option><option value="Chapter 3:">Chapter 3: Semiconductors &amp; Diodes — Semiconductor Physi (10 Qs)</option><option value="Chapter 4:">Chapter 4: BJT &amp; MOSFET Transistors — BJT Operating Regi (4 Qs)</option><option value="Chapter 5:">Chapter 5: Optics &amp; Fiber Physics — Optical Fiber Physic (2 Qs)</option><option value="Chapter 6:">Chapter 6: Waves &amp; Signal Modulation — Analog (AM, FM, P (7 Qs)</option><option value="Chapter 7:">Chapter 7: Wireless &amp; Channel Physics — EM Spectrum Band (1 Qs)</option>
+    </select>
+    <input type="text" id="qSearch" class="search-input" style="max-width:240px;" placeholder="🔍 Filter questions..." oninput="renderList()">
+    <button class="btn btn-green" id="modeBtn" onclick="toggleMode()">📖 Mode: Revision (Answers Visible)</button>
+    <button class="btn btn-outline" onclick="shuffleOpts()">🔀 Shuffle Options</button>
+    <span id="statLabel" style="margin-left:auto;font-weight:800;font-size:0.85rem;color:#1e3a8a;">Total: 43 Qs</span>
+  </div>
+
+  <div id="qContainer"></div>
+</div>
+<script>
+const QUESTIONS = [{"id": 1, "chapter": "Chapter 1: Electrostatics & Capacitance — Electrostatics — Coulomb's Law, Gauss's Law, Electric Potential & Parallel-Plate Capacitor Networks", "q": "What are the SI units of (1) Electric Charge, (2) Electric Potential (Voltage), (3) Capacitance, (4) Inductance, (5) Magnetic Flux, and (6) Magnetic Flux Density (Magnetic Field B)?", "options": ["Charge = Coulomb (C)", "Magnetic Field B is measured in Farads", "Inductance is measured in Tesla", "1 Tesla = 10⁻⁴ Gauss"], "answer": 0, "explanation": "Charge = Coulomb (C); Voltage = Volt (V = J/C); Capacitance = Farad (F = C/V); Inductance = Henry (H); Magnetic Flux = Weber (Wb); Magnetic Field B = Tesla (T = Wb/m² = 10⁴ Gauss) — Memorize: `1 Tesla = 1 Weber / m² = 10⁴ Gauss`. And Electric Power `P = V × I = I² R = V² / R` Watts.", "tag": "DSSSB Expected / PYQ"}, {"id": 2, "chapter": "Chapter 1: Electrostatics & Capacitance — Electrostatics — Coulomb's Law, Gauss's Law, Electric Potential & Parallel-Plate Capacitor Networks", "q": "Inside a hollow charged conducting spherical shell, what is the Electric Field `E` and Electric Potential `V`?", "options": ["Both E and V are zero inside", "Electric Field E = 0 everywhere inside", "E is infinite and V is zero", "E is constant and non-zero"], "answer": 1, "explanation": "Electric Field E = 0 everywhere inside; Electric Potential V is CONSTANT inside (equal to the potential on the surface) — This is the principle of **Electrostatic Shielding** (Faraday Cage — why a car is safe during lightning).", "tag": "DSSSB Expected / PYQ"}, {"id": 3, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "Three resistors of `3 Ω, 6 Ω, and 2 Ω` are connected in PARALLEL across a `12 V` DC battery. What is the equivalent resistance `R_eq` and the total current `I` drawn from the battery?", "options": ["R_eq = 11 Ω; I = 1.09 A", "R_eq = 2 Ω; I = 6 A", "R_eq = 1 Ω; Total current I = V / R_eq = 12 V / 1 Ω = 12 A", "R_eq = 0.5 Ω; I = 24 A"], "answer": 2, "explanation": "R_eq = 1 Ω (since 1/R_eq = 1/3 + 1/6 + 1/2 = 6/6 = 1); Total current I = V / R_eq = 12 V / 1 Ω = 12 A — For parallel resistors: `1/R_eq = 1/R₁ + 1/R₂ + 1/R₃`; for parallel capacitors: `C_eq = C₁ + C₂ + C₃` (opposite of resistors!).", "tag": "DSSSB Expected / PYQ"}, {"id": 4, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "According to Kirchhoff's Current Law (KCL — Node Rule) and Kirchhoff's Voltage Law (KVL — Loop Rule), which fundamental physical conservation laws are they based on?", "options": ["KCL is Conservation of Energy and KVL is Conservation of Charge", "Both are based on Conservation of Mass", "KVL applies only to open circuits", "KCL is based on Conservation of Electric Charge; KVL is based on Conservation of Energy"], "answer": 3, "explanation": "KCL (`Σ I = 0` at a junction) is based on Conservation of Electric Charge; KVL (`Σ V = 0` around a closed loop) is based on Conservation of Energy — And **Lenz's Law** (`ε = −N dΦ_B / dt`, the minus sign in Faraday's Law) is ALSO a direct consequence of the **Law of Conservation of Energy**!", "tag": "DSSSB Expected / PYQ"}, {"id": 5, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "According to the Barkhausen Criterion for sustained sinusoidal oscillations in a feedback oscillator circuit (with amplifier gain `A` and feedback factor `β`), what two conditions must the loop gain `A · β` satisfy?", "options": ["1. Magnitude of loop gain |A · β| = 1 (Unity), and 2. Total Phase Shift around the closed loop = 0°", "Loop gain |A · β| = 0 and Phase Shift = 180° (Negative Feedback)", "|A · β| < 0.5", "Oscillators use Negative Feedback"], "answer": 0, "explanation": "1. Magnitude of loop gain |A · β| = 1 (Unity), and 2. Total Phase Shift around the closed loop = 0° (or an integer multiple of 360°, i.e., Positive Regenerative Feedback) — Amplifiers use **Negative Feedback** (`180°` out of phase, stabilizing gain and increasing bandwidth), whereas Oscillators (RC Phase-Shift, Wien-Bridge, Hartley, Colpitts, Crystal) use **Positive Feedback** (`0° / 360°` phase shift, `|Aβ| ≥ 1`).", "tag": "DSSSB Expected / PYQ"}, {"id": 6, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "According to Coulomb's Law, if the distance `r` between two point charges `q₁` and `q₂` is DOUBLED (`2r`), what happens to the electrostatic force `F` between them?", "options": ["It becomes half (`F / 2`)", "It becomes ONE-FOURTH", "It doubles (`2F`)", "It remains unchanged"], "answer": 1, "explanation": "It becomes ONE-FOURTH (`F / 4`, inverse-square law `F ∝ 1/r²`) — `F = k · q₁q₂ / r²`: doubling `r` reduces `F` by a factor of `2² = 4`.", "tag": "DSSSB Expected / PYQ"}, {"id": 7, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "If two capacitors of `6 μF` and `3 μF` are connected in (1) SERIES and (2) PARALLEL, what are their equivalent capacitances?", "options": ["Series = 9 μF; Parallel = 2 μF", "Both are 4.5 μF", "Series: (6 × 3) / (6 + 3) = 2 μF; Parallel: 6 + 3 = 9 μF", "Series = 18 μF"], "answer": 2, "explanation": "Capacitors combine **opposite** to resistors: Parallel adds directly (`C₁ + C₂`), Series adds reciprocals (`1/C₁ + 1/C₂`).", "tag": "DSSSB Expected / PYQ"}, {"id": 8, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "If a copper wire of resistance `R` is stretched uniformly to DOUBLE its original length (`2L`, keeping volume constant so area becomes `A/2`), what is its new resistance?", "options": ["2R", "R / 2", "R", "4R (since R = ρL/A becomes ρ(2L)/(A/2) = 4R)"], "answer": 3, "explanation": "When a wire is stretched to `n` times its length (constant volume), its new resistance becomes `n² R` (`2² R = 4R`).", "tag": "DSSSB Expected / PYQ"}, {"id": 9, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "In an AC (Alternating Current) sinusoidal wave of peak voltage `V_m` (e.g., Indian household `220 V` RMS at `50 Hz`), what is the relationship between `V_rms` and `V_m`?", "options": ["V_rms = V_m / √2 ≈ 0.707 V_m", "V_rms = V_m / 2", "V_rms = √2 × V_m", "V_rms = V_m"], "answer": 0, "explanation": "V_rms = V_m / √2 ≈ 0.707 V_m (so 220 V RMS has peak V_m = 220 × 1.414 ≈ 311 V) — Indian domestic AC supply is `220–230 V` RMS at `50 Hz` (`V_peak ≈ 311 V`).", "tag": "DSSSB Expected / PYQ"}, {"id": 10, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "What is the Resonant Frequency `f_r` of a series RLC AC circuit, and what is the Impedance `Z` and Power Factor (`cos φ`) at Resonance?", "options": ["Z is maximum at resonance", "f_r = 1 / (2π√(LC))", "Power Factor is 0 at resonance", "f_r = 2π√(LC)"], "answer": 1, "explanation": "f_r = 1 / (2π√(LC)); at Resonance, X_L = X_C so Impedance is MINIMUM (`Z = R`) and Power Factor is UNITY (`cos 0° = 1`) — At series RLC resonance, inductive and capacitive reactances cancel (`X_L = X_C`), giving maximum current `I = V / R`.", "tag": "DSSSB Expected / PYQ"}, {"id": 11, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "What is the purpose of a 'Filter Capacitor' connected in parallel across the load resistor of a DC power supply rectifier?", "options": ["To convert DC back into AC", "To double the AC frequency", "To smooth out pulsating DC ripples into steady DC voltage by charging during peaks and discharging slowly during valleys", "To block DC current"], "answer": 2, "explanation": "Capacitors block steady DC (`X_C = ∞` at `f = 0`) and bypass high-frequency AC ripples to ground (`X_C = 1/(2πfC)`).", "tag": "DSSSB Expected / PYQ"}, {"id": 12, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "What is the relation between the Critical Angle `θ_c` inside an optical fiber core (`n₁`) bounded by cladding (`n₂ < n₁`)?", "options": ["sin θ_c = n₁ / n₂", "cos θ_c = n₁ × n₂", "n₁ must be less than n₂", "sin θ_c = n₂ / n₁"], "answer": 3, "explanation": "sin θ_c = n₂ / n₁ (Total Internal Reflection occurs for internal incidence angles θ > θ_c) — Core refractive index `n₁` must ALWAYS be strictly GREATER than Cladding refractive index `n₂` (`n₁ > n₂`).", "tag": "DSSSB Expected / PYQ"}, {"id": 13, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "In Electromagnetic Spectrum ordering from LOWEST frequency (longest wavelength) to HIGHEST frequency (shortest wavelength), what is the exact sequence?", "options": ["Radio Waves -> Microwaves -> Infrared -> Visible Light -> Ultraviolet (UV) -> X-Rays -> Gamma Rays", "Gamma Rays -> X-Rays -> Radio Waves", "Visible -> Infrared -> Microwaves -> Radio", "UV -> Visible -> Infrared -> X-Rays"], "answer": 0, "explanation": "Mnemonic (Long λ / Low f to Short λ / High f): **R-M-I-V-U-X-G** (Remember: `c = f · λ` and Photon Energy `E = h · f`).", "tag": "DSSSB Expected / PYQ"}, {"id": 14, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "Which of the Four Fundamental Maxwell's Equations of Electromagnetism mathematically expresses the experimental fact that 'Isolated Magnetic Monopoles DO NOT Exist' (magnetic field lines always form closed loops)?", "options": ["Gauss's Law for Electricity: ∇ · E = ρ / ε_0", "Gauss's Law for Magnetism: ∇ · B = 0 (or ∮ B · dA = 0)", "Faraday's Law of Induction: ∇ × E = −∂B / ∂t", "Ampere-Maxwell Law: ∇ × B = μ_0 J + μ_0 ε_0 ∂E / ∂t"], "answer": 1, "explanation": "Because every magnet has both a North and South pole (no magnetic monopole), the net magnetic flux through any closed Gaussian surface is identically zero (`∇ · B = 0`).", "tag": "DSSSB PYQ"}, {"id": 15, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "What is the exact relationship between the speed of electromagnetic waves in vacuum `c`, the permittivity of free space `ε_0`, and the permeability of free space `μ_0`?", "options": ["c = √(μ_0 · ε_0)", "c = μ_0 / ε_0", "c = 1 / √(μ_0 · ε_0) ≈ 3 × 10^8 m/s", "c = 1 / (μ_0 · ε_0)"], "answer": 2, "explanation": "Maxwell derived the wave speed `c = 1 / √(μ_0 ε_0) ≈ 2.998 × 10^8 m/s`. In a dielectric medium with relative refractive index `n = √(ε_r μ_r)`, wave speed is `v = c / n`.", "tag": "DSSSB PYQ"}, {"id": 16, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "What are the three fundamental physical processes of radiation-matter interaction identified by Albert Einstein (1917) in a Laser, and why is a minimum of 3 or 4 energy levels (with a 'Metastable State') required to achieve 'Population Inversion' (`N_2 > N_1`)?", "options": ["Population inversion occurs naturally at thermal equilibrium without pumping", "A 2-level system achieves 100% population inversion easily", "Stimulated emission produces incoherent, random-phase photons", "1. Induced Absorption, 2. Spontaneous Emission, and 3. Stimulated Emission"], "answer": 3, "explanation": "1. Induced Absorption, 2. Spontaneous Emission, and 3. Stimulated Emission; in a 2-level system, optical pumping can at most equalize populations, so a 3-level (Ruby) or 4-level (He-Ne) system with a long-lived Metastable State is essential to accumulate `N_2 > N_1`. 1. Induced Absorption, 2. Spontaneous Emission, and 3. Stimulated Emission; in a 2-level system, optical pumping can at most equalize populations (`N_2 = N_1`), so a 3-level (Ruby) or 4-level (He-Ne) system with a long-lived Metastable State (`τ ~ 10^{-3} s` vs `10^{-8} s`) is essential to accumulate `N_2 > N_1` — In thermal equilibrium, Boltzmann statistics dictates `N_2 / N_1 = exp(-ΔE / k_B T) < 1` (`N_1 > N_2`). Pumping into a short-lived excited state that rapidly relaxes into a long-lived Metastable State creates Population Inversion (`N_2 > N_1`), enabling Stimulated Emission of coherent, monochromatic, unidirectional, in-phase photons.", "tag": "DSSSB PYQ"}, {"id": 17, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "When a superconductor is cooled below its Critical Temperature `T_c` in a magnetic field, it actively expels all magnetic flux lines from its interior (`B = 0` inside, acting as a perfect diamagnet with magnetic susceptibility `χ = −1`). What is this phenomenon called?", "options": ["The Meissner Effect", "The Hall Effect", "The Photoelectric Effect", "The Seebeck Effect"], "answer": 0, "explanation": "The Meissner Effect (Meissner-Ochsenfeld Effect, 1933) — A superconductor is NOT merely a perfect conductor (`R = 0`); it also exhibits the Meissner Effect (`B = 0` inside, `χ = -1`), explained microscopically by BCS Theory (formation of bosonic 'Cooper Pairs' of electrons via phonon interaction).", "tag": "DSSSB PYQ"}, {"id": 18, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "An optical fiber has a core refractive index `n_1 = 1.50` and a cladding refractive index `n_2 = 1.47` (operating in air `n_0 = 1.0`). What is its Numerical Aperture (`NA`) and Acceptance Angle `θ_a`?", "options": ["NA = 1.50 − 1.47 = 0.03", "NA = √ = √ = √0.0891 ≈ 0.2985 (≈ 0.30)", "NA = 1.47 / 1.50 = 0.98", "NA = √(1.50² + 1.47²) = 2.10"], "answer": 1, "explanation": "NA = √ = √ = √0.0891 ≈ 0.2985 (≈ 0.30); Acceptance Angle θ_a = arcsin(0.2985) ≈ 17.37°. NA = √(n_1² − n_2²) = √(2.25 − 2.1609) = √0.0891 ≈ 0.2985 (≈ 0.30); Acceptance Angle θ_a = arcsin(0.2985) ≈ 17.37° — For an optical fiber in air: `NA = √(n_1² - n_2²) ≈ n_1 √(2Δ)`. Here `n_1² - n_2² = 2.25 - 2.1609 = 0.0891`, so `NA = √0.0891 ≈ 0.2985`, and `θ_a = arcsin(NA) ≈ 17.4°`.", "tag": "DSSSB PYQ"}, {"id": 19, "chapter": "Chapter 2: Current Electricity & Circuits — Current Electricity — Ohm's Law, Temperature Coefficient, Kirchhoff's Laws (KCL/KVL), Wheatstone Bridge & Max Power", "q": "Why does a 'Single-Mode Step-Index Fiber' (core diameter `~8–10 μm`, normalized frequency `V < 2.405`) achieve vastly higher bandwidth-distance product for long-haul telecom than a 'Multimode Step-Index Fiber' (core diameter `~50–62.5 μm`)?", "options": ["Single-Mode fiber has a core diameter of 500 mm", "Multimode Step-Index fiber has zero dispersion", "Because Single-Mode fiber supports only a single fundamental propagation mode (`LP_01`), completely eliminating 'Intermodal Dispersion'", "Single-Mode fiber uses copper wire inside the core"], "answer": 2, "explanation": "Because Single-Mode fiber supports only a single fundamental propagation mode (`LP_01`), completely eliminating 'Intermodal Dispersion' (Modal Pulse Spreading caused by different rays taking paths of different lengths) — Multimode Step-Index fiber suffers from severe Intermodal Dispersion; Graded-Index (GRIN) Multimode fiber reduces it using a parabolic refractive index profile (faster peripheral rays catch up with slower axial rays), while Single-Mode fiber (`V = (2πa/λ)·NA < 2.405`) eliminates intermodal dispersion entirely.", "tag": "DSSSB PYQ"}, {"id": 20, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "In an Intrinsic (pure) Semiconductor at Absolute Zero temperature (`T = 0 K`), how does it behave electrically, and how does its electrical resistance change as temperature increases?", "options": ["At 0 K a semiconductor is a superconductor", "Semiconductors have a Positive Temperature Coefficient of resistance like copper", "Resistance is independent of temperature", "At T = 0 K, an intrinsic semiconductor behaves as a PERFECT INSULATOR"], "answer": 3, "explanation": "At T = 0 K, an intrinsic semiconductor behaves as a PERFECT INSULATOR; as temperature increases, its resistance DECREASES. At T = 0 K, an intrinsic semiconductor behaves as a PERFECT INSULATOR (valence band full, conduction band empty); as temperature increases, its resistance DECREASES (Negative Temperature Coefficient of Resistance, unlike metals!) — Metals have a **Positive** temperature coefficient (`R` increases with `T`), whereas Semiconductors and Insulators have a **Negative** temperature coefficient (`R` decreases exponentially as `T` rises).", "tag": "DSSSB Expected / PYQ"}, {"id": 21, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "What is the electrical net charge of an N-type semiconductor crystal (doped with pentavalent Phosphorus) and a P-type semiconductor crystal (doped with trivalent Boron)?", "options": ["BOTH N-type and P-type semiconductor crystals are electrically NEUTRAL!", "N-type is negatively charged and P-type is positively charged", "N-type is positively charged and P-type is negatively charged", "Both have a net positive charge"], "answer": 0, "explanation": "BOTH N-type and P-type semiconductor crystals are electrically NEUTRAL (Net Charge = 0)! — Classic Exam Trap: Because every doped impurity atom (Phosphorus or Boron) added to the silicon crystal is itself a neutral atom (equal protons and electrons), both N-type and P-type semiconductors are **electrically neutral overall**!", "tag": "DSSSB Expected / PYQ"}, {"id": 22, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "When a PN Junction Diode is Forward Biased vs Reverse Biased, what happens to the width of the Depletion Region and the potential barrier?", "options": ["Forward Bias increases depletion width", "Forward Bias: Depletion width DECREASES and barrier lowers", "Reverse Bias reduces depletion width to zero", "Majority carriers flow in Reverse Bias"], "answer": 1, "explanation": "Forward Bias: Depletion width DECREASES and barrier lowers; Reverse Bias: Depletion width INCREASES and barrier rises. Forward Bias: Depletion width DECREASES and barrier lowers (allowing diffusion current of majority carriers); Reverse Bias: Depletion width INCREASES and barrier rises (only tiny minority-carrier drift saturation current `I₀` flows) — In a Half-Wave Rectifier: max efficiency = `40.6%`, ripple factor = `1.21`, output ripple frequency = `f_in`; in a Full-Wave (Center-Tap or Bridge) Rectifier: max efficiency = `81.2%`, ripple factor = `0.482`, output ripple frequency = `2 f_in` (Bridge Rectifier needs 4 diodes and has PIV = `V_m`).", "tag": "DSSSB Expected / PYQ"}, {"id": 23, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "What is the 'Ripple Factor' and Maximum Rectification Efficiency of a Half-Wave Rectifier vs a Full-Wave (Bridge / Center-Tap) Rectifier?", "options": ["Half-Wave = 81.2%; Full-Wave = 40.6%", "Both have 100% efficiency", "Half-Wave: Efficiency = 40.6%, Ripple Factor = 1.21; Full-Wave: Efficiency = 81.2%, Ripple Factor = 0.482", "Ripple factor of Full-Wave is 1.21"], "answer": 2, "explanation": "Full-Wave Rectifier doubles the efficiency (`81.2%`) and doubles the output ripple frequency (`2 f_in`), making filtering much easier.", "tag": "DSSSB Expected / PYQ"}, {"id": 24, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "Which semiconductor diode has a metal-to-semiconductor junction (no P-N minority carrier storage), ultra-fast switching speed, and a very low forward voltage drop (`~0.2–0.3 V`)?", "options": ["Zener Diode", "LED", "Varactor Diode", "Schottky Diode"], "answer": 3, "explanation": "Schottky Diode (Hot-Carrier Diode) — Schottky diodes are used in high-speed switching power supplies (SMPS) and Schottky-TTL logic gates.", "tag": "DSSSB Expected / PYQ"}, {"id": 25, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "At room temperature (`T = 300 K`), what are the approximate Forbidden Energy Band Gaps (`E_g`) and Forward Cut-in (Knee/Barrier) Voltages (`V_γ`) for Silicon (Si) and Germanium (Ge) respectively?", "options": ["Silicon (Si): Band Gap E_g ≈ 1.12 eV, Barrier Voltage V_γ ≈ 0.7 V; Germanium (Ge): Band Gap E_g ≈ 0.67 eV (0.72 eV), Barrier Voltage V_γ ≈ 0.3 V", "Silicon: E_g = 0.3 eV, V_γ = 1.1 V; Germanium: E_g = 1.1 eV, V_γ = 0.7 V", "Both have E_g = 5.5 eV like Diamond (Insulator)", "Both have E_g = 0 eV like Copper"], "answer": 0, "explanation": "Silicon's wider band gap (`1.12 eV` vs Ge's `0.67 eV`) gives Silicon a much lower reverse saturation leakage current (`I_0` in nanoamperes vs microamperes for Ge) and higher thermal stability up to ~175°C.", "tag": "DSSSB PYQ"}, {"id": 26, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "According to the 'Mass-Action Law' for a semiconductor in thermal equilibrium with electron concentration `n`, hole concentration `p`, and intrinsic carrier concentration `n_i`, what is `n × p` equal to? If Silicon (`n_i = 1.5 × 10^{10} cm^{-3}`) is doped with `N_D = 4.5 × 10^{15} cm^{-3}` Phosphorus (pentavalent N-type) donor atoms, what is the minority hole concentration `p`?", "options": ["n + p = n_i; p = 4.5 × 10^{15} cm^{-3}", "Mass-Action Law: n · p = n_i²; Minority hole concentration p = n_i² / N_D = / = 5 × 10^4 holes/cm³", "n · p = n_i; p = 1.5 × 10^{10} cm^{-3}", "p = 3.0 × 10^5 cm^{-3}"], "answer": 1, "explanation": "Mass-Action Law: n · p = n_i²; Minority hole concentration p = n_i² / N_D = (2.25 × 10^{20}) / (4.5 × 10^{15}) = 5 × 10^4 holes/cm³ — Pentavalent dopants (P, As, Sb — Group 15) are Donor impurities creating N-type semiconductors (`n ≈ N_D`); Trivalent dopants (B, Al, Ga, In — Group 13) are Acceptor impurities creating P-type semiconductors (`p ≈ N_A`). By `n · p = n_i²`, `p = (1.5×10^{10})² / (4.5×10^{15}) = 5 × 10^4 cm^{-3}`.", "tag": "DSSSB PYQ"}, {"id": 27, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "In which biasing mode does a heavily doped 'Zener Diode' operate as a constant-voltage DC Voltage Regulator, and what distinguishes 'Zener Breakdown' from 'Avalanche Breakdown'?", "options": ["Zener Diode regulates voltage in Forward Bias at +0.7 V", "Zener Breakdown occurs only above 100 V", "Reverse Bias Breakdown Region", "Zener Breakdown has a positive temperature coefficient whereas Avalanche has a negative coefficient"], "answer": 2, "explanation": "Reverse Bias Breakdown Region; Zener Breakdown occurs in heavily doped junctions at low reverse voltages (`< 5–6 V`) via strong electric-field quantum tunneling, whereas Avalanche Breakdown occurs in lightly doped junctions at higher voltages (`> 6 V`) via impact ionization carrier multiplication. Zener breakdown (`< 6 V`) has a negative temperature coefficient (`V_Z` decreases slightly with T), while Avalanche breakdown (`> 6 V`) has a positive temperature coefficient; around `5.1 V – 5.6 V`, both coefficients cancel, yielding ultra-stable temperature-compensated reference diodes!", "tag": "DSSSB PYQ"}, {"id": 28, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "Match the special-purpose semiconductor diode with its biasing and principle: (1) LED (Light Emitting Diode), (2) Photodiode, (3) Varactor (Varicap) Diode, and (4) Tunnel (Esaki) Diode:", "options": ["LED is operated in Reverse Breakdown and Photodiode in Forward Bias", "Silicon is an ideal material for bright visible LEDs", "Varactor Diode is used as a high-power rectifier", "(1) LED: Forward-biased direct-bandgap radiative recombination"], "answer": 3, "explanation": "(1) LED: Forward-biased direct-bandgap radiative recombination; (2) Photodiode: Reverse-biased light detector; (3) Varactor: Reverse-biased voltage-controlled junction capacitor; (4) Tunnel Diode: Degenerately doped junction exhibiting Negative Differential Resistance via quantum tunneling. (1) LED: Forward-biased direct-bandgap (GaAs, GaAsP) radiative recombination; (2) Photodiode: Reverse-biased light detector; (3) Varactor: Reverse-biased voltage-controlled junction capacitor (`C_j ∝ V^{-1/2}`); (4) Tunnel Diode: Degenerately doped junction exhibiting Negative Differential Resistance via quantum tunneling — Note: Elemental Silicon (Si) and Germanium (Ge) are Indirect-Bandgap semiconductors (releasing energy mainly as heat/phonons), so LEDs and Laser Diodes require Direct-Bandgap III-V compounds like GaAs, GaP, GaAsP, and InGaN.", "tag": "DSSSB PYQ"}, {"id": 29, "chapter": "Chapter 3: Semiconductors & Diodes — Semiconductor Physics — Intrinsic/Extrinsic (n-Type vs p-Type), Mass-Action Law, PN Junction & Zener/Opto Diodes", "q": "Why is a MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor) called a 'Unipolar, Voltage-Controlled Device' with extremely high input impedance (`~10^{12} Ω` to `10^{15} Ω`) compared to a BJT?", "options": ["Because current conduction involves only ONE type of majority carrier, controlled by the Gate-to-Source electric field across an insulating Silicon Dioxide (`SiO2`) dielectric layer (`I_G ≈ 0`)", "Because a MOSFET conducts using both electrons and holes simultaneously and is current-controlled", "Because the Gate is directly shorted to the Drain", "Because BJT has higher input impedance than MOSFET"], "answer": 0, "explanation": "Because current conduction involves only ONE type of majority carrier (electrons in NMOS or holes in PMOS), controlled by the Gate-to-Source electric field across an insulating Silicon Dioxide (`SiO2`) dielectric layer (`I_G ≈ 0`) — BJT is Bipolar (both electrons and holes) and Current-Controlled (`I_C = β I_B`, moderate input impedance); JFET and MOSFET are Unipolar (majority carriers only) and Voltage-Controlled (`I_D` controlled by `V_GS`) with insulated gate (`I_G ≈ 0`).", "tag": "DSSSB PYQ"}, {"id": 30, "chapter": "Chapter 4: BJT & MOSFET Transistors — BJT Operating Regions (Active, Cutoff, Saturation), α-β Relation, MOSFET CMOS Inverter & Op-Amp Ideal Specs", "q": "Among the three BJT amplifier configurations — Common Base (CB), Common Emitter (CE), and Common Collector (CC / Emitter Follower) — which one provides a `180°` phase inversion between input and output voltage, and which one is used as an Impedance-Matching Buffer (`A_v ≈ 1`, High `Z_in`, Low `Z_out`)?", "options": ["Common Base provides 180° phase shift", "Common Emitter (CE) provides 180° phase shift and highest power gain", "Common Emitter has 0° phase shift", "Common Collector has voltage gain of 1000"], "answer": 1, "explanation": "Common Emitter (CE) provides 180° phase shift and highest power gain; Common Collector has high Z_in, low Z_out, and unity voltage gain for impedance matching. Common Emitter (CE) provides 180° phase shift and highest power gain; Common Collector (CC / Emitter Follower) has high Z_in, low Z_out, and unity voltage gain (0° phase shift) for impedance matching — CE is the most widely used general-purpose amplifier (high current gain `β`, high voltage gain, highest power gain, and `180°` phase reversal).", "tag": "DSSSB Expected / PYQ"}, {"id": 31, "chapter": "Chapter 4: BJT & MOSFET Transistors — BJT Operating Regions (Active, Cutoff, Saturation), α-β Relation, MOSFET CMOS Inverter & Op-Amp Ideal Specs", "q": "In a BJT (NPN or PNP transistor), which of the three doped regions — Emitter, Base, or Collector — is (1) HEAVILY doped, (2) LIGHTLY doped & very thin, and (3) PHYSICALLY LARGEST in area?", "options": ["Base is heavily doped and thickest", "Emitter is lightly doped", "(1) Emitter = Heavily doped", "Collector is the smallest region"], "answer": 2, "explanation": "(1) Emitter = Heavily doped; (2) Base = Very thin & lightly doped; (3) Collector = Moderately doped & physically LARGEST. (1) Emitter = Heavily doped (injects carriers); (2) Base = Very thin & lightly doped (minimizes recombination); (3) Collector = Moderately doped & physically LARGEST (dissipates heat) — Emitter injects carriers, thin Base passes ~98–99% of them through, and large Collector collects them and dissipates power.", "tag": "DSSSB Expected / PYQ"}, {"id": 32, "chapter": "Chapter 4: BJT & MOSFET Transistors — BJT Operating Regions (Active, Cutoff, Saturation), α-β Relation, MOSFET CMOS Inverter & Op-Amp Ideal Specs", "q": "In a Bipolar Junction Transistor (BJT), what are thebiasing conditions of the Emitter-Base (EB) junction and Collector-Base (CB) junction for the three operating regions: (1) Active Region (Amplifier), (2) Saturation Region (Closed Switch ON), and (3) Cut-off Region (Open Switch OFF)?", "options": ["Active: Both Forward; Saturation: EB Forward, CB Reverse", "Active: Both Reverse; Cut-off: Both Forward", "Active: EB Reverse, CB Forward (Inverse Active)", "Active: EB Forward, CB Reverse; Saturation (ON): Both EB and CB Forward; Cut-off (OFF): Both EB and CB Reverse"], "answer": 3, "explanation": "BJT operating regions: Active (EB=Forward, CB=Reverse -> linear amplification), Saturation (EB=Forward, CB=Forward -> closed switch ON), Cut-off (EB=Reverse, CB=Reverse -> open switch OFF).", "tag": "DSSSB PYQ"}, {"id": 33, "chapter": "Chapter 4: BJT & MOSFET Transistors — BJT Operating Regions (Active, Cutoff, Saturation), α-β Relation, MOSFET CMOS Inverter & Op-Amp Ideal Specs", "q": "In a BJT, if the Common-Base DC current gain is `α = I_C / I_E = 0.98`, what is the Common-Emitter DC current gain `β = I_C / I_B`?", "options": ["β = α / (1 − α) = 0.98 / (1 − 0.98) = 0.98 / 0.02 = 49", "β = 98", "β = 0.49", "β = 50"], "answer": 0, "explanation": "Since `I_E = I_B + I_C`, dividing by `I_C` gives `1/α = 1/β + 1`, so `β = α / (1 - α) = 0.98 / 0.02 = 49` (and conversely `α = β / (β + 1) = 49 / 50 = 0.98`).", "tag": "DSSSB PYQ"}, {"id": 34, "chapter": "Chapter 5: Optics & Fiber Physics — Optical Fiber Physics — Total Internal Reflection, Numerical Aperture (NA), Acceptance Angle, Attenuation & Laser", "q": "Compare the Maiman 'Ruby Laser' (1960) and the 'Helium-Neon (He-Ne) Laser': which one is a 3-level pulsed solid-state laser (`λ = 694.3 nm`), and which one is a 4-level continuous-wave (CW) gas laser (`λ = 632.8 nm`)?", "options": ["Ruby Laser is a 4-level gas laser and He-Ne is a 3-level solid-state laser", "Ruby Laser = 3-level Pulsed Solid-State Laser at 694.3 nm", "Both operate in the ultraviolet spectrum at 100 nm", "In a He-Ne laser, Helium atoms emit the 632.8 nm laser photons directly"], "answer": 1, "explanation": "Ruby Laser = 3-level Pulsed Solid-State Laser at 694.3 nm; He-Ne Laser = 4-level Continuous-Wave Gas Laser at 632.8 nm. Ruby Laser (`Cr^{3+}` doped `Al2O3`, Xenon flashlamp optical pumping) = 3-level Pulsed Solid-State Laser at 694.3 nm; He-Ne Laser (10:1 He:Ne mixture, electric discharge pumping) = 4-level Continuous-Wave Gas Laser at 632.8 nm — In a He-Ne laser, electric discharge excites Helium atoms (`10:1` ratio), which transfer energy via resonant collisions to Neon atoms; the actual `632.8 nm` red laser transition occurs between excited states of the Neon atoms!", "tag": "DSSSB PYQ"}, {"id": 35, "chapter": "Chapter 5: Optics & Fiber Physics — Optical Fiber Physics — Total Internal Reflection, Numerical Aperture (NA), Acceptance Angle, Attenuation & Laser", "q": "What are the three low-attenuation 'Optical Transmission Windows' (wavelengths in nanometers) in silica (`SiO2`) optical fibers, and at which wavelength does silica achieve its absolute minimum attenuation (`~0.2 dB/km`) and zero material dispersion (`1310 nm`)?", "options": ["Minimum attenuation occurs at 400 nm violet light", "1310 nm has the highest attenuation of 50 dB/km", "First Window: 850 nm", "Optical fibers operate at 10 MHz radio wavelengths"], "answer": 2, "explanation": "First Window: 850 nm; Second Window: 1310 nm; Third Window (C-Band): 1550 nm. First Window: 850 nm; Second Window: 1310 nm (Zero Material/Chromatic Dispersion window); Third Window (C-Band): 1550 nm (Absolute Minimum Attenuation ~0.15–0.20 dB/km, used with EDFA amplifiers & DWDM) — Silica fiber exhibits Rayleigh scattering loss (`∝ 1/λ^4`) at short wavelengths and infrared absorption above `1600 nm`, creating optimal windows at `1310 nm` (zero dispersion) and `1550 nm` (minimum attenuation `~0.2 dB/km`).", "tag": "DSSSB PYQ"}, {"id": 36, "chapter": "Chapter 6: Waves & Signal Modulation — Analog (AM, FM, PM) vs Digital Modulation (ASK, FSK, BPSK, QPSK, QAM), PCM Pipeline & Carson's Bandwidth", "q": "What does the acronym 'LASER' stand for, and what are the four distinguishing properties of laser light compared to an ordinary incandescent bulb?", "options": ["Light Absorption by Spontaneous Emission of Rays", "Laser light is incoherent and polychromatic", "Laser works without Population Inversion", "Light Amplification by Stimulated Emission of Radiation"], "answer": 3, "explanation": "Light Amplification by Stimulated Emission of Radiation; Properties: 1. Highly Coherent (in-phase), 2. Monochromatic, 3. Highly Directional, and 4. High Intensity/Brightness. Light Amplification by Stimulated Emission of Radiation; Properties: 1. Highly Coherent (in-phase), 2. Monochromatic (single wavelength), 3. Highly Directional (collimated beam), and 4. High Intensity/Brightness — And in **Holography** (invented by Dennis Gabor, 1947 Nobel Prize), a 3D hologram records BOTH the **Amplitude (Intensity) AND the Phase** of light waves via interference of a Reference Beam and an Object Beam!", "tag": "DSSSB Expected / PYQ"}, {"id": 37, "chapter": "Chapter 6: Waves & Signal Modulation — Analog (AM, FM, PM) vs Digital Modulation (ASK, FSK, BPSK, QPSK, QAM), PCM Pipeline & Carson's Bandwidth", "q": "In Digital Modulation (ASK, FSK, PSK, QAM), what is the relationship between Bit Rate (`R_b` in bps) and Baud Rate (Symbol Rate `R_s` in symbols/sec) when each symbol encodes `k` bits (`M = 2^k` constellation points)?", "options": ["Bit Rate R_b = k × Baud Rate = log₂(M) × Baud Rate", "Baud Rate is always greater than Bit Rate in 64-QAM", "In QPSK (M=4), Baud Rate = 4 × Bit Rate", "Bit Rate and Baud Rate are always identical"], "answer": 0, "explanation": "Bit Rate R_b = k × Baud Rate = log₂(M) × Baud Rate (so Baud Rate = Bit Rate / log₂ M) — Examples: For BPSK/BFSK (`M = 2, k = 1`): `Baud = Bit Rate`; For QPSK (`M = 4, k = 2`): `Baud = Bit Rate / 2`; For 16-QAM (`M = 16, k = 4`): `Baud = Bit Rate / 4`; For 64-QAM (`M = 64, k = 6`): `Baud = Bit Rate / 6`.", "tag": "DSSSB Expected / PYQ"}, {"id": 38, "chapter": "Chapter 6: Waves & Signal Modulation — Analog (AM, FM, PM) vs Digital Modulation (ASK, FSK, BPSK, QPSK, QAM), PCM Pipeline & Carson's Bandwidth", "q": "In Analog Amplitude Modulation (AM), if the carrier frequency is `f_c = 1000 kHz` and the audio message frequency is `f_m = 5 kHz`, what are the Upper Sideband (USB), Lower Sideband (LSB), and Total AM Transmission Bandwidth?", "options": ["Bandwidth = f_m = 5 kHz", "USB = 1005 kHz, LSB = 995 kHz, and Total AM Bandwidth = 2 × f_m = 10 kHz", "USB = 2000 kHz", "Bandwidth = 1000 kHz"], "answer": 1, "explanation": "Standard DSB-AM requires `BW = 2 f_m`; Single-Sideband (SSB) cuts bandwidth in half to `f_m` and saves carrier power.", "tag": "DSSSB Expected / PYQ"}, {"id": 39, "chapter": "Chapter 6: Waves & Signal Modulation — Analog (AM, FM, PM) vs Digital Modulation (ASK, FSK, BPSK, QPSK, QAM), PCM Pipeline & Carson's Bandwidth", "q": "For a standard AM wave with modulation index `μ = 1` (100% modulation), what percentage of the total transmitted power is wasted in the Carrier vs carried in the two information-bearing Sidebands?", "options": ["50% in Carrier and 50% in Sidebands", "100% in Sidebands", "66.67% (2/3) in the Carrier and 33.33% (1/3) in the two Sidebands (`P_t = P_c (1 + μ²/2)` -> max efficiency = 33.33%)", "90% in Sidebands"], "answer": 2, "explanation": "At `μ = 1`: `P_t = 1.5 P_c`, so sideband power = `0.5 P_c / 1.5 P_c = 1/3 = 33.33%`.", "tag": "DSSSB Expected / PYQ"}, {"id": 40, "chapter": "Chapter 6: Waves & Signal Modulation — Analog (AM, FM, PM) vs Digital Modulation (ASK, FSK, BPSK, QPSK, QAM), PCM Pipeline & Carson's Bandwidth", "q": "Why is Frequency Modulation (FM — 88 to 108 MHz) far more immune to atmospheric electrical noise than Amplitude Modulation (AM — 535 to 1605 kHz)?", "options": ["FM uses narrower bandwidth than AM", "AM operates at higher frequencies than FM", "FM waves travel faster than light", "Because electrical noise primarily corrupts signal AMPLITUDE, whereas FM encodes information in FREQUENCY variations"], "answer": 3, "explanation": "Because electrical noise primarily corrupts signal AMPLITUDE, whereas FM encodes information in FREQUENCY variations (allowing an FM receiver's Amplitude Limiter to clip off noise spikes cleanly) — FM trades wider bandwidth (Carson's Rule: `BW = 2(Δf + f_m)`) for vastly superior noise immunity and fidelity.", "tag": "DSSSB Expected / PYQ"}, {"id": 41, "chapter": "Chapter 6: Waves & Signal Modulation — Analog (AM, FM, PM) vs Digital Modulation (ASK, FSK, BPSK, QPSK, QAM), PCM Pipeline & Carson's Bandwidth", "q": "For an Ideal Operational Amplifier (Op-Amp), what are the ideal values of: (1) Open-Loop Voltage Gain `A_OL`, (2) Input Impedance `Z_in`, (3) Output Impedance `Z_out`, (4) Bandwidth, and (5) Common-Mode Rejection Ratio (`CMRR = |A_d / A_cm|`)?", "options": ["A_OL = ∞, Z_in = ∞, Z_out = 0, Bandwidth = ∞, and CMRR = ∞", "A_OL = 1, Z_in = 0, Z_out = ∞, CMRR = 0", "A_OL = ∞, Z_in = 0, Z_out = ∞", "Z_in = 50 Ω, Z_out = 50 Ω"], "answer": 0, "explanation": "A_OL = ∞, Z_in = ∞, Z_out = 0, Bandwidth = ∞, and CMRR = ∞ (Slew Rate = ∞) — In an Ideal Op-Amp: Infinite open-loop gain (`A_OL = ∞`), Infinite input impedance (`Z_in = ∞`, so input current `I_+ = I_- = 0`), Zero output impedance (`Z_out = 0`), Infinite Bandwidth, Infinite CMRR, and Infinite Slew Rate.", "tag": "DSSSB PYQ"}, {"id": 42, "chapter": "Chapter 6: Waves & Signal Modulation — Analog (AM, FM, PM) vs Digital Modulation (ASK, FSK, BPSK, QPSK, QAM), PCM Pipeline & Carson's Bandwidth", "q": "An Ideal Op-Amp has feedback resistor `R_f = 40 kΩ` and input resistor `R_1 = 10 kΩ`. What is its closed-loop voltage gain `A_v = V_out / V_in` when configured as (1) an Inverting Amplifier and (2) a Non-Inverting Amplifier respectively?", "options": ["Inverting Gain = −5; Non-Inverting Gain = +4", "Inverting Gain = −R_f / R_1 = −4; Non-Inverting Gain = 1 + (R_f / R_1) = +5", "Inverting Gain = −0.25; Non-Inverting Gain = +1.25", "Both have gain = +4"], "answer": 1, "explanation": "For an Inverting Op-Amp (`V_in` applied to `-` terminal via `R_1`, virtual ground at `-`): `A_v = -R_f / R_1 = -40/10 = -4`. For a Non-Inverting Op-Amp (`V_in` applied directly to `+` terminal): `A_v = 1 + R_f / R_1 = 1 + 4 = +5`.", "tag": "DSSSB PYQ"}, {"id": 43, "chapter": "Chapter 7: Wireless & Channel Physics — EM Spectrum Bands, Multiplexing (FDM, TDM, WDM, CDMA Orthogonal Codes), Cellular Reuse & Satellite Orbits", "q": "Compare the four basic Multiplexing / Multiple-Access techniques: FDM, TDM, WDM, and CDMA:", "options": ["WDM is used on copper telephone wires", "CDMA assigns different time slots to each user", "FDM = splits Frequency band", "TDM splits light wavelengths"], "answer": 2, "explanation": "FDM = splits Frequency band; TDM = splits Time slots; WDM = splits Optical Light Wavelengths in fiber; CDMA = shares full time AND frequency simultaneously using Orthogonal Walsh Spreading Codes. FDM = splits Frequency band (analog radio); TDM = splits Time slots (digital PCM/T1); WDM = splits Optical Light Wavelengths in fiber; CDMA = shares full time AND frequency simultaneously using Orthogonal Walsh Spreading Codes — Optical fibers use **DWDM (Dense Wavelength Division Multiplexing)** to carry 80–160 independent laser wavelengths simultaneously over a single glass fiber!", "tag": "DSSSB Expected / PYQ"}];
+let revMode = true;
+let userPicks = {};
+
+function toggleMode() {
+  revMode = !revMode;
+  const b = document.getElementById('modeBtn');
+  b.textContent = revMode ? '📖 Mode: Revision (Answers Visible)' : '✍️ Mode: Quiz Practice (Click Option)';
+  b.className = revMode ? 'btn btn-green' : 'btn btn-blue';
+  renderList();
+}
+
+function shuffleOpts() {
+  QUESTIONS.forEach(q => {
+    const cVal = q.options[q.answer];
+    for (let i = q.options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+    }
+    q.answer = q.options.indexOf(cVal);
+  });
+  userPicks = {};
+  renderList();
+}
+
+function pickAns(qid, oi) {
+  if (revMode || userPicks[qid] !== undefined) return;
+  userPicks[qid] = oi;
+  renderList();
+}
+
+function renderList() {
+  const ch = document.getElementById('chFilter').value;
+  const s = (document.getElementById('qSearch').value || '').toLowerCase().trim();
+  const letters = ['A', 'B', 'C', 'D'];
+  let htmlOut = '';
+  let shown = 0, cCnt = 0, wCnt = 0;
+
+  QUESTIONS.forEach(q => {
+    if (ch !== 'ALL' && !q.chapter.startsWith(ch)) return;
+    const hay = (q.q + ' ' + q.options.join(' ') + ' ' + q.explanation).toLowerCase();
+    if (s && !hay.includes(s)) return;
+    shown++;
+
+    const picked = userPicks[q.id];
+    if (picked !== undefined) {
+      if (picked === q.answer) cCnt++; else wCnt++;
+    }
+    const show = revMode || (picked !== undefined);
+
+    let oHtml = '';
+    q.options.forEach((ot, oi) => {
+      let cls = 'opt-btn';
+      let tag = '';
+      if (show) {
+        if (oi === q.answer) { cls += ' correct'; tag = ' ✅'; }
+        else if (picked === oi) { cls += ' wrong'; tag = ' ❌'; }
+      }
+      oHtml += `<button class="${cls}" onclick="pickAns(${q.id}, ${oi})"><strong>(${letters[oi]})</strong> ${ot}${tag}</button>`;
+    });
+
+    const expHtml = show ? `<div class="exp-strip"><strong>Answer (${letters[q.answer]}):</strong> ${q.explanation}</div>` : '';
+
+    htmlOut += `<div class="q-card">
+      <div class="q-head">
+        <span>Q#${q.id} • ${q.chapter}</span>
+        <span style="color:#15803d;">${q.tag}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="opts-grid">${oHtml}</div>
+      ${expHtml}
+    </div>`;
+  });
+
+  if (revMode) {
+    document.getElementById('statLabel').textContent = `Showing ${shown} Questions`;
+  } else {
+    const net = (cCnt * 1.0 - wCnt * 0.25).toFixed(2);
+    document.getElementById('statLabel').textContent = `Score: ${net} | ✅ ${cCnt} | ❌ ${wCnt} | Shown: ${shown}`;
+  }
+  document.getElementById('qContainer').innerHTML = htmlOut || '<div class="ch-card">No matching questions.</div>';
+}
+renderList();
+</script>
+</body>
+</html>

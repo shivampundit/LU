@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operating Systems &amp; Linux — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Operating Systems &amp; Linux</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="09_B04_Operating_Systems_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/09_B04_Operating_Systems_Question_Booklet.html">📝 Question Booklet (71 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 10–12 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Operating Systems &amp; Linux (Processes/Scheduling, Semaphores, Deadlocks, Paging, Virtual Memory, Disk &amp; Linux Commands)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/09_B04_Operating_Systems_Question_Booklet.html">📝 Open 71-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Process &amp; Scheduling — Proce</a><a class="pill" href="#ch2">Ch 2: Synchronization &amp; Semaphores</a><a class="pill" href="#ch3">Ch 3: Deadlocks &amp; Banker&#x27;s — Deadl</a><a class="pill" href="#ch4">Ch 4: Memory &amp; Paging — Memory Man</a><a class="pill" href="#ch5">Ch 5: Virtual Memory &amp; Belady&#x27;s — </a><a class="pill" href="#ch6">Ch 6: Disk Scheduling &amp; Files — Di</a><a class="pill" href="#ch7">Ch 7: Linux Commands &amp; Kernels — L</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Operating Systems &amp; Linux — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: Operating Systems — CPU Scheduling, Deadlocks, Page Replacement &amp; Disk</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>OS Sub-System</th><th>Algorithm / Mechanism</th><th>Key Properties, Formulas &amp; Anomalies</th></tr></thead>
+  <tbody>
+    <tr><td><strong>CPU Scheduling</strong></td><td><code>TAT = CT − AT</code>; <code>WT = TAT − BT</code>; <code>Response = First_CPU − AT</code></td><td><strong>FCFS:</strong> Non-preemptive, suffers from <strong>Convoy Effect</strong> | <strong>SJF / SRTF:</strong> Provably minimum average Waiting Time, suffers from <strong>Starvation</strong> (fixed by <strong>Aging</strong>) | <strong>Round Robin:</strong> Preemptive FCFS with Time Quantum <code>q</code> (if <code>q -&gt; ∞</code>, degrades to FCFS)</td></tr>
+    <tr><td><strong>Deadlock Handling</strong></td><td>4 Coffman Conditions: <strong>Mutual Exclusion, Hold &amp; Wait, No Preemption, Circular Wait</strong></td><td><strong>Banker's Algorithm (Dijkstra):</strong> Avoidance in <code>O(m · n²)</code>; checks <code>Need = Max − Allocation &lt;= Available</code>. For <code>n</code> processes each needing max <code>k</code> instances: Deadlock-free iff <code>Resources R &gt;= n(k − 1) + 1</code></td></tr>
+    <tr><td><strong>Virtual Memory &amp; Paging</strong></td><td><code>EMAT = α(t_TLB + t_mem) + (1 − α)(t_TLB + 2·t_mem)</code></td><td><strong>FIFO:</strong> Suffers from <strong>Belady's Anomaly</strong> (more frames -&gt; more page faults on <code>1,2,3,4,1,2,5,1,2,3,4,5</code> with 3 vs 4 frames) | <strong>Optimal &amp; LRU:</strong> Stack algorithms — <strong>NEVER suffer from Belady's Anomaly</strong> | <strong>Thrashing:</strong> Fixed via Working-Set Model or Page-Fault Frequency (PFF)</td></tr>
+    <tr><td><strong>Disk Scheduling</strong></td><td><code>T_access = T_seek + T_rot_latency (1/(2r)) + T_transfer</code></td><td><strong>FCFS:</strong> Wild swings | <strong>SSTF:</strong> Greedy nearest track (can starve distant tracks) | <strong>SCAN (Elevator):</strong> Goes to disk end (0 or max) | <strong>LOOK / C-LOOK:</strong> Reverses/jumps at last request without going to physical cylinder end</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Process &amp; Scheduling — Process States (5/7-State Model), PCB, System Calls (fork/exec) &amp; CPU Scheduling Algorithms</h2>
+    <span class="badge">29 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="process states (5/7-state model), pcb, system calls (fork/exec) &amp; cpu scheduling algorithms turnaround time (tat) = completion time (ct) − arrival time (at) • waiting time (wt) = tat − burst time (bt) • n consecutive fork() calls create 2^n total processes (2^n − 1 child processes) process control block (pcb) stores pid, process state, program counter, cpu registers, memory page-table pointers, and open file descriptors. context switching saves the current process&#x27;s pcb and loads the next process&#x27;s pcb (pure overhead — zero useful work done). note: user-level threads share code, data, heap, and open files, but each thread has its own private stack, program counter, and register set! cpu scheduling comparison: (1) fcfs: non-preemptive, suffers from convoy effect; (2) sjf / srtf (preemptive sjf): provably optimal for minimum average waiting time, but suffers from starvation (solved by aging); (3) round robin (rr): preemptive time-quantum q (if q -&gt; ∞, rr degenerates to fcfs; if q -&gt; 0, excessive context-switch overhead), ideal for time-sharing systems; (4) highest response ratio next (hrrn): response ratio = (w + s) / s (prevents starvation via waiting time w). hinglish tip: n baar `fork()` call karne par total processes = 2^n bante hain aur naye child processes = 2^n − 1 bante hain! threads apas me code, data aur files share karte hain, par stack aur register har thread ka apna alag hota hai!">
+  <div class="sub-h">📌 1.1 Process States (5/7-State Model), PCB, System Calls (fork/exec) &amp; CPU Scheduling Algorithms</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Turnaround Time (TAT) = Completion Time (CT) − Arrival Time (AT)</li><li>🔹 Waiting Time (WT) = TAT − Burst Time (BT)</li><li>🔹 n consecutive fork() calls create 2^n total processes (2^n − 1 child processes)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Process Control Block (PCB) stores PID, Process State, Program Counter, CPU Registers, Memory page-table pointers, and Open File Descriptors.</li><li>Context Switching saves the current process<strong>'s PCB and loads the next process'</strong>s PCB (pure overhead — zero useful work done).</li><li>Note: User-level threads share Code, Data, Heap, and Open Files, but each thread has its OWN private Stack, Program Counter, and Register set!</li><li>CPU Scheduling Comparison: (1) FCFS: Non-preemptive, suffers from Convoy Effect</li><li>(2) SJF / SRTF (Preemptive SJF): Provably optimal for minimum average waiting time, but suffers from Starvation (solved by Aging)</li><li>(3) Round Robin (RR): Preemptive time-quantum q (if q -&gt; ∞, RR degenerates to FCFS</li><li>if q -&gt; 0, excessive context-switch overhead), ideal for Time-Sharing systems</li><li>(4) Highest Response Ratio Next (HRRN): Response Ratio = (W + S) / S (prevents starvation via waiting time W).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Scheduling Numerical: Three processes P1(AT=0, BT=8), P2(AT=1, BT=4), P3(AT=2, BT=2) run under Preemptive SRTF. Gantt: [0-1: P1(rem 7)], [1-2: P2(rem 3)], [2-4: P3(completes at 4)], [4-7: P2(completes at 7)], [7-14: P1(completes at 14)]. TATs: P1=14-0=14, P2=7-1=6, P3=4-2=2 -&gt; Avg TAT = 22/3 = 7.<mark class="hl">33 ms</mark>; WTs: P1=6, P2=2, P3=0 -&gt; Avg WT = 8/3 = 2.<mark class="hl">67 ms</mark>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: n baar `fork()` call karne par total processes = 2^n bante hain aur naye child processes = 2^n − 1 bante hain! Threads apas me Code, Data aur Files share karte hain, par STACK aur REGISTER har thread ka apna alag hota hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which component of the operating system remains permanently in main memory (ram) and manages cpu, memory, and hardware devices? the kernel is the core resident part of the os running in privileged (supervisor/ring-0) mode.">
+  <div class="in-note-stem">Q1.1: Which component of the Operating System remains permanently in main memory (RAM) and manages CPU, memory, and hardware devices?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> The Kernel ✅</div><div class="in-opt"><strong>(B)</strong> The Shell</div><div class="in-opt"><strong>(C)</strong> The Compiler</div><div class="in-opt"><strong>(D)</strong> The Application Layer</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> The Kernel is the core resident part of the OS running in privileged (supervisor/ring-0) mode.</div>
+</div><div class="in-note-q" data-search="what triggers a safe transition of the cpu from user mode (ring 3) to kernel/supervisor mode (ring 0)? a system call (software interrupt / trap) or hardware interrupt — user programs invoke os kernel services exclusively via system calls (trap instructions).">
+  <div class="in-note-stem">Q1.2: What triggers a safe transition of the CPU from User Mode (Ring 3) to Kernel/Supervisor Mode (Ring 0)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A normal C function call</div><div class="in-opt ans"><strong>(B)</strong> A System Call or Hardware Interrupt ✅</div><div class="in-opt"><strong>(C)</strong> A while loop</div><div class="in-opt"><strong>(D)</strong> Changing a local variable</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A System Call (Software Interrupt / Trap) or Hardware Interrupt — User programs invoke OS kernel services exclusively via System Calls (Trap instructions).</div>
+</div><div class="in-note-q" data-search="which os data structure stores all execution state of a process (pid, pc, cpu registers, open files, priority)? every process has its own pcb in kernel memory, which is saved and restored during a context switch.">
+  <div class="in-note-stem">Q1.3: Which OS data structure stores all execution state of a process (PID, PC, CPU registers, open files, priority)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> FAT (File Allocation Table)</div><div class="in-opt"><strong>(B)</strong> TLB</div><div class="in-opt ans"><strong>(C)</strong> PCB (Process Control Block) ✅</div><div class="in-opt"><strong>(D)</strong> Inode Table</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Every process has its own PCB in kernel memory, which is saved and restored during a Context Switch.</div>
+</div><div class="in-note-q" data-search="in the 5-state process model, which state transition is illegal (cannot happen directly)? a blocked process whose i/o completes must first move to the ready queue (`waiting -&gt; ready`), never directly to `running`.">
+  <div class="in-note-stem">Q1.4: In the 5-State Process Model, which state transition is ILLEGAL (cannot happen directly)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Running -&gt; Waiting (Blocked)</div><div class="in-opt"><strong>(B)</strong> Ready -&gt; Running (Dispatch)</div><div class="in-opt"><strong>(C)</strong> Running -&gt; Ready (Preemption)</div><div class="in-opt ans"><strong>(D)</strong> Waiting (Blocked) -&gt; Running ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> A blocked process whose I/O completes must first move to the Ready Queue (`Waiting -&gt; Ready`), never directly to `Running`.</div>
+</div><div class="in-note-q" data-search="which scheduler controls the &#x27;degree of multiprogramming&#x27; (number of processes in ram), and which scheduler runs most frequently to allocate the cpu? long-term admits jobs into ram; medium-term swaps processes out/in; short-term dispatches ready processes to the cpu.">
+  <div class="in-note-stem">Q1.5: Which scheduler controls the &#x27;Degree of Multiprogramming&#x27; (number of processes in RAM), and which scheduler runs most frequently to allocate the CPU?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Long-Term (Job) Scheduler controls multiprogramming; Short-Term (CPU) Scheduler runs most frequently ✅</div><div class="in-opt"><strong>(B)</strong> Short-Term controls multiprogramming; Long-Term runs every millisecond</div><div class="in-opt"><strong>(C)</strong> Medium-Term runs the ALU</div><div class="in-opt"><strong>(D)</strong> All three are identical</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Long-Term admits jobs into RAM; Medium-Term swaps processes out/in; Short-Term dispatches Ready processes to the CPU.</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Synchronization &amp; Semaphores — Process Synchronization, Critical Section Criteria, Peterson&#x27;s Solution &amp; Semaphores</h2>
+    <span class="badge">10 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="process synchronization, critical section criteria, peterson&#x27;s solution &amp; semaphores 3 critical section requirements: mutual exclusion (mandatory) + progress (mandatory) + bounded waiting • semaphore wait(s)/p(s): while(s&lt;=0); s--; • signal(s)/v(s): s++; a race condition occurs when multiple concurrent processes access and manipulate shared data and the outcome depends on the exact order of execution. any valid critical section solution must guarantee: (1) mutual exclusion (at most 1 process inside cs at a time), (2) progress (processes outside cs cannot block others from entering), and (3) bounded waiting (upper bound on how many times other processes can enter before a waiting process gets its turn). dijkstra&#x27;s semaphore supports two atomic operations: p(s) / wait(s) / down(s) and v(s) / signal(s) / up(s). for a counting semaphore initialized to s_0: after m wait(p) operations and n signal(v) operations, final value is s = s_0 − m + n. if s &lt; 0, then |s| is the exact number of processes currently blocked in the semaphore queue! exam trap: counting semaphore me agar s ki value negative (jaise −4) hai, to iska matlab hai ki is waqt 4 processes semaphore ki waiting queue me blocked (sleep state me) hain!">
+  <div class="sub-h">📌 2.1 Process Synchronization, Critical Section Criteria, Peterson&#x27;s Solution &amp; Semaphores</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 3 Critical Section Requirements: Mutual Exclusion (Mandatory) + Progress (Mandatory) + Bounded Waiting</li><li>🔹 Semaphore wait(S)/P(S): while(S&lt;=0); S--;</li><li>🔹 signal(S)/V(S): S++;</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>A Race Condition occurs when multiple concurrent processes access and manipulate shared data and the outcome depends on the exact order of execution.</li><li>Any valid Critical Section solution must guarantee: (1) Mutual Exclusion (at most 1 process inside CS at a time), (2) Progress (processes outside CS cannot block others from entering), and (3) Bounded Waiting (upper bound on how many times other processes can enter before a waiting process gets its turn).</li><li>Dijkstra&#x27;s Semaphore supports two atomic operations: P(S) / wait(S) / down(S) and V(S) / signal(S) / up(S).</li><li>For a Counting Semaphore initialized to S_0: after m wait(P) operations and n signal(V) operations, final value is S = S_0 − m + n.</li><li>If S &lt; 0, then |S| is the exact number of processes currently blocked in the semaphore queue!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Semaphore Math: A counting semaphore is initialized to S = 12. Subsequently, 20 P (wait) operations and 15 V (signal) operations are executed. Final value S = 12 − 20 + 15 = 7. If instead S_0 = 3, 10 P ops and 4 V ops occur -&gt; S = 3 − 10 + 4 = −3 (meaning 3 processes are blocked in queue).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Counting Semaphore me agar S ki value negative (jaise −4) hai, to iska matlab hai ki is waqt 4 processes semaphore ki waiting queue me BLOCKED (sleep state me) hain!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which real-time scheduling algorithm assigns highest static priority to the periodic task with the shortest period (`priority ∝ 1 / period`)? rms uses static priorities (`shorter period = higher priority`); edf uses dynamic priorities (`closer deadline = higher priority`).">
+  <div class="in-note-stem">Q2.1: Which real-time scheduling algorithm assigns highest static priority to the periodic task with the shortest period (`Priority ∝ 1 / Period`)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Earliest Deadline First (EDF — Dynamic priority)</div><div class="in-opt ans"><strong>(B)</strong> Rate-Monotonic Scheduling (RMS) ✅</div><div class="in-opt"><strong>(C)</strong> FCFS</div><div class="in-opt"><strong>(D)</strong> Lottery Scheduling</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> RMS uses static priorities (`shorter period = higher priority`); EDF uses dynamic priorities (`closer deadline = higher priority`).</div>
+</div><div class="in-note-q" data-search="when two or more concurrent processes read and write shared data without synchronization and the final outcome depends on the exact order of execution, it is called a: a race condition is prevented by enforcing mutual exclusion in the critical section.">
+  <div class="in-note-stem">Q2.2: When two or more concurrent processes read and write shared data without synchronization and the final outcome depends on the exact order of execution, it is called a:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Deadlock</div><div class="in-opt"><strong>(B)</strong> Belady&#x27;s Anomaly</div><div class="in-opt ans"><strong>(C)</strong> Race Condition ✅</div><div class="in-opt"><strong>(D)</strong> Fragmentation</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> A Race Condition is prevented by enforcing Mutual Exclusion in the Critical Section.</div>
+</div><div class="in-note-q" data-search="in edsger dijkstra&#x27;s semaphore operations, what do the atomic operations `p(s)` (or `wait(s)`) and `v(s)` (or `signal(s)`) do? wait(s) decrements s (`s = s − 1`, blocking if s &lt; 0); signal(s) increments s (`s = s + 1`, waking a blocked process) — `p(s)` (proberen / wait) acquires a resource (`s--`); `v(s)` (verhogen / signal) releases a resource (`s++`).">
+  <div class="in-note-stem">Q2.3: In Edsger Dijkstra&#x27;s Semaphore operations, what do the atomic operations `P(S)` (or `wait(S)`) and `V(S)` (or `signal(S)`) do?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> wait(S) increments S and signal(S) decrements S</div><div class="in-opt"><strong>(B)</strong> Both set S = 0</div><div class="in-opt"><strong>(C)</strong> wait(S) deletes the semaphore</div><div class="in-opt ans"><strong>(D)</strong> wait(S) decrements S; signal(S) increments S ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> wait(S) decrements S (`S = S − 1`, blocking if S &lt; 0); signal(S) increments S (`S = S + 1`, waking a blocked process) — `P(S)` (Proberen / Wait) acquires a resource (`S--`); `V(S)` (Verhogen / Signal) releases a resource (`S++`).</div>
+</div><div class="in-note-q" data-search="a counting semaphore is initialized to `s = 10`. after `6 wait(s)` operations and `4 signal(s)` operations are executed, what is the current value of `s`? current value `s = initial − waits + signals = 10 − 6 + 4 = 8`.">
+  <div class="in-note-stem">Q2.4: A Counting Semaphore is initialized to `S = 10`. After `6 wait(S)` operations and `4 signal(S)` operations are executed, what is the current value of `S`?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 8 (10 − 6 + 4 = 8) ✅</div><div class="in-opt"><strong>(B)</strong> 12</div><div class="in-opt"><strong>(C)</strong> 2</div><div class="in-opt"><strong>(D)</strong> 0</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Current value `S = Initial − Waits + Signals = 10 − 6 + 4 = 8`.</div>
+</div><div class="in-note-q" data-search="a counting semaphore is initialized to `s = 1` (acting as a mutex). if 5 processes simultaneously attempt to enter the critical section by calling `wait(s)`, what will the value of `s` become and how many processes will be blocked? 1 process enters the cs (`s: 1 -&gt; 0`), and the other 4 processes block (`s: 0 -&gt; −4`). when `s &lt; 0`, `|s|` equals the exact number of blocked processes!">
+  <div class="in-note-stem">Q2.5: A Counting Semaphore is initialized to `S = 1` (acting as a Mutex). If 5 processes simultaneously attempt to enter the critical section by calling `wait(S)`, what will the value of `S` become and how many processes will be blocked?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> S = 0 and 0 processes blocked</div><div class="in-opt ans"><strong>(B)</strong> S = −4 (1 − 5 = −4), and 4 processes are blocked in the semaphore queue ✅</div><div class="in-opt"><strong>(C)</strong> S = −5 and 5 processes blocked</div><div class="in-opt"><strong>(D)</strong> S = +4</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> 1 process enters the CS (`S: 1 -&gt; 0`), and the other 4 processes block (`S: 0 -&gt; −4`). When `S &lt; 0`, `|S|` equals the exact number of blocked processes!</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: Deadlocks &amp; Banker&#x27;s — Deadlocks — Four Coffman Conditions, Resource Allocation Graph &amp; Banker&#x27;s Algorithm</h2>
+    <span class="badge">10 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="deadlocks — four coffman conditions, resource allocation graph &amp; banker&#x27;s algorithm need matrix: need[i][j] = max[i][j] − allocation[i][j] • minimum resources to guarantee deadlock-free execution for n processes needing k_i each: r &gt;= σ(k_i − 1) + 1 deadlock occurs only if all four coffman conditions hold simultaneously: (1) mutual exclusion (non-sharable resource), (2) hold and wait, (3) no preemption, and (4) circular wait. in a resource allocation graph (rag): if each resource type has only a single instance, a cycle is both a necessary and sufficient condition for deadlock; if resource types have multiple instances, a cycle is a necessary but not sufficient condition! deadlock prevention invalidates one of the 4 conditions (e.g., imposing a global numerical ordering on resource types prevents circular wait, which is the most practical prevention technique). deadlock avoidance uses dijkstra&#x27;s banker&#x27;s algorithm (o(m · n²) safety algorithm checking if a safe sequence exists). note: every deadlock state is an unsafe state, but not every unsafe state leads to a deadlock! hinglish tip: deadlock-free formula (exam superhero formula!): agar n processes hain aur har process ko maximum k instances chahiye, to deadlock hone ki maximum resources = n(k − 1), aur 100% deadlock-free hone ke liye minimum resources r = n(k − 1) + 1 chahiye!">
+  <div class="sub-h">📌 3.1 Deadlocks — Four Coffman Conditions, Resource Allocation Graph &amp; Banker&#x27;s Algorithm</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Need Matrix: Need[i][j] = Max[i][j] − Allocation[i][j]</li><li>🔹 Minimum Resources to Guarantee Deadlock-Free Execution for n processes needing k_i each: R &gt;= Σ(k_i − 1) + 1</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Deadlock occurs ONLY if all four Coffman conditions hold simultaneously: (1) Mutual Exclusion (non-sharable resource), (2) Hold and Wait, (3) No Preemption, and (4) Circular Wait.</li><li>In a Resource Allocation Graph (RAG): If each resource type has only a SINGLE instance, a cycle is both a NECESSARY and SUFFICIENT condition for deadlock</li><li>if resource types have MULTIPLE instances, a cycle is a NECESSARY but NOT SUFFICIENT condition!</li><li>Deadlock Prevention invalidates one of the 4 conditions (e.g., imposing a global numerical ordering on resource types prevents Circular Wait, which is the most practical prevention technique).</li><li>Deadlock Avoidance uses Dijkstra<strong>'s Banker'</strong>s Algorithm (O(m · n²) safety algorithm checking if a Safe Sequence exists).</li><li>Note: Every Deadlock state is an Unsafe state, but NOT every Unsafe state leads to a Deadlock!</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Deadlock Formula: A system has 4 processes, each requiring at most 3 units of magnetic tape drives. What is the minimum number of tape drives so that the system never deadlocks? R_min = 4 × (3 − 1) + 1 = 8 + 1 = 9 tape drives.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Deadlock-free formula (Exam Superhero Formula!): Agar n processes hain aur har process ko maximum k instances chahiye, to Deadlock hone ki maximum resources = n(k − 1), aur 100% Deadlock-Free hone ke liye minimum resources R = n(k − 1) + 1 chahiye!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="what are the four necessary and sufficient coffman conditions that must hold simultaneously for a deadlock to occur? deadlock prevention breaks at least one of the 4 coffman conditions.">
+  <div class="in-note-stem">Q3.1: What are the FOUR necessary and sufficient Coffman Conditions that must hold simultaneously for a Deadlock to occur?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 1. Paging, 2. Thrashing, 3. Compaction, and 4. Swapping</div><div class="in-opt"><strong>(B)</strong> 1. Progress, 2. Bounded Waiting, 3. Starvation, and 4. Aging</div><div class="in-opt"><strong>(C)</strong> 1. Atomicity, 2. Consistency, 3. Isolation, and 4. Durability</div><div class="in-opt ans"><strong>(D)</strong> 1. Mutual Exclusion, 2. Hold and Wait, 3. No Preemption, and 4. Circular Wait ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Deadlock Prevention breaks at least ONE of the 4 Coffman conditions.</div>
+</div><div class="in-note-q" data-search="which of the 4 coffman deadlock conditions is broken when the os imposes a strict global numerical ordering on all resource types and requires every process to request resources in increasing order? circular wait (the most practical deadlock prevention method) — strict ascending resource numbering mathematically prevents a cycle from ever forming, eliminating circular wait.">
+  <div class="in-note-stem">Q3.2: Which of the 4 Coffman Deadlock conditions is broken when the OS imposes a strict global numerical ordering on all resource types and requires every process to request resources in increasing order?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Circular Wait ✅</div><div class="in-opt"><strong>(B)</strong> Mutual Exclusion</div><div class="in-opt"><strong>(C)</strong> No Preemption</div><div class="in-opt"><strong>(D)</strong> Hold and Wait</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Circular Wait (the most practical Deadlock Prevention method) — Strict ascending resource numbering mathematically prevents a cycle from ever forming, eliminating Circular Wait.</div>
+</div><div class="in-note-q" data-search="in a resource allocation graph (rag), if a cycle exists, when does a cycle guarantee a deadlock vs when is it only a necessary (not sufficient) condition? if every resource type has only 1 instance, a cycle is both necessary and sufficient for deadlock; if resources have multiple instances, a cycle is necessary but not sufficient. single-instance rag: `cycle &lt;=&gt; deadlock`. multi-instance rag: requires banker&#x27;s safety algorithm.">
+  <div class="in-note-stem">Q3.3: In a Resource Allocation Graph (RAG), if a cycle exists, when does a cycle guarantee a Deadlock vs when is it only a necessary (not sufficient) condition?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A cycle always means deadlock even with 100 instances</div><div class="in-opt ans"><strong>(B)</strong> If every resource type has ONLY 1 instance, a cycle is BOTH necessary and sufficient for Deadlock ✅</div><div class="in-opt"><strong>(C)</strong> A cycle never means deadlock</div><div class="in-opt"><strong>(D)</strong> Only acyclic graphs have deadlocks</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> If every resource type has ONLY 1 instance, a cycle is BOTH necessary and sufficient for Deadlock; if resources have multiple instances, a cycle is necessary but NOT sufficient. Single-instance RAG: `Cycle &lt;=&gt; Deadlock`. Multi-instance RAG: requires Banker&#x27;s Safety Algorithm.</div>
+</div><div class="in-note-q" data-search="in dijkstra&#x27;s banker&#x27;s algorithm for deadlock avoidance, how is the `need` matrix calculated from the `max` and `allocation` matrices? a process `p_i` can finish in the safety algorithm if `need[i] ≤ work (available)`.">
+  <div class="in-note-stem">Q3.4: In Dijkstra&#x27;s Banker&#x27;s Algorithm for Deadlock Avoidance, how is the `Need` matrix calculated from the `Max` and `Allocation` matrices?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Need = Max + Allocation</div><div class="in-opt"><strong>(B)</strong> Need = Available − Allocation</div><div class="in-opt ans"><strong>(C)</strong> Need[i][j] = Max[i][j] − Allocation[i][j] ✅</div><div class="in-opt"><strong>(D)</strong> Need = Max / Allocation</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> A process `P_i` can finish in the Safety Algorithm if `Need[i] ≤ Work (Available)`.</div>
+</div><div class="in-note-q" data-search="in banker&#x27;s algorithm, what is the relation between a &#x27;safe state&#x27;, an &#x27;unsafe state&#x27;, and a &#x27;deadlock state&#x27;? every safe state is guaranteed to be deadlock-free; an unsafe state is not necessarily a deadlock, but may lead to a deadlock if processes request their maximum claim. `deadlock ⊂ unsafe states`; safe states have at least one valid safe sequence `&lt;p₁, p₂, ..., p_n&gt;`.">
+  <div class="in-note-stem">Q3.5: In Banker&#x27;s Algorithm, what is the relation between a &#x27;Safe State&#x27;, an &#x27;Unsafe State&#x27;, and a &#x27;Deadlock State&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Every Unsafe State is immediately an active Deadlock</div><div class="in-opt"><strong>(B)</strong> A Safe State can have a Deadlock</div><div class="in-opt"><strong>(C)</strong> Safe and Unsafe states are identical</div><div class="in-opt ans"><strong>(D)</strong> Every Safe State is guaranteed to be deadlock-free ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Every Safe State is guaranteed to be deadlock-free; an Unsafe State is NOT necessarily a deadlock, but MAY lead to a deadlock if processes request their maximum claim. `Deadlock ⊂ Unsafe States`; Safe states have at least one valid Safe Sequence `&lt;P₁, P₂, ..., P_n&gt;`.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: Memory &amp; Paging — Memory Management — Contiguous Allocation, Paging, TLB &amp; Multi-Level Page Tables</h2>
+    <span class="badge">6 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="memory management — contiguous allocation, paging, tlb &amp; multi-level page tables emat with tlb = α(t_tlb + t_mem) + (1 − α)(t_tlb + 2·t_mem) [for 1-level pt] • logical address (m bits) = page number p (m − d bits) + page offset d (d bits, page size = 2^d) contiguous allocation strategies (first fit, best fit, worst fit): first fit is generally fastest; best fit leaves tiny unusable holes; all variable-partition schemes suffer from external fragmentation (compaction resolves it). paging divides physical memory into fixed-size frames and logical memory into equal-size pages (eliminating external fragmentation completely, though the last page of a process suffers average internal fragmentation of 0.5 × page size!). segmentation divides memory by logical user units (code, stack, symbol table) using `&lt;segment-number, offset&gt;` validated against a `[base, limit]` register pair (suffers from external fragmentation, zero internal fragmentation). exam trap: paging me external fragmentation zero hoti hai (sirf internal fragmentation hoti hai), jabki segmentation me internal fragmentation zero hoti hai (sirf external fragmentation hoti hai)!">
+  <div class="sub-h">📌 4.1 Memory Management — Contiguous Allocation, Paging, TLB &amp; Multi-Level Page Tables</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 EMAT with TLB = α(t_tlb + t_mem) + (1 − α)(t_tlb + 2·t_mem) [for 1-level PT]</li><li>🔹 Logical Address (m bits) = Page Number p (m − d bits) + Page Offset d (d bits, Page Size = 2^d)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Contiguous Allocation Strategies (First Fit, Best Fit, Worst Fit): First Fit is generally fastest</li><li>Best Fit leaves tiny unusable holes</li><li>all variable-partition schemes suffer from External Fragmentation (compaction resolves it).</li><li>Paging divides Physical Memory into fixed-size Frames and Logical Memory into equal-size Pages (eliminating External Fragmentation completely, though the last page of a process suffers average Internal Fragmentation of 0.5 × Page Size!).</li><li>Segmentation divides memory by logical user units (code, stack, symbol table) using `&lt;segment-number, offset&gt;` validated against a `[Base, Limit]` register pair (suffers from External Fragmentation, zero Internal Fragmentation).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked TLB EMAT Math: TLB hit ratio α = 90% (0.9), TLB access time = <mark class="hl">10 ns</mark>, Main Memory access time = <mark class="hl">100 ns</mark> (1-level page table). EMAT = 0.9 × (10 + 100) + 0.1 × (10 + 200) = 99 + 21 = <mark class="hl">120 ns</mark>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Paging me EXTERNAL Fragmentation ZERO hoti hai (sirf Internal Fragmentation hoti hai), jabki Segmentation me INTERNAL Fragmentation ZERO hoti hai (sirf External Fragmentation hoti hai)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in contiguous memory allocation (first-fit, best-fit, worst-fit), what is the difference between &#x27;internal fragmentation&#x27; and &#x27;external fragmentation&#x27;? internal fragmentation is wasted space inside an allocated fixed partition/page; external fragmentation is when total free memory is sufficient for a request, but is scattered in non-contiguous small holes. paging has no external fragmentation (only slight internal fragmentation in the last page); segmentation has external fragmentation (solved by compaction or paged segmentation).">
+  <div class="in-note-stem">Q4.1: In Contiguous Memory Allocation (First-Fit, Best-Fit, Worst-Fit), what is the difference between &#x27;Internal Fragmentation&#x27; and &#x27;External Fragmentation&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> External Fragmentation occurs inside a fixed page</div><div class="in-opt ans"><strong>(B)</strong> Internal Fragmentation is wasted space INSIDE an allocated fixed partition/page ✅</div><div class="in-opt"><strong>(C)</strong> Paging suffers from External Fragmentation</div><div class="in-opt"><strong>(D)</strong> Segmentation suffers only from Internal Fragmentation</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Internal Fragmentation is wasted space INSIDE an allocated fixed partition/page; External Fragmentation is when total free memory is sufficient for a request, but is scattered in non-contiguous small holes. Paging has NO External Fragmentation (only slight Internal Fragmentation in the last page); Segmentation has External Fragmentation (solved by Compaction or Paged Segmentation).</div>
+</div><div class="in-note-q" data-search="among first-fit, best-fit, and worst-fit dynamic partition allocation strategies, which one is generally the fastest, and which one leaves behind the tiniest unusable leftover slivers? first-fit is the fastest; best-fit leaves behind the smallest unusable leftover holes. first-fit scans only until the first big-enough hole is found; best-fit scans the whole list (unless sorted) and leaves tiny fragments.">
+  <div class="in-note-stem">Q4.2: Among First-Fit, Best-Fit, and Worst-Fit dynamic partition allocation strategies, which one is generally the FASTEST, and which one leaves behind the tiniest unusable leftover slivers?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Worst-Fit leaves the smallest holes</div><div class="in-opt"><strong>(B)</strong> Best-Fit is faster than First-Fit</div><div class="in-opt ans"><strong>(C)</strong> First-Fit is the fastest ✅</div><div class="in-opt"><strong>(D)</strong> All three leave identical holes</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> First-Fit is the fastest; Best-Fit leaves behind the smallest unusable leftover holes. First-Fit scans only until the first big-enough hole is found; Best-Fit scans the whole list (unless sorted) and leaves tiny fragments.</div>
+</div><div class="in-note-q" data-search="in a paging system with a 32-bit logical (virtual) address and a page size of `4 kb` (`2¹²` bytes), how many bits are used for the page offset `d`, and how many virtual pages exist? page offset = 12 bits; virtual page number (vpn) = 32 − 12 = 20 bits (`2²⁰ ≈ 1 million` pages) — since page size = frame size = `4 kb = 2¹² b`, the lower `12` bits are the offset `d` (copied unchanged during translation), and the upper `20` bits are the page number `p`.">
+  <div class="in-note-stem">Q4.3: In a Paging system with a 32-bit Logical (Virtual) Address and a Page Size of `4 KB` (`2¹²` Bytes), how many bits are used for the Page Offset `d`, and how many Virtual Pages exist?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Page Offset = 10 bits; VPN = 22 bits</div><div class="in-opt"><strong>(B)</strong> Page Offset = 16 bits; VPN = 16 bits</div><div class="in-opt"><strong>(C)</strong> Page Offset = 4 bits; VPN = 28 bits</div><div class="in-opt ans"><strong>(D)</strong> Page Offset = 12 bits; Virtual Page Number (VPN) = 32 − 12 = 20 bits ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Page Offset = <mark class="hl">12 bits</mark>; Virtual Page Number (VPN) = 32 − 12 = <mark class="hl">20 bits</mark> (`2²⁰ ≈ 1 Million` pages) — Since Page Size = Frame Size = `<mark class="hl">4 KB</mark> = 2¹² B`, the lower `12` bits are the Offset `d` (copied unchanged during translation), and the upper `20` bits are the Page Number `p`.</div>
+</div><div class="in-note-q" data-search="why do modern 64-bit architectures (like x86-64 and arm64) use &#x27;hierarchical (multi-level) page tables&#x27; or &#x27;inverted page tables&#x27; instead of a single flat page table? multi-level page tables allocate inner page-table pages lazily only for virtual memory regions actually used by the process; an inverted page table has only 1 global entry per physical frame.">
+  <div class="in-note-stem">Q4.4: Why do modern 64-bit architectures (like x86-64 and ARM64) use &#x27;Hierarchical (Multi-Level) Page Tables&#x27; or &#x27;Inverted Page Tables&#x27; instead of a single flat Page Table?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Because a flat single-level page table for a 48-bit/64-bit virtual address space would require Terabytes of contiguous RAM per process! ✅</div><div class="in-opt"><strong>(B)</strong> To increase the page fault rate</div><div class="in-opt"><strong>(C)</strong> Because TLB does not work with 1-level page tables</div><div class="in-opt"><strong>(D)</strong> To eliminate the CPU cache</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Multi-level page tables allocate inner page-table pages lazily only for virtual memory regions actually used by the process; an Inverted Page Table has only 1 global entry per Physical Frame.</div>
+</div><div class="in-note-q" data-search="what is the purpose of &#x27;compaction&#x27; (memory defragmentation) in dynamic contiguous memory allocation? shuffling allocated memory blocks together to consolidate scattered small free holes into one large contiguous free block (solving external fragmentation) — compaction solves external fragmentation and requires dynamic runtime relocation (base/limit registers).">
+  <div class="in-note-stem">Q4.5: What is the purpose of &#x27;Compaction&#x27; (Memory Defragmentation) in dynamic contiguous memory allocation?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Solving Internal Fragmentation inside pages</div><div class="in-opt ans"><strong>(B)</strong> Shuffling allocated memory blocks together to consolidate scattered small free holes into one large contiguous free block ✅</div><div class="in-opt"><strong>(C)</strong> Erasing the hard disk</div><div class="in-opt"><strong>(D)</strong> Increasing CPU clock speed</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Shuffling allocated memory blocks together to consolidate scattered small free holes into one large contiguous free block (solving External Fragmentation) — Compaction solves External Fragmentation and requires dynamic runtime relocation (Base/Limit registers).</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Virtual Memory &amp; Belady&#x27;s — Virtual Memory, Demand Paging, Page Replacement (FIFO, Optimal, LRU) &amp; Thrashing</h2>
+    <span class="badge">8 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="virtual memory, demand paging, page replacement (fifo, optimal, lru) &amp; thrashing emat with page fault rate p: emat = (1 − p) × t_mem + p × t_page_fault • belady&#x27;s anomaly occurs only in fifo (never in stack algorithms: lru, optimal) demand paging loads pages into ram only when referenced; accessing a page with valid-invalid bit = &#x27;i&#x27; triggers a page fault trap to the os. page replacement algorithms: (1) fifo: replaces oldest loaded page; suffers from belady&#x27;s anomaly (increasing allocated page frames can increase page faults, e.g., reference string 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5 gives 9 faults with 3 frames vs 10 faults with 4 frames!); (2) optimal (opt / belady&#x27;s min): replaces page that will not be used for the longest period in the future (lowest possible fault rate, used as theoretical benchmark); (3) lru (least recently used): replaces page unused for longest past time; belongs to stack algorithms (guaranteed free of belady&#x27;s anomaly). thrashing occurs when degree of multiprogramming is too high and processes lack their working set of frames, spending more time paging than executing (cpu utilization plummets). hinglish tip: page fault service time (~8 milliseconds = 8,000,000 ns) ram access (100 ns) se ~80,000 guna bada hota hai! aur lru aur optimal &#x27;stack algorithms&#x27; hain isliye unme kabhi belady&#x27;s anomaly nahi aati.">
+  <div class="sub-h">📌 5.1 Virtual Memory, Demand Paging, Page Replacement (FIFO, Optimal, LRU) &amp; Thrashing</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 EMAT with Page Fault rate p: EMAT = (1 − p) × t_mem + p × t_page_fault</li><li>🔹 Belady&#x27;s Anomaly occurs ONLY in FIFO (Never in Stack Algorithms: LRU, Optimal)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Demand Paging loads pages into RAM only when referenced</li><li>accessing a page with Valid-Invalid bit = &#x27;i&#x27; triggers a Page Fault trap to the OS.</li><li>Page Replacement Algorithms: (1) FIFO: Replaces oldest loaded page</li><li>suffers from Belady&#x27;s Anomaly (increasing allocated page frames can INCREASE page faults, e.g., reference string 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5 gives 9 faults with 3 frames vs 10 faults with 4 frames!)</li><li>(2) Optimal (OPT / Belady&#x27;s MIN): Replaces page that will not be used for the longest period in the future (lowest possible fault rate, used as theoretical benchmark)</li><li>(3) LRU (Least Recently Used): Replaces page unused for longest past time</li><li>belongs to Stack Algorithms (guaranteed free of Belady&#x27;s Anomaly).</li><li>Thrashing occurs when degree of multiprogramming is too high and processes lack their Working Set of frames, spending more time paging than executing (CPU utilization plummets).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Page Fault EMAT: Memory access time = <mark class="hl">100 ns</mark>, Page fault service time = <mark class="hl">10 ms</mark> (10^<mark class="hl">7 ns</mark>), Page fault rate p = 1 in 10,000 (10^-4). EMAT = (1 − 0.0001)×100 + 0.0001 × 10^7 = 100 + 1000 = <mark class="hl">1100 ns</mark> (an 11x slowdown from just a 0.01% fault rate!).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Page Fault Service Time (~8 milliseconds = 8,000,<mark class="hl">000 ns</mark>) RAM access (<mark class="hl">100 ns</mark>) se ~80,000 guna bada hota hai! Aur LRU aur Optimal <strong>'Stack Algorithms'</strong> hain isliye unme kabhi Belady&#x27;s Anomaly nahi aati.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="for the page reference string `7, 0, 1, 2, 0, 3, 0, 4` (length 8) with `3` initially empty page frames, how many page faults and page hits occur under fifo page replacement? steps: 7(f), 0(f), 1(f) -&gt; [7,0,1]; 2(f replaces 7) -&gt; [2,0,1]; 0(hit!); 3(f replaces 0) -&gt; [2,3,1]; 0(f replaces 1) -&gt; [2,3,0]; 4(f replaces 2) -&gt; [4,3,0]. total = 7 faults, 1 hit.">
+  <div class="in-note-stem">Q5.1: For the page reference string `7, 0, 1, 2, 0, 3, 0, 4` (length 8) with `3` initially empty page frames, how many Page Faults and Page Hits occur under FIFO page replacement?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 6 Page Faults and 2 Page Hits</div><div class="in-opt"><strong>(B)</strong> 8 Page Faults and 0 Page Hits</div><div class="in-opt"><strong>(C)</strong> 5 Page Faults and 3 Page Hits</div><div class="in-opt ans"><strong>(D)</strong> 7 Page Faults and 1 Page Hit ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Steps: 7(F), 0(F), 1(F) -&gt; [7,0,1]; 2(F replaces 7) -&gt; [2,0,1]; 0(HIT!); 3(F replaces 0) -&gt; [2,3,1]; 0(F replaces 1) -&gt; [2,3,0]; 4(F replaces 2) -&gt; [4,3,0]. Total = 7 Faults, 1 Hit.</div>
+</div><div class="in-note-q" data-search="which hardware bit in a page table entry (pte) indicates whether the virtual page is currently resident in physical ram (`1`) or on disk swap space (`0`), and which bit indicates whether the page has been modified (`1`)? valid/invalid (present) bit indicates ram residency; dirty (modified) bit indicates the page was written to and must be saved to disk on eviction. accessing a page with `valid/present = 0` triggers a **page fault trap** to the os.">
+  <div class="in-note-stem">Q5.2: Which hardware bit in a Page Table Entry (PTE) indicates whether the virtual page is currently resident in physical RAM (`1`) or on disk swap space (`0`), and which bit indicates whether the page has been modified (`1`)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Valid/Invalid (Present) Bit indicates RAM residency ✅</div><div class="in-opt"><strong>(B)</strong> Dirty Bit indicates RAM residency</div><div class="in-opt"><strong>(C)</strong> Reference Bit deletes the page</div><div class="in-opt"><strong>(D)</strong> Protection Bit measures page size</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Valid/Invalid (Present) Bit indicates RAM residency; Dirty (Modified) Bit indicates the page was written to and must be saved to disk on eviction. Accessing a page with `Valid/Present = 0` triggers a **Page Fault Trap** to the OS.</div>
+</div><div class="in-note-q" data-search="which page replacement algorithm suffers from &#x27;belady&#x27;s anomaly&#x27; (where increasing the number of physical ram frames can paradoxically increase the number of page faults)? fifo is not a stack algorithm and exhibits belady&#x27;s anomaly (e.g., on reference string `1,2,3,4,1,2,5,1,2,3,4,5`, 3 frames -&gt; 9 faults, 4 frames -&gt; 10 faults!). optimal and lru are stack algorithms and never suffer from belady&#x27;s anomaly.">
+  <div class="in-note-stem">Q5.3: Which Page Replacement Algorithm suffers from &#x27;Belady&#x27;s Anomaly&#x27; (where increasing the number of physical RAM frames can paradoxically INCREASE the number of page faults)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Optimal (OPT / Belady&#x27;s MIN) Algorithm</div><div class="in-opt ans"><strong>(B)</strong> FIFO (First-In, First-Out) Page Replacement ✅</div><div class="in-opt"><strong>(C)</strong> LRU (Least Recently Used) Algorithm</div><div class="in-opt"><strong>(D)</strong> LFU Stack Algorithm</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> FIFO is not a stack algorithm and exhibits Belady&#x27;s Anomaly (e.g., on reference string `1,2,3,4,1,2,5,1,2,3,4,5`, 3 frames -&gt; 9 faults, 4 frames -&gt; 10 faults!). Optimal and LRU are stack algorithms and NEVER suffer from Belady&#x27;s Anomaly.</div>
+</div><div class="in-note-q" data-search="which page replacement algorithm gives the lowest possible page fault rate of all algorithms, and why can it not be implemented directly in a real live os? optimal (opt) page replacement (replaces the page that will not be used for the longest period of time in the future); requires future knowledge of the reference string — optimal (opt) is used as a theoretical benchmark to compare practical algorithms like lru and clock (second-chance).">
+  <div class="in-note-stem">Q5.4: Which Page Replacement Algorithm gives the lowest possible page fault rate of all algorithms, and why can it not be implemented directly in a real live OS?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> LRU; because it is too slow</div><div class="in-opt"><strong>(B)</strong> FIFO; because it needs a queue</div><div class="in-opt ans"><strong>(C)</strong> Optimal (OPT) Page Replacement; requires future knowledge of the reference string ✅</div><div class="in-opt"><strong>(D)</strong> Second-Chance Clock; because it needs a reference bit</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Optimal (OPT) Page Replacement (replaces the page that will not be used for the longest period of time in the FUTURE); requires future knowledge of the reference string — Optimal (OPT) is used as a theoretical benchmark to compare practical algorithms like LRU and Clock (Second-Chance).</div>
+</div><div class="in-note-q" data-search="for the page reference string `7, 0, 1, 2, 0, 3, 0, 4` with `3` initially empty page frames, how many page faults occur under fifo page replacement? 7(f), 0(f), 1(f) [7,0,1]; 2(f replaces 7) [2,0,1]; 0(hit); 3(f replaces 0) [2,3,1]; 0(f replaces 1) [2,3,0]; 4(f replaces 2) [4,3,0]? wait: let&#x27;s count: 7, 0, 1, 2, 3, 0, 4 = 7 faults (only the first 0 at step 5 is a hit =&gt; 8 − 1 = 7 page faults!).">
+  <div class="in-note-stem">Q5.5: For the page reference string `7, 0, 1, 2, 0, 3, 0, 4` with `3` initially empty page frames, how many Page Faults occur under FIFO page replacement?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 8 Page Faults</div><div class="in-opt"><strong>(B)</strong> 4 Page Faults</div><div class="in-opt"><strong>(C)</strong> 5 Page Faults</div><div class="in-opt ans"><strong>(D)</strong> 6 Page Faults ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> 7(F), 0(F), 1(F) [7,0,1]; 2(F replaces 7) [2,0,1]; 0(Hit); 3(F replaces 0) [2,3,1]; 0(F replaces 1) [2,3,0]; 4(F replaces 2) [4,3,0]? Wait: let&#x27;s count: 7, 0, 1, 2, 3, 0, 4 = 7 faults (only the first 0 at step 5 is a Hit =&gt; 8 − 1 = 7 Page Faults!).</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Disk Scheduling &amp; Files — Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK) &amp; File Allocation</h2>
+    <span class="badge">2 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="disk scheduling algorithms (fcfs, sstf, scan, c-scan, look, c-look) &amp; file allocation disk access time = seek time (moving arm to cylinder — largest component!) + rotational latency (0.5 × 60/rpm) + transfer time disk arm scheduling: (1) fcfs: fair but high head movement; (2) sstf (shortest seek time first): greedy choice of nearest cylinder to current head position — minimizes seek time but causes starvation of distant tracks; (3) scan (elevator algorithm): moves toward one end servicing requests all the way to the boundary (0 or maxcylinder-1), then reverses direction; (4) c-scan (circular scan): services in one direction only, jumps back to start boundary without servicing on return sweep (uniform wait time); (5) look &amp; c-look: reverse direction at the last request in that direction rather than hitting the physical disk end boundary! file allocation: contiguous (fast random access, external fragmentation), linked/fat (no external fragmentation, slow sequential-only traversal unless fat cached), indexed / unix inode (12 direct pointers + single/double/triple indirect blocks). exam trap: scan aur c-scan disk ke akhiri physical boundary cylinder (0 ya 199) ko chhoo kar aate hain, jabki look aur c-look akhiri request par hi mud jate hain! aur disk access time me sabse bada hissa &#x27;seek time&#x27; hota hai.">
+  <div class="sub-h">📌 6.1 Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK) &amp; File Allocation</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Disk Access Time = Seek Time (Moving arm to cylinder — LARGEST component!) + Rotational Latency (0.5 × 60/RPM) + Transfer Time</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Disk Arm Scheduling: (1) FCFS: Fair but high head movement</li><li>(2) SSTF (Shortest Seek Time First): Greedy choice of nearest cylinder to current head position — minimizes seek time but causes starvation of distant tracks</li><li>(3) SCAN (Elevator Algorithm): Moves toward one end servicing requests all the way to the boundary (0 or MaxCylinder-1), then reverses direction</li><li>(4) C-SCAN (Circular SCAN): Services in one direction only, jumps back to start boundary without servicing on return sweep (uniform wait time)</li><li>(5) LOOK &amp; C-LOOK: Reverse direction at the LAST REQUEST in that direction rather than hitting the physical disk end boundary!</li><li>File Allocation: Contiguous (fast random access, external fragmentation), Linked/FAT (no external fragmentation, slow sequential-only traversal unless FAT cached), Indexed / UNIX Inode (12 direct pointers + single/double/triple indirect blocks).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked SSTF Trace: Head starts at cylinder 50; queue = [82, 170, 43, 140, 24, 16, 190]. Nearest to 50 is 43 (7) -&gt; 24 (19) -&gt; 16 (8) -&gt; 82 (66) -&gt; 140 (58) -&gt; 170 (30) -&gt; 190 (20). Total head movement = (50 − 16) + (190 − 16) = 34 + 174 = 208 cylinders.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: SCAN aur C-SCAN disk ke akhiri physical boundary cylinder (0 ya 199) ko chhoo kar aate hain, jabki LOOK aur C-LOOK akhiri request par hi mud jate hain! Aur Disk Access Time me sabse bada hissa <strong>'Seek Time'</strong> hota hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="a disk head is currently at cylinder `50` (moving towards higher cylinders on a `0–199` disk) and the request queue is `82, 170, 43, 140, 24, 16, 190`. what is the total head movement under scan (elevator) vs look? scan: (199 − 50) + (199 − 16) = 149 + 183 = 332 cylinders; look: (190 − 50) + (190 − 16) = 140 + 174 = 314 cylinders. scan (goes to end 199 then down to 16): (199 − 50) + (199 − 16) = 149 + 183 = 332 cylinders; look (reverses at 190 then down to 16): (190 − 50) + (190 − 16) = 140 + 174 = 314 cylinders — scan travels all the way to the physical disk boundary (`199` or `0`), whereas look reverses direction immediately at the last extreme request (`190`).">
+  <div class="in-note-stem">Q6.1: A disk head is currently at cylinder `50` (moving towards higher cylinders on a `0–199` disk) and the request queue is `82, 170, 43, 140, 24, 16, 190`. What is the total head movement under SCAN (Elevator) vs LOOK?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> SCAN = 314 and LOOK = 332</div><div class="in-opt"><strong>(B)</strong> Both are 200 cylinders</div><div class="in-opt"><strong>(C)</strong> SCAN = 149 cylinders</div><div class="in-opt ans"><strong>(D)</strong> SCAN: (199 − 50) + (199 − 16) = 149 + 183 = 332 cylinders ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> SCAN: (199 − 50) + (199 − 16) = 149 + 183 = 332 cylinders; LOOK: (190 − 50) + (190 − 16) = 140 + 174 = 314 cylinders. SCAN (goes to end 199 then down to 16): (199 − 50) + (199 − 16) = 149 + 183 = 332 cylinders; LOOK (reverses at 190 then down to 16): (190 − 50) + (190 − 16) = 140 + 174 = 314 cylinders — SCAN travels all the way to the physical disk boundary (`199` or `0`), whereas LOOK reverses direction immediately at the last extreme request (`190`).</div>
+</div><div class="in-note-q" data-search="among disk space allocation methods — (1) contiguous allocation, (2) linked allocation (fat), and (3) indexed allocation (inodes) — which one supports direct o(1) random block access without suffering from external fragmentation? indexed allocation groups all block pointers of a file into an index block (inode), supporting fast random access without external fragmentation.">
+  <div class="in-note-stem">Q6.2: Among disk space allocation methods — (1) Contiguous Allocation, (2) Linked Allocation (FAT), and (3) Indexed Allocation (Inodes) — which one supports direct O(1) random block access WITHOUT suffering from external fragmentation?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Indexed Allocation (used in Unix/Linux Inodes) ✅</div><div class="in-opt"><strong>(B)</strong> Contiguous Allocation (suffers from External Fragmentation)</div><div class="in-opt"><strong>(C)</strong> Simple Linked Allocation (slow O(n) sequential pointer chasing)</div><div class="in-opt"><strong>(D)</strong> None of these</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Indexed allocation groups all block pointers of a file into an Index Block (Inode), supporting fast random access without external fragmentation.</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Linux Commands &amp; Kernels — Linux Kernel Architecture, Inodes, Octal Permissions (chmod/umask) &amp; Essential CLI Commands</h2>
+    <span class="badge">6 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="linux kernel architecture, inodes, octal permissions (chmod/umask) &amp; essential cli commands octal permissions: r = 4, w = 2, x = 1 • chmod 755 = rwxr-xr-x • default file creation = 666 − umask • default directory creation = 777 − umask in unix/linux, everything is represented as a file described by an inode (index node). an inode stores file mode/permissions, owner uid/gid, file size, timestamps (atime, mtime, ctime), link count, and data block pointers — the inode never stores the filename (the filename-to-inode mapping is stored inside the parent directory entry!). essential linux commands: `chmod` (change permissions), `chown` (change owner), `grep` (search regex pattern inside files), `find` (search files in directory hierarchy), `ps` / `top` (view active processes), `kill -9 &lt;pid&gt;` (send sigkill=9, uncatchable termination), `ln` (hard link — shares same inode number) vs `ln -s` (symbolic/soft link — creates new inode pointing to path), `df` (filesystem disk space) vs `du` (directory space usage). hinglish tip: unix inode ke andar file ka naam (filename) kabhi store nahi hota — filename directory table me inode number ke sath map hota hai! aur `umask 022` hone par nayi file `666 − 022 = 644 (rw-r--r--)` aur naya folder `777 − 022 = 755 (rwxr-xr-x)` banta hai!">
+  <div class="sub-h">📌 7.1 Linux Kernel Architecture, Inodes, Octal Permissions (chmod/umask) &amp; Essential CLI Commands</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Octal Permissions: r = 4, w = 2, x = 1</li><li>🔹 chmod 755 = rwxr-xr-x</li><li>🔹 Default File Creation = 666 − umask</li><li>🔹 Default Directory Creation = 777 − umask</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>In UNIX/Linux, everything is represented as a file described by an Inode (Index Node).</li><li>An Inode stores File Mode/Permissions, Owner UID/GID, File Size, Timestamps (atime, mtime, ctime), Link Count, and Data Block pointers — the Inode NEVER stores the Filename (the filename-to-inode mapping is stored inside the parent Directory entry!).</li><li>Essential Linux Commands: `chmod` (change permissions), `chown` (change owner), `grep` (search regex pattern inside files), `find` (search files in directory hierarchy), `ps` / `top` (view active processes), `kill -9 &lt;PID&gt;` (send SIGKILL=9, uncatchable termination), `ln` (hard link — shares same inode number) vs `ln -s` (symbolic/soft link — creates new inode pointing to path), `df` (filesystem disk space) vs `du` (directory space usage).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Permission Check: What symbolic string corresponds to `chmod 750 script.sh`? Owner = 7 (4+2+1 = rwx), Group = 5 (4+0+1 = r-x), Others = 0 (---) =&gt; `-rwxr-x---`.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: UNIX Inode ke andar File ka NAAM (Filename) kabhi store nahi hota — Filename Directory table me Inode number ke sath map hota hai! Aur `umask 022` hone par nayi file `666 − 022 = 644 (rw-r--r--)` aur naya folder `777 − 022 = 755 (rwxr-xr-x)` banta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in a unix/linux file system (ext4), which data structure stores all file metadata (owner uid, permissions, size, timestamps, and direct/indirect disk block pointers) except the human-readable filename? inode (index node — while the filename-to-inode-number mapping is stored in the directory entry!) — exam favorite: the **filename is not stored inside the inode**; the directory file maps `(filename -&gt; inode_number)` (which is why multiple hard links can share the exact same inode!).">
+  <div class="in-note-stem">Q7.1: In a Unix/Linux File System (ext4), which data structure stores all file metadata (owner UID, permissions, size, timestamps, and direct/indirect disk block pointers) EXCEPT the human-readable filename?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Superblock</div><div class="in-opt ans"><strong>(B)</strong> Inode ✅</div><div class="in-opt"><strong>(C)</strong> Boot Block</div><div class="in-opt"><strong>(D)</strong> FAT Table</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Inode (Index Node — while the filename-to-Inode-number mapping is stored in the Directory entry!) — Exam Favorite: The **Filename is NOT stored inside the Inode**; the Directory file maps `(Filename -&gt; Inode_Number)` (which is why multiple Hard Links can share the exact same Inode!).</div>
+</div><div class="in-note-q" data-search="in linux file permissions, what does the command `chmod 754 script.sh` set for `(owner/user, group, others)`? octal weights: read `r = 4`, write `w = 2`, execute `x = 1`. thus `7 = rwx`, `6 = rw-`, `5 = r-x`, `4 = r--`, `0 = ---`.">
+  <div class="in-note-stem">Q7.2: In Linux file permissions, what does the command `chmod 754 script.sh` set for `(Owner/User, Group, Others)`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> User = r--, Group = r-x, Others = rwx</div><div class="in-opt"><strong>(B)</strong> User = rw-, Group = r--, Others = ---</div><div class="in-opt ans"><strong>(C)</strong> User = rwx (7 = 4+2+1), Group = r-x (5 = 4+0+1), Others = r-- (4 = 4+0+0) -&gt; `-rwxr-xr--` ✅</div><div class="in-opt"><strong>(D)</strong> All users get full rwx permissions</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Octal weights: Read `r = 4`, Write `w = 2`, Execute `x = 1`. Thus `7 = rwx`, `6 = rw-`, `5 = r-x`, `4 = r--`, `0 = ---`.</div>
+</div><div class="in-note-q" data-search="in linux, which command searches for lines matching a regular expression pattern inside files, and which command searches the directory hierarchy for files by name, size, or modification time? `grep` searches text patterns inside files; `find` locates files in the directory hierarchy. `grep` (global regular expression print) filters file lines by regex; `find /path -name &#x27;*.c&#x27;` searches directories for matching files.">
+  <div class="in-note-stem">Q7.3: In Linux, which command searches for lines matching a Regular Expression pattern inside files, and which command searches the directory hierarchy for files by name, size, or modification time?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `ls` searches inside files and `cat` renames files</div><div class="in-opt"><strong>(B)</strong> `chmod` searches text and `chown` deletes files</div><div class="in-opt"><strong>(C)</strong> `pwd` searches patterns</div><div class="in-opt ans"><strong>(D)</strong> `grep` searches text patterns inside files ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> `grep` searches text patterns inside files; `find` locates files in the directory hierarchy. `grep` (Global Regular Expression Print) filters file lines by regex; `find /path -name <strong>'*.c'</strong>` searches directories for matching files.</div>
+</div><div class="in-note-q" data-search="in linux, what is the difference between a &#x27;hard link&#x27; (`ln file hlink`) and a &#x27;soft / symbolic link&#x27; (`ln -s file slink`)? a hard link shares the exact same inode number as the original file; a soft link has a new inode storing the pathname string. a hard link shares the exact same inode number as the original file (cannot cross file systems, data survives if original filename is deleted); a soft link has a new inode storing the pathname string (becomes a broken dangling link if original is deleted) — deleting the original file breaks a soft/symbolic link (`dangling pointer`), whereas a hard link keeps the file data alive until the inode link count drops to 0.">
+  <div class="in-note-stem">Q7.4: In Linux, what is the difference between a &#x27;Hard Link&#x27; (`ln file hlink`) and a &#x27;Soft / Symbolic Link&#x27; (`ln -s file slink`)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> A Hard Link shares the exact same Inode number as the original file ✅</div><div class="in-opt"><strong>(B)</strong> A Soft Link shares the same Inode number as the original file</div><div class="in-opt"><strong>(C)</strong> A Hard Link breaks immediately when the original file is deleted</div><div class="in-opt"><strong>(D)</strong> A Hard Link can link directories across different partitions</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> A Hard Link shares the exact same Inode number as the original file; a Soft Link has a NEW Inode storing the pathname string. A Hard Link shares the exact same Inode number as the original file (cannot cross file systems, data survives if original filename is deleted); a Soft Link has a NEW Inode storing the pathname string (becomes a broken dangling link if original is deleted) — Deleting the original file breaks a Soft/Symbolic Link (`dangling pointer`), whereas a Hard Link keeps the file data alive until the Inode link count drops to 0.</div>
+</div><div class="in-note-q" data-search="in linux, what do the commands `pwd`, `ls -la`, `ps aux`, `kill -9 &lt;pid&gt;`, and `top` do? `pwd` = print working directory; `ls -la` = list all files including hidden dot-files; `ps/top` = view running processes; `kill -9` = send sigkill to terminate a process. note: `passwd` changes a user&#x27;s password, whereas `pwd` prints the current working directory!">
+  <div class="in-note-stem">Q7.5: In Linux, what do the commands `pwd`, `ls -la`, `ps aux`, `kill -9 &lt;PID&gt;`, and `top` do?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `pwd` changes password and `top` shuts down Linux</div><div class="in-opt ans"><strong>(B)</strong> `pwd` = print working directory ✅</div><div class="in-opt"><strong>(C)</strong> `kill -9` deletes a file from disk</div><div class="in-opt"><strong>(D)</strong> `ls` compiles C programs</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> `pwd` = print working directory; `ls -la` = list all files including hidden dot-files; `ps/top` = view running processes; `kill -9` = send SIGKILL to terminate a process. Note: `passwd` changes a user&#x27;s password, whereas `pwd` prints the current working directory!</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Operating Systems &amp; Linux)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Process &amp; Scheduling — Process States (5/7-State Model), PCB, System Calls (fork/exec) &amp; CPU Scheduling Algorithms</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Process States (5/7-State Model), PCB, System Calls (fork/exec)]</strong> Turnaround Time (TAT) = Completion Time (CT) − Arrival Time (AT)</li><li>🔹 <strong>[Process States (5/7-State Model), PCB, System Calls (fork/exec)]</strong> Waiting Time (WT) = TAT − Burst Time (BT)</li><li>🔹 <strong>[Process States (5/7-State Model), PCB, System Calls (fork/exec)]</strong> n consecutive fork() calls create 2^n total processes (2^n − 1 child processes)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: n baar `fork()` call karne par total processes = 2^n bante hain aur naye child processes = 2^n − 1 bante hain! Threads apas me Code, Data aur Files share karte hain, par STACK aur REGISTER har thread ka apna alag hota hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Synchronization &amp; Semaphores — Process Synchronization, Critical Section Criteria, Peterson&#x27;s Solution &amp; Semaphores</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Process Synchronization, Critical Section Criteria, Peterson&#x27;s Solution]</strong> 3 Critical Section Requirements: Mutual Exclusion (Mandatory) + Progress (Mandatory) + Bounded Waiting</li><li>🔹 <strong>[Process Synchronization, Critical Section Criteria, Peterson&#x27;s Solution]</strong> Semaphore wait(S)/P(S): while(S&lt;=0); S--;</li><li>🔹 <strong>[Process Synchronization, Critical Section Criteria, Peterson&#x27;s Solution]</strong> signal(S)/V(S): S++;</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Counting Semaphore me agar S ki value negative (jaise −4) hai, to iska matlab hai ki is waqt 4 processes semaphore ki waiting queue me BLOCKED (sleep state me) hain!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — Deadlocks &amp; Banker&#x27;s — Deadlocks — Four Coffman Conditions, Resource Allocation Graph &amp; Banker&#x27;s Algorithm</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Deadlocks — Four Coffman Conditions, Resource Allocation Graph]</strong> Need Matrix: Need[i][j] = Max[i][j] − Allocation[i][j]</li><li>🔹 <strong>[Deadlocks — Four Coffman Conditions, Resource Allocation Graph]</strong> Minimum Resources to Guarantee Deadlock-Free Execution for n processes needing k_i each: R &gt;= Σ(k_i − 1) + 1</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Deadlock-free formula (Exam Superhero Formula!): Agar n processes hain aur har process ko maximum k instances chahiye, to Deadlock hone ki maximum resources = n(k − 1), aur 100% Deadlock-Free hone ke liye minimum resources R = n(k − 1) + 1 chahiye!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — Memory &amp; Paging — Memory Management — Contiguous Allocation, Paging, TLB &amp; Multi-Level Page Tables</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Memory Management — Contiguous Allocation, Paging, TLB]</strong> EMAT with TLB = α(t_tlb + t_mem) + (1 − α)(t_tlb + 2·t_mem) [for 1-level PT]</li><li>🔹 <strong>[Memory Management — Contiguous Allocation, Paging, TLB]</strong> Logical Address (m bits) = Page Number p (m − d bits) + Page Offset d (d bits, Page Size = 2^d)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Paging me EXTERNAL Fragmentation ZERO hoti hai (sirf Internal Fragmentation hoti hai), jabki Segmentation me INTERNAL Fragmentation ZERO hoti hai (sirf External Fragmentation hoti hai)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Virtual Memory &amp; Belady&#x27;s — Virtual Memory, Demand Paging, Page Replacement (FIFO, Optimal, LRU) &amp; Thrashing</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Virtual Memory, Demand Paging, Page Replacement (FIFO, Optimal, LRU)]</strong> EMAT with Page Fault rate p: EMAT = (1 − p) × t_mem + p × t_page_fault</li><li>🔹 <strong>[Virtual Memory, Demand Paging, Page Replacement (FIFO, Optimal, LRU)]</strong> Belady&#x27;s Anomaly occurs ONLY in FIFO (Never in Stack Algorithms: LRU, Optimal)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Page Fault Service Time (~8 milliseconds = 8,000,<mark class="hl">000 ns</mark>) RAM access (<mark class="hl">100 ns</mark>) se ~80,000 guna bada hota hai! Aur LRU aur Optimal <strong>'Stack Algorithms'</strong> hain isliye unme kabhi Belady&#x27;s Anomaly nahi aati.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Disk Scheduling &amp; Files — Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK) &amp; File Allocation</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK)]</strong> Disk Access Time = Seek Time (Moving arm to cylinder — LARGEST component!) + Rotational Latency (0.5 × 60/RPM) + Transfer Time</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: SCAN aur C-SCAN disk ke akhiri physical boundary cylinder (0 ya 199) ko chhoo kar aate hain, jabki LOOK aur C-LOOK akhiri request par hi mud jate hain! Aur Disk Access Time me sabse bada hissa <strong>'Seek Time'</strong> hota hai.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Linux Commands &amp; Kernels — Linux Kernel Architecture, Inodes, Octal Permissions (chmod/umask) &amp; Essential CLI Commands</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Linux Kernel Architecture, Inodes, Octal Permissions (chmod/umask)]</strong> Octal Permissions: r = 4, w = 2, x = 1</li><li>🔹 <strong>[Linux Kernel Architecture, Inodes, Octal Permissions (chmod/umask)]</strong> chmod 755 = rwxr-xr-x</li><li>🔹 <strong>[Linux Kernel Architecture, Inodes, Octal Permissions (chmod/umask)]</strong> Default File Creation = 666 − umask</li><li>🔹 <strong>[Linux Kernel Architecture, Inodes, Octal Permissions (chmod/umask)]</strong> Default Directory Creation = 777 − umask</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: UNIX Inode ke andar File ka NAAM (Filename) kabhi store nahi hota — Filename Directory table me Inode number ke sath map hota hai! Aur `umask 022` hone par nayi file `666 − 022 = 644 (rw-r--r--)` aur naya folder `777 − 022 = 755 (rwxr-xr-x)` banta hai!</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

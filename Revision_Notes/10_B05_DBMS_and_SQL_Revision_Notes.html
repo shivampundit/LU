@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Database Management System — Clean Chapter-Wise Revision Notes &amp; One-Liners | DSSSB TGT CS</title>
+<style>
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📘 DSSSB TGT CS Revision Notes • Database Management System</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon Sheet</a>
+    <a href="10_B05_DBMS_and_SQL_Revision_Notes.html" class="active">📘 Revision Notes</a>
+    <a href="../Question_Booklets/10_B05_DBMS_and_SQL_Question_Booklet.html">📝 Question Booklet (58 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 10–12 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Zero-Duplicate Easy Revision Notes</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter PYQs + Chapter-Wise One-Liners</span>
+    </div>
+    <h1>📘 Database Management System (3-Schema, Relational Model/Keys, SQL, ER Model, Normalization, Transactions &amp; Indexing)</h1>
+    <p>Clean, simple, zero-repetition Chapter &amp; Subheading Revision Notes with <mark class="hl">highlighted exam points</mark>, Master Cheat-Table, exact chapter-matched practice questions with explanations, and Chapter-Wise One-Liners at the end.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <a class="btn btn-amber" href="#sec-oneliners">⚡ Jump to Chapter-Wise One-Liners</a>
+      <a class="btn btn-green" href="../Question_Booklets/10_B05_DBMS_and_SQL_Question_Booklet.html">📝 Open 58-Question Booklet</a>
+      <input type="text" class="search-input" placeholder="🔍 Search topic or keyword..." oninput="filterPage(this.value)">
+    </div>
+  </div>
+
+  <div class="nav-pills">
+    <strong style="font-size:0.79rem;color:#475569;">Chapters:</strong>
+    <a class="pill" href="#sec-cheat" style="background:#fef9c3;color:#854d0e;border-color:#fde047;">📊 Quick Cheat-Table</a><a class="pill" href="#ch1">Ch 1: Concepts &amp; Architecture — AN</a><a class="pill" href="#ch2">Ch 2: Relational Model &amp; Keys — Re</a><a class="pill" href="#ch3">Ch 3: SQL &amp; Queries — SQL Sublangu</a><a class="pill" href="#ch4">Ch 4: ER Model Basics — Entity-Rel</a><a class="pill" href="#ch5">Ch 5: Normalization — Functional D</a><a class="pill" href="#ch6">Ch 6: Transactions &amp; ACID — Transa</a><a class="pill" href="#ch7">Ch 7: Indexing &amp; Storage — File Or</a><a class="pill" href="#sec-oneliners" style="background:#dcfce7;color:#14532d;border-color:#86efac;">⚡ Chapter-Wise One-Liners</a>
+  </div>
+
+  <section class="ch-card" id="sec-cheat">
+    <div class="ch-heading">
+      <h2>📊 Database Management System — Master Exam Cheat-Table (Quick Scan)</h2>
+      <span class="badge" style="background:#fef08a;color:#713f12;">High-Yield Direct Table</span>
+    </div>
+    
+<h3>📊 Master Cheat-Table: DBMS &amp; SQL — Normal Forms (1NF–5NF), Keys, Joins &amp; ACID Concurrency</h3>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>DBMS Concept</th><th>Exact Formal Condition</th><th>Key Properties &amp; Exam Edge Cases</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Normal Forms Hierarchy</strong></td><td><strong>1NF:</strong> Atomic attributes (no multivalued/composite)<br><strong>2NF:</strong> 1NF + No <strong>Partial Dependency</strong><br><strong>3NF:</strong> 2NF + No <strong>Transitive Dependency</strong> (for <code>X-&gt;A</code>: X is Superkey OR A is Prime)<br><strong>BCNF:</strong> For every non-trivial <code>X-&gt;Y</code>, <strong>X MUST be a Superkey</strong></td><td>• A 2-attribute binary relation <code>R(A, B)</code> is ALWAYS in <strong>BCNF</strong>!<br>• If all candidate keys are simple (single-attribute), 1NF automatically implies <strong>2NF</strong>!<br>• <strong>3NF</strong> decomposition is ALWAYS both <strong>Lossless-Join AND Dependency-Preserving</strong>; <strong>BCNF</strong> is always Lossless-Join but may NOT preserve all FDs.<br>• <strong>4NF:</strong> Eliminates non-trivial Multi-Valued Dependencies (`X -&gt;&gt; Y`)</td></tr>
+    <tr><td><strong>SQL Sub-Languages &amp; Commands</strong></td><td><strong>DDL:</strong> <code>CREATE, ALTER, DROP, TRUNCATE, RENAME</code><br><strong>DML:</strong> <code>SELECT, INSERT, UPDATE, DELETE, MERGE</code><br><strong>DCL:</strong> <code>GRANT, REVOKE</code> | <strong>TCL:</strong> <code>COMMIT, ROLLBACK, SAVEPOINT</code></td><td>• <code>DELETE</code> (DML: row-by-row, uses <code>WHERE</code>, logged, can be rolled back, fires triggers) vs <code>TRUNCATE</code> (DDL: deallocates pages, resets identity, faster) vs <code>DROP</code> (removes table structure + data)<br>• <code>WHERE</code> filters rows BEFORE <code>GROUP BY</code>; <code>HAVING</code> filters groups AFTER <code>GROUP BY</code><br>• <code>COUNT(*)</code> counts NULL rows; <code>COUNT(col)</code>, <code>SUM</code>, <code>AVG</code> ignore NULLs</td></tr>
+    <tr><td><strong>Transactions &amp; Concurrency</strong></td><td><strong>ACID:</strong> Atomicity (Undo log), Consistency, Isolation (2PL/MVCC), Durability (Redo WAL log)</td><td>• <strong>Conflict Serializable:</strong> Precedence Graph is <strong>Acyclic (DAG)</strong> (topological sort = equivalent serial schedule)<br>• <strong>Strict 2PL:</strong> Holds all Exclusive (Write) locks until Commit/Abort -&gt; prevents Cascading Rollbacks &amp; ensures Strict/Recoverable schedules</td></tr>
+  </tbody>
+</table></div>
+
+  </section>
+
+  <section class="ch-card" id="ch1">
+  <div class="ch-heading">
+    <h2>📖 Chapter 1: Concepts &amp; Architecture — ANSI/SPARC 3-Schema Architecture, Data Independence &amp; Database Users/DBA</h2>
+    <span class="badge">3 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="ansi/sparc 3-schema architecture, data independence &amp; database users/dba 3 schemas: external / view level (user views) &lt;-&gt; conceptual / logical level (tables/relations/constraints) &lt;-&gt; internal / physical level (b+ trees/hashing/blocks) dbms advantages over traditional flat-file systems include elimination of data redundancy &amp; inconsistency, atomic transaction recovery, concurrent access control, and declarative integrity enforcement. the 3-schema architecture provides two levels of data independence: (1) physical data independence (ability to modify the internal/physical schema—e.g., changing file organization from heap to b+ tree or moving data files—without altering the conceptual schema or application programs); (2) logical data independence (ability to modify the conceptual schema—e.g., adding/splitting tables or attributes—without altering external user views). logical data independence is harder to achieve because application programs are tightly coupled to the logical structure. hinglish tip: physical data independence (internal &lt;-&gt; conceptual) achieve karna aasan hai, jabki logical data independence (conceptual &lt;-&gt; external view) achieve karna zyada kathin (harder) hota hai!">
+  <div class="sub-h">📌 1.1 ANSI/SPARC 3-Schema Architecture, Data Independence &amp; Database Users/DBA</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 3 Schemas: External / View Level (User Views) &lt;-&gt; Conceptual / Logical Level (Tables/Relations/Constraints) &lt;-&gt; Internal / Physical Level (B+ Trees/Hashing/Blocks)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>DBMS advantages over traditional Flat-File Systems include elimination of data redundancy &amp; inconsistency, atomic transaction recovery, concurrent access control, and declarative integrity enforcement.</li><li>The 3-Schema Architecture provides two levels of Data Independence: (1) Physical Data Independence (ability to modify the Internal/Physical schema—e.g., changing file organization from heap to B+ tree or moving data files—without altering the Conceptual schema or application programs)</li><li>(2) Logical Data Independence (ability to modify the Conceptual schema—e.g., adding/splitting tables or attributes—without altering External user views).</li><li>Logical Data Independence is harder to achieve because application programs are tightly coupled to the logical structure.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Database Metadata &amp; System Catalog: The Data Dictionary (System Catalog) stores metadata (definitions of tables, columns, data types, views, indexes, and user privileges) and is itself stored and queried as relational tables by the Query Optimizer.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Physical Data Independence (Internal &lt;-&gt; Conceptual) achieve karna aasan hai, jabki Logical Data Independence (Conceptual &lt;-&gt; External View) achieve karna zyada kathin (harder) hota hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 1 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in the ansi-sparc 3-schema dbms architecture, which level describes how data is physically stored on disk (byte layouts, b+ tree indices), and which level describes what data is stored (tables, columns, relationships)? internal (physical) level describes how data is stored; logical (conceptual) level describes what data is stored. 3 levels: internal/physical (how stored), conceptual/logical (what stored &amp; relationships), external/view (user-specific views).">
+  <div class="in-note-stem">Q1.1: In the ANSI-SPARC 3-Schema DBMS Architecture, which level describes HOW data is physically stored on disk (byte layouts, B+ tree indices), and which level describes WHAT data is stored (tables, columns, relationships)?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Internal (Physical) Level describes HOW data is stored ✅</div><div class="in-opt"><strong>(B)</strong> External (View) Level describes physical disk blocks</div><div class="in-opt"><strong>(C)</strong> Logical Level describes only user GUI screens</div><div class="in-opt"><strong>(D)</strong> Internal Level is seen by end users</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Internal (Physical) Level describes HOW data is stored; Logical (Conceptual) Level describes WHAT data is stored. 3 Levels: Internal/Physical (HOW stored), Conceptual/Logical (WHAT stored &amp; relationships), External/View (user-specific views).</div>
+</div><div class="in-note-q" data-search="modifying the physical storage structure or adding a b+ tree index without changing the conceptual schema or rewriting application programs is called: physical data independence insulates the conceptual schema from internal physical storage changes (easier to achieve than logical data independence).">
+  <div class="in-note-stem">Q1.2: Modifying the physical storage structure or adding a B+ Tree index without changing the Conceptual Schema or rewriting application programs is called:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Logical Data Independence</div><div class="in-opt ans"><strong>(B)</strong> Physical Data Independence ✅</div><div class="in-opt"><strong>(C)</strong> View Integration</div><div class="in-opt"><strong>(D)</strong> Referential Integrity</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Physical Data Independence insulates the Conceptual schema from Internal physical storage changes (easier to achieve than Logical Data Independence).</div>
+</div><div class="in-note-q" data-search="who invented the relational database model in 1970 while working at ibm? e.f. codd published &#x27;a relational model of data for large shared data banks&#x27; in 1970 and formulated codd&#x27;s 12 rules (0 to 12).">
+  <div class="in-note-stem">Q1.3: Who invented the Relational Database Model in 1970 while working at IBM?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Charles Bachman</div><div class="in-opt"><strong>(B)</strong> Peter Chen (ER Model)</div><div class="in-opt ans"><strong>(C)</strong> Dr. E.F. Codd (Edgar Frank Codd) ✅</div><div class="in-opt"><strong>(D)</strong> Jim Gray (Transactions)</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> E.F. Codd published &#x27;A Relational Model of Data for Large Shared Data Banks&#x27; in <mark class="hl">1970</mark> and formulated Codd&#x27;s 12 Rules (0 to 12).</div>
+</div>
+</section><section class="ch-card" id="ch2">
+  <div class="ch-heading">
+    <h2>📖 Chapter 2: Relational Model &amp; Keys — Relational Model, Keys (Super, Candidate, Primary, Alternate, Foreign) &amp; Relational Algebra</h2>
+    <span class="badge">19 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="relational model, keys (super, candidate, primary, alternate, foreign) &amp; relational algebra number of superkeys for n attributes: (1) single 1-attr ck -&gt; 2^(n−1); (2) two disjoint 1-attr cks a, b -&gt; 2^(n−1) + 2^(n−1) − 2^(n−2); • alternate keys = candidate keys − primary key relational integrity constraints: (1) entity integrity rule: no attribute participating in the primary key can ever be null! (2) referential integrity rule: a foreign key value must either match an existing primary key value in the referenced parent tuple or be wholly null (note: primary key allows 0 nulls; unique key in sql allows nulls; foreign key allows duplicates and nulls!). core relational algebra operators (6 fundamental operators): selection (σ — horizontal row filter, commutative), projection (π — vertical column filter, eliminates duplicate rows automatically!), cartesian product (×), union (∪), set difference (−), and rename (ρ). derived operators: natural join (⋈), division (÷ — used for &#x27;for all / every&#x27; universal queries!). exam trap: relational algebra ka projection operator (π) automatically duplicate rows hata deta hai (kyunki relation ek mathematical set hai), jabki sql ka `select` bina `distinct` keyword ke duplicates retain rakhta hai (multiset/bag)!">
+  <div class="sub-h">📌 2.1 Relational Model, Keys (Super, Candidate, Primary, Alternate, Foreign) &amp; Relational Algebra</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Number of Superkeys for n attributes: (1) Single 1-attr CK -&gt; 2^(n−1); (2) Two disjoint 1-attr CKs A, B -&gt; 2^(n−1) + 2^(n−1) − 2^(n−2);</li><li>🔹 Alternate Keys = Candidate Keys − Primary Key</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Relational Integrity Constraints: (1) Entity Integrity Rule: No attribute participating in the Primary Key can ever be NULL!</li><li>(2) Referential Integrity Rule: A Foreign Key value must either match an existing Primary Key value in the referenced parent tuple OR be wholly NULL (Note: Primary Key allows 0 NULLs</li><li>UNIQUE key in SQL allows NULLs</li><li>Foreign Key allows duplicates and NULLs!).</li><li>Core Relational Algebra Operators (6 Fundamental Operators): Selection (σ — horizontal row filter, commutative), Projection (π — vertical column filter, eliminates duplicate rows automatically!), Cartesian Product (×), Union (∪), Set Difference (−), and Rename (ρ).</li><li>Derived Operators: Natural Join (⋈), Division (÷ — used for <strong>'for all / every'</strong> universal queries!).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Join Cardinality &amp; Superkey Math: Relation R(A,B,C,D,E) has n=5 attributes and two Candidate Keys {A} and {B,C}. Superkeys containing A = 2^(5−1) = 16; Superkeys containing BC = 2^(5−2) = 8; Overlap containing ABC = 2^(5−3) = 4. Total Superkeys = 16 + 8 − 4 = 20! Also for Natural Join of R (m tuples) and S (n tuples): If common attribute is PK of R and FK of S, join size is exactly n tuples.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Relational Algebra ka Projection operator (π) automatically DUPLICATE rows hata deta hai (kyunki relation ek mathematical Set hai), jabki SQL ka `SELECT` bina `DISTINCT` keyword ke duplicates retain rakhta hai (Multiset/Bag)!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 2 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in relational model terminology, what are the formal terms for a table, a row (record), a column (field), the number of rows, and the number of columns? exam favorite: **degree (arity)** = number of attributes (columns); **cardinality** = number of tuples (rows).">
+  <div class="in-note-stem">Q2.1: In Relational Model terminology, what are the formal terms for a Table, a Row (Record), a Column (Field), the Number of Rows, and the Number of Columns?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Number of Rows = Degree, Number of Columns = Cardinality</div><div class="in-opt"><strong>(B)</strong> Row = Attribute, Column = Tuple</div><div class="in-opt"><strong>(C)</strong> Table = Domain</div><div class="in-opt ans"><strong>(D)</strong> Table = Relation, Row = Tuple, Column = Attribute, Number of Rows = Cardinality, Number of Columns = Degree (Arity) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Exam Favorite: **Degree (Arity)** = Number of Attributes (Columns); **Cardinality** = Number of Tuples (Rows).</div>
+</div><div class="in-note-q" data-search="if a relation r has `n = 4` attributes `{a, b, c, d}` and its only candidate key is the single attribute `a`, how many total superkeys does r have? any subset of the remaining `n − k = 3` non-key attributes `{b, c, d}` combined with candidate key `a` forms a superkey =&gt; `2³ = 8` superkeys.">
+  <div class="in-note-stem">Q2.2: If a relation R has `n = 4` attributes `{A, B, C, D}` and its ONLY Candidate Key is the single attribute `A`, how many total Superkeys does R have?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 8 Superkeys (`2^(n − k) = 2^(4 − 1) = 2³ = 8`) ✅</div><div class="in-opt"><strong>(B)</strong> 16 Superkeys</div><div class="in-opt"><strong>(C)</strong> 4 Superkeys</div><div class="in-opt"><strong>(D)</strong> 1 Superkey</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Any subset of the remaining `n − k = 3` non-key attributes `{B, C, D}` combined with Candidate Key `A` forms a Superkey =&gt; `2³ = 8` superkeys.</div>
+</div><div class="in-note-q" data-search="what is the difference between a &#x27;superkey&#x27; and a &#x27;candidate key&#x27;? a candidate key is a minimal superkey (no proper subset of a candidate key is itself a superkey) — every candidate key is a superkey, but not every superkey is a candidate key. one chosen candidate key becomes the primary key (the remaining candidate keys are alternate keys).">
+  <div class="in-note-stem">Q2.3: What is the difference between a &#x27;Superkey&#x27; and a &#x27;Candidate Key&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Every Superkey is a Candidate Key</div><div class="in-opt ans"><strong>(B)</strong> A Candidate Key is a MINIMAL Superkey ✅</div><div class="in-opt"><strong>(C)</strong> A Table can have only one Candidate Key</div><div class="in-opt"><strong>(D)</strong> A Candidate Key can contain NULL values</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> A Candidate Key is a MINIMAL Superkey (no proper subset of a Candidate Key is itself a Superkey) — Every Candidate Key is a Superkey, but not every Superkey is a Candidate Key. One chosen Candidate Key becomes the Primary Key (the remaining Candidate Keys are Alternate Keys).</div>
+</div><div class="in-note-q" data-search="which integrity constraint states that &#x27;no attribute participating in the primary key of a base relation is allowed to accept null values&#x27;? entity integrity = primary key cannot be null; referential integrity = foreign key must either match an existing primary key value or be null.">
+  <div class="in-note-stem">Q2.4: Which Integrity Constraint states that &#x27;No attribute participating in the Primary Key of a base relation is allowed to accept NULL values&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Referential Integrity Constraint (Foreign Key)</div><div class="in-opt"><strong>(B)</strong> Domain Integrity Constraint</div><div class="in-opt ans"><strong>(C)</strong> Entity Integrity Constraint ✅</div><div class="in-opt"><strong>(D)</strong> Tuple Uniqueness Constraint</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Entity Integrity = Primary Key cannot be NULL; Referential Integrity = Foreign Key must either match an existing Primary Key value or be NULL.</div>
+</div><div class="in-note-q" data-search="which six operators form the &#x27;fundamental (minimal complete) set&#x27; of relational algebra operators? join (`⋈ = σ(r × s)`), intersection (`r ∩ s = r − (r − s)`), and division (`÷`) are derived operators.">
+  <div class="in-note-stem">Q2.5: Which six operators form the &#x27;Fundamental (Minimal Complete) Set&#x27; of Relational Algebra operators?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Natural Join (⋈), Intersection (∩), and Division (÷)</div><div class="in-opt"><strong>(B)</strong> SUM, AVG, COUNT, MIN, MAX</div><div class="in-opt"><strong>(C)</strong> INSERT, UPDATE, DELETE</div><div class="in-opt ans"><strong>(D)</strong> Select (σ), Project (π), Union (∪), Set Difference (−), Cartesian Product (×), and Rename (ρ) ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Join (`⋈ = σ(R × S)`), Intersection (`R ∩ S = R − (R − S)`), and Division (`÷`) are Derived operators.</div>
+</div>
+</section><section class="ch-card" id="ch3">
+  <div class="ch-heading">
+    <h2>📖 Chapter 3: SQL &amp; Queries — SQL Sublanguages (DDL, DML, DCL, TCL), Execution Order, Aggregates &amp; Joins</h2>
+    <span class="badge">13 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="sql sublanguages (ddl, dml, dcl, tcl), execution order, aggregates &amp; joins sql sublanguages: ddl (create, alter, drop, truncate, rename) • dml (select, insert, update, delete) • dcl (grant, revoke) • tcl (commit, rollback, savepoint) logical sql query execution order: `from / join` -&gt; `where` (filters individual rows before grouping; cannot contain aggregate functions!) -&gt; `group by` -&gt; `having` (filters grouped aggregates) -&gt; `select` -&gt; `distinct` -&gt; `order by` -&gt; `limit/fetch`. all 5 sql aggregate functions (`count`, `sum`, `avg`, `min`, `max`) strictly ignore `null` values, except `count(*)` which counts all rows including rows with nulls! key comparison: `delete` (dml, row-by-row logged, supports `where` clause, can be rolled back, triggers fire) vs `truncate` (ddl, deallocates data pages in bulk, no `where` clause, resets identity, faster) vs `drop` (ddl, removes entire table data + schema structure from catalog). hinglish tip: `where` clause `group by` se pehle chalta hai aur rows ko filter karta hai (isliye `where` me `sum/count` likhna syntax error hai); `having` clause `group by` ke baad groups ko filter karta hai! aur `null = null` ya `null &lt;&gt; null` hamesha unknown (falsy) return karta hai — hamesha `is null` ya `is not null` use karein!">
+  <div class="sub-h">📌 3.1 SQL Sublanguages (DDL, DML, DCL, TCL), Execution Order, Aggregates &amp; Joins</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 SQL Sublanguages: DDL (CREATE, ALTER, DROP, TRUNCATE, RENAME)</li><li>🔹 DML (SELECT, INSERT, UPDATE, DELETE)</li><li>🔹 DCL (GRANT, REVOKE)</li><li>🔹 TCL (COMMIT, ROLLBACK, SAVEPOINT)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Logical SQL Query Execution Order: `FROM / JOIN` -&gt; `WHERE` (filters individual rows before grouping</li><li>cannot contain aggregate functions!) -&gt; `GROUP BY` -&gt; `HAVING` (filters grouped aggregates) -&gt; `SELECT` -&gt; `DISTINCT` -&gt; `ORDER BY` -&gt; `LIMIT/FETCH`.</li><li>All 5 SQL Aggregate Functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`) strictly IGNORE `NULL` values, EXCEPT `COUNT(*)` which counts all rows including rows with NULLs!</li><li>Key Comparison: `DELETE` (DML, row-by-row logged, supports `WHERE` clause, can be rolled back, triggers fire) vs `TRUNCATE` (DDL, deallocates data pages in bulk, no `WHERE` clause, resets identity, faster) vs `DROP` (DDL, removes entire table data + schema structure from catalog).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked SQL Output: Table Emp has 5 rows with Commission values: `[100, 200, NULL, 300, NULL]`. Then `SELECT COUNT(*), COUNT(Comm), AVG(Comm) FROM Emp;` returns: `COUNT(*) = 5`, `COUNT(Comm) = 3`, and `AVG(Comm) = (100+200+300)/3 = 200` (NOT 600/5 = 120!).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: `WHERE` clause `GROUP BY` se pehle chalta hai aur rows ko filter karta hai (isliye `WHERE` me `SUM/COUNT` likhna syntax error hai); `HAVING` clause `GROUP BY` ke baad groups ko filter karta hai! Aur `NULL = NULL` ya `NULL &lt;&gt; NULL` hamesha UNKNOWN (falsy) return karta hai — hamesha `IS NULL` ya `IS NOT NULL` use karein!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 3 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="classify the sql commands `create, alter, drop, truncate` vs `select, insert, update, delete`: create, alter, drop, truncate = ddl; select, insert, update, delete = dml. create, alter, drop, truncate = ddl (data definition language); select, insert, update, delete = dml (data manipulation language) — ddl defines/modifies schema structure (auto-commits); dml queries/modifies row data; dcl = `grant, revoke`; tcl = `commit, rollback, savepoint`.">
+  <div class="in-note-stem">Q3.1: Classify the SQL commands `CREATE, ALTER, DROP, TRUNCATE` vs `SELECT, INSERT, UPDATE, DELETE`:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> TRUNCATE is DML and DELETE is DDL</div><div class="in-opt"><strong>(B)</strong> INSERT is DDL and CREATE is DML</div><div class="in-opt ans"><strong>(C)</strong> CREATE, ALTER, DROP, TRUNCATE = DDL ✅</div><div class="in-opt"><strong>(D)</strong> GRANT and REVOKE are TCL</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> CREATE, ALTER, DROP, TRUNCATE = DDL; SELECT, INSERT, UPDATE, DELETE = DML. CREATE, ALTER, DROP, TRUNCATE = DDL (Data Definition Language); SELECT, INSERT, UPDATE, DELETE = DML (Data Manipulation Language) — DDL defines/modifies schema structure (auto-commits); DML queries/modifies row data; DCL = `GRANT, REVOKE`; TCL = `COMMIT, ROLLBACK, SAVEPOINT`.</div>
+</div><div class="in-note-q" data-search="what is the key operational difference between the sql commands `delete`, `truncate`, and `drop`? delete (dml) removes rows one-by-one using a where clause; truncate (ddl) deallocates all data pages at once keeping the table schema; drop (ddl) deletes the entire table data and schema structure. delete (dml) removes rows one-by-one using a where clause (fires triggers, can be rolled back); truncate (ddl) deallocates all data pages at once keeping the table schema; drop (ddl) deletes the entire table data and schema structure — `truncate table` is a fast ddl command that removes all rows without a `where` clause and resets auto-increment counters; `drop table` removes the table itself.">
+  <div class="in-note-stem">Q3.2: What is the key operational difference between the SQL commands `DELETE`, `TRUNCATE`, and `DROP`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> TRUNCATE supports a WHERE clause to delete selected rows</div><div class="in-opt"><strong>(B)</strong> DROP keeps the table columns and deletes only rows</div><div class="in-opt"><strong>(C)</strong> DELETE removes the table schema from the database</div><div class="in-opt ans"><strong>(D)</strong> DELETE (DML) removes rows one-by-one using a WHERE clause ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> DELETE (DML) removes rows one-by-one using a WHERE clause; TRUNCATE (DDL) deallocates all data pages at once keeping the table schema; DROP (DDL) deletes the entire table data AND schema structure. DELETE (DML) removes rows one-by-one using a WHERE clause (fires triggers, can be rolled back); TRUNCATE (DDL) deallocates all data pages at once keeping the table schema; DROP (DDL) deletes the entire table data AND schema structure — `TRUNCATE TABLE` is a fast DDL command that removes all rows without a `WHERE` clause and resets auto-increment counters; `DROP TABLE` removes the table itself.</div>
+</div><div class="in-note-q" data-search="in an sql query containing `where`, `group by`, `having`, and `order by`, what is their correct syntactic and logical execution order? syntactic order: select -&gt; from -&gt; where -&gt; group by -&gt; having -&gt; order by (logical execution: from -&gt; where -&gt; group by -&gt; having -&gt; select -&gt; order by) — `where` filters individual rows before grouping (cannot contain aggregate functions); `having` filters aggregated groups after `group by`.">
+  <div class="in-note-stem">Q3.3: In an SQL query containing `WHERE`, `GROUP BY`, `HAVING`, and `ORDER BY`, what is their correct syntactic and logical execution order?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Syntactic order: SELECT -&gt; FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; ORDER BY ✅</div><div class="in-opt"><strong>(B)</strong> GROUP BY comes before WHERE</div><div class="in-opt"><strong>(C)</strong> HAVING comes before GROUP BY</div><div class="in-opt"><strong>(D)</strong> ORDER BY executes before WHERE</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Syntactic order: SELECT -&gt; FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; ORDER BY (Logical execution: FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY) — `WHERE` filters individual rows BEFORE grouping (cannot contain aggregate functions); `HAVING` filters aggregated groups AFTER `GROUP BY`.</div>
+</div><div class="in-note-q" data-search="in sql, how do the aggregate functions `count(*)` vs `count(column_name)` handle `null` values? `count(*)` counts all rows including rows with nulls; `count(column_name)` ignores null values in that column. `count(*)` counts all rows including rows with nulls; `count(column_name)` (as well as sum, avg, min, max) ignores null values in that column — if a table has 5 rows with column `bonus = {100, 200, null, 300, null}`, then `count(*) = 5`, `count(bonus) = 3`, and `avg(bonus) = 600 / 3 = 200` (not 600/5)!">
+  <div class="in-note-stem">Q3.4: In SQL, how do the aggregate functions `COUNT(*)` vs `COUNT(column_name)` handle `NULL` values?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Both COUNT(*) and COUNT(col) ignore NULL rows</div><div class="in-opt ans"><strong>(B)</strong> `COUNT(*)` counts ALL rows including rows with NULLs ✅</div><div class="in-opt"><strong>(C)</strong> COUNT(col) counts only NULL values</div><div class="in-opt"><strong>(D)</strong> AVG(col) treats NULL as 0</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> `COUNT(*)` counts ALL rows including rows with NULLs; `COUNT(column_name)` ignores NULL values in that column. `COUNT(*)` counts ALL rows including rows with NULLs; `COUNT(column_name)` (as well as SUM, AVG, MIN, MAX) ignores NULL values in that column — If a table has 5 rows with column `Bonus = {100, 200, NULL, 300, NULL}`, then `COUNT(*) = 5`, `COUNT(Bonus) = 3`, and `AVG(Bonus) = 600 / 3 = 200` (not 600/5)!</div>
+</div><div class="in-note-q" data-search="in sql 3-valued logic (`true, false, unknown`), which operator must be used in a `where` clause to test whether a column value is `null`? `is null` (or `is not null`) — in sql, any arithmetic or comparison with `null` (`x = null` or `null = null`) evaluates to `unknown`, so `where col is null` must be used.">
+  <div class="in-note-stem">Q3.5: In SQL 3-Valued Logic (`TRUE, FALSE, UNKNOWN`), which operator must be used in a `WHERE` clause to test whether a column value is `NULL`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> `= NULL`</div><div class="in-opt"><strong>(B)</strong> `== NULL`</div><div class="in-opt ans"><strong>(C)</strong> `IS NULL` ✅</div><div class="in-opt"><strong>(D)</strong> `!= NULL`</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> `IS NULL` (or `IS NOT NULL`) — In SQL, any arithmetic or comparison with `NULL` (`x = NULL` or `NULL = NULL`) evaluates to `UNKNOWN`, so `WHERE col IS NULL` must be used.</div>
+</div>
+</section><section class="ch-card" id="ch4">
+  <div class="ch-heading">
+    <h2>📖 Chapter 4: ER Model Basics — Entity-Relationship (ER) Model — Cardinalities, Participation &amp; Minimum Relational Tables</h2>
+    <span class="badge">4 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="entity-relationship (er) model — cardinalities, participation &amp; minimum relational tables minimum tables for binary relationship between e1 and e2: (1) 1:1 -&gt; 1 or 2 tables • (2) 1:n -&gt; 2 tables (merge into n-side!) • (3) m:n -&gt; 3 tables (separate junction table mandatory!) peter chen&#x27;s er diagram notation: rectangle = strong entity set; double rectangle = weak entity set (lacks sufficient attributes to form a primary key; depends on an identifying owner entity via a double diamond identifying relationship with total participation = double line, and has a partial key / discriminator underlined with a dashed line); ellipse = attribute; double ellipse = multivalued attribute (becomes a separate table in relational mapping!); dashed ellipse = derived attribute (e.g., age from dob); composite attribute = flattened into constituent atomic columns. exam trap: weak entity set ki participation identifying relationship me hamesha total (double line) hoti hai! aur m:n relationship ya multivalued attribute ko relational schema me badalne par hamesha ek naya separate table banta hai!">
+  <div class="sub-h">📌 4.1 Entity-Relationship (ER) Model — Cardinalities, Participation &amp; Minimum Relational Tables</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Minimum Tables for Binary Relationship between E1 and E2: (1) 1:1 -&gt; 1 or 2 tables</li><li>🔹 (2) 1:N -&gt; 2 tables (merge into N-side!)</li><li>🔹 (3) M:N -&gt; 3 tables (separate junction table mandatory!)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Peter Chen&#x27;s ER Diagram Notation: Rectangle = Strong Entity Set</li><li>Double Rectangle = Weak Entity Set (lacks sufficient attributes to form a Primary Key</li><li>depends on an Identifying Owner Entity via a Double Diamond Identifying Relationship with TOTAL Participation = Double Line, and has a Partial Key / Discriminator underlined with a dashed line)</li><li>Ellipse = Attribute</li><li>Double Ellipse = Multivalued Attribute (becomes a SEPARATE table in relational mapping!)</li><li>Dashed Ellipse = Derived Attribute (e.g., Age from DOB)</li><li>Composite Attribute = Flattened into constituent atomic columns.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Table Reduction: An ER diagram has Strong Entities A and B connected by a 1:N relationship R (1 on A, N on B), plus B has a multivalued attribute Phone. Minimum relational tables = 1 (for A) + 1 (for B merged with R, placing A&#x27;s PK as FK in B) + 1 (separate table for B&#x27;s multivalued Phone) = 3 tables.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Weak Entity Set ki Participation identifying relationship me hamesha TOTAL (Double Line) hoti hai! Aur M:N relationship ya Multivalued Attribute ko relational schema me badalne par hamesha ek NAYA separate table banta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 4 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in chen&#x27;s er diagram notation, what do a double rectangle, a double diamond, a double oval, and a dashed oval represent? memorize er symbols: rectangle = entity, double rectangle = weak entity, oval = attribute, double oval = multivalued (e.g., phone), dashed oval = derived (e.g., age from dob).">
+  <div class="in-note-stem">Q4.1: In Chen&#x27;s ER Diagram notation, what do a Double Rectangle, a Double Diamond, a Double Oval, and a Dashed Oval represent?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Double Rectangle = Strong Entity; Dashed Oval = Primary Key</div><div class="in-opt"><strong>(B)</strong> Double Oval = Composite Attribute</div><div class="in-opt"><strong>(C)</strong> Single Diamond = Weak Entity</div><div class="in-opt ans"><strong>(D)</strong> Double Rectangle = Weak Entity; Double Diamond = Identifying Relationship; Double Oval = Multivalued Attribute; Dashed Oval = Derived Attribute ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Memorize ER symbols: Rectangle = Entity, Double Rectangle = Weak Entity, Oval = Attribute, Double Oval = Multivalued (e.g., Phone), Dashed Oval = Derived (e.g., Age from DOB).</div>
+</div><div class="in-note-q" data-search="what is the participation of a weak entity set in its identifying relationship with its owner strong entity set? always total participation (represented by a double line) — a weak entity cannot exist without its owner entity, so it always has total participation (`==`) in the identifying relationship.">
+  <div class="in-note-stem">Q4.2: What is the participation of a Weak Entity Set in its Identifying Relationship with its Owner Strong Entity Set?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Always Total Participation ✅</div><div class="in-opt"><strong>(B)</strong> Always Partial Participation (Single Line)</div><div class="in-opt"><strong>(C)</strong> Optional Participation</div><div class="in-opt"><strong>(D)</strong> Zero Participation</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Always Total Participation (represented by a Double Line) — A Weak Entity cannot exist without its owner entity, so it ALWAYS has Total Participation (`==`) in the identifying relationship.</div>
+</div><div class="in-note-q" data-search="in an er diagram, how is a &#x27;derived attribute&#x27; (like `age` computed from `date_of_birth`) represented, and is it physically stored in the database table? represented by a dashed oval; it is computed dynamically at runtime and not physically stored in the base table. storing `date_of_birth` and computing `age` dynamically avoids daily update anomalies.">
+  <div class="in-note-stem">Q4.3: In an ER Diagram, how is a &#x27;Derived Attribute&#x27; (like `Age` computed from `Date_of_Birth`) represented, and is it physically stored in the database table?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Represented by a Double Rectangle and stored twice</div><div class="in-opt ans"><strong>(B)</strong> Represented by a Dashed Oval ✅</div><div class="in-opt"><strong>(C)</strong> Represented by a Solid Diamond</div><div class="in-opt"><strong>(D)</strong> Represented by an Underlined Oval</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Represented by a Dashed Oval; it is computed dynamically at runtime and NOT physically stored in the base table. Storing `Date_of_Birth` and computing `Age` dynamically avoids daily update anomalies.</div>
+</div><div class="in-note-q" data-search="when mapping an er diagram to relational tables, how is a `many-to-many (m : n)` binary relationship between entity `a` and entity `b` represented? for `1:n`, the pk of the `1`-side is placed as a fk in the `n`-side table; for `m:n`, a third junction table is mandatory.">
+  <div class="in-note-stem">Q4.4: When mapping an ER diagram to relational tables, how is a `Many-to-Many (M : N)` binary relationship between Entity `A` and Entity `B` represented?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> By adding a single column to Table A</div><div class="in-opt"><strong>(B)</strong> By merging A and B into a single table</div><div class="in-opt ans"><strong>(C)</strong> By creating a NEW separate Relationship (Junction/Bridge) Table whose composite Primary Key combines the Primary Keys of both `A` and `B` as Foreign Keys ✅</div><div class="in-opt"><strong>(D)</strong> Many-to-Many relationships cannot be represented in SQL</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> For `1:N`, the PK of the `1`-side is placed as a FK in the `N`-side table; for `M:N`, a third Junction Table is mandatory.</div>
+</div>
+</section><section class="ch-card" id="ch5">
+  <div class="ch-heading">
+    <h2>📖 Chapter 5: Normalization — Functional Dependencies, Attribute Closure (X+) &amp; Normal Forms (1NF, 2NF, 3NF, BCNF, 4NF)</h2>
+    <span class="badge">8 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="functional dependencies, attribute closure (x+) &amp; normal forms (1nf, 2nf, 3nf, bcnf, 4nf) 1nf: atomic values • 2nf: no partial dependency (non-prime -&gt; proper subset of ck) • 3nf: for x -&gt; a, x is superkey or a is prime • bcnf: for x -&gt; a, x must be superkey! armstrong&#x27;s axioms: reflexivity (if y ⊆ x then x -&gt; y), augmentation (if x -&gt; y then xz -&gt; yz), transitivity (if x -&gt; y and y -&gt; z then x -&gt; z). normalization hierarchy: every bcnf relation is in 3nf, every 3nf is in 2nf, and every 2nf is in 1nf. important theorem: any relation with only 2 attributes is always in bcnf! if every candidate key of a relation is a single simple attribute (1 column), the relation is guaranteed to be in 2nf (since no proper subset of a 1-attribute key exists). lossless-join decomposition is always achievable for bcnf; dependency preservation is always achievable for 3nf, but not always achievable for bcnf! 4nf eliminates multi-valued dependencies (x -&gt;&gt; y); 5nf (pjnf) eliminates join dependencies. hinglish tip: 3nf vs bcnf ka ek-line farq: bcnf me har fd `x -&gt; y` ka lhs (`x`) 100% superkey hona hi chahiye; 3nf me ek chhoot (relaxation) milti hai ki agar rhs (`y`) prime attribute (candidate key ka hissa) ho, to lhs superkey na hone par bhi 3nf valid rehta hai!">
+  <div class="sub-h">📌 5.1 Functional Dependencies, Attribute Closure (X+) &amp; Normal Forms (1NF, 2NF, 3NF, BCNF, 4NF)</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 <mark class="hl">1NF</mark>: Atomic values</li><li>🔹 <mark class="hl">2NF</mark>: No Partial Dependency (Non-Prime -&gt; Proper subset of CK)</li><li>🔹 <mark class="hl">3NF</mark>: For X -&gt; A, X is Superkey OR A is Prime</li><li>🔹 <mark class="hl">BCNF</mark>: For X -&gt; A, X MUST be Superkey!</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Armstrong&#x27;s Axioms: Reflexivity (if Y ⊆ X then X -&gt; Y), Augmentation (if X -&gt; Y then XZ -&gt; YZ), Transitivity (if X -&gt; Y and Y -&gt; Z then X -&gt; Z).</li><li>Normalization Hierarchy: Every <mark class="hl">BCNF</mark> relation is in <mark class="hl">3NF</mark>, every <mark class="hl">3NF</mark> is in <mark class="hl">2NF</mark>, and every <mark class="hl">2NF</mark> is in <mark class="hl">1NF</mark>.</li><li>Important Theorem: Any relation with only 2 attributes is ALWAYS in <mark class="hl">BCNF</mark>!</li><li>If every Candidate Key of a relation is a single simple attribute (1 column), the relation is guaranteed to be in <mark class="hl">2NF</mark> (since no proper subset of a 1-attribute key exists).</li><li>Lossless-Join Decomposition is ALWAYS achievable for <mark class="hl">BCNF</mark></li><li>Dependency Preservation is ALWAYS achievable for <mark class="hl">3NF</mark>, but NOT always achievable for <mark class="hl">BCNF</mark>!</li><li><mark class="hl">4NF</mark> eliminates Multi-Valued Dependencies (X -&gt;&gt; Y)</li><li><mark class="hl">5NF</mark> (PJNF) eliminates Join Dependencies.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked Normal Form Check: Given R(A, B, C, D) with FDs `{AB -&gt; CD, C -&gt; A}`. Find Candidate Keys: B and D never appear on RHS, so every CK must contain BD. Check (BD)+ = BD (not all). Check (BCD)+ = BCDA (CK1 = BCD); Check (ABD)+ = ABCD (CK2 = ABD). Prime attributes = {A, B, C, D}! Now check `C -&gt; A`: LHS `C` is NOT a superkey (violates <mark class="hl">BCNF</mark>!), but RHS `A` is a Prime Attribute (satisfies <mark class="hl">3NF</mark>!). Highest Normal Form = <mark class="hl">3NF</mark>.</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: <mark class="hl">3NF</mark> vs <mark class="hl">BCNF</mark> ka ek-line farq: <mark class="hl">BCNF</mark> me har FD `X -&gt; Y` ka LHS (`X`) 100% Superkey hona hi chahiye; <mark class="hl">3NF</mark> me ek chhoot (relaxation) milti hai ki agar RHS (`Y`) Prime Attribute (Candidate Key ka hissa) ho, to LHS Superkey na hone par bhi <mark class="hl">3NF</mark> valid rehta hai!</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 5 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="which set of three sound and complete inference rules (reflexivity, augmentation, transitivity) is used to derive all implied functional dependencies `f⁺`? armstrong&#x27;s 3 primary axioms (reflexivity, augmentation, transitivity) are sound and complete; union, decomposition, and pseudotransitivity are derived rules.">
+  <div class="in-note-stem">Q5.1: Which set of three sound and complete inference rules (Reflexivity, Augmentation, Transitivity) is used to derive all implied Functional Dependencies `F⁺`?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> De Morgan&#x27;s Laws</div><div class="in-opt"><strong>(B)</strong> Codd&#x27;s 12 Rules</div><div class="in-opt"><strong>(C)</strong> Coffman&#x27;s Rules</div><div class="in-opt ans"><strong>(D)</strong> Armstrong&#x27;s Axioms ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Armstrong&#x27;s 3 primary axioms (Reflexivity, Augmentation, Transitivity) are sound and complete; Union, Decomposition, and Pseudotransitivity are derived rules.</div>
+</div><div class="in-note-q" data-search="a relation is in first normal form (1nf) if and only if: every attribute contains only atomic (indivisible) values (no multivalued, composite, or nested repeating groups) — 1nf disallows multivalued attributes and nested tables; every cell must hold a single atomic value.">
+  <div class="in-note-stem">Q5.2: A relation is in First Normal Form (1NF) if and only if:</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> Every attribute contains only Atomic (indivisible) values ✅</div><div class="in-opt"><strong>(B)</strong> It has no Transitive Dependency</div><div class="in-opt"><strong>(C)</strong> It has no Partial Dependency</div><div class="in-opt"><strong>(D)</strong> Every determinant is a Superkey</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> Every attribute contains only Atomic (indivisible) values (no multivalued, composite, or nested repeating groups) — <mark class="hl">1NF</mark> disallows multivalued attributes and nested tables; every cell must hold a single atomic value.</div>
+</div><div class="in-note-q" data-search="what is the strict condition for a relation to be in boyce-codd normal form (bcnf / 3.5nf)? bcnf is strictly stronger than 3nf: even if `a` is a prime attribute, `x -&gt; a` violates bcnf unless `x` is a superkey.">
+  <div class="in-note-stem">Q5.3: What is the strict condition for a relation to be in Boyce-Codd Normal Form (BCNF / 3.5NF)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> X can be a non-prime attribute if Y is prime</div><div class="in-opt ans"><strong>(B)</strong> For EVERY non-trivial Functional Dependency `X -&gt; Y`, the determinant `X` MUST be a Superkey ✅</div><div class="in-opt"><strong>(C)</strong> It only removes multivalued dependencies</div><div class="in-opt"><strong>(D)</strong> It allows partial dependencies</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> <mark class="hl">BCNF</mark> is strictly stronger than <mark class="hl">3NF</mark>: even if `A` is a Prime attribute, `X -&gt; A` violates <mark class="hl">BCNF</mark> unless `X` is a Superkey.</div>
+</div><div class="in-note-q" data-search="which normal form is violated by non-trivial multi-valued dependencies (`x -&gt;&gt; y`), and which normal form is based on join dependencies (`jd`)? 4nf eliminates multi-valued dependencies (`x -&gt;&gt; y`); 5nf eliminates join dependencies. 4nf eliminates multi-valued dependencies (`x -&gt;&gt; y`); 5nf (project-join normal form / pjnf) eliminates join dependencies — memorize the hierarchy: `5nf (join dep) =&gt; 4nf (mvd) =&gt; bcnf (determinant = superkey) =&gt; 3nf (no transitive) =&gt; 2nf (no partial) =&gt; 1nf (atomic)`.">
+  <div class="in-note-stem">Q5.4: Which Normal Form is violated by non-trivial Multi-Valued Dependencies (`X -&gt;&gt; Y`), and which Normal Form is based on Join Dependencies (`JD`)?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> 2NF eliminates MVDs and 3NF eliminates Join Dependencies</div><div class="in-opt"><strong>(B)</strong> BCNF eliminates MVDs</div><div class="in-opt ans"><strong>(C)</strong> 4NF eliminates Multi-Valued Dependencies (`X -&gt;&gt; Y`) ✅</div><div class="in-opt"><strong>(D)</strong> 1NF is higher than 5NF</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> <mark class="hl">4NF</mark> eliminates Multi-Valued Dependencies (`X -&gt;&gt; Y`); <mark class="hl">5NF</mark> eliminates Join Dependencies. <mark class="hl">4NF</mark> eliminates Multi-Valued Dependencies (`X -&gt;&gt; Y`); <mark class="hl">5NF</mark> (Project-Join Normal Form / PJNF) eliminates Join Dependencies — Memorize the hierarchy: `<mark class="hl">5NF</mark> (Join Dep) =&gt; <mark class="hl">4NF</mark> (MVD) =&gt; <mark class="hl">BCNF</mark> (Determinant = Superkey) =&gt; <mark class="hl">3NF</mark> (No Transitive) =&gt; <mark class="hl">2NF</mark> (No Partial) =&gt; <mark class="hl">1NF</mark> (Atomic)`.</div>
+</div><div class="in-note-q" data-search="compare 3nf decomposition vs bcnf decomposition regarding lossless-join and dependency preservation: 3nf decomposition can always be made both lossless-join and dependency-preserving; bcnf decomposition is always lossless-join, but is not always dependency-preserving. classic exam point: every relation has a lossless + dependency-preserving decomposition into 3nf, whereas bcnf guarantees lossless join but may sacrifice dependency preservation (e.g., `ab -&gt; c, c -&gt; b`).">
+  <div class="in-note-stem">Q5.5: Compare 3NF Decomposition vs BCNF Decomposition regarding Lossless-Join and Dependency Preservation:</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> BCNF is always Dependency-Preserving and 3NF is not</div><div class="in-opt"><strong>(B)</strong> Neither 3NF nor BCNF can be Lossless-Join</div><div class="in-opt"><strong>(C)</strong> Both are always Dependency-Preserving</div><div class="in-opt ans"><strong>(D)</strong> 3NF Decomposition can ALWAYS be made both Lossless-Join AND Dependency-Preserving ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> <mark class="hl">3NF</mark> Decomposition can ALWAYS be made both Lossless-Join AND Dependency-Preserving; <mark class="hl">BCNF</mark> Decomposition is always Lossless-Join, but is NOT always Dependency-Preserving. Classic exam point: Every relation has a Lossless + Dependency-Preserving decomposition into <mark class="hl">3NF</mark>, whereas <mark class="hl">BCNF</mark> guarantees Lossless Join but may sacrifice Dependency Preservation (e.g., `AB -&gt; C, C -&gt; B`).</div>
+</div>
+</section><section class="ch-card" id="ch6">
+  <div class="ch-heading">
+    <h2>📖 Chapter 6: Transactions &amp; ACID — Transactions, ACID Properties, Concurrency Anomalies, Serializability &amp; 2PL / Timestamp Protocols</h2>
+    <span class="badge">7 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="transactions, acid properties, concurrency anomalies, serializability &amp; 2pl / timestamp protocols number of serial schedules for n transactions = n! • conflict equivalent -&gt; acyclic precedence (serialization) graph • acid: atomicity (log/recovery), consistency, isolation (concurrency), durability concurrency anomalies: dirty read (w-r conflict: reading uncommitted data that later rolls back), unrepeatable read (r-w conflict), lost update (w-w conflict), phantom read. conflict serializability checks conflicting pairs (same data item q, different transactions, at least one is write: r-w, w-r, w-w) to build a precedence graph; if the graph has no cycles (dag), the schedule is conflict serializable (and thus view serializable). strict two-phase locking (strict 2pl — holds all exclusive write locks until commit/abort) guarantees both conflict serializability and cascadeless recoverability, though 2pl can suffer from deadlocks. wound-wait (preemptive) and wait-die (non-preemptive) use timestamps to prevent deadlocks. exam trap: har conflict serializable schedule view serializable hota hai, par har view serializable schedule conflict serializable nahi hota (agar usme &#x27;blind writes&#x27; hon)! aur strict 2pl cascading rollbacks ko 100% rokta hai.">
+  <div class="sub-h">📌 6.1 Transactions, ACID Properties, Concurrency Anomalies, Serializability &amp; 2PL / Timestamp Protocols</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 Number of Serial Schedules for n transactions = n!</li><li>🔹 Conflict Equivalent -&gt; Acyclic Precedence (Serialization) Graph</li><li>🔹 ACID: Atomicity (Log/Recovery), Consistency, Isolation (Concurrency), Durability</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Concurrency Anomalies: Dirty Read (W-R conflict: reading uncommitted data that later rolls back), Unrepeatable Read (R-W conflict), Lost Update (W-W conflict), Phantom Read.</li><li>Conflict Serializability checks conflicting pairs (same data item Q, different transactions, at least one is Write: R-W, W-R, W-W) to build a Precedence Graph</li><li>if the graph has NO cycles (DAG), the schedule is Conflict Serializable (and thus View Serializable).</li><li>Strict Two-Phase Locking (Strict 2PL — holds all exclusive Write locks until Commit/Abort) guarantees both Conflict Serializability AND Cascadeless Recoverability, though 2PL can suffer from Deadlocks.</li><li>Wound-Wait (preemptive) and Wait-Die (non-preemptive) use timestamps to prevent deadlocks.</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Undo / Redo Write-Ahead Logging (WAL) Recovery: In Immediate Database Modification, transactions with `&lt;T_i start&gt;` AND `&lt;T_i commit&gt;` in the log before crash undergo REDO(T_i); transactions with `&lt;T_i start&gt;` but NO `&lt;T_i commit&gt;` undergo UNDO(T_i).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Exam Trap: Har Conflict Serializable schedule View Serializable hota hai, par har View Serializable schedule Conflict Serializable NAHI hota (agar usme <strong>'Blind Writes'</strong> hon)! Aur Strict 2PL Cascading Rollbacks ko 100% rokta hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 6 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="in a dbms transaction, what do the four letters of &#x27;acid&#x27; stand for, and which subsystem enforces each? atomicity (transaction management / undo log), consistency (integrity constraints), isolation (concurrency control / 2pl), and durability (recovery manager / redo wal log) — atomicity = &#x27;all-or-nothing&#x27;; consistency = preserves database invariants; isolation = concurrent transactions don&#x27;t interfere; durability = committed changes survive crashes.">
+  <div class="in-note-stem">Q6.1: In a DBMS Transaction, what do the four letters of &#x27;ACID&#x27; stand for, and which subsystem enforces each?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Addition, Calculation, Indexing, and Deletion</div><div class="in-opt"><strong>(B)</strong> Active, Connected, Indexed, and Distributed</div><div class="in-opt"><strong>(C)</strong> Access, Control, Identity, and Data</div><div class="in-opt ans"><strong>(D)</strong> Atomicity, Consistency, Isolation, and Durability ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Atomicity (Transaction Management / Undo Log), Consistency (Integrity Constraints), Isolation (Concurrency Control / 2PL), and Durability (Recovery Manager / Redo WAL Log) — Atomicity = <strong>'All-or-Nothing'</strong>; Consistency = preserves database invariants; Isolation = concurrent transactions don&#x27;t interfere; Durability = committed changes survive crashes.</div>
+</div><div class="in-note-q" data-search="what are the three classic concurrency anomalies (read/write conflicts) when transactions execute without proper isolation? 1. dirty read (wr conflict — reading uncommitted data that later rolls back), 2. unrepeatable read (rw conflict), and 3. lost update (ww conflict) / phantom read — sql isolation levels from weakest to strongest: `read uncommitted` (allows dirty reads) -&gt; `read committed` -&gt; `repeatable read` -&gt; `serializable` (highest, prevents all anomalies).">
+  <div class="in-note-stem">Q6.2: What are the three classic Concurrency Anomalies (Read/Write Conflicts) when transactions execute without proper isolation?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> 1. Dirty Read, 2. Unrepeatable Read, and 3. Lost Update / Phantom Read ✅</div><div class="in-opt"><strong>(B)</strong> 1. Syntax Error, 2. Divide by Zero, 3. Overflow</div><div class="in-opt"><strong>(C)</strong> 1. 1NF, 2. 2NF, 3. 3NF</div><div class="in-opt"><strong>(D)</strong> 1. Deadlock, 2. Starvation, 3. Aging</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> 1. Dirty Read (WR Conflict — reading uncommitted data that later rolls back), 2. Unrepeatable Read (RW Conflict), and 3. Lost Update (WW Conflict) / Phantom Read — SQL Isolation Levels from weakest to strongest: `READ UNCOMMITTED` (allows Dirty Reads) -&gt; `READ COMMITTED` -&gt; `REPEATABLE READ` -&gt; `SERIALIZABLE` (highest, prevents all anomalies).</div>
+</div><div class="in-note-q" data-search="how do we test whether a concurrent transaction schedule `s` is &#x27;conflict serializable&#x27;? construct the precedence (serialization) graph with edges for conflicting operations; `s` is conflict serializable if and only if its precedence graph has no cycles (is a dag). construct the precedence (serialization) graph with edges for conflicting operations (`r-w, w-r, w-w` on same data item); `s` is conflict serializable if and only if its precedence graph has no cycles (is a dag) — if the precedence graph is acyclic (dag), any **topological sort** of the dag yields an equivalent serial schedule!">
+  <div class="in-note-stem">Q6.3: How do we test whether a concurrent transaction schedule `S` is &#x27;Conflict Serializable&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> If the graph has a cycle, it is Conflict Serializable</div><div class="in-opt ans"><strong>(B)</strong> Construct the Precedence (Serialization) Graph with edges for conflicting operations ✅</div><div class="in-opt"><strong>(C)</strong> By counting the number of COMMIT statements</div><div class="in-opt"><strong>(D)</strong> Only if all transactions run on different tables</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Construct the Precedence (Serialization) Graph with edges for conflicting operations; `S` is Conflict Serializable if and only if its Precedence Graph has NO CYCLES (is a DAG). Construct the Precedence (Serialization) Graph with edges for conflicting operations (`R-W, W-R, W-W` on same data item); `S` is Conflict Serializable if and only if its Precedence Graph has NO CYCLES (is a DAG) — If the Precedence Graph is acyclic (DAG), any **Topological Sort** of the DAG yields an equivalent Serial Schedule!</div>
+</div><div class="in-note-q" data-search="in two-phase locking (2pl), what are the two phases, and which variant of 2pl holds all exclusive (write) locks until the transaction commits/aborts to prevent &#x27;cascading rollbacks&#x27;? growing phase and shrinking phase; &#x27;strict 2pl&#x27; holds all exclusive (x) locks until commit/abort. growing phase (acquire locks only) and shrinking phase (release locks only); &#x27;strict 2pl&#x27; holds all exclusive (x) locks until commit/abort — basic 2pl guarantees conflict serializability (ordered by lock points) but can suffer from deadlocks and cascading rollbacks; **strict 2pl** holds all write (`x`) locks until commit, guaranteeing strict &amp; cascadeless schedules (rigorous 2pl holds both `s` and `x` locks until commit).">
+  <div class="in-note-stem">Q6.4: In Two-Phase Locking (2PL), what are the two phases, and which variant of 2PL holds all Exclusive (Write) locks until the transaction commits/aborts to prevent &#x27;Cascading Rollbacks&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Basic 2PL prevents deadlocks</div><div class="in-opt"><strong>(B)</strong> Strict 2PL releases write locks before commit</div><div class="in-opt ans"><strong>(C)</strong> Growing Phase and Shrinking Phase ✅</div><div class="in-opt"><strong>(D)</strong> Rigorous 2PL releases all locks at the start</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> Growing Phase and Shrinking Phase; <strong>'Strict 2PL'</strong> holds all Exclusive (X) locks until Commit/Abort. Growing Phase (acquire locks only) and Shrinking Phase (release locks only); <strong>'Strict 2PL'</strong> holds all Exclusive (X) locks until Commit/Abort — Basic 2PL guarantees Conflict Serializability (ordered by lock points) but can suffer from Deadlocks and Cascading Rollbacks; **Strict 2PL** holds all Write (`X`) locks until Commit, guaranteeing Strict &amp; Cascadeless schedules (Rigorous 2PL holds both `S` and `X` locks until Commit).</div>
+</div><div class="in-note-q" data-search="in wait-die and wound-wait timestamp-based deadlock prevention schemes (where an older transaction has a smaller timestamp `ts(t_old) &lt; ts(t_young)`), which scheme is non-preemptive and which is preemptive? wait-die is non-preemptive (older waits for younger; younger dies/rolls back if requesting lock held by older); wound-wait is preemptive (older wounds/preempts younger; younger waits for older) — easy trick: look at the first word for what the older transaction does when colliding with a younger one: **wait**-die -&gt; older *waits*; **wound**-wait -&gt; older *wounds (preempts)*!">
+  <div class="in-note-stem">Q6.5: In Wait-Die and Wound-Wait timestamp-based deadlock prevention schemes (where an older transaction has a smaller timestamp `TS(T_old) &lt; TS(T_young)`), which scheme is Non-Preemptive and which is Preemptive?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Wait-Die is Preemptive and Wound-Wait is Non-Preemptive</div><div class="in-opt"><strong>(B)</strong> In both schemes, the older transaction is killed</div><div class="in-opt"><strong>(C)</strong> Both allow deadlocks to occur</div><div class="in-opt ans"><strong>(D)</strong> Wait-Die is Non-Preemptive; Wound-Wait is Preemptive ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> Wait-Die is Non-Preemptive (Older waits for Younger; Younger dies/rolls back if requesting lock held by Older); Wound-Wait is Preemptive (Older wounds/preempts Younger; Younger waits for Older) — Easy Trick: Look at the FIRST word for what the OLDER transaction does when colliding with a younger one: **Wait**-Die -&gt; Older *Waits*; **Wound**-Wait -&gt; Older *Wounds (Preempts)*!</div>
+</div>
+</section><section class="ch-card" id="ch7">
+  <div class="ch-heading">
+    <h2>📖 Chapter 7: Indexing &amp; Storage — File Organization, Primary/Clustering/Secondary Indexes &amp; B-Tree vs B+ Tree Order Math</h2>
+    <span class="badge">4 Questions in Booklet</span>
+  </div>
+  <div class="concept-box" data-search="file organization, primary/clustering/secondary indexes &amp; b-tree vs b+ tree order math b+ tree internal node (order p): p block pointers + (p − 1) search keys, satisfying ⌈p/2⌉ &lt;= pointers &lt;= p • search/insert/delete = o(log_p n) index classification: (1) primary index = ordered file on ordering key (primary key) -&gt; sparse index (1 index entry per disk block); (2) clustering index = ordered file on ordering non-key attribute (with duplicate values) -&gt; sparse index; (3) secondary index = unordered field (candidate key or non-key) -&gt; must be a dense index (1 index entry per record)! b-tree vs b+ tree: in a b-tree, data record pointers are stored in both internal and leaf nodes; in a b+ tree (standard dbms index), data pointers reside only in leaf nodes (which are linked together in a doubly-linked sequential list for fast range queries `where salary between 50000 and 90000`), while internal nodes hold only routing keys (giving higher fan-out and shallower tree height). hinglish tip: database (mysql innodb, oracle, postgresql) me hamesha b+ tree use hota hai kyunki b+ tree ke saare leaf nodes ek linked list se jude hote hain jisse range queries (`between`, `&gt;`, `&lt;`) super-fast chalti hain! aur secondary index hamesha dense index hota hai.">
+  <div class="sub-h">📌 7.1 File Organization, Primary/Clustering/Secondary Indexes &amp; B-Tree vs B+ Tree Order Math</div>
+  <div class="mini-h">Key Formulas &amp; Rules</div>
+  <ul class="formula-list"><li>🔹 B+ Tree Internal Node (Order p): p Block Pointers + (p − 1) Search Keys, satisfying ⌈p/2⌉ &lt;= Pointers &lt;= p</li><li>🔹 Search/Insert/Delete = O(log_p N)</li></ul>
+  <div class="mini-h">Simple Exam Points</div>
+  <ul class="bullet-list"><li>Index Classification: (1) Primary Index = Ordered file on Ordering Key (Primary Key) -&gt; Sparse Index (1 index entry per disk block)</li><li>(2) Clustering Index = Ordered file on Ordering Non-Key attribute (with duplicate values) -&gt; Sparse Index</li><li>(3) Secondary Index = Unordered field (Candidate key or Non-key) -&gt; MUST be a Dense Index (1 index entry per record)!</li><li>B-Tree vs B+ Tree: In a B-Tree, data record pointers are stored in BOTH internal and leaf nodes</li><li>in a B+ Tree (standard DBMS index), data pointers reside ONLY in Leaf Nodes (which are linked together in a doubly-linked sequential list for fast range queries `WHERE salary BETWEEN 50000 AND 90000`), while internal nodes hold only routing keys (giving higher fan-out and shallower tree height).</li></ul>
+  <div class="example-strip">✅ <strong>Direct Exam Example:</strong> Worked B+ Tree Order Calculation: Disk block size = <mark class="hl">1024 Bytes</mark>, Search key size K = <mark class="hl">12 Bytes</mark>, Block pointer P_b = <mark class="hl">8 Bytes</mark>. For a B+ Tree internal node of order p: p × 8 + (p − 1) × 12 &lt;= 1024 =&gt; 20p − 12 &lt;= 1024 =&gt; 20p &lt;= 1036 =&gt; Max Order p = 51 pointers (50 keys per node).</div>
+  <div class="trick-strip">💡 <strong>Exam Shortcut / Trap:</strong> Hinglish Tip: Database (MySQL InnoDB, Oracle, PostgreSQL) me hamesha B+ Tree use hota hai kyunki B+ Tree ke saare Leaf Nodes ek Linked List se jude hote hain jisse Range Queries (`BETWEEN`, `&gt;`, `&lt;`) super-fast chalti hain! Aur Secondary Index hamesha DENSE Index hota hai.</div>
+</div>
+  <h3 style="font-size:0.98rem;color:#15803d;margin:14px 0 8px;">📝 Chapter 7 — Practice Questions &amp; Simple Explanations</h3><div class="in-note-q" data-search="why do all relational database engines (mysql innodb, postgresql, oracle, sql server) use &#x27;b+ trees&#x27; rather than standard &#x27;b-trees&#x27; for disk table indexing? in a b+ tree, internal nodes store only routing keys (no data records, maximizing fan-out and keeping tree height `h = 2–3`), and all data pointers reside in the leaf nodes which are linked together in a sequential doubly-linked list for fast range queries (`where salary between 50000 and 80000`) — b+ tree = high internal node fan-out (shallow height -&gt; fewer disk i/os) + linked leaf nodes (o(1) sequential range scan after initial `o(log_b n)` lookup).">
+  <div class="in-note-stem">Q7.1: Why do all relational database engines (MySQL InnoDB, PostgreSQL, Oracle, SQL Server) use &#x27;B+ Trees&#x27; rather than standard &#x27;B-Trees&#x27; for disk table indexing?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A B-Tree has linked leaf nodes and a B+ Tree does not</div><div class="in-opt"><strong>(B)</strong> A B+ Tree is a binary tree of maximum degree 2</div><div class="in-opt ans"><strong>(C)</strong> In a B+ Tree, internal nodes store ONLY routing keys, and ALL data pointers reside in the LEAF nodes which are linked together in a sequential Doubly-Linked List for fast range queries ✅</div><div class="in-opt"><strong>(D)</strong> A B+ Tree stores no keys in leaf nodes</div></div>
+  <div class="in-note-exp"><strong>Answer (C):</strong> In a B+ Tree, internal nodes store ONLY routing keys (no data records, maximizing fan-out and keeping tree height `h = 2–3`), and ALL data pointers reside in the LEAF nodes which are linked together in a sequential Doubly-Linked List for fast range queries (`WHERE salary BETWEEN 50000 AND 80000`) — B+ Tree = high internal node fan-out (shallow height -&gt; fewer disk I/Os) + linked leaf nodes (O(1) sequential range scan after initial `O(log_B N)` lookup).</div>
+</div><div class="in-note-q" data-search="what is the difference between a &#x27;primary (clustering) index&#x27; and a &#x27;secondary (non-clustering) index&#x27;? a table can have at most one primary/clustered index (because it dictates the actual physical sorted order of rows on disk), whereas a table can have many secondary (non-clustered) indexes (which are always dense indexes) — because data rows can only be physically sorted in one order on disk, a table has at most 1 clustered index (sparse index: 1 entry per disk block), while secondary indexes are on unsorted columns and must be dense (1 entry per record).">
+  <div class="in-note-stem">Q7.2: What is the difference between a &#x27;Primary (Clustering) Index&#x27; and a &#x27;Secondary (Non-Clustering) Index&#x27;?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> A table can have 10 Clustered Indexes</div><div class="in-opt"><strong>(B)</strong> A Secondary Index can be a Sparse Index</div><div class="in-opt"><strong>(C)</strong> A Primary Index requires unsorted data</div><div class="in-opt ans"><strong>(D)</strong> A table can have AT MOST ONE Primary/Clustered Index, whereas a table can have MANY Secondary (Non-Clustered) Indexes ✅</div></div>
+  <div class="in-note-exp"><strong>Answer (D):</strong> A table can have AT MOST ONE Primary/Clustered Index (because it dictates the actual physical sorted order of rows on disk), whereas a table can have MANY Secondary (Non-Clustered) Indexes (which are always Dense Indexes) — Because data rows can only be physically sorted in one order on disk, a table has at most 1 Clustered Index (Sparse index: 1 entry per disk block), while Secondary Indexes are on unsorted columns and MUST be Dense (1 entry per record).</div>
+</div><div class="in-note-q" data-search="in write-ahead logging (wal) database crash recovery, what must be flushed to stable disk before a modified data page is written to disk or a transaction is declared committed? in wal / aries recovery: **undo** reverses uncommitted (loser) transactions for atomicity; **redo** replays committed (winner) transactions for durability.">
+  <div class="in-note-stem">Q7.3: In Write-Ahead Logging (WAL) database crash recovery, what must be flushed to stable disk BEFORE a modified data page is written to disk or a transaction is declared committed?</div>
+  <div class="in-note-opts"><div class="in-opt ans"><strong>(A)</strong> The Undo/Redo Log Record must be written to stable disk BEFORE the corresponding data page is flushed to disk ✅</div><div class="in-opt"><strong>(B)</strong> Data pages are written first and log records are written a week later</div><div class="in-opt"><strong>(C)</strong> Logs are stored only in volatile CPU registers</div><div class="in-opt"><strong>(D)</strong> WAL deletes all log files on commit</div></div>
+  <div class="in-note-exp"><strong>Answer (A):</strong> In WAL / ARIES recovery: **UNDO** reverses uncommitted (loser) transactions for Atomicity; **REDO** replays committed (winner) transactions for Durability.</div>
+</div><div class="in-note-q" data-search="in a b-tree of order `m` (maximum `m` children per node), what is the maximum number of keys per node and the minimum number of keys in any non-root internal node? maximum keys = m − 1; minimum keys in non-root node = ⌈m / 2⌉ − 1 (minimum children = ⌈m / 2⌉) — for a b-tree of order `m = 5`: each node holds at most `5 − 1 = 4` keys (5 children) and at least `⌈5/2⌉ − 1 = 2` keys (3 children).">
+  <div class="in-note-stem">Q7.4: In a B-Tree of order `m` (maximum `m` children per node), what is the maximum number of keys per node and the minimum number of keys in any non-root internal node?</div>
+  <div class="in-note-opts"><div class="in-opt"><strong>(A)</strong> Maximum keys = m; Minimum keys = 1</div><div class="in-opt ans"><strong>(B)</strong> Maximum keys = m − 1; Minimum keys in non-root node = ⌈m / 2⌉ − 1 ✅</div><div class="in-opt"><strong>(C)</strong> Maximum keys = 2m; Minimum keys = m</div><div class="in-opt"><strong>(D)</strong> Minimum keys = 0</div></div>
+  <div class="in-note-exp"><strong>Answer (B):</strong> Maximum keys = m − 1; Minimum keys in non-root node = ⌈m / 2⌉ − 1 (minimum children = ⌈m / 2⌉) — For a B-Tree of order `m = 5`: each node holds at most `5 − 1 = 4` keys (5 children) and at least `⌈5/2⌉ − 1 = 2` keys (3 children).</div>
+</div>
+</section>
+
+  <section class="ch-card" id="sec-oneliners">
+    <div class="ch-heading">
+      <h2>⚡ Final Chapter-Wise One-Liner Notes (Database Management System)</h2>
+      <span class="badge" style="background:#dcfce7;color:#14532d;">Zero-Duplicate Rapid Recall</span>
+    </div>
+    <div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 1 One-Liners — Concepts &amp; Architecture — ANSI/SPARC 3-Schema Architecture, Data Independence &amp; Database Users/DBA</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[ANSI/SPARC 3-Schema Architecture, Data Independence]</strong> 3 Schemas: External / View Level (User Views) &lt;-&gt; Conceptual / Logical Level (Tables/Relations/Constraints) &lt;-&gt; Internal / Physical Level (B+ Trees/Hashing/Blocks)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Physical Data Independence (Internal &lt;-&gt; Conceptual) achieve karna aasan hai, jabki Logical Data Independence (Conceptual &lt;-&gt; External View) achieve karna zyada kathin (harder) hota hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 2 One-Liners — Relational Model &amp; Keys — Relational Model, Keys (Super, Candidate, Primary, Alternate, Foreign) &amp; Relational Algebra</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Relational Model, Keys (Super, Candidate, Primary, Alternate, Foreign)]</strong> Number of Superkeys for n attributes: (1) Single 1-attr CK -&gt; 2^(n−1); (2) Two disjoint 1-attr CKs A, B -&gt; 2^(n−1) + 2^(n−1) − 2^(n−2);</li><li>🔹 <strong>[Relational Model, Keys (Super, Candidate, Primary, Alternate, Foreign)]</strong> Alternate Keys = Candidate Keys − Primary Key</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Relational Algebra ka Projection operator (π) automatically DUPLICATE rows hata deta hai (kyunki relation ek mathematical Set hai), jabki SQL ka `SELECT` bina `DISTINCT` keyword ke duplicates retain rakhta hai (Multiset/Bag)!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 3 One-Liners — SQL &amp; Queries — SQL Sublanguages (DDL, DML, DCL, TCL), Execution Order, Aggregates &amp; Joins</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[SQL Sublanguages (DDL, DML, DCL, TCL), Execution Order, Aggregates]</strong> SQL Sublanguages: DDL (CREATE, ALTER, DROP, TRUNCATE, RENAME)</li><li>🔹 <strong>[SQL Sublanguages (DDL, DML, DCL, TCL), Execution Order, Aggregates]</strong> DML (SELECT, INSERT, UPDATE, DELETE)</li><li>🔹 <strong>[SQL Sublanguages (DDL, DML, DCL, TCL), Execution Order, Aggregates]</strong> DCL (GRANT, REVOKE)</li><li>🔹 <strong>[SQL Sublanguages (DDL, DML, DCL, TCL), Execution Order, Aggregates]</strong> TCL (COMMIT, ROLLBACK, SAVEPOINT)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: `WHERE` clause `GROUP BY` se pehle chalta hai aur rows ko filter karta hai (isliye `WHERE` me `SUM/COUNT` likhna syntax error hai); `HAVING` clause `GROUP BY` ke baad groups ko filter karta hai! Aur `NULL = NULL` ya `NULL &lt;&gt; NULL` hamesha UNKNOWN (falsy) return karta hai — hamesha `IS NULL` ya `IS NOT NULL` use karein!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 4 One-Liners — ER Model Basics — Entity-Relationship (ER) Model — Cardinalities, Participation &amp; Minimum Relational Tables</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Entity-Relationship (ER) Model — Cardinalities, Participation]</strong> Minimum Tables for Binary Relationship between E1 and E2: (1) 1:1 -&gt; 1 or 2 tables</li><li>🔹 <strong>[Entity-Relationship (ER) Model — Cardinalities, Participation]</strong> (2) 1:N -&gt; 2 tables (merge into N-side!)</li><li>🔹 <strong>[Entity-Relationship (ER) Model — Cardinalities, Participation]</strong> (3) M:N -&gt; 3 tables (separate junction table mandatory!)</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Weak Entity Set ki Participation identifying relationship me hamesha TOTAL (Double Line) hoti hai! Aur M:N relationship ya Multivalued Attribute ko relational schema me badalne par hamesha ek NAYA separate table banta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 5 One-Liners — Normalization — Functional Dependencies, Attribute Closure (X+) &amp; Normal Forms (1NF, 2NF, 3NF, BCNF, 4NF)</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Functional Dependencies, Attribute Closure (X+)]</strong> <mark class="hl">1NF</mark>: Atomic values</li><li>🔹 <strong>[Functional Dependencies, Attribute Closure (X+)]</strong> <mark class="hl">2NF</mark>: No Partial Dependency (Non-Prime -&gt; Proper subset of CK)</li><li>🔹 <strong>[Functional Dependencies, Attribute Closure (X+)]</strong> <mark class="hl">3NF</mark>: For X -&gt; A, X is Superkey OR A is Prime</li><li>🔹 <strong>[Functional Dependencies, Attribute Closure (X+)]</strong> <mark class="hl">BCNF</mark>: For X -&gt; A, X MUST be Superkey!</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: <mark class="hl">3NF</mark> vs <mark class="hl">BCNF</mark> ka ek-line farq: <mark class="hl">BCNF</mark> me har FD `X -&gt; Y` ka LHS (`X`) 100% Superkey hona hi chahiye; <mark class="hl">3NF</mark> me ek chhoot (relaxation) milti hai ki agar RHS (`Y`) Prime Attribute (Candidate Key ka hissa) ho, to LHS Superkey na hone par bhi <mark class="hl">3NF</mark> valid rehta hai!</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 6 One-Liners — Transactions &amp; ACID — Transactions, ACID Properties, Concurrency Anomalies, Serializability &amp; 2PL / Timestamp Protocols</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[Transactions, ACID Properties, Concurrency Anomalies, Serializability]</strong> Number of Serial Schedules for n transactions = n!</li><li>🔹 <strong>[Transactions, ACID Properties, Concurrency Anomalies, Serializability]</strong> Conflict Equivalent -&gt; Acyclic Precedence (Serialization) Graph</li><li>🔹 <strong>[Transactions, ACID Properties, Concurrency Anomalies, Serializability]</strong> ACID: Atomicity (Log/Recovery), Consistency, Isolation (Concurrency), Durability</li><li>💡 <strong>[Shortcut]</strong> Exam Trap: Har Conflict Serializable schedule View Serializable hota hai, par har View Serializable schedule Conflict Serializable NAHI hota (agar usme <strong>'Blind Writes'</strong> hon)! Aur Strict 2PL Cascading Rollbacks ko 100% rokta hai.</li></ul>
+</div><div style="margin-bottom:14px;">
+  <h3 style="font-size:0.95rem;color:#1e3a8a;margin-bottom:7px;padding:6px 10px;background:#eff6ff;border-radius:6px;">⚡ Chapter 7 One-Liners — Indexing &amp; Storage — File Organization, Primary/Clustering/Secondary Indexes &amp; B-Tree vs B+ Tree Order Math</h3>
+  <ul class="oneliner-grid"><li>🔹 <strong>[File Organization, Primary/Clustering/Secondary Indexes]</strong> B+ Tree Internal Node (Order p): p Block Pointers + (p − 1) Search Keys, satisfying ⌈p/2⌉ &lt;= Pointers &lt;= p</li><li>🔹 <strong>[File Organization, Primary/Clustering/Secondary Indexes]</strong> Search/Insert/Delete = O(log_p N)</li><li>💡 <strong>[Shortcut]</strong> Hinglish Tip: Database (MySQL InnoDB, Oracle, PostgreSQL) me hamesha B+ Tree use hota hai kyunki B+ Tree ke saare Leaf Nodes ek Linked List se jude hote hain jisse Range Queries (`BETWEEN`, `&gt;`, `&lt;`) super-fast chalti hain! Aur Secondary Index hamesha DENSE Index hota hai.</li></ul>
+</div>
+  </section>
+</div>
+<script>
+function filterPage(val) {
+  const q = (val || '').toLowerCase().trim();
+  document.querySelectorAll('.concept-box, .in-note-q, .oneliner-grid li').forEach(el => {
+    const txt = (el.getAttribute('data-search') || el.textContent || '').toLowerCase();
+    el.style.display = (!q || txt.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

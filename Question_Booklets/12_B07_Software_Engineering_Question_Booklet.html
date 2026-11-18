@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Engineering — Chapter-Wise Question Booklet (54 Qs) | DSSSB TGT CS</title>
+<style>
+
+:root {
+  --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569;
+  --border: #cbd5e1; --blue: #1d4ed8; --blue-bg: #eff6ff;
+  --green: #15803d; --green-bg: #f0fdf4; --amber: #b45309; --amber-bg: #fffbeb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.62; font-size: 15px;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: #0f172a; color: #fff; padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.topbar-title { font-weight: 800; font-size: 0.96rem; color: #fff; }
+.topbar-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.topbar-links a {
+  color: #e2e8f0; background: rgba(255,255,255,0.1); padding: 6px 12px;
+  border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+}
+.topbar-links a:hover, .topbar-links a.active { background: #2563eb; color: #fff; }
+.wrap { max-width: 1120px; margin: 18px auto; padding: 0 14px 60px; }
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+  color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 16px;
+}
+.hero h1 { font-size: 1.44rem; font-weight: 800; margin-bottom: 6px; }
+.hero p { color: #e2e8f0; font-size: 0.91rem; }
+.nav-pills {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.pill {
+  padding: 5px 11px; border-radius: 999px; background: #f8fafc; color: #0f172a;
+  font-size: 0.8rem; font-weight: 600; border: 1px solid #cbd5e1; text-decoration: none;
+}
+.pill:hover { background: var(--blue); color: #fff; border-color: var(--blue); text-decoration: none; }
+.ch-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 13px;
+  padding: 20px 22px; margin-bottom: 18px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.ch-heading {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 8px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2.5px solid #2563eb;
+}
+.ch-heading h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 700; background: #dbeafe; color: #1e40af;
+}
+.concept-box {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb;
+  border-radius: 9px; padding: 14px 16px; margin-bottom: 13px;
+}
+.sub-h { font-size: 0.98rem; font-weight: 800; color: #1e3a8a; margin-bottom: 7px; }
+.mini-h { font-size: 0.85rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.4px; margin: 10px 0 5px; }
+.formula-list {
+  display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 10px; list-style: none;
+}
+.formula-list li {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px;
+  padding: 5px 10px; font-size: 0.85rem; color: #1e40af; font-weight: 600;
+}
+.bullet-list { list-style: none; padding-left: 2px; margin: 6px 0; }
+.bullet-list li {
+  position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.92rem; color: #1e293b;
+}
+.bullet-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 0; color: #16a34a; font-weight: 800;
+}
+mark.hl {
+  background: #fef08a; color: #713f12; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.trick-strip {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 6px; padding: 8px 12px; margin-top: 8px; font-size: 0.87rem; color: #78350f;
+}
+.example-strip {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a;
+  border-radius: 6px; padding: 8px 12px; margin-top: 7px; font-size: 0.87rem; color: #14532d;
+}
+.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--border); border-radius: 9px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th { background: #1e293b; color: #fff; text-align: left; padding: 9px 12px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f8fafc; }
+.in-note-q {
+  background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #16a34a;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 9px;
+}
+.in-note-stem { font-weight: 700; font-size: 0.93rem; color: #0f172a; margin-bottom: 7px; }
+.in-note-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; margin-bottom: 7px; }
+.in-opt {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; font-size: 0.85rem;
+}
+.in-opt.ans { background: #dcfce7; border-color: #16a34a; color: #14532d; font-weight: 700; }
+.in-note-exp { font-size: 0.84rem; color: #1e3a8a; background: #eff6ff; padding: 6px 10px; border-radius: 5px; }
+.oneliner-grid { display: grid; gap: 6px; list-style: none; }
+.oneliner-grid li {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3.5px solid #16a34a;
+  padding: 7px 11px; border-radius: 6px; font-size: 0.89rem;
+}
+.btn {
+  display: inline-block; padding: 7px 13px; border-radius: 7px; font-size: 0.82rem;
+  font-weight: 700; cursor: pointer; border: 1px solid transparent; text-decoration: none;
+}
+.btn-blue { background: #1d4ed8; color: #fff; }
+.btn-blue:hover { background: #1e40af; color: #fff; text-decoration: none; }
+.btn-green { background: #15803d; color: #fff; }
+.btn-green:hover { background: #166534; color: #fff; text-decoration: none; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-amber:hover { background: #b45309; color: #fff; text-decoration: none; }
+.btn-outline { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.btn-outline:hover { background: #f1f5f9; text-decoration: none; }
+.search-input {
+  padding: 7px 12px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.87rem; width: 100%; max-width: 320px; outline: none;
+}
+@media print { .topbar, .no-print { display: none !important; } .ch-card { break-inside: avoid; } }
+
+.toolbar {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 15px; margin-bottom: 16px; display: flex; flex-wrap: wrap;
+  gap: 9px; align-items: center; position: sticky; top: 50px; z-index: 90;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+.sel-box {
+  padding: 7px 11px; border: 1.5px solid #94a3b8; border-radius: 7px;
+  font-size: 0.85rem; font-weight: 600; background: #fff;
+}
+.q-card {
+  background: #fff; border: 1px solid #cbd5e1; border-radius: 10px;
+  padding: 15px 17px; margin-bottom: 12px;
+}
+.q-head {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  font-size: 0.77rem; font-weight: 700; color: #475569; margin-bottom: 6px;
+}
+.q-text { font-weight: 700; font-size: 0.96rem; color: #0f172a; margin-bottom: 10px; }
+.opts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 7px; }
+.opt-btn {
+  text-align: left; padding: 8px 11px; border-radius: 7px; border: 1.5px solid #cbd5e1;
+  background: #f8fafc; font-size: 0.88rem; color: #1e293b; cursor: pointer; transition: 0.1s;
+}
+.opt-btn:hover { border-color: #2563eb; background: #eff6ff; }
+.opt-btn.correct { background: #dcfce7 !important; border-color: #16a34a !important; color: #14532d !important; font-weight: 700; }
+.opt-btn.wrong { background: #fee2e2 !important; border-color: #dc2626 !important; color: #7f1d1d !important; }
+.exp-strip {
+  margin-top: 9px; padding: 8px 12px; border-radius: 6px;
+  background: #eff6ff; border-left: 4px solid #2563eb; font-size: 0.86rem; color: #1e3a8a;
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">📝 DSSSB TGT CS Question Booklet • Software Engineering</div>
+  <nav class="topbar-links">
+    <a href="../index.html">🏠 All 20 Subjects</a>
+    <a href="../Last_Moment_2_3_Hours_Marathon_Revision_All_Subjects.html">⚡ 2–3 Hr Marathon</a>
+    <a href="../Revision_Notes/12_B07_Software_Engineering_Revision_Notes.html">📘 Revision Notes</a>
+    <a href="12_B07_Software_Engineering_Question_Booklet.html" class="active">📝 Question Booklet (54 Qs)</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="hero">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
+      <span class="badge" style="background:#fef08a;color:#713f12;">Section B • 6–8 Marks</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">54 100% Hand-Crafted Easy-to-Medium MCQs</span>
+      <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;">Exact Chapter Alignment</span>
+    </div>
+    <h1>📝 Software Engineering (SDLC Models, SRS, DFD, Coupling &amp; Cohesion, Testing, Maintenance/COCOMO &amp; CMMI) — Chapter-Wise Question Booklet</h1>
+    <p>54 pure, simple, exam-expected DSSSB questions matched strictly to each chapter. Read in <strong>📖 Revision Mode</strong> or switch to <strong>✍️ Quiz Mode</strong> for timed +1.00 / -0.25 self-testing.</p>
+  </div>
+
+  <div class="toolbar">
+    <select id="chFilter" class="sel-box" onchange="renderList()">
+      <option value="ALL">All 7 Chapters (54 Questions)</option><option value="Chapter 1:">Chapter 1: SDLC Models — SDLC Process Models — Waterfall (10 Qs)</option><option value="Chapter 2:">Chapter 2: Requirements &amp; SRS — Requirement Engineering, (4 Qs)</option><option value="Chapter 3:">Chapter 3: Analysis Tools &amp; DFD — Structured Analysis To (5 Qs)</option><option value="Chapter 4:">Chapter 4: Design: Coupling &amp; Cohesion — Software Design (9 Qs)</option><option value="Chapter 5:">Chapter 5: Testing Strategies — Software Testing — Unit/ (14 Qs)</option><option value="Chapter 6:">Chapter 6: Maintenance &amp; Metrics — Software Maintenance  (8 Qs)</option><option value="Chapter 7:">Chapter 7: Quality &amp; CMM Levels — Software Quality Assur (4 Qs)</option>
+    </select>
+    <input type="text" id="qSearch" class="search-input" style="max-width:240px;" placeholder="🔍 Filter questions..." oninput="renderList()">
+    <button class="btn btn-green" id="modeBtn" onclick="toggleMode()">📖 Mode: Revision (Answers Visible)</button>
+    <button class="btn btn-outline" onclick="shuffleOpts()">🔀 Shuffle Options</button>
+    <span id="statLabel" style="margin-left:auto;font-weight:800;font-size:0.85rem;color:#1e3a8a;">Total: 54 Qs</span>
+  </div>
+
+  <div id="qContainer"></div>
+</div>
+<script>
+const QUESTIONS = [{"id": 1, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "Which SDLC model is best suited when all software requirements are 100% clear, fixed, and well-understood from the very beginning?", "options": ["Classical Waterfall Model", "Spiral Model", "Agile Scrum", "Prototyping Model"], "answer": 0, "explanation": "The Waterfall Model is a linear sequential model suitable only when requirements are stable and frozen upfront.", "tag": "DSSSB Expected / PYQ"}, {"id": 2, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "Which SDLC model builds a quick working throwaway or evolutionary mock-up of the system so users can clarify unclear GUI/functional requirements early?", "options": ["Classical Waterfall Model", "Prototyping Model", "Big Bang Model", "V-Model"], "answer": 1, "explanation": "Prototyping is ideal when customers cannot articulate detailed requirements upfront without seeing a working model.", "tag": "DSSSB Expected / PYQ"}, {"id": 3, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "In the V-Model (Verification and Validation Model) of SDLC, which testing phase directly corresponds to (1) High-Level Architectural Design and (2) Low-Level Detailed Module Design?", "options": ["(1) Unit Testing and (2) Acceptance Testing", "(1) System Testing and (2) Regression Testing", "(1) Integration Testing and (2) Unit Testing", "Both map to Alpha Testing"], "answer": 2, "explanation": "In the V-Model: Requirements <-> Acceptance Testing; System Analysis/SRS <-> System Testing; High-Level Design <-> Integration Testing; Low-Level Module Design <-> Unit Testing.", "tag": "DSSSB Expected / PYQ"}, {"id": 4, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "What is the typical duration of a 'Sprint' (time-boxed iteration) in the Agile Scrum software development framework?", "options": ["6 to 12 months", "1 hour", "5 years", "2 to 4 weeks"], "answer": 3, "explanation": "2 to 4 weeks (with a daily 15-minute Stand-up / Daily Scrum meeting) — Scrum works in 1–4 week Sprints, with a daily 15-minute stand-up meeting to track progress and blockers.", "tag": "DSSSB Expected / PYQ"}, {"id": 5, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "What shape does the classic hardware/software failure rate curve ('Bathtub Curve') vs software failure curve follow over a product's lifetime?", "options": ["Hardware follows the U-shaped 'Bathtub Curve'", "Software physically rusts and wears out over time", "Hardware never wears out", "Both curves are flat straight lines"], "answer": 0, "explanation": "Hardware follows the U-shaped 'Bathtub Curve'; Software does NOT physically wear out, but experiences failure spikes due to side-effects introduced by repeated maintenance updates. Hardware follows the U-shaped 'Bathtub Curve' (Infant Mortality -> Constant Useful Life -> Wear-out due to aging); Software does NOT physically wear out, but experiences failure spikes due to side-effects introduced by repeated maintenance updates — Software does not suffer from physical wear-out; instead, repeated feature/patch updates degrade structure unless Preventive refactoring is performed.", "tag": "DSSSB Expected / PYQ"}, {"id": 6, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "Which phase of the Software Development Life Cycle (SDLC) consumes the MAXIMUM cost (about 60%–70%) over the total life of a software product?", "options": ["Requirement Analysis Phase", "Software Maintenance Phase", "Coding Phase", "Design Phase"], "answer": 1, "explanation": "Maintenance accounts for roughly 60%–70% of total software lifecycle cost.", "tag": "DSSSB Expected / PYQ"}, {"id": 7, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "In which SDLC model are software requirements delivered in small working pieces (Increment 1, Increment 2, ...) over time?", "options": ["Classical Waterfall Model", "Big Bang Model", "Incremental Model", "Code-and-Fix Model"], "answer": 2, "explanation": "The Incremental Model delivers a working core product first and adds features in subsequent increments.", "tag": "DSSSB Expected / PYQ"}, {"id": 8, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "Which SDLC model explicitly incorporates 'Risk Analysis' (identifying, evaluating, and mitigating technical and management risks) as a dedicated quadrant in every iterative loop?", "options": ["Classical Waterfall Model", "V-Model (Verification and Validation)", "Big Bang Model", "Boehm's Spiral Model (1986)"], "answer": 3, "explanation": "Barry Boehm's Spiral Model is a risk-driven meta-model divided into 4 quadrants per loop: (1) Objective Setting, (2) Risk Assessment & Reduction, (3) Development & Validation, and (4) Planning.", "tag": "DSSSB PYQ"}, {"id": 9, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "For which type of software project is the 'RAD (Rapid Application Development)' model LEAST suitable?", "options": ["Projects with high technical risk, tight hardware-level coupling, or where the system cannot be modularized into independent components", "Information systems with well-understood business rules and a 60–90 day delivery target", "GUI-intensive enterprise applications using reusable component libraries", "Projects where users are available to give rapid feedback on prototypes"], "answer": 0, "explanation": "RAD requires modularizable architecture and low technical risk so parallel teams can build components rapidly; it fails for OS kernels/real-time systems or non-modular projects.", "tag": "DSSSB PYQ"}, {"id": 10, "chapter": "Chapter 1: SDLC Models — SDLC Process Models — Waterfall, V-Model, Prototyping, Incremental, Spiral (Boehm) & Agile Scrum", "q": "In the Agile Scrum framework, who is solely responsible for managing the 'Product Backlog' and prioritizing user stories to maximize business value?", "options": ["The Scrum Master", "The Product Owner", "The QA Automation Lead", "The Project Sponsor"], "answer": 1, "explanation": "In Scrum, the Product Owner owns and prioritizes the Product Backlog; the Scrum Master acts as a servant-leader removing impediments; the Development Team is self-organizing (3–9 members) working in 2–4 week Sprints.", "tag": "DSSSB PYQ"}, {"id": 11, "chapter": "Chapter 2: Requirements & SRS — Requirement Engineering, IEEE 830 SRS Characteristics & Verification vs Validation", "q": "What does 'FAST' stand for in Software Requirement Elicitation workshops?", "options": ["Fast Automated Software Testing", "File Allocation System Table", "Facilitated Application Specification Technique", "Functional Analysis and System Tool"], "answer": 2, "explanation": "FAST brings developers and customers together in a joint team workshop to identify requirements collaboratively.", "tag": "DSSSB Expected / PYQ"}, {"id": 12, "chapter": "Chapter 2: Requirements & SRS — Requirement Engineering, IEEE 830 SRS Characteristics & Verification vs Validation", "q": "Which document serves as the official legal contract between the customer and the software development team?", "options": ["User Manual", "Source Code", "Test Log", "SRS"], "answer": 3, "explanation": "SRS (Software Requirements Specification) — SRS (IEEE 830) specifies all Functional and Non-Functional requirements clearly before design begins.", "tag": "DSSSB Expected / PYQ"}, {"id": 13, "chapter": "Chapter 2: Requirements & SRS — Requirement Engineering, IEEE 830 SRS Characteristics & Verification vs Validation", "q": "Response time under 2 seconds, 99.9% uptime, and AES-256 encryption are examples of which type of software requirements?", "options": ["Non-Functional Requirements", "Functional Requirements", "Hardware Requirements", "User Stories only"], "answer": 0, "explanation": "Non-Functional Requirements (Quality Attributes) — Functional requirements define WHAT the system does; Non-Functional requirements define HOW WELL it performs (speed, security, usability).", "tag": "DSSSB Expected / PYQ"}, {"id": 14, "chapter": "Chapter 2: Requirements & SRS — Requirement Engineering, IEEE 830 SRS Characteristics & Verification vs Validation", "q": "Which quality attribute of a Software Requirements Specification (SRS) document (IEEE 830) is satisfied when every stated requirement has ONLY one single interpretation?", "options": ["Traceable", "Unambiguous", "Modifiable", "Ranked for importance"], "answer": 1, "explanation": "An SRS is 'Unambiguous' if and only if every requirement stated therein has only one interpretation; it is 'Verifiable' if there exists a finite cost-effective process to test whether the software meets it.", "tag": "DSSSB PYQ"}, {"id": 15, "chapter": "Chapter 3: Analysis Tools & DFD — Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing & Data Dictionary", "q": "In a Data Flow Diagram (DFD), what do the four basic symbols — (1) Circle/Bubble, (2) Arrow, (3) Open-ended Parallel Lines, and (4) Rectangle — represent?", "options": ["(1) Loop, (2) Branch, (3) Subroutine, (4) Terminal", "(1) Entity, (2) Relationship, (3) Attribute", "(1) Process, (2) Data Flow, (3) Data Store (File/DB), and (4) External Entity (Source/Sink)", "All four represent databases"], "answer": 2, "explanation": "In Yourdon/Gane-Sarson DFD notation: Circle/Rounded-Rect = Process; Arrow = Data Flow; Parallel lines = Data Store; Rectangle/Square = External Entity.", "tag": "DSSSB Expected / PYQ"}, {"id": 16, "chapter": "Chapter 3: Analysis Tools & DFD — Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing & Data Dictionary", "q": "Which rule is strictly FORBIDDEN in any valid Data Flow Diagram (DFD)?", "options": ["A Process can read from a Data Store", "An External Entity can send data to a Process", "A Process can have two outputs", "A Data Flow can NEVER connect two External Entities directly or two Data Stores directly without passing through a Process bubble"], "answer": 3, "explanation": "Every data transformation or movement in a DFD must be mediated by a Process bubble.", "tag": "DSSSB Expected / PYQ"}, {"id": 17, "chapter": "Chapter 3: Analysis Tools & DFD — Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing & Data Dictionary", "q": "In a Data Flow Diagram (DFD), what is another name for the Level-0 DFD that shows the entire system as one single process bubble?", "options": ["Context Diagram", "Entity Diagram", "Class Diagram", "Flowchart"], "answer": 0, "explanation": "A Level-0 DFD (Context Diagram) shows the system boundary and all external entities interacting with it.", "tag": "DSSSB Expected / PYQ"}, {"id": 18, "chapter": "Chapter 3: Analysis Tools & DFD — Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing & Data Dictionary", "q": "Which structured analysis tool stores the exact definitions, data types, and formats of all data flows and data stores in a DFD?", "options": ["Gantt Chart", "Data Dictionary", "PERT Chart", "Decision Tree"], "answer": 1, "explanation": "A Data Dictionary is the central repository of metadata for every data element in the system.", "tag": "DSSSB Expected / PYQ"}, {"id": 19, "chapter": "Chapter 3: Analysis Tools & DFD — Structured Analysis Tools — Data Flow Diagrams (DFD Level 0/1/2), Balancing & Data Dictionary", "q": "In a Data Flow Diagram (DFD), what is the difference between a 'Context Diagram (Level-0 DFD)' and a 'Level-1 DFD', and what defines 'DFD Balancing'?", "options": ["Level-0 DFD shows database foreign keys and Level-1 DFD shows C++ class inheritance", "A DFD uses diamond symbols for loops and arrows for control flow", "Level-0 DFD represents the entire software system as a single process bubble interacting with external entities", "Data stores and external entities are allowed to exchange data flows directly without a process bubble"], "answer": 2, "explanation": "Level-0 DFD represents the entire software system as a single process bubble interacting with external entities; DFD Balancing requires that the net input and output data flows of a parent process exactly match those of its decomposed child DFD. In a DFD, data cannot move directly between two external entities or two data stores without passing through a Process bubble, and every decomposed Level-(k+1) DFD must conserve the inputs/outputs of its parent (Balancing).", "tag": "DSSSB PYQ"}, {"id": 20, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "In good modular software design, how should 'Cohesion' (intra-module strength) and 'Coupling' (inter-module dependency) be optimized?", "options": ["LOW Cohesion and HIGH (Tight) Coupling", "HIGH Cohesion and HIGH Coupling", "LOW Cohesion and LOW Coupling", "HIGH Cohesion and LOW (Loose) Coupling"], "answer": 3, "explanation": "High Cohesion means each module performs one focused task; Low Coupling means modules depend minimally on each other's internals.", "tag": "DSSSB Expected / PYQ"}, {"id": 21, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "Which type of Coupling is the WORST (tightest), occurring when one module directly reaches inside and modifies the internal local data or code of another module?", "options": ["Content Coupling", "Data Coupling (Best/Loosest)", "Stamp Coupling", "Control Coupling"], "answer": 0, "explanation": "Content Coupling is the worst (tightest); Common Coupling (sharing global variables) is the second worst; Data Coupling (passing only required primitive parameters) is the best.", "tag": "DSSSB Expected / PYQ"}, {"id": 22, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "Which type of Cohesion is the BEST (strongest), where every single element inside a module contributes to executing ONE single well-defined function?", "options": ["Coincidental Cohesion (Worst — random unrelated tasks grouped together)", "Functional Cohesion", "Logical Cohesion", "Temporal Cohesion"], "answer": 1, "explanation": "Functional Cohesion is the highest/best; Coincidental Cohesion is the lowest/worst.", "tag": "DSSSB Expected / PYQ"}, {"id": 23, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "If Module A passes a boolean control flag (`mode = 1` or `0`) to Module B to tell Module B which internal branch to execute, what type of coupling is this?", "options": ["Data Coupling", "Content Coupling", "Control Coupling", "Common Coupling"], "answer": 2, "explanation": "Passing a control flag that dictates another module's internal execution path is Control Coupling.", "tag": "DSSSB Expected / PYQ"}, {"id": 24, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "If two modules share the same global variables declared in a common global area, what type of coupling exists between them?", "options": ["Data Coupling", "Stamp Coupling", "Control Coupling", "Common Coupling"], "answer": 3, "explanation": "Sharing global data creates Common Coupling (second worst after Content Coupling).", "tag": "DSSSB Expected / PYQ"}, {"id": 25, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "Grouping all initialization tasks together into one module solely because they all run at system startup is an example of:", "options": ["Temporal Cohesion", "Functional Cohesion", "Sequential Cohesion", "Coincidental Cohesion"], "answer": 0, "explanation": "Temporal Cohesion groups tasks that must execute within the same time span (e.g., startup or shutdown).", "tag": "DSSSB Expected / PYQ"}, {"id": 26, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "Arrange the following types of Module Cohesion from BEST (highest/most desirable) to WORST (lowest/least desirable): (1) Coincidental, (2) Functional, (3) Temporal, (4) Sequential, (5) Logical:", "options": ["Coincidental (Best) > Logical > Temporal > Sequential > Functional (Worst)", "Functional (Best) > Sequential > Temporal > Logical > Coincidental (Worst)", "Sequential > Functional > Coincidental > Temporal > Logical", "Logical > Functional > Sequential > Temporal > Coincidental"], "answer": 1, "explanation": "Full Cohesion order (Best to Worst — 'F-S-C-P-T-L-C'): Functional > Sequential > Communicational > Procedural > Temporal > Logical > Coincidental.", "tag": "DSSSB PYQ"}, {"id": 27, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "Arrange the following types of Module Coupling from BEST (loosest/most desirable) to WORST (tightest/least desirable): (1) Content Coupling, (2) Data Coupling, (3) Common Coupling, (4) Control Coupling, (5) Stamp Coupling:", "options": ["Content Coupling (Best) > Common > Control > Stamp > Data Coupling (Worst)", "Stamp > Data > Control > Content > Common", "Data Coupling (Best) > Stamp Coupling > Control Coupling > Common Coupling > Content Coupling (Worst)", "Common > Data > Stamp > Control > Content"], "answer": 2, "explanation": "Full Coupling order (Best/Loosest to Worst/Tightest — 'D-S-C-E-C-C'): Data (primitive args) > Stamp (composite struct) > Control (boolean flag) > External > Common (shared global variables) > Content (modifying another module's internal code/data).", "tag": "DSSSB PYQ"}, {"id": 28, "chapter": "Chapter 4: Design: Coupling & Cohesion — Software Design — Modularity, Coupling (LOW) vs Cohesion (HIGH) & Spectrum Rankings", "q": "If Module A passes an entire `EmployeeRecord` structure to Module B, even though Module B only needs two fields (`baseSalary` and `taxRate`), what type of coupling exists between Module A and Module B?", "options": ["Data Coupling", "Control Coupling", "Common Coupling", "Stamp Coupling"], "answer": 3, "explanation": "Stamp Coupling (Data-Structured Coupling) — Passing a whole composite data structure/object when the called module only uses a subset of its fields is Stamp Coupling.", "tag": "DSSSB PYQ"}, {"id": 29, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "What is the formula for McCabe's Cyclomatic Complexity `V(G)` of a Control Flow Graph with `E` edges, `N` nodes, `P` connected components, and `D` binary decision (predicate) nodes?", "options": ["V(G) = E − N + 2P = D + 1", "V(G) = N − E + 2", "V(G) = E + N − 2", "V(G) = D − 1"], "answer": 0, "explanation": "If a function contains 5 `if / while` binary decision conditions (`D = 5`), its Cyclomatic Complexity is `V(G) = D + 1 = 6`.", "tag": "DSSSB Expected / PYQ"}, {"id": 30, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "Classify the following testing techniques into 'White-Box (Structural/Glass-Box) Testing' vs 'Black-Box (Functional/Behavioral) Testing': Basis Path Testing, Statement/Branch Coverage, Equivalence Partitioning, Boundary Value Analysis, Cause-Effect Graphing:", "options": ["BVA and ECP are White-Box techniques", "White-Box: Basis Path Testing, Statement/Branch/Condition/Loop Coverage", "Basis Path Testing is a Black-Box technique", "Black-Box testing requires reading the C++ source code"], "answer": 1, "explanation": "White-Box: Basis Path Testing, Statement/Branch/Condition/Loop Coverage; Black-Box: Equivalence Class Partitioning (ECP), Boundary Value Analysis (BVA), Cause-Effect Graphing (Decision Tables) — White-Box tests internal code structure and control-flow branches; Black-Box tests functional specifications against inputs/outputs without looking at internal code.", "tag": "DSSSB Expected / PYQ"}, {"id": 31, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "What is the difference between 'Verification' and 'Validation' in software quality assurance (Barry Boehm's definition)?", "options": ["Verification executes code and Validation reads documents", "Both mean the exact same thing", "Verification = 'Are we building the product RIGHT?'", "Validation is done before writing the SRS"], "answer": 2, "explanation": "Verification = 'Are we building the product RIGHT?'; Validation = 'Are we building the RIGHT product?'. Verification = 'Are we building the product RIGHT?' (checking against phase specifications via static reviews/inspections); Validation = 'Are we building the RIGHT product?' (checking against actual user needs via dynamic testing) — Static Testing (Reviews, Walkthroughs, Formal Inspections — no code execution) performs **Verification**; Dynamic Testing (Unit, Integration, System, UAT) performs **Validation**.", "tag": "DSSSB Expected / PYQ"}, {"id": 32, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "What is 'Smoke Testing' (Build Verification Testing) vs 'Sanity Testing'?", "options": ["Smoke Testing tests hardware power supplies until they smoke", "Sanity Testing tests the entire system from scratch", "Both are performed before coding starts", "Smoke Testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash"], "answer": 3, "explanation": "Smoke Testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash; Sanity Testing is a narrow, deep check of a specific module after a minor bug fix. Smoke Testing is a broad, shallow check of all major core functionalities on a new build to verify it does not crash ('build stability'); Sanity Testing is a narrow, deep check of a specific module after a minor bug fix — Smoke testing is wide and shallow (verifying whether the build is stable enough for detailed QA); Sanity testing is narrow and deep.", "tag": "DSSSB Expected / PYQ"}, {"id": 33, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "Which level of software testing tests individual functions, methods, or classes in isolation and is usually done by the developer?", "options": ["Unit Testing", "System Testing", "Acceptance Testing", "Beta Testing"], "answer": 0, "explanation": "Testing hierarchy: Unit Testing -> Integration Testing -> System Testing -> User Acceptance Testing (UAT).", "tag": "DSSSB Expected / PYQ"}, {"id": 34, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "In Black-Box Testing, dividing input data into valid and invalid classes so that testing one value from each class suffices is called:", "options": ["Basis Path Testing", "Equivalence Class Partitioning (ECP)", "Loop Testing", "Data Flow Testing"], "answer": 1, "explanation": "Equivalence Partitioning reduces test cases by picking one representative value from each equivalence class.", "tag": "DSSSB Expected / PYQ"}, {"id": 35, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "In Black-Box Testing, testing values at the exact minimum, maximum, and just-inside/just-outside edges of an input range is called:", "options": ["Statement Coverage", "Mutation Testing", "Boundary Value Analysis (BVA)", "White-Box Testing"], "answer": 2, "explanation": "Most programming bugs occur at boundary edges (`<` vs `<=`), which BVA catches effectively.", "tag": "DSSSB Expected / PYQ"}, {"id": 36, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "A control flow graph (CFG) of a single C function has N = 11 nodes, E = 14 edges, and P = 1 connected component. What is its McCabe's Cyclomatic Complexity V(G), and how many binary predicate (decision) nodes D does it contain?", "options": ["V(G) = 4 and Predicate Nodes D = 3", "V(G) = 3 and Predicate Nodes D = 2", "V(G) = 6 and Predicate Nodes D = 5", "V(G) = 5 and Predicate Nodes D = 4"], "answer": 3, "explanation": "By McCabe's formula: V(G) = E − N + 2P = 14 − 11 + 2(1) = 5. Also V(G) = D + 1 = 5 => D = 4 binary decision nodes (and 5 independent basis paths).", "tag": "DSSSB PYQ"}, {"id": 37, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "In White-Box Structural Testing, what is the subsumption hierarchy among Statement Coverage, Branch (Decision) Coverage, and Path Coverage?", "options": ["Path Coverage => Branch Coverage => Statement Coverage", "Statement Coverage => Branch Coverage => Path Coverage", "100% Statement Coverage guarantees 100% Branch Coverage in all programs", "Branch Coverage and Statement Coverage are completely independent"], "answer": 0, "explanation": "Path Coverage => Branch Coverage => Statement Coverage (100% Branch Coverage guarantees 100% Statement Coverage, but NOT vice versa) — Every edge traversal visits all nodes (so 100% Branch Coverage implies 100% Statement Coverage). However, an `if` statement without an `else` clause can achieve 100% Statement Coverage with 1 test case (`true`) while missing the `false` branch (only 50% Branch Coverage).", "tag": "DSSSB PYQ"}, {"id": 38, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "For an input field accepting an integer age in the closed range `[18, 60]`, which set of test values represents standard 'Boundary Value Analysis (BVA)' (including just-outside boundary values / Robust BVA)?", "options": ["{0, 25, 50, 75, 100}", "{17, 18, 19, 59, 60, 61}", "{18, 60} only", "{-1, 0, 1}"], "answer": 1, "explanation": "{17, 18, 19, 59, 60, 61} (and nominal value 39) — Standard BVA tests `{min, min+1, nominal, max-1, max}` (`4n + 1` values for `n` variables) and Robust BVA adds `{min-1, max+1}` (`6n + 1` values), giving `{17, 18, 19, 39, 59, 60, 61}`.", "tag": "DSSSB PYQ"}, {"id": 39, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "What is the primary purpose of 'Mutation Testing', and what is a modified copy of the program with a single seeded syntactic fault called?", "options": ["To test whether the software runs on different operating systems", "To measure the response time of a database under peak load", "To evaluate the quality and adequacy of an existing test suite", "To convert legacy COBOL code into Java"], "answer": 2, "explanation": "To evaluate the quality and adequacy of an existing test suite; the seeded program is called a 'Mutant'. Mutation testing injects small single-operator faults (mutants) into the code; if the test suite causes the mutant to fail, the mutant is 'killed' (Mutation Score = Killed Mutants / Total Non-Equivalent Mutants).", "tag": "DSSSB PYQ"}, {"id": 40, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "In Incremental Integration Testing, what is the difference between 'Stubs' and 'Drivers'?", "options": ["Top-Down Integration uses Drivers and Bottom-Up Integration uses Stubs", "Stubs are used only in Black-Box Acceptance Testing", "Drivers are hardware device drivers installed in the OS kernel", "Top-Down Integration uses 'Stubs', whereas Bottom-Up Integration uses 'Drivers'"], "answer": 3, "explanation": "Top-Down Integration uses 'Stubs' (dummy subordinate modules called by the module under test), whereas Bottom-Up Integration uses 'Drivers' (dummy main/caller modules that invoke the lower-level module under test) — Top-Down tests the top control hierarchy first using dummy Stubs for lower modules; Bottom-Up tests low-level utility modules first using test Drivers to call them.", "tag": "DSSSB PYQ"}, {"id": 41, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "What distinguishes 'Alpha Testing' from 'Beta Testing' in User Acceptance Testing (UAT)?", "options": ["Alpha Testing is performed at the developer's site in a controlled environment by internal staff/selected users, whereas Beta Testing is performed at the end-users' own sites in a real-world unmonitored environment", "Alpha Testing is done after product release and Beta Testing is done before unit testing", "Alpha Testing is white-box code inspection and Beta Testing is cyclomatic complexity analysis", "Alpha Testing is automated and Beta Testing is strictly manual"], "answer": 0, "explanation": "Alpha testing takes place at the developer's premises before public preview; Beta testing is conducted by real customers at their own sites prior to final commercial release.", "tag": "DSSSB PYQ"}, {"id": 42, "chapter": "Chapter 5: Testing Strategies — Software Testing — Unit/Integration/System/Alpha-Beta, Black-Box (BVA/ECP) & McCabe Cyclomatic Complexity", "q": "Which type of testing is re-executed after bug fixes, enhancements, or configuration changes to ensure that existing working functionality has not been broken?", "options": ["Smoke Testing", "Regression Testing", "Stress Testing", "Sanity Testing"], "answer": 1, "explanation": "Regression testing re-runs previously passed test cases after code modifications to catch unintended side-effects (regressions).", "tag": "DSSSB PYQ"}, {"id": 43, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "What does 'KLOC' stand for in Boehm's COCOMO software cost estimation model?", "options": ["Kilobytes of Local Object Cache", "Kernel Level Operating Code", "Thousands of Lines of Code", "Key Logical Output Count"], "answer": 2, "explanation": "Thousands of Lines of Code (Kilo Lines of Code) — In Basic COCOMO: `Effort E = a × (KLOC)^b` Person-Months, and `Development Time D = c × (E)^d` Months.", "tag": "DSSSB Expected / PYQ"}, {"id": 44, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "In Halstead's Software Science Metrics, if `n₁` is the number of distinct operators, `n₂` is the number of distinct operands, `N₁` is total operator occurrences, and `N₂` is total operand occurrences, how are 'Program Vocabulary (n)' and 'Program Length (N)' defined?", "options": ["Vocabulary n = N₁ × N₂", "Length N = n₁ − n₂", "Volume V = n₁ / n₂", "Vocabulary n = n₁ + n₂"], "answer": 3, "explanation": "Vocabulary n = n₁ + n₂; Program Length N = N₁ + N₂ (and Volume V = N × log₂ n) — Halstead formulas: Vocabulary `n = n₁ + n₂`; Length `N = N₁ + N₂`; Estimated Length `N̂ = n₁ log₂ n₁ + n₂ log₂ n₂`; Volume `V = N log₂ n`.", "tag": "DSSSB Expected / PYQ"}, {"id": 45, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "Fixing a crash or wrong calculation bug reported by users after the software is deployed is which type of Software Maintenance?", "options": ["Corrective Maintenance", "Adaptive Maintenance", "Perfective Maintenance", "Preventive Maintenance"], "answer": 0, "explanation": "Corrective = fixing bugs; Adaptive = porting to new OS/hardware; Perfective = adding new features; Preventive = code refactoring.", "tag": "DSSSB Expected / PYQ"}, {"id": 46, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "Modifying an existing software application so that it runs on a newly released Windows 11 / Linux OS version is which type of maintenance?", "options": ["Corrective Maintenance", "Adaptive Maintenance", "Perfective Maintenance", "Preventive Maintenance"], "answer": 1, "explanation": "Adaptive maintenance adapts software to changes in its external environment (OS, hardware, or government tax rules).", "tag": "DSSSB Expected / PYQ"}, {"id": 47, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "In Boehm's Basic COCOMO (Constructive Cost Model) where Effort `E = a × (KLOC)^b` person-months, what are the three project modes in increasing order of project size, complexity, and constraint rigidity?", "options": ["Embedded -> Semi-Detached -> Organic", "Simple -> Average -> Complex", "Organic Mode -> Semi-Detached Mode -> Embedded Mode", "Alpha -> Beta -> Gamma"], "answer": 2, "explanation": "Organic Mode (small, experienced team, flexible) -> Semi-Detached Mode (medium, mixed team) -> Embedded Mode (large, tight hardware/real-time constraints) — Organic mode (`a=2.4, b=1.05`, 2–50 KLOC) is for small familiar business apps; Semi-Detached (`a=3.0, b=1.12`, 50–300 KLOC) is for compilers/DBMS; Embedded (`a=3.6, b=1.20`, >300 KLOC) is for avionics/RTOS.", "tag": "DSSSB PYQ"}, {"id": 48, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "Using Basic COCOMO for an Organic mode software project estimated at `10 KLOC` with parameters `a = 2.4, b = 1.05` (take `10^1.05 ≈ 11.22`), what is the approximate Effort in Person-Months?", "options": ["24.00 Person-Months", "10.50 Person-Months", "36.00 Person-Months", "26.93 Person-Months (≈ 27 PM)"], "answer": 3, "explanation": "Effort `E = a × (KLOC)^b = 2.4 × (10)^1.05 = 2.4 × 11.22 = 26.93 Person-Months`.", "tag": "DSSSB PYQ"}, {"id": 49, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "In Albrecht's Function Point Analysis (FPA), which five user-visible functional components are weighted to compute the Unadjusted Function Point (UFP) count, and how does the Value Adjustment Factor (VAF) depend on the 14 General System Characteristics (`Σ F_i`)?", "options": ["Components: EI, EO, EQ, ILF, EIF; VAF = 0.65 + 0.01 × Σ F_i", "Components: LOC, Classes, Methods, Packages, Loops; VAF = 1.0 + 0.05 × Σ F_i", "Components: CPU, RAM, Disk, Network, Screen; VAF = 0.50 + 0.02 × Σ F_i", "Components: Bugs, Tests, Commits, Sprints, Releases; VAF = Σ F_i / 14"], "answer": 0, "explanation": "Components: EI (External Inputs), EO (External Outputs), EQ (External Inquiries), ILF (Internal Logical Files), EIF (External Interface Files); VAF = 0.65 + 0.01 × Σ F_i (ranging from 0.65 to 1.35) — Each of the 14 GSC factors `F_i` is rated `0` to `5`, so `0 ≤ Σ F_i ≤ 70`, making `VAF = 0.65 + 0.01 × Σ F_i` range from `0.65` to `1.35`, and `FP = UFP × VAF`.", "tag": "DSSSB PYQ"}, {"id": 50, "chapter": "Chapter 6: Maintenance & Metrics — Software Maintenance Categories (Lientz-Swanson) & COCOMO / Function Point Estimation", "q": "According to Lientz and Swanson's classification of Software Maintenance, which category consumes the LARGEST share (typically ~50%–60%) of total maintenance effort, and what does 'Adaptive Maintenance' mean?", "options": ["Corrective Maintenance (fixing bugs) consumes 80% of total effort", "Perfective Maintenance consumes the largest share (~50–60%)", "Preventive Maintenance means fixing runtime crashes reported by users", "Adaptive Maintenance means rewriting documentation comments"], "answer": 1, "explanation": "Perfective Maintenance consumes the largest share (~50–60%); Adaptive Maintenance modifies software to work in a new OS, hardware, or regulatory environment. Perfective Maintenance (adding new user features & improving performance) consumes the largest share (~50–60%); Adaptive Maintenance modifies software to work in a new OS, hardware, or regulatory environment — The 4 maintenance types are: Perfective (~55%, new enhancements/performance), Adaptive (~25%, new OS/DB/platform changes), Corrective (~20%, fixing discovered bugs), and Preventive (~5%, code refactoring for future maintainability).", "tag": "DSSSB PYQ"}, {"id": 51, "chapter": "Chapter 7: Quality & CMM Levels — Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels & Reliability Metrics", "q": "In Software Configuration Management (SCM) and Version Control (like Git), what is the purpose of a 'Baseline'?", "options": ["Deleting old versions of code", "Running a program without a compiler", "An officially reviewed and frozen version of a software work product that serves as the basis for further development and can only be modified through formal Change Control procedures", "Formatting the hard drive"], "answer": 2, "explanation": "An officially reviewed and frozen version of a software work product (SRS, design, or code release) that serves as the basis for further development and can only be modified through formal Change Control procedures — SCM manages version control, change control, configuration auditing, and status reporting.", "tag": "DSSSB Expected / PYQ"}, {"id": 52, "chapter": "Chapter 7: Quality & CMM Levels — Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels & Reliability Metrics", "q": "Which international standard family specifies requirements for a Quality Management System (QMS) used in software organizations?", "options": ["IEEE 802.3", "RFC 791", "ISO 27001 (Information Security)", "ISO 9001"], "answer": 3, "explanation": "ISO 9001 (specifically ISO 9000-3 for software) — ISO 9001 certifies Quality Management Systems; ISO/IEC 27001 certifies Information Security Management Systems (ISMS).", "tag": "DSSSB Expected / PYQ"}, {"id": 53, "chapter": "Chapter 7: Quality & CMM Levels — Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels & Reliability Metrics", "q": "In the SEI Capability Maturity Model Integration (CMMI), what is the exact ascending order of the five Maturity Levels from Level 1 to Level 5?", "options": ["Level 1: Initial -> Level 2: Managed -> Level 3: Defined -> Level 4: Quantitatively Managed -> Level 5: Optimizing", "Level 1: Defined -> Level 2: Initial -> Level 3: Managed -> Level 4: Optimizing -> Level 5: Quantitative", "Level 1: Ad-hoc -> Level 2: Certified -> Level 3: ISO -> Level 4: Agile -> Level 5: DevOps", "Level 1: Planning -> Level 2: Coding -> Level 3: Testing -> Level 4: Deployment -> Level 5: Maintenance"], "answer": 0, "explanation": "CMMI Levels 1 to 5: (1) Initial (ad-hoc/chaotic), (2) Managed (project-level tracking), (3) Defined (organization-wide standard processes), (4) Quantitatively Managed (statistical process control), (5) Optimizing (continuous process improvement & defect prevention).", "tag": "DSSSB PYQ"}, {"id": 54, "chapter": "Chapter 7: Quality & CMM Levels — Software Quality Assurance, ISO 9001, SEI CMM / CMMI 5 Maturity Levels & Reliability Metrics", "q": "If a mission-critical server has a Mean Time Between Failures (MTBF) of 1,000 hours and a Mean Time To Repair (MTTR) of 5 hours, what are its Mean Time To Failure (MTTF) and steady-state Operational Availability?", "options": ["MTTF = 1,005 hours and Operational Availability = 95.0%", "MTTF = 995 hours and Operational Availability = 99.5%", "MTTF = 200 hours and Operational Availability = 99.9%", "MTTF = 995 hours and Operational Availability = 99.0%"], "answer": 1, "explanation": "Since MTBF = MTTF + MTTR, MTTF = 1000 − 5 = 995 hours, and Availability = MTTF / MTBF = 995 / 1000 = 0.995 = 99.5%.", "tag": "DSSSB PYQ"}];
+let revMode = true;
+let userPicks = {};
+
+function toggleMode() {
+  revMode = !revMode;
+  const b = document.getElementById('modeBtn');
+  b.textContent = revMode ? '📖 Mode: Revision (Answers Visible)' : '✍️ Mode: Quiz Practice (Click Option)';
+  b.className = revMode ? 'btn btn-green' : 'btn btn-blue';
+  renderList();
+}
+
+function shuffleOpts() {
+  QUESTIONS.forEach(q => {
+    const cVal = q.options[q.answer];
+    for (let i = q.options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [q.options[i], q.options[j]] = [q.options[j], q.options[i]];
+    }
+    q.answer = q.options.indexOf(cVal);
+  });
+  userPicks = {};
+  renderList();
+}
+
+function pickAns(qid, oi) {
+  if (revMode || userPicks[qid] !== undefined) return;
+  userPicks[qid] = oi;
+  renderList();
+}
+
+function renderList() {
+  const ch = document.getElementById('chFilter').value;
+  const s = (document.getElementById('qSearch').value || '').toLowerCase().trim();
+  const letters = ['A', 'B', 'C', 'D'];
+  let htmlOut = '';
+  let shown = 0, cCnt = 0, wCnt = 0;
+
+  QUESTIONS.forEach(q => {
+    if (ch !== 'ALL' && !q.chapter.startsWith(ch)) return;
+    const hay = (q.q + ' ' + q.options.join(' ') + ' ' + q.explanation).toLowerCase();
+    if (s && !hay.includes(s)) return;
+    shown++;
+
+    const picked = userPicks[q.id];
+    if (picked !== undefined) {
+      if (picked === q.answer) cCnt++; else wCnt++;
+    }
+    const show = revMode || (picked !== undefined);
+
+    let oHtml = '';
+    q.options.forEach((ot, oi) => {
+      let cls = 'opt-btn';
+      let tag = '';
+      if (show) {
+        if (oi === q.answer) { cls += ' correct'; tag = ' ✅'; }
+        else if (picked === oi) { cls += ' wrong'; tag = ' ❌'; }
+      }
+      oHtml += `<button class="${cls}" onclick="pickAns(${q.id}, ${oi})"><strong>(${letters[oi]})</strong> ${ot}${tag}</button>`;
+    });
+
+    const expHtml = show ? `<div class="exp-strip"><strong>Answer (${letters[q.answer]}):</strong> ${q.explanation}</div>` : '';
+
+    htmlOut += `<div class="q-card">
+      <div class="q-head">
+        <span>Q#${q.id} • ${q.chapter}</span>
+        <span style="color:#15803d;">${q.tag}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="opts-grid">${oHtml}</div>
+      ${expHtml}
+    </div>`;
+  });
+
+  if (revMode) {
+    document.getElementById('statLabel').textContent = `Showing ${shown} Questions`;
+  } else {
+    const net = (cCnt * 1.0 - wCnt * 0.25).toFixed(2);
+    document.getElementById('statLabel').textContent = `Score: ${net} | ✅ ${cCnt} | ❌ ${wCnt} | Shown: ${shown}`;
+  }
+  document.getElementById('qContainer').innerHTML = htmlOut || '<div class="ch-card">No matching questions.</div>';
+}
+renderList();
+</script>
+</body>
+</html>
